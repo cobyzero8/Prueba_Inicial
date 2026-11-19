@@ -1,4 +1,4 @@
-const STORAGE_KEY = "prueba_inicial_coby_v6";
+const STORAGE_KEY = "prueba_inicial_coby_v7";
 
 const REGLAS_SUBPRUEBA = {
   "Comprensión Lectora": { puntos: 2, minimo: 30 },
@@ -20,6 +20,7 @@ let estado = {
 };
 
 let preguntasActivas = [];
+let ultimaEvaluacion = [];
 let intervaloReloj = null;
 
 const dom = {
@@ -57,6 +58,7 @@ const dom = {
   resumenPuntaje: document.getElementById("resumen-puntaje"),
   detalleRevision: document.getElementById("detalle-revision"),
   btnFalladas: document.getElementById("btn-revisar-falladas"),
+  btnReintentarErrores: document.getElementById("btn-reintentar-errores"),
   btnTodas: document.getElementById("btn-ver-todas"),
   btnInicio: document.getElementById("btn-volver-inicio")
 };
@@ -181,6 +183,34 @@ function iniciarSimulacro() {
   dom.quizPanel.classList.remove("hidden");
 
   arrancarCronometro();
+  renderizarPregunta();
+  renderizarMapa();
+}
+
+function reintentarErrores() {
+  const cuad = obtenerCuadernilloSeleccionado();
+  if (!cuad || !ultimaEvaluacion.length) return;
+
+  const pendientes = ultimaEvaluacion
+    .filter((item) => item.resultado !== "ok")
+    .map((item) => item.p);
+
+  if (!pendientes.length) {
+    alert("¡No tienes errores ni preguntas sin marcar en esta sesión!");
+    return;
+  }
+
+  pendientes.forEach((p) => {
+    delete estado.respuestas[`${cuad.id}__${p.numero}`];
+  });
+
+  preguntasActivas = pendientes;
+  estado.modo = "practica";
+  estado.indiceActual = 0;
+  guardarEstado();
+
+  dom.resultsPanel.classList.add("hidden");
+  dom.quizPanel.classList.remove("hidden");
   renderizarPregunta();
   renderizarMapa();
 }
@@ -338,7 +368,7 @@ function calificarSimulacro() {
   let puntajeTotal = 0;
   const statsSubprueba = {};
 
-  const evaluadas = preguntasActivas.map((p) => {
+  ultimaEvaluacion = preguntasActivas.map((p) => {
     const uid = `${cuad.id}__${p.numero}`;
     const marcada = estado.respuestas[uid] || null;
     const clave = obtenerClaveOficial(cuad, p);
@@ -393,9 +423,10 @@ function calificarSimulacro() {
     ${tarjetasSub}
   `;
 
-  renderizarRevision(evaluadas, false);
-  dom.btnFalladas.onclick = () => renderizarRevision(evaluadas, true);
-  dom.btnTodas.onclick = () => renderizarRevision(evaluadas, false);
+  renderizarRevision(ultimaEvaluacion, false);
+  dom.btnFalladas.onclick = () => renderizarRevision(ultimaEvaluacion, true);
+  dom.btnReintentarErrores.onclick = reintentarErrores;
+  dom.btnTodas.onclick = () => renderizarRevision(ultimaEvaluacion, false);
 
   dom.quizPanel.classList.add("hidden");
   dom.resultsPanel.classList.remove("hidden");
@@ -405,17 +436,35 @@ function renderizarRevision(evaluadas, soloFalladas) {
   const lista = soloFalladas ? evaluadas.filter((x) => x.resultado !== "ok") : evaluadas;
   dom.detalleRevision.innerHTML = lista.length
     ? ""
-    : `<p style="margin-top:10px; color:var(--muted);">¡Sin fallos ni pendientes en este filtro!</p>`;
+    : `<p style="margin-top:10px; color:var(--muted);">¡Sin errores ni pendientes en este filtro!</p>`;
 
   lista.forEach(({ p, marcada, clave, resultado }) => {
-    const icono = resultado === "ok" ? "✅" : resultado === "err" ? "❌" : "⚪";
-    const claveTxt = clave ? `${clave}) ${p.alternativas[clave]}` : "Pendiente";
+    const esError = resultado === "err";
+    const esSin = resultado === "sin";
+    const icono = resultado === "ok" ? "✅" : esError ? "❌" : "⚪";
+    const estadoClase = resultado === "ok" ? "is-ok" : "is-err";
+
+    const textoMarca = marcada
+      ? `${marcada}) ${p.alternativas[marcada] || ""}`
+      : "Sin marcar";
+    const claseMarca = esError ? "marca-caja err" : "marca-caja";
+
+    const claveTxt = clave
+      ? `${clave}) ${p.alternativas[clave]}`
+      : "Pendiente de confirmar";
+
     const card = document.createElement("div");
-    card.className = "review-card";
+    card.className = `review-card ${estadoClase}`;
     card.innerHTML = `
-      <div><strong>${icono} Pregunta ${p.numero}</strong> · <span style="color:var(--muted);">${p.subprueba}</span></div>
-      <div style="margin:6px 0;">${p.enunciado}</div>
-      <div>Tu marca: <strong>${marcada || "Sin marcar"}</strong> | Clave oficial: <strong>${claveTxt}</strong></div>
+      <div class="review-top">
+        <strong>${icono} Pregunta ${p.numero} · <span style="color:var(--muted);">${p.subprueba}</span></strong>
+        <span class="badge badge-slate">${esSin ? "Sin responder" : esError ? "Error" : "Acierto"}</span>
+      </div>
+      <div class="review-q">${p.enunciado}</div>
+      <div class="review-meta">
+        <div class="${claseMarca}">Tu respuesta: <strong>${textoMarca}</strong></div>
+        <div class="clave-caja">✓ Respuesta correcta: <strong>${claveTxt}</strong></div>
+      </div>
     `;
     dom.detalleRevision.appendChild(card);
   });
