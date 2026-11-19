@@ -3,94 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simulacro Docente — EBR Nivel Inicial</title>
+  <title>Prueba Inicial — Simulacro Docente EBR</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="app-container">
-    <header class="top-bar">
-      <div>
-        <h1>Simulacro Docente — EBR Nivel Inicial</h1>
-        <p class="subtitle">Entrenamiento cronológico por cuadernillo y hoja de respuestas oficial</p>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-tag">EBR NIVEL INICIAL</span>
+        <h1>Plataforma de Simulacros Docentes</h1>
+        <p class="subtitle">Entrenamiento dinámico por cuadernillo y hoja de respuestas oficial</p>
       </div>
-      <div id="timer-box" class="timer-box hidden">⏱️ <span id="timer-display">00:00</span></div>
+      <div id="timer-box" class="timer-pill hidden" aria-live="polite">
+        <span>⏱️</span>
+        <span id="timer-display">00:00</span>
+      </div>
     </header>
 
-    <!-- Panel de configuración / selector de bloque -->
-    <section id="setup-panel" class="card">
-      <h2>Configuración del Simulacro</h2>
-      <div class="grid-2">
+    <!-- CONFIGURACIÓN -->
+    <section id="setup-panel" class="panel">
+      <div class="panel-head">
+        <h2>Configuración del Simulacro</h2>
+        <span class="chip">Guardado automático activo</span>
+      </div>
+
+      <div class="config-grid">
         <div class="field">
-          <label for="bloque-select">Selecciona el examen / bloque:</label>
+          <label for="bloque-select">Cuadernillo / Examen</label>
           <select id="bloque-select"></select>
         </div>
 
         <div class="field">
-          <label for="modo-select">Modo de evaluación:</label>
+          <label for="modo-select">Modo de evaluación</label>
           <select id="modo-select">
-            <option value="examen">Modo Examen Real (cronómetro + resultado al final)</option>
-            <option value="practica">Modo Práctica (corrección inmediata por pregunta)</option>
+            <option value="examen">Examen Real (cronómetro + calificación al final)</option>
+            <option value="practica">Práctica (corrección inmediata al marcar)</option>
           </select>
         </div>
 
         <div class="field">
-          <label for="subprueba-select">Subprueba:</label>
+          <label for="subprueba-select">Subprueba</label>
           <select id="subprueba-select">
-            <option value="TODAS">Todas las cargadas en el bloque</option>
+            <option value="TODAS">Todas las preguntas cargadas</option>
             <option value="Comprensión Lectora">Comprensión Lectora</option>
             <option value="Razonamiento Lógico">Razonamiento Lógico</option>
-            <option value="Conocimientos Curriculares y Pedagógicos">Conocimientos Curriculares y Pedagógicos</option>
+            <option value="Conocimientos Curriculares y Pedagógicos de la Especialidad">
+              Conocimientos Curriculares y Pedagógicos de la Especialidad
+            </option>
           </select>
         </div>
 
         <div class="field">
-          <label for="minutos-input">Duración del cronómetro (minutos, 0 = sin límite):</label>
-          <input id="minutos-input" type="number" min="0" max="300" value="90" />
+          <label for="minutos-input">Tiempo límite (minutos, 0 = libre)</label>
+          <input id="minutos-input" type="number" min="0" max="360" value="90" />
         </div>
       </div>
 
-      <div id="bloque-info" class="info-banner"></div>
+      <div id="bloque-info" class="info-card"></div>
 
-      <div class="actions">
-        <button id="btn-iniciar" class="btn btn-primary">Comenzar Evaluación</button>
-        <button id="btn-limpiar-progreso" class="btn btn-secondary">Borrar progreso guardado</button>
+      <div class="btn-row">
+        <button id="btn-iniciar" type="button" class="btn btn-primary">Comenzar Simulacro</button>
+        <button id="btn-limpiar-progreso" type="button" class="btn btn-ghost">Borrar progreso guardado</button>
       </div>
     </section>
 
-    <!-- Panel de resolución de preguntas -->
-    <section id="quiz-panel" class="card hidden">
-      <div class="quiz-meta">
-        <span id="badge-bloque" class="badge"></span>
-        <span id="badge-subprueba" class="badge badge-outline"></span>
-        <span id="contador-pregunta" class="counter"></span>
+    <!-- RESOLUCIÓN -->
+    <section id="quiz-panel" class="panel hidden">
+      <div class="quiz-top">
+        <div class="badges">
+          <span id="badge-bloque" class="badge badge-indigo"></span>
+          <span id="badge-subprueba" class="badge badge-slate"></span>
+        </div>
+        <div id="contador-pregunta" class="question-counter"></div>
       </div>
 
-      <div id="contexto-box" class="contexto-box hidden"></div>
-      <h3 id="enunciado-texto" class="enunciado"></h3>
-
-      <div id="alternativas-lista" class="alternativas"></div>
-
-      <div id="feedback-box" class="feedback-box hidden"></div>
-
-      <div class="quiz-nav">
-        <button id="btn-anterior" class="btn btn-secondary">← Anterior</button>
-        <button id="btn-siguiente" class="btn btn-primary">Siguiente →</button>
-        <button id="btn-finalizar" class="btn btn-success">Finalizar y Calificar</button>
+      <div class="progress-track">
+        <div id="progress-fill" class="progress-fill"></div>
       </div>
 
-      <div id="mapa-preguntas" class="mapa-preguntas"></div>
+      <div id="contexto-box" class="context-box hidden"></div>
+      <h3 id="enunciado-texto" class="question-title"></h3>
+
+      <div id="alternativas-lista" class="options-list"></div>
+      <div id="feedback-box" class="feedback-banner hidden"></div>
+
+      <div class="btn-row nav-actions">
+        <button id="btn-anterior" type="button" class="btn btn-secondary">← Anterior</button>
+        <button id="btn-siguiente" type="button" class="btn btn-secondary">Siguiente →</button>
+        <button id="btn-finalizar" type="button" class="btn btn-success">Finalizar y Calificar</button>
+      </div>
+
+      <div class="map-section">
+        <div class="map-label">Navegador rápido de preguntas cargadas</div>
+        <div id="mapa-preguntas" class="question-map"></div>
+      </div>
     </section>
 
-    <!-- Panel de resultados -->
-    <section id="results-panel" class="card hidden">
-      <h2>Resultado del Simulacro</h2>
-      <div id="resumen-puntaje" class="resumen-grid"></div>
-      <div class="actions">
-        <button id="btn-revisar-falladas" class="btn btn-warning">Ver solo preguntas falladas</button>
-        <button id="btn-ver-todas" class="btn btn-secondary">Ver todas las preguntas</button>
-        <button id="btn-volver-inicio" class="btn btn-primary">Elegir otro bloque</button>
+    <!-- RESULTADOS -->
+    <section id="results-panel" class="panel hidden">
+      <div class="panel-head">
+        <h2>Resultados del Simulacro</h2>
+        <span id="resultado-subtitulo" class="chip"></span>
       </div>
-      <div id="detalle-revision" class="detalle-revision"></div>
+
+      <div id="resumen-puntaje" class="stats-grid"></div>
+
+      <div class="btn-row">
+        <button id="btn-revisar-falladas" type="button" class="btn btn-warning">Solo falladas / sin responder</button>
+        <button id="btn-ver-todas" type="button" class="btn btn-secondary">Ver todas</button>
+        <button id="btn-volver-inicio" type="button" class="btn btn-primary">Volver al inicio</button>
+      </div>
+
+      <div id="detalle-revision" class="review-list"></div>
     </section>
   </div>
 
