@@ -1,25 +1,31 @@
-const STORAGE_KEY = "simulacro_docente_inicial_v1";
+const STORAGE_KEY = "prueba_inicial_coby_v3";
+
+const REGLAS_SUBPRUEBA = {
+  "Comprensión Lectora": { puntos: 2, minimo: 30 },
+  "Razonamiento Lógico": { puntos: 2, minimo: 30 },
+  "Conocimientos Curriculares y Pedagógicos de la Especialidad": { puntos: 2.5, minimo: 60 }
+};
 
 let estado = {
   bloqueId: null,
   modo: "examen",
   subprueba: "TODAS",
   indiceActual: 0,
-  respuestas: {}, // { preguntaUid: "A" | "B" | "C" }
+  respuestas: {},
   segundosRestantes: 0
 };
 
 let preguntasActivas = [];
-let intervaloTimer = null;
+let intervaloReloj = null;
 
-const el = {
+const dom = {
   bloqueSelect: document.getElementById("bloque-select"),
   modoSelect: document.getElementById("modo-select"),
   subpruebaSelect: document.getElementById("subprueba-select"),
   minutosInput: document.getElementById("minutos-input"),
   bloqueInfo: document.getElementById("bloque-info"),
   btnIniciar: document.getElementById("btn-iniciar"),
-  btnLimpiarProgreso: document.getElementById("btn-limpiar-progreso"),
+  btnLimpiar: document.getElementById("btn-limpiar-progreso"),
   setupPanel: document.getElementById("setup-panel"),
   quizPanel: document.getElementById("quiz-panel"),
   resultsPanel: document.getElementById("results-panel"),
@@ -28,6 +34,7 @@ const el = {
   badgeBloque: document.getElementById("badge-bloque"),
   badgeSubprueba: document.getElementById("badge-subprueba"),
   contadorPregunta: document.getElementById("contador-pregunta"),
+  progressFill: document.getElementById("progress-fill"),
   contextoBox: document.getElementById("contexto-box"),
   enunciadoTexto: document.getElementById("enunciado-texto"),
   alternativasLista: document.getElementById("alternativas-lista"),
@@ -36,291 +43,365 @@ const el = {
   btnSiguiente: document.getElementById("btn-siguiente"),
   btnFinalizar: document.getElementById("btn-finalizar"),
   mapaPreguntas: document.getElementById("mapa-preguntas"),
+  resultadoSubtitulo: document.getElementById("resultado-subtitulo"),
   resumenPuntaje: document.getElementById("resumen-puntaje"),
   detalleRevision: document.getElementById("detalle-revision"),
-  btnRevisarFalladas: document.getElementById("btn-revisar-falladas"),
-  btnVerTodas: document.getElementById("btn-ver-todas"),
-  btnVolverInicio: document.getElementById("btn-volver-inicio")
+  btnFalladas: document.getElementById("btn-revisar-falladas"),
+  btnTodas: document.getElementById("btn-ver-todas"),
+  btnInicio: document.getElementById("btn-volver-inicio")
 };
 
-function guardarProgreso() {
+function guardarEstado() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(estado));
 }
 
-function cargarProgreso() {
-  const raw = localStorage.getItem(STORAGE_KEY);
-  if (!raw) return;
+function cargarEstado() {
   try {
-    const parsed = JSON.parse(raw);
-    estado = { ...estado, ...parsed };
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      estado = { ...estado, ...JSON.parse(raw) };
+    }
   } catch (_) {}
 }
 
-function poblarSelectBloques() {
-  el.bloqueSelect.innerHTML = "";
-  BLOQUES_EXAMEN.forEach((b) => {
-    const opt = document.createElement("option");
-    opt.value = b.id;
-    opt.textContent = `${b.nombre} (${b.preguntas.length} preguntas cargadas)`;
-    el.bloqueSelect.appendChild(opt);
-  });
-  if (estado.bloqueId && BLOQUES_EXAMEN.some((b) => b.id === estado.bloqueId)) {
-    el.bloqueSelect.value = estado.bloqueId;
+function obtenerBloques() {
+  return Array.isArray(window.BLOQUES_EXAMEN) ? window.BLOQUES_EXAMEN : [];
+}
+
+function obtenerBloqueSeleccionado() {
+  const bloques = obtenerBloques();
+  return bloques.find((b) => b.id === dom.bloqueSelect.value) || bloques[0] || null;
+}
+
+function obtenerClaveOficial(bloque, pregunta) {
+  if (pregunta.correcta) return pregunta.correcta;
+  if (bloque && bloque.claves && bloque.claves[pregunta.numero]) {
+    return bloque.claves[pregunta.numero];
   }
-  actualizarInfoBloque();
+  return null;
 }
 
-function actualizarInfoBloque() {
-  const bloque = BLOQUES_EXAMEN.find((b) => b.id === el.bloqueSelect.value);
-  if (!bloque) return;
-  el.bloqueInfo.innerHTML = `
-    <strong>${bloque.nombre}</strong> — Fecha: ${bloque.fecha || "No especificada"}<br/>
-    Preguntas cargadas en este bloque: <strong>${bloque.preguntas.length}</strong> | Claves vinculadas únicamente a este bloque.
-  `;
-}
+function poblarBloques() {
+  const bloques = obtenerBloques();
+  dom.bloqueSelect.innerHTML = "";
 
-function obtenerPreguntasFiltradas(bloque) {
-  if (estado.subprueba === "TODAS") return bloque.preguntas;
-  return bloque.preguntas.filter((p) => p.subprueba === estado.subprueba);
-}
-
-function iniciarEvaluacion() {
-  const bloque = BLOQUES_EXAMEN.find((b) => b.id === el.bloqueSelect.value);
-  estado.bloqueId = bloque.id;
-  estado.modo = el.modoSelect.value;
-  estado.subprueba = el.subpruebaSelect.value;
-  estado.indiceActual = 0;
-
-  preguntasActivas = obtenerPreguntasFiltradas(bloque);
-  if (preguntasActivas.length === 0) {
-    alert("No hay preguntas cargadas para esa subprueba en este bloque todavía. Selecciona 'Todas las cargadas en el bloque'.");
+  if (!bloques.length) {
+    dom.bloqueSelect.innerHTML = `<option value="">Sin bloques cargados</option>`;
+    dom.bloqueInfo.textContent = "Agrega bloques en data/bloques.js para iniciar.";
     return;
   }
 
-  const mins = parseInt(el.minutosInput.value, 10) || 0;
-  estado.segundosRestantes = estado.modo === "examen" && mins > 0 ? mins * 60 : 0;
+  bloques.forEach((b) => {
+    const opt = document.createElement("option");
+    opt.value = b.id;
+    opt.textContent = `${b.nombre} (${b.preguntas.length} preguntas cargadas)`;
+    dom.bloqueSelect.appendChild(opt);
+  });
 
-  guardarProgreso();
-  el.setupPanel.classList.add("hidden");
-  el.resultsPanel.classList.add("hidden");
-  el.quizPanel.classList.remove("hidden");
+  if (estado.bloqueId && bloques.some((b) => b.id === estado.bloqueId)) {
+    dom.bloqueSelect.value = estado.bloqueId;
+  }
 
-  iniciarTimerSiCorresponde();
-  renderPregunta();
-  renderMapa();
+  actualizarResumenBloque();
 }
 
-function iniciarTimerSiCorresponde() {
-  clearInterval(intervaloTimer);
+function actualizarResumenBloque() {
+  const bloque = obtenerBloqueSeleccionado();
+  if (!bloque) return;
+
+  const porSubprueba = {};
+  bloque.preguntas.forEach((p) => {
+    porSubprueba[p.subprueba] = (porSubprueba[p.subprueba] || 0) + 1;
+  });
+
+  const items = Object.entries(porSubprueba)
+    .map(([sub, cant]) => `<li><strong>${sub}:</strong> ${cant} cargadas</li>`)
+    .join("");
+
+  dom.bloqueInfo.innerHTML = `
+    <div><strong>${bloque.nombre}</strong> — ${bloque.fecha || ""}</div>
+    <p style="margin-top:6px;">Preguntas activas en este bloque: <strong>${bloque.preguntas.length}</strong></p>
+    <ul style="margin:6px 0 0 18px;">${items || "<li>Aún no hay preguntas agregadas en este bloque.</li>"}</ul>
+  `;
+}
+
+function iniciarSimulacro() {
+  const bloque = obtenerBloqueSeleccionado();
+  if (!bloque) return;
+
+  estado.bloqueId = bloque.id;
+  estado.modo = dom.modoSelect.value;
+  estado.subprueba = dom.subpruebaSelect.value;
+  estado.indiceActual = 0;
+
+  preguntasActivas =
+    estado.subprueba === "TODAS"
+      ? bloque.preguntas
+      : bloque.preguntas.filter((p) => p.subprueba === estado.subprueba);
+
+  if (!preguntasActivas.length) {
+    alert("No hay preguntas cargadas para esa subprueba en este bloque. Selecciona 'Todas las preguntas cargadas'.");
+    return;
+  }
+
+  const mins = parseInt(dom.minutosInput.value, 10) || 0;
+  estado.segundosRestantes = estado.modo === "examen" && mins > 0 ? mins * 60 : 0;
+
+  guardarEstado();
+  dom.setupPanel.classList.add("hidden");
+  dom.resultsPanel.classList.add("hidden");
+  dom.quizPanel.classList.remove("hidden");
+
+  arrancarCronometro();
+  renderizarPregunta();
+  renderizarMapa();
+}
+
+function arrancarCronometro() {
+  clearInterval(intervaloReloj);
   if (estado.modo === "examen" && estado.segundosRestantes > 0) {
-    el.timerBox.classList.remove("hidden");
-    actualizarTextoTimer();
-    intervaloTimer = setInterval(() => {
+    dom.timerBox.classList.remove("hidden");
+    pintarCronometro();
+    intervaloReloj = setInterval(() => {
       estado.segundosRestantes -= 1;
-      actualizarTextoTimer();
-      guardarProgreso();
+      pintarCronometro();
+      guardarEstado();
       if (estado.segundosRestantes <= 0) {
-        clearInterval(intervaloTimer);
-        finalizarYCalificar();
+        clearInterval(intervaloReloj);
+        calificarSimulacro();
       }
     }, 1000);
   } else {
-    el.timerBox.classList.add("hidden");
+    dom.timerBox.classList.add("hidden");
   }
 }
 
-function actualizarTextoTimer() {
+function pintarCronometro() {
   const seg = Math.max(0, estado.segundosRestantes);
-  const m = String(Math.floor(seg / 60)).padStart(2, "0");
-  const s = String(seg % 60).padStart(2, "0");
-  el.timerDisplay.textContent = `${m}:${s}`;
+  const min = String(Math.floor(seg / 60)).padStart(2, "0");
+  const sec = String(seg % 60).padStart(2, "0");
+  dom.timerDisplay.textContent = `${min}:${sec}`;
 }
 
-function renderPregunta() {
-  const bloque = BLOQUES_EXAMEN.find((b) => b.id === estado.bloqueId);
+function renderizarPregunta() {
+  const bloque = obtenerBloqueSeleccionado();
   const p = preguntasActivas[estado.indiceActual];
   const uid = `${bloque.id}__${p.numero}`;
   const marcada = estado.respuestas[uid] || null;
+  const clave = obtenerClaveOficial(bloque, p);
 
-  el.badgeBloque.textContent = bloque.codigo || bloque.id;
-  el.badgeSubprueba.textContent = p.subprueba;
-  el.contadorPregunta.textContent = `Pregunta ${p.numero} (${estado.indiceActual + 1} de ${preguntasActivas.length})`;
+  dom.badgeBloque.textContent = bloque.codigo || bloque.id;
+  dom.badgeSubprueba.textContent = p.subprueba;
+  dom.contadorPregunta.textContent = `Pregunta ${p.numero} (${estado.indiceActual + 1} de ${preguntasActivas.length})`;
+
+  const avancePct = ((estado.indiceActual + 1) / preguntasActivas.length) * 100;
+  dom.progressFill.style.width = `${avancePct}%`;
 
   if (p.contexto) {
-    el.contextoBox.textContent = p.contexto;
-    el.contextoBox.classList.remove("hidden");
+    dom.contextoBox.textContent = p.contexto;
+    dom.contextoBox.classList.remove("hidden");
   } else {
-    el.contextoBox.classList.add("hidden");
+    dom.contextoBox.classList.add("hidden");
   }
 
-  el.enunciadoTexto.textContent = `${p.numero}. ${p.enunciado}`;
-  el.alternativasLista.innerHTML = "";
-  el.feedbackBox.classList.add("hidden");
+  dom.enunciadoTexto.textContent = `${p.numero}. ${p.enunciado}`;
+  dom.alternativasLista.innerHTML = "";
+  dom.feedbackBox.classList.add("hidden");
 
   ["A", "B", "C"].forEach((letra) => {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "alt-btn";
-    if (marcada === letra) btn.classList.add("selected");
+    btn.className = "option-btn";
 
-    if (estado.modo === "practica" && marcada) {
-      if (letra === p.correcta) btn.classList.add("correct");
-      else if (letra === marcada && marcada !== p.correcta) btn.classList.add("incorrect");
+    if (marcada === letra) {
+      btn.classList.add("selected");
+    }
+
+    if (estado.modo === "practica" && marcada && clave) {
+      if (letra === clave) btn.classList.add("correct");
+      else if (letra === marcada) btn.classList.add("incorrect");
     }
 
     btn.innerHTML = `<strong>${letra})</strong> <span>${p.alternativas[letra]}</span>`;
-    btn.addEventListener("click", () => seleccionarAlternativa(uid, p, letra));
-    el.alternativasLista.appendChild(btn);
+    btn.addEventListener("click", () => {
+      estado.respuestas[uid] = letra;
+      guardarEstado();
+      renderizarPregunta();
+      renderizarMapa();
+    });
+
+    dom.alternativasLista.appendChild(btn);
   });
 
   if (estado.modo === "practica" && marcada) {
-    el.feedbackBox.classList.remove("hidden");
-    if (marcada === p.correcta) {
-      el.feedbackBox.className = "feedback-box feedback-ok";
-      el.feedbackBox.textContent = `¡Correcto! La clave de este bloque es (${p.correcta}).`;
+    dom.feedbackBox.classList.remove("hidden");
+    if (!clave) {
+      dom.feedbackBox.className = "feedback-banner feedback-err";
+      dom.feedbackBox.textContent = `Marcada (${marcada}). Clave oficial pendiente de confirmar.`;
+    } else if (marcada === clave) {
+      dom.feedbackBox.className = "feedback-banner feedback-ok";
+      dom.feedbackBox.textContent = `¡Correcto! Clave oficial de ${bloque.codigo || bloque.id}: (${clave}).`;
     } else {
-      el.feedbackBox.className = "feedback-box feedback-err";
-      el.feedbackBox.textContent = `Incorrecto. Marcaste (${marcada}), pero la clave oficial de este bloque es (${p.correcta}).`;
+      dom.feedbackBox.className = "feedback-banner feedback-err";
+      dom.feedbackBox.textContent = `Incorrecto. Marcaste (${marcada}) y la clave oficial es (${clave}).`;
     }
   }
 
-  el.btnAnterior.disabled = estado.indiceActual === 0;
-  el.btnSiguiente.disabled = estado.indiceActual === preguntasActivas.length - 1;
-  resaltarMapa();
+  dom.btnAnterior.disabled = estado.indiceActual === 0;
+  dom.btnSiguiente.disabled = estado.indiceActual === preguntasActivas.length - 1;
+  actualizarActivoMapa();
 }
 
-function seleccionarAlternativa(uid, pregunta, letra) {
-  estado.respuestas[uid] = letra;
-  guardarProgreso();
-  renderPregunta();
-  renderMapa();
-}
+function renderizarMapa() {
+  const bloque = obtenerBloqueSeleccionado();
+  dom.mapaPreguntas.innerHTML = "";
 
-function renderMapa() {
-  const bloque = BLOQUES_EXAMEN.find((b) => b.id === estado.bloqueId);
-  el.mapaPreguntas.innerHTML = "";
   preguntasActivas.forEach((p, idx) => {
     const uid = `${bloque.id}__${p.numero}`;
-    const pill = document.createElement("button");
-    pill.type = "button";
-    pill.className = "num-pill";
-    if (estado.respuestas[uid]) pill.classList.add("answered");
-    if (idx === estado.indiceActual) pill.classList.add("active");
-    pill.textContent = p.numero;
-    pill.addEventListener("click", () => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "map-btn";
+    if (estado.respuestas[uid]) btn.classList.add("answered");
+    if (idx === estado.indiceActual) btn.classList.add("active");
+    btn.textContent = p.numero;
+    btn.addEventListener("click", () => {
       estado.indiceActual = idx;
-      guardarProgreso();
-      renderPregunta();
+      guardarEstado();
+      renderizarPregunta();
     });
-    el.mapaPreguntas.appendChild(pill);
+    dom.mapaPreguntas.appendChild(btn);
   });
 }
 
-function resaltarMapa() {
-  const pills = el.mapaPreguntas.querySelectorAll(".num-pill");
-  pills.forEach((pill, i) => {
-    pill.classList.toggle("active", i === estado.indiceActual);
+function actualizarActivoMapa() {
+  dom.mapaPreguntas.querySelectorAll(".map-btn").forEach((btn, idx) => {
+    btn.classList.toggle("active", idx === estado.indiceActual);
   });
 }
 
-function finalizarYCalificar() {
-  clearInterval(intervaloTimer);
-  el.timerBox.classList.add("hidden");
+function calificarSimulacro() {
+  clearInterval(intervaloReloj);
+  dom.timerBox.classList.add("hidden");
 
-  const bloque = BLOQUES_EXAMEN.find((b) => b.id === estado.bloqueId);
+  const bloque = obtenerBloqueSeleccionado();
   let correctas = 0;
   let incorrectas = 0;
   let sinResponder = 0;
   let puntajeTotal = 0;
+  const statsSubprueba = {};
 
   const evaluadas = preguntasActivas.map((p) => {
     const uid = `${bloque.id}__${p.numero}`;
     const marcada = estado.respuestas[uid] || null;
-    const puntos = p.puntos ?? 2;
-    let estadoResp = "sin";
+    const clave = obtenerClaveOficial(bloque, p);
+    const regla = REGLAS_SUBPRUEBA[p.subprueba] || { puntos: p.puntos ?? 2, minimo: null };
+    const pts = p.puntos ?? regla.puntos;
+
+    if (!statsSubprueba[p.subprueba]) {
+      statsSubprueba[p.subprueba] = { aciertos: 0, puntaje: 0, minimo: regla.minimo };
+    }
+
+    let resultado = "sin";
     if (!marcada) {
       sinResponder += 1;
-    } else if (marcada === p.correcta) {
+    } else if (clave && marcada === clave) {
       correctas += 1;
-      puntajeTotal += puntos;
-      estadoResp = "ok";
+      puntajeTotal += pts;
+      statsSubprueba[p.subprueba].aciertos += 1;
+      statsSubprueba[p.subprueba].puntaje += pts;
+      resultado = "ok";
     } else {
       incorrectas += 1;
-      estadoResp = "err";
+      resultado = "err";
     }
-    return { p, marcada, estadoResp, puntos };
+
+    return { p, marcada, clave, resultado };
   });
 
-  const porcentaje = preguntasActivas.length > 0
+  const efectividad = preguntasActivas.length
     ? ((correctas / preguntasActivas.length) * 100).toFixed(1)
     : "0.0";
 
-  el.resumenPuntaje.innerHTML = `
-    <div class="stat-card"><div class="stat-value">${correctas}/${preguntasActivas.length}</div><div>Aciertos</div></div>
-    <div class="stat-card"><div class="stat-value">${incorrectas}</div><div>Incorrectas</div></div>
-    <div class="stat-card"><div class="stat-value">${sinResponder}</div><div>Sin marcar</div></div>
-    <div class="stat-card"><div class="stat-value">${porcentaje}%</div><div>Efectividad</div></div>
-    <div class="stat-card"><div class="stat-value">${puntajeTotal}</div><div>Puntaje obtenido</div></div>
+  dom.resultadoSubtitulo.textContent = `${bloque.codigo || bloque.id} · ${preguntasActivas.length} evaluadas`;
+
+  const tarjetasSub = Object.entries(statsSubprueba)
+    .map(([nombreSub, d]) => {
+      const refMin = d.minimo ? ` (mín. ${d.minimo})` : "";
+      return `
+        <div class="stat-box">
+          <div class="stat-num">${d.puntaje}${refMin}</div>
+          <div class="stat-desc">${nombreSub} · ${d.aciertos} aciertos</div>
+        </div>
+      `;
+    })
+    .join("");
+
+  dom.resumenPuntaje.innerHTML = `
+    <div class="stat-box"><div class="stat-num">${correctas}/${preguntasActivas.length}</div><div class="stat-desc">Correctas</div></div>
+    <div class="stat-box"><div class="stat-num">${incorrectas}</div><div class="stat-desc">Incorrectas</div></div>
+    <div class="stat-box"><div class="stat-num">${sinResponder}</div><div class="stat-desc">Sin responder</div></div>
+    <div class="stat-box"><div class="stat-num">${efectividad}%</div><div class="stat-desc">Efectividad</div></div>
+    <div class="stat-box"><div class="stat-num">${puntajeTotal}</div><div class="stat-desc">Puntaje total</div></div>
+    ${tarjetasSub}
   `;
 
-  renderDetalleRevision(evaluadas, false);
+  renderizarRevision(evaluadas, false);
+  dom.btnFalladas.onclick = () => renderizarRevision(evaluadas, true);
+  dom.btnTodas.onclick = () => renderizarRevision(evaluadas, false);
 
-  el.btnRevisarFalladas.onclick = () => renderDetalleRevision(evaluadas, true);
-  el.btnVerTodas.onclick = () => renderDetalleRevision(evaluadas, false);
-
-  el.quizPanel.classList.add("hidden");
-  el.resultsPanel.classList.remove("hidden");
+  dom.quizPanel.classList.add("hidden");
+  dom.resultsPanel.classList.remove("hidden");
 }
 
-function renderDetalleRevision(evaluadas, soloFalladas) {
-  const lista = soloFalladas
-    ? evaluadas.filter((item) => item.estadoResp !== "ok")
-    : evaluadas;
+function renderizarRevision(evaluadas, soloFalladas) {
+  const lista = soloFalladas ? evaluadas.filter((x) => x.resultado !== "ok") : evaluadas;
+  dom.detalleRevision.innerHTML = lista.length
+    ? ""
+    : `<p style="margin-top:10px; color:var(--muted);">No hay preguntas falladas ni sin responder en este filtro.</p>`;
 
-  el.detalleRevision.innerHTML = lista.length === 0
-    ? "<p style='margin-top:12px;'>No hay preguntas falladas ni sin responder en esta selección.</p>"
-    : "";
-
-  lista.forEach(({ p, marcada, estadoResp }) => {
-    const div = document.createElement("div");
-    div.className = "detalle-item";
-    const icono = estadoResp === "ok" ? "✅" : estadoResp === "err" ? "❌" : "⚪";
-    div.innerHTML = `
-      <div><strong>${icono} Pregunta ${p.numero}</strong> (${p.subprueba})</div>
+  lista.forEach(({ p, marcada, clave, resultado }) => {
+    const icono = resultado === "ok" ? "✅" : resultado === "err" ? "❌" : "⚪";
+    const claveTxt = clave ? `${clave}) ${p.alternativas[clave]}` : "Pendiente";
+    const card = document.createElement("div");
+    card.className = "review-card";
+    card.innerHTML = `
+      <div><strong>${icono} Pregunta ${p.numero}</strong> · <span style="color:var(--muted);">${p.subprueba}</span></div>
       <div style="margin:6px 0;">${p.enunciado}</div>
-      <div>Tu respuesta: <strong>${marcada || "Sin marcar"}</strong> | Clave oficial (${estado.bloqueId}): <strong>${p.correcta}</strong></div>
-      <div style="font-size:0.9rem; color:#334155; margin-top:4px;">Clave: ${p.alternativas[p.correcta]}</div>
+      <div>Tu respuesta: <strong>${marcada || "Sin marcar"}</strong> | Clave oficial: <strong>${claveTxt}</strong></div>
     `;
-    el.detalleRevision.appendChild(div);
+    dom.detalleRevision.appendChild(card);
   });
 }
 
-el.bloqueSelect.addEventListener("change", actualizarInfoBloque);
-el.btnIniciar.addEventListener("click", iniciarEvaluacion);
-el.btnLimpiarProgreso.addEventListener("click", () => {
+dom.bloqueSelect.addEventListener("change", actualizarResumenBloque);
+dom.btnIniciar.addEventListener("click", iniciarSimulacro);
+dom.btnLimpiar.addEventListener("click", () => {
   localStorage.removeItem(STORAGE_KEY);
   estado.respuestas = {};
-  alert("Progreso borrado.");
+  estado.indiceActual = 0;
+  guardarEstado();
+  alert("Progreso guardado eliminado.");
 });
-el.btnAnterior.addEventListener("click", () => {
+dom.btnAnterior.addEventListener("click", () => {
   if (estado.indiceActual > 0) {
     estado.indiceActual -= 1;
-    guardarProgreso();
-    renderPregunta();
+    guardarEstado();
+    renderizarPregunta();
   }
 });
-el.btnSiguiente.addEventListener("click", () => {
+dom.btnSiguiente.addEventListener("click", () => {
   if (estado.indiceActual < preguntasActivas.length - 1) {
     estado.indiceActual += 1;
-    guardarProgreso();
-    renderPregunta();
+    guardarEstado();
+    renderizarPregunta();
   }
 });
-el.btnFinalizar.addEventListener("click", finalizarYCalificar);
-el.btnVolverInicio.addEventListener("click", () => {
-  el.resultsPanel.classList.add("hidden");
-  el.setupPanel.classList.remove("hidden");
+dom.btnFinalizar.addEventListener("click", calificarSimulacro);
+dom.btnInicio.addEventListener("click", () => {
+  dom.resultsPanel.classList.add("hidden");
+  dom.setupPanel.classList.remove("hidden");
+  actualizarResumenBloque();
 });
 
-cargarProgreso();
-poblarSelectBloques();
+cargarEstado();
+poblarBloques();
