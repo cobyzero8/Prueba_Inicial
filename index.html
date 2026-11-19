@@ -12,7 +12,7 @@
       <div class="brand">
         <span class="brand-tag">EBR NIVEL INICIAL · NOMBRAMIENTO</span>
         <h1>Plataforma de Simulacros Docentes</h1>
-        <p class="subtitle">Lecturas completas, confort visual y progreso claro por bloque</p>
+        <p class="subtitle">Lecturas completas, confort visual y repaso inteligente de errores</p>
       </div>
       <div class="topbar-actions">
         <button id="btn-tema" type="button" class="theme-btn">🌙 Modo Noche</button>
@@ -27,7 +27,7 @@
     <section id="setup-panel" class="panel">
       <div class="panel-head">
         <h2>Prepara tu sesión de estudio</h2>
-        <span id="racha-chip" class="chip">Racha activa: 0 seguidas</span>
+        <span id="racha-chip" class="chip">Racha actual: 0 · Récord: 0</span>
       </div>
 
       <div class="config-grid">
@@ -77,7 +77,7 @@
       <div id="bloque-info" class="info-card"></div>
 
       <div class="btn-row">
-        <button id="btn-iniciar" type="button" class="btn btn-primary">Iniciar Prueba</button>
+        <button id="btn-iniciar" type="button" class="btn btn-primary">Iniciar prueba</button>
         <button id="btn-limpiar-progreso" type="button" class="btn btn-ghost">Reiniciar progreso</button>
       </div>
     </section>
@@ -129,9 +129,10 @@
       <div id="resumen-puntaje" class="stats-grid"></div>
 
       <div class="btn-row">
-        <button id="btn-revisar-falladas" type="button" class="btn btn-warning">Repasar falladas / sin marcar</button>
+        <button id="btn-revisar-falladas" type="button" class="btn btn-warning">Ver solo errores / sin marcar</button>
+        <button id="btn-reintentar-errores" type="button" class="btn btn-primary">↺ Reintentar errores</button>
         <button id="btn-ver-todas" type="button" class="btn btn-secondary">Ver todas</button>
-        <button id="btn-volver-inicio" type="button" class="btn btn-primary">Nueva sesión</button>
+        <button id="btn-volver-inicio" type="button" class="btn btn-ghost">Nueva sesión</button>
       </div>
 
       <div id="detalle-revision" class="review-list"></div>
