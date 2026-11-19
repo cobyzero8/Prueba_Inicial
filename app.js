@@ -1,4 +1,4 @@
-const STORAGE_KEY = "prueba_inicial_coby_v5";
+const STORAGE_KEY = "prueba_inicial_coby_v6";
 
 const REGLAS_SUBPRUEBA = {
   "Comprensión Lectora": { puntos: 2, minimo: 30 },
@@ -108,7 +108,7 @@ function poblarCuadernillos() {
   lista.forEach((b) => {
     const opt = document.createElement("option");
     opt.value = b.id;
-    opt.textContent = `${b.nombre} (${b.preguntas.length} preg. cargadas)`;
+    opt.textContent = b.etiqueta || b.nombre;
     dom.bloqueSelect.appendChild(opt);
   });
 
@@ -230,7 +230,7 @@ function renderizarPregunta() {
   const marcada = estado.respuestas[uid] || null;
   const clave = obtenerClaveOficial(cuad, p);
 
-  dom.badgeBloque.textContent = cuad.codigo || cuad.id;
+  dom.badgeBloque.textContent = cuad.etiqueta || cuad.codigo || cuad.id;
   dom.badgeSubprueba.textContent = p.subprueba;
   dom.contadorPregunta.textContent = `Pregunta ${p.numero} (${estado.indiceActual + 1} de ${preguntasActivas.length})`;
 
@@ -370,7 +370,7 @@ function calificarSimulacro() {
     ? ((correctas / preguntasActivas.length) * 100).toFixed(1)
     : "0.0";
 
-  dom.resultadoSubtitulo.textContent = `${cuad.codigo || cuad.id} · ${preguntasActivas.length} evaluadas`;
+  dom.resultadoSubtitulo.textContent = `${cuad.etiqueta || cuad.codigo || cuad.id} · ${preguntasActivas.length} evaluadas`;
 
   const tarjetasSub = Object.entries(statsSubprueba)
     .map(([nombreSub, d]) => {
