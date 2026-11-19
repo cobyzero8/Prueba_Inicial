@@ -1,4 +1,4 @@
-const STORAGE_KEY = "prueba_inicial_coby_v4";
+const STORAGE_KEY = "prueba_inicial_coby_v5";
 
 const REGLAS_SUBPRUEBA = {
   "Comprensión Lectora": { puntos: 2, minimo: 30 },
@@ -8,20 +8,27 @@ const REGLAS_SUBPRUEBA = {
 
 let estado = {
   bloqueId: null,
-  modo: "examen",
+  modo: "practica",
   subprueba: "TODAS",
+  lectura: "TODAS",
   indiceActual: 0,
   respuestas: {},
-  segundosRestantes: 0
+  segundosRestantes: 0,
+  rachaActual: 0,
+  mejorRacha: 0,
+  temaNoche: false
 };
 
 let preguntasActivas = [];
 let intervaloReloj = null;
 
 const dom = {
+  btnTema: document.getElementById("btn-tema"),
+  rachaChip: document.getElementById("racha-chip"),
   bloqueSelect: document.getElementById("bloque-select"),
-  modoSelect: document.getElementById("modo-select"),
   subpruebaSelect: document.getElementById("subprueba-select"),
+  lecturaSelect: document.getElementById("lectura-select"),
+  modoSelect: document.getElementById("modo-select"),
   minutosInput: document.getElementById("minutos-input"),
   bloqueInfo: document.getElementById("bloque-info"),
   btnIniciar: document.getElementById("btn-iniciar"),
@@ -33,6 +40,7 @@ const dom = {
   timerDisplay: document.getElementById("timer-display"),
   badgeBloque: document.getElementById("badge-bloque"),
   badgeSubprueba: document.getElementById("badge-subprueba"),
+  badgeRacha: document.getElementById("badge-racha"),
   contadorPregunta: document.getElementById("contador-pregunta"),
   progressFill: document.getElementById("progress-fill"),
   contextoBox: document.getElementById("contexto-box"),
@@ -66,11 +74,18 @@ function cargarEstado() {
   } catch (_) {}
 }
 
+function aplicarTema() {
+  document.body.classList.toggle("theme-noche", Boolean(estado.temaNoche));
+  dom.btnTema.textContent = estado.temaNoche ? "☀️ Modo Cálido" : "🌙 Modo Noche";
+}
+
+function actualizarIndicadorRacha() {
+  dom.rachaChip.textContent = `Racha actual: ${estado.rachaActual} · Récord: ${estado.mejorRacha}`;
+  dom.badgeRacha.textContent = `🔥 Racha: ${estado.rachaActual}`;
+}
+
 function obtenerCuadernillos() {
-  if (Array.isArray(window.CUADERNILLOS) && window.CUADERNILLOS.length) {
-    return window.CUADERNILLOS;
-  }
-  return Array.isArray(window.BLOQUES_EXAMEN) ? window.BLOQUES_EXAMEN : [];
+  return Array.isArray(window.CUADERNILLOS) ? window.CUADERNILLOS : [];
 }
 
 function obtenerCuadernilloSeleccionado() {
@@ -90,16 +105,10 @@ function poblarCuadernillos() {
   const lista = obtenerCuadernillos();
   dom.bloqueSelect.innerHTML = "";
 
-  if (!lista.length) {
-    dom.bloqueSelect.innerHTML = `<option value="">Sin cuadernillos cargados</option>`;
-    dom.bloqueInfo.textContent = "Agrega archivos en la carpeta data/ para iniciar.";
-    return;
-  }
-
   lista.forEach((b) => {
     const opt = document.createElement("option");
     opt.value = b.id;
-    opt.textContent = `${b.nombre} (${b.preguntas.length} preguntas cargadas)`;
+    opt.textContent = `${b.nombre} (${b.preguntas.length} preg. cargadas)`;
     dom.bloqueSelect.appendChild(opt);
   });
 
@@ -107,7 +116,12 @@ function poblarCuadernillos() {
     dom.bloqueSelect.value = estado.bloqueId;
   }
 
+  dom.modoSelect.value = estado.modo || "practica";
+  dom.subpruebaSelect.value = estado.subprueba || "TODAS";
+  dom.lecturaSelect.value = estado.lectura || "TODAS";
+
   actualizarResumenCuadernillo();
+  actualizarIndicadorRacha();
 }
 
 function actualizarResumenCuadernillo() {
@@ -115,18 +129,25 @@ function actualizarResumenCuadernillo() {
   if (!cuad) return;
 
   const porSubprueba = {};
+  const lecturasCargadas = new Set();
+
   cuad.preguntas.forEach((p) => {
     porSubprueba[p.subprueba] = (porSubprueba[p.subprueba] || 0) + 1;
+    if (p.textoClave) lecturasCargadas.add(p.textoClave);
   });
 
-  const items = Object.entries(porSubprueba)
+  const itemsSub = Object.entries(porSubprueba)
     .map(([sub, cant]) => `<li><strong>${sub}:</strong> ${cant} cargadas</li>`)
     .join("");
 
+  const listaTextos = lecturasCargadas.size
+    ? Array.from(lecturasCargadas).join(", ")
+    : "Aún sin lecturas cargadas";
+
   dom.bloqueInfo.innerHTML = `
     <div><strong>${cuad.nombre}</strong> — ${cuad.fecha || ""}</div>
-    <p style="margin-top:6px;">Preguntas activas en este cuadernillo: <strong>${cuad.preguntas.length}</strong></p>
-    <ul style="margin:6px 0 0 18px;">${items || "<li>Aún no hay preguntas cargadas.</li>"}</ul>
+    <p style="margin-top:6px;">Preguntas cargadas: <strong>${cuad.preguntas.length}</strong> · Lecturas listas: <strong>${listaTextos}</strong></p>
+    <ul style="margin:6px 0 0 18px;">${itemsSub || "<li>Sin preguntas aún.</li>"}</ul>
   `;
 }
 
@@ -137,15 +158,17 @@ function iniciarSimulacro() {
   estado.bloqueId = cuad.id;
   estado.modo = dom.modoSelect.value;
   estado.subprueba = dom.subpruebaSelect.value;
+  estado.lectura = dom.lecturaSelect.value;
   estado.indiceActual = 0;
 
-  preguntasActivas =
-    estado.subprueba === "TODAS"
-      ? cuad.preguntas
-      : cuad.preguntas.filter((p) => p.subprueba === estado.subprueba);
+  preguntasActivas = cuad.preguntas.filter((p) => {
+    const pasaSub = estado.subprueba === "TODAS" || p.subprueba === estado.subprueba;
+    const pasaLec = estado.lectura === "TODAS" || p.textoClave === estado.lectura;
+    return pasaSub && pasaLec;
+  });
 
   if (!preguntasActivas.length) {
-    alert("No hay preguntas cargadas para esa subprueba en este cuadernillo. Selecciona 'Todas las preguntas cargadas'.");
+    alert("No hay preguntas cargadas para ese filtro en este cuadernillo. Cambia el filtro de lectura o subprueba.");
     return;
   }
 
@@ -188,6 +211,18 @@ function pintarCronometro() {
   dom.timerDisplay.textContent = `${min}:${sec}`;
 }
 
+function registrarRacha(esCorrecta) {
+  if (esCorrecta) {
+    estado.rachaActual += 1;
+    if (estado.rachaActual > estado.mejorRacha) {
+      estado.mejorRacha = estado.rachaActual;
+    }
+  } else {
+    estado.rachaActual = 0;
+  }
+  actualizarIndicadorRacha();
+}
+
 function renderizarPregunta() {
   const cuad = obtenerCuadernilloSeleccionado();
   const p = preguntasActivas[estado.indiceActual];
@@ -202,7 +237,7 @@ function renderizarPregunta() {
   const avancePct = ((estado.indiceActual + 1) / preguntasActivas.length) * 100;
   dom.progressFill.style.width = `${avancePct}%`;
 
-  const texto = p.textoLectura || p.contexto || "";
+  const texto = p.textoLectura || "";
   if (texto) {
     dom.lecturaTitulo.textContent = p.tituloLectura || "Texto de lectura";
     dom.lecturaCuerpo.textContent = texto;
@@ -233,7 +268,11 @@ function renderizarPregunta() {
 
     btn.innerHTML = `<strong>${letra})</strong> <span>${p.alternativas[letra]}</span>`;
     btn.addEventListener("click", () => {
+      const primeraVez = !estado.respuestas[uid];
       estado.respuestas[uid] = letra;
+      if (primeraVez && clave) {
+        registrarRacha(letra === clave);
+      }
       guardarEstado();
       renderizarPregunta();
       renderizarMapa();
@@ -249,10 +288,10 @@ function renderizarPregunta() {
       dom.feedbackBox.textContent = `Marcada (${marcada}). Clave oficial pendiente de confirmar.`;
     } else if (marcada === clave) {
       dom.feedbackBox.className = "feedback-banner feedback-ok";
-      dom.feedbackBox.textContent = `¡Correcto! Clave oficial de ${cuad.codigo || cuad.id}: (${clave}).`;
+      dom.feedbackBox.textContent = `¡Excelente! Clave oficial: (${clave}).`;
     } else {
       dom.feedbackBox.className = "feedback-banner feedback-err";
-      dom.feedbackBox.textContent = `Incorrecto. Marcaste (${marcada}) y la clave oficial es (${clave}).`;
+      dom.feedbackBox.textContent = `Revisa este punto: marcaste (${marcada}) y la clave oficial es (${clave}).`;
     }
   }
 
@@ -335,11 +374,11 @@ function calificarSimulacro() {
 
   const tarjetasSub = Object.entries(statsSubprueba)
     .map(([nombreSub, d]) => {
-      const refMin = d.minimo ? ` (mín. ${d.minimo})` : "";
+      const refMin = d.minimo ? ` · Meta mín. ${d.minimo}` : "";
       return `
         <div class="stat-box">
-          <div class="stat-num">${d.puntaje}${refMin}</div>
-          <div class="stat-desc">${nombreSub} · ${d.aciertos} aciertos</div>
+          <div class="stat-num">${d.puntaje} pts</div>
+          <div class="stat-desc">${nombreSub} (${d.aciertos} aciertos${refMin})</div>
         </div>
       `;
     })
@@ -350,7 +389,7 @@ function calificarSimulacro() {
     <div class="stat-box"><div class="stat-num">${incorrectas}</div><div class="stat-desc">Incorrectas</div></div>
     <div class="stat-box"><div class="stat-num">${sinResponder}</div><div class="stat-desc">Sin responder</div></div>
     <div class="stat-box"><div class="stat-num">${efectividad}%</div><div class="stat-desc">Efectividad</div></div>
-    <div class="stat-box"><div class="stat-num">${puntajeTotal}</div><div class="stat-desc">Puntaje total</div></div>
+    <div class="stat-box"><div class="stat-num">${puntajeTotal}</div><div class="stat-desc">Puntaje sesión</div></div>
     ${tarjetasSub}
   `;
 
@@ -366,7 +405,7 @@ function renderizarRevision(evaluadas, soloFalladas) {
   const lista = soloFalladas ? evaluadas.filter((x) => x.resultado !== "ok") : evaluadas;
   dom.detalleRevision.innerHTML = lista.length
     ? ""
-    : `<p style="margin-top:10px; color:var(--muted);">No hay preguntas falladas ni sin responder en este filtro.</p>`;
+    : `<p style="margin-top:10px; color:var(--muted);">¡Sin fallos ni pendientes en este filtro!</p>`;
 
   lista.forEach(({ p, marcada, clave, resultado }) => {
     const icono = resultado === "ok" ? "✅" : resultado === "err" ? "❌" : "⚪";
@@ -376,20 +415,28 @@ function renderizarRevision(evaluadas, soloFalladas) {
     card.innerHTML = `
       <div><strong>${icono} Pregunta ${p.numero}</strong> · <span style="color:var(--muted);">${p.subprueba}</span></div>
       <div style="margin:6px 0;">${p.enunciado}</div>
-      <div>Tu respuesta: <strong>${marcada || "Sin marcar"}</strong> | Clave oficial: <strong>${claveTxt}</strong></div>
+      <div>Tu marca: <strong>${marcada || "Sin marcar"}</strong> | Clave oficial: <strong>${claveTxt}</strong></div>
     `;
     dom.detalleRevision.appendChild(card);
   });
 }
 
+dom.btnTema.addEventListener("click", () => {
+  estado.temaNoche = !estado.temaNoche;
+  aplicarTema();
+  guardarEstado();
+});
 dom.bloqueSelect.addEventListener("change", actualizarResumenCuadernillo);
 dom.btnIniciar.addEventListener("click", iniciarSimulacro);
 dom.btnLimpiar.addEventListener("click", () => {
   localStorage.removeItem(STORAGE_KEY);
   estado.respuestas = {};
   estado.indiceActual = 0;
+  estado.rachaActual = 0;
+  estado.mejorRacha = 0;
   guardarEstado();
-  alert("Progreso guardado eliminado.");
+  actualizarIndicadorRacha();
+  alert("Progreso reiniciado.");
 });
 dom.btnAnterior.addEventListener("click", () => {
   if (estado.indiceActual > 0) {
@@ -413,4 +460,5 @@ dom.btnInicio.addEventListener("click", () => {
 });
 
 cargarEstado();
+aplicarTema();
 poblarCuadernillos();
