@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulacro Docente — EBR Nivel Inicial</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="top-bar">
+      <div>
+        <h1>Simulacro Docente — EBR Nivel Inicial</h1>
+        <p class="subtitle">Entrenamiento cronológico por cuadernillo y hoja de respuestas oficial</p>
+      </div>
+      <div id="timer-box" class="timer-box hidden">⏱️ <span id="timer-display">00:00</span></div>
+    </header>
 
+    <!-- Panel de configuración / selector de bloque -->
+    <section id="setup-panel" class="card">
+      <h2>Configuración del Simulacro</h2>
+      <div class="grid-2">
+        <div class="field">
+          <label for="bloque-select">Selecciona el examen / bloque:</label>
+          <select id="bloque-select"></select>
+        </div>
+
+        <div class="field">
+          <label for="modo-select">Modo de evaluación:</label>
+          <select id="modo-select">
+            <option value="examen">Modo Examen Real (cronómetro + resultado al final)</option>
+            <option value="practica">Modo Práctica (corrección inmediata por pregunta)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="subprueba-select">Subprueba:</label>
+          <select id="subprueba-select">
+            <option value="TODAS">Todas las cargadas en el bloque</option>
+            <option value="Comprensión Lectora">Comprensión Lectora</option>
+            <option value="Razonamiento Lógico">Razonamiento Lógico</option>
+            <option value="Conocimientos Curriculares y Pedagógicos">Conocimientos Curriculares y Pedagógicos</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="minutos-input">Duración del cronómetro (minutos, 0 = sin límite):</label>
+          <input id="minutos-input" type="number" min="0" max="300" value="90" />
+        </div>
+      </div>
+
+      <div id="bloque-info" class="info-banner"></div>
+
+      <div class="actions">
+        <button id="btn-iniciar" class="btn btn-primary">Comenzar Evaluación</button>
+        <button id="btn-limpiar-progreso" class="btn btn-secondary">Borrar progreso guardado</button>
+      </div>
+    </section>
+
+    <!-- Panel de resolución de preguntas -->
+    <section id="quiz-panel" class="card hidden">
+      <div class="quiz-meta">
+        <span id="badge-bloque" class="badge"></span>
+        <span id="badge-subprueba" class="badge badge-outline"></span>
+        <span id="contador-pregunta" class="counter"></span>
+      </div>
+
+      <div id="contexto-box" class="contexto-box hidden"></div>
+      <h3 id="enunciado-texto" class="enunciado"></h3>
+
+      <div id="alternativas-lista" class="alternativas"></div>
+
+      <div id="feedback-box" class="feedback-box hidden"></div>
+
+      <div class="quiz-nav">
+        <button id="btn-anterior" class="btn btn-secondary">← Anterior</button>
+        <button id="btn-siguiente" class="btn btn-primary">Siguiente →</button>
+        <button id="btn-finalizar" class="btn btn-success">Finalizar y Calificar</button>
+      </div>
+
+      <div id="mapa-preguntas" class="mapa-preguntas"></div>
+    </section>
+
+    <!-- Panel de resultados -->
+    <section id="results-panel" class="card hidden">
+      <h2>Resultado del Simulacro</h2>
+      <div id="resumen-puntaje" class="resumen-grid"></div>
+      <div class="actions">
+        <button id="btn-revisar-falladas" class="btn btn-warning">Ver solo preguntas falladas</button>
+        <button id="btn-ver-todas" class="btn btn-secondary">Ver todas las preguntas</button>
+        <button id="btn-volver-inicio" class="btn btn-primary">Elegir otro bloque</button>
+      </div>
+      <div id="detalle-revision" class="detalle-revision"></div>
+    </section>
+  </div>
+
+  <script src="data/bloques.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
