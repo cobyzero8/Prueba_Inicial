@@ -1,4 +1,4 @@
-const STORAGE_KEY = "prueba_inicial_coby_v3";
+const STORAGE_KEY = "prueba_inicial_coby_v4";
 
 const REGLAS_SUBPRUEBA = {
   "Comprensión Lectora": { puntos: 2, minimo: 30 },
@@ -36,6 +36,8 @@ const dom = {
   contadorPregunta: document.getElementById("contador-pregunta"),
   progressFill: document.getElementById("progress-fill"),
   contextoBox: document.getElementById("contexto-box"),
+  lecturaTitulo: document.getElementById("lectura-titulo"),
+  lecturaCuerpo: document.getElementById("lectura-cuerpo"),
   enunciadoTexto: document.getElementById("enunciado-texto"),
   alternativasLista: document.getElementById("alternativas-lista"),
   feedbackBox: document.getElementById("feedback-box"),
@@ -64,53 +66,56 @@ function cargarEstado() {
   } catch (_) {}
 }
 
-function obtenerBloques() {
+function obtenerCuadernillos() {
+  if (Array.isArray(window.CUADERNILLOS) && window.CUADERNILLOS.length) {
+    return window.CUADERNILLOS;
+  }
   return Array.isArray(window.BLOQUES_EXAMEN) ? window.BLOQUES_EXAMEN : [];
 }
 
-function obtenerBloqueSeleccionado() {
-  const bloques = obtenerBloques();
-  return bloques.find((b) => b.id === dom.bloqueSelect.value) || bloques[0] || null;
+function obtenerCuadernilloSeleccionado() {
+  const lista = obtenerCuadernillos();
+  return lista.find((b) => b.id === dom.bloqueSelect.value) || lista[0] || null;
 }
 
-function obtenerClaveOficial(bloque, pregunta) {
+function obtenerClaveOficial(cuadernillo, pregunta) {
   if (pregunta.correcta) return pregunta.correcta;
-  if (bloque && bloque.claves && bloque.claves[pregunta.numero]) {
-    return bloque.claves[pregunta.numero];
+  if (cuadernillo && cuadernillo.claves && cuadernillo.claves[pregunta.numero]) {
+    return cuadernillo.claves[pregunta.numero];
   }
   return null;
 }
 
-function poblarBloques() {
-  const bloques = obtenerBloques();
+function poblarCuadernillos() {
+  const lista = obtenerCuadernillos();
   dom.bloqueSelect.innerHTML = "";
 
-  if (!bloques.length) {
-    dom.bloqueSelect.innerHTML = `<option value="">Sin bloques cargados</option>`;
-    dom.bloqueInfo.textContent = "Agrega bloques en data/bloques.js para iniciar.";
+  if (!lista.length) {
+    dom.bloqueSelect.innerHTML = `<option value="">Sin cuadernillos cargados</option>`;
+    dom.bloqueInfo.textContent = "Agrega archivos en la carpeta data/ para iniciar.";
     return;
   }
 
-  bloques.forEach((b) => {
+  lista.forEach((b) => {
     const opt = document.createElement("option");
     opt.value = b.id;
     opt.textContent = `${b.nombre} (${b.preguntas.length} preguntas cargadas)`;
     dom.bloqueSelect.appendChild(opt);
   });
 
-  if (estado.bloqueId && bloques.some((b) => b.id === estado.bloqueId)) {
+  if (estado.bloqueId && lista.some((b) => b.id === estado.bloqueId)) {
     dom.bloqueSelect.value = estado.bloqueId;
   }
 
-  actualizarResumenBloque();
+  actualizarResumenCuadernillo();
 }
 
-function actualizarResumenBloque() {
-  const bloque = obtenerBloqueSeleccionado();
-  if (!bloque) return;
+function actualizarResumenCuadernillo() {
+  const cuad = obtenerCuadernilloSeleccionado();
+  if (!cuad) return;
 
   const porSubprueba = {};
-  bloque.preguntas.forEach((p) => {
+  cuad.preguntas.forEach((p) => {
     porSubprueba[p.subprueba] = (porSubprueba[p.subprueba] || 0) + 1;
   });
 
@@ -119,28 +124,28 @@ function actualizarResumenBloque() {
     .join("");
 
   dom.bloqueInfo.innerHTML = `
-    <div><strong>${bloque.nombre}</strong> — ${bloque.fecha || ""}</div>
-    <p style="margin-top:6px;">Preguntas activas en este bloque: <strong>${bloque.preguntas.length}</strong></p>
-    <ul style="margin:6px 0 0 18px;">${items || "<li>Aún no hay preguntas agregadas en este bloque.</li>"}</ul>
+    <div><strong>${cuad.nombre}</strong> — ${cuad.fecha || ""}</div>
+    <p style="margin-top:6px;">Preguntas activas en este cuadernillo: <strong>${cuad.preguntas.length}</strong></p>
+    <ul style="margin:6px 0 0 18px;">${items || "<li>Aún no hay preguntas cargadas.</li>"}</ul>
   `;
 }
 
 function iniciarSimulacro() {
-  const bloque = obtenerBloqueSeleccionado();
-  if (!bloque) return;
+  const cuad = obtenerCuadernilloSeleccionado();
+  if (!cuad) return;
 
-  estado.bloqueId = bloque.id;
+  estado.bloqueId = cuad.id;
   estado.modo = dom.modoSelect.value;
   estado.subprueba = dom.subpruebaSelect.value;
   estado.indiceActual = 0;
 
   preguntasActivas =
     estado.subprueba === "TODAS"
-      ? bloque.preguntas
-      : bloque.preguntas.filter((p) => p.subprueba === estado.subprueba);
+      ? cuad.preguntas
+      : cuad.preguntas.filter((p) => p.subprueba === estado.subprueba);
 
   if (!preguntasActivas.length) {
-    alert("No hay preguntas cargadas para esa subprueba en este bloque. Selecciona 'Todas las preguntas cargadas'.");
+    alert("No hay preguntas cargadas para esa subprueba en este cuadernillo. Selecciona 'Todas las preguntas cargadas'.");
     return;
   }
 
@@ -184,23 +189,27 @@ function pintarCronometro() {
 }
 
 function renderizarPregunta() {
-  const bloque = obtenerBloqueSeleccionado();
+  const cuad = obtenerCuadernilloSeleccionado();
   const p = preguntasActivas[estado.indiceActual];
-  const uid = `${bloque.id}__${p.numero}`;
+  const uid = `${cuad.id}__${p.numero}`;
   const marcada = estado.respuestas[uid] || null;
-  const clave = obtenerClaveOficial(bloque, p);
+  const clave = obtenerClaveOficial(cuad, p);
 
-  dom.badgeBloque.textContent = bloque.codigo || bloque.id;
+  dom.badgeBloque.textContent = cuad.codigo || cuad.id;
   dom.badgeSubprueba.textContent = p.subprueba;
   dom.contadorPregunta.textContent = `Pregunta ${p.numero} (${estado.indiceActual + 1} de ${preguntasActivas.length})`;
 
   const avancePct = ((estado.indiceActual + 1) / preguntasActivas.length) * 100;
   dom.progressFill.style.width = `${avancePct}%`;
 
-  if (p.contexto) {
-    dom.contextoBox.textContent = p.contexto;
+  const texto = p.textoLectura || p.contexto || "";
+  if (texto) {
+    dom.lecturaTitulo.textContent = p.tituloLectura || "Texto de lectura";
+    dom.lecturaCuerpo.textContent = texto;
     dom.contextoBox.classList.remove("hidden");
   } else {
+    dom.lecturaTitulo.textContent = "";
+    dom.lecturaCuerpo.textContent = "";
     dom.contextoBox.classList.add("hidden");
   }
 
@@ -240,7 +249,7 @@ function renderizarPregunta() {
       dom.feedbackBox.textContent = `Marcada (${marcada}). Clave oficial pendiente de confirmar.`;
     } else if (marcada === clave) {
       dom.feedbackBox.className = "feedback-banner feedback-ok";
-      dom.feedbackBox.textContent = `¡Correcto! Clave oficial de ${bloque.codigo || bloque.id}: (${clave}).`;
+      dom.feedbackBox.textContent = `¡Correcto! Clave oficial de ${cuad.codigo || cuad.id}: (${clave}).`;
     } else {
       dom.feedbackBox.className = "feedback-banner feedback-err";
       dom.feedbackBox.textContent = `Incorrecto. Marcaste (${marcada}) y la clave oficial es (${clave}).`;
@@ -253,11 +262,11 @@ function renderizarPregunta() {
 }
 
 function renderizarMapa() {
-  const bloque = obtenerBloqueSeleccionado();
+  const cuad = obtenerCuadernilloSeleccionado();
   dom.mapaPreguntas.innerHTML = "";
 
   preguntasActivas.forEach((p, idx) => {
-    const uid = `${bloque.id}__${p.numero}`;
+    const uid = `${cuad.id}__${p.numero}`;
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "map-btn";
@@ -283,7 +292,7 @@ function calificarSimulacro() {
   clearInterval(intervaloReloj);
   dom.timerBox.classList.add("hidden");
 
-  const bloque = obtenerBloqueSeleccionado();
+  const cuad = obtenerCuadernilloSeleccionado();
   let correctas = 0;
   let incorrectas = 0;
   let sinResponder = 0;
@@ -291,9 +300,9 @@ function calificarSimulacro() {
   const statsSubprueba = {};
 
   const evaluadas = preguntasActivas.map((p) => {
-    const uid = `${bloque.id}__${p.numero}`;
+    const uid = `${cuad.id}__${p.numero}`;
     const marcada = estado.respuestas[uid] || null;
-    const clave = obtenerClaveOficial(bloque, p);
+    const clave = obtenerClaveOficial(cuad, p);
     const regla = REGLAS_SUBPRUEBA[p.subprueba] || { puntos: p.puntos ?? 2, minimo: null };
     const pts = p.puntos ?? regla.puntos;
 
@@ -322,7 +331,7 @@ function calificarSimulacro() {
     ? ((correctas / preguntasActivas.length) * 100).toFixed(1)
     : "0.0";
 
-  dom.resultadoSubtitulo.textContent = `${bloque.codigo || bloque.id} · ${preguntasActivas.length} evaluadas`;
+  dom.resultadoSubtitulo.textContent = `${cuad.codigo || cuad.id} · ${preguntasActivas.length} evaluadas`;
 
   const tarjetasSub = Object.entries(statsSubprueba)
     .map(([nombreSub, d]) => {
@@ -373,7 +382,7 @@ function renderizarRevision(evaluadas, soloFalladas) {
   });
 }
 
-dom.bloqueSelect.addEventListener("change", actualizarResumenBloque);
+dom.bloqueSelect.addEventListener("change", actualizarResumenCuadernillo);
 dom.btnIniciar.addEventListener("click", iniciarSimulacro);
 dom.btnLimpiar.addEventListener("click", () => {
   localStorage.removeItem(STORAGE_KEY);
@@ -400,8 +409,8 @@ dom.btnFinalizar.addEventListener("click", calificarSimulacro);
 dom.btnInicio.addEventListener("click", () => {
   dom.resultsPanel.classList.add("hidden");
   dom.setupPanel.classList.remove("hidden");
-  actualizarResumenBloque();
+  actualizarResumenCuadernillo();
 });
 
 cargarEstado();
-poblarBloques();
+poblarCuadernillos();
