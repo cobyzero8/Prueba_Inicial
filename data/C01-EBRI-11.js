@@ -36,7 +36,7 @@ const TEXTO_2_C01 = `Marie-Olympe de Gouges es una de las muy pocas mujeres de l
 
 Nació en el seno de una familia burguesa en 1748, en el suroeste de Francia. Cuando tenía 17 años, sus padres arreglaron su matrimonio con un hombre mucho mayor, del que enviudó dos años después. Nunca volvió a casarse; por el contrario, la experiencia de un matrimonio forzado hizo nacer en ella un deseo de determinación e independencia. En 1770, se mudó a París, en donde frecuentó salones literarios y conoció a los intelectuales de la Ilustración.
 
-En 1774, empezó su carrera literaria, centrada en el teatro. Su pieza más conocida, Zamore y Mirza o el naufragio feliz, en la que buscó llamar la atención sobre las injusticias de la esclavitud, fue inscrita en el repertorio de la Comédie-Française -la tropa de teatro oficial del Estado francés- en 1985. El éxito inicial de la pieza se empañó rápidamente, sin embargo, cuando se comprendió que el drama hacía una crítica velada de la trata de personas. La Comédie dependía económicamente de la corte de Versalles, en la que muchos nobles se enriquecían con la trata de esclavos en las colonias francesas. La pieza fue dejada de lado, y de Gouges cometió el error de manifestar ruidosamente su decepción al respecto. Recibió una carta oficial del Estado en la que la amenazaban de encarcelamiento en la Bastilla. Vencida en un primer momento por el miedo, fue a partir de estos sucesos que nació su compromiso político. De 1785 hasta su muerte, 8 años después, publicó incansablemente sobre todos los temas que consideró importantes.
+En 1774, empezó su carrera literaria, centrada en el teatro. Su pieza más conocida, Zamore y Mirza o el naufragio feliz, en la que buscó llamar la atención sobre las injusticias de la esclavitud, fue inscrita en el repertorio de la Comédie-Française -la tropa de teatro oficial del Estado francés- en 1785. El éxito inicial de la pieza se empañó rápidamente, sin embargo, cuando se comprendió que el drama hacía una crítica velada de la trata de personas. La Comédie dependía económicamente de la corte de Versalles, en la que muchos nobles se enriquecían con la trata de esclavos en las colonias francesas. La pieza fue dejada de lado, y de Gouges cometió el error de manifestar ruidosamente su decepción al respecto. Recibió una carta oficial del Estado en la que la amenazaban de encarcelamiento en la Bastilla. Vencida en un primer momento por el miedo, fue a partir de estos sucesos que nació su compromiso político. De 1785 hasta su muerte, 8 años después, publicó incansablemente sobre todos los temas que consideró importantes.
 
 Cuando sobrevino la Revolución francesa, en 1789, Olympe había redoblado su actividad militante, multiplicando la producción de panfletos en los que exigía la igualdad de derechos para todos los ciudadanos, independientemente de su sexo, color de piel o ingresos.
 
@@ -53,6 +53,7 @@ Adaptado de https://www.monde-diplomatique.fr/2008/11/BLANC/16516 y https://www.
 window.CUADERNILLOS.push({
   id: "C01-EBRI-11",
   codigo: "C01-EBRI-11",
+  etiqueta: "INICIAL 11-2018",
   nombre: "Cuadernillo C01-EBRI-11 — EBR Nivel Inicial",
   fecha: "Octubre 2018",
   claves: {
