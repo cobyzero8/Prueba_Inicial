@@ -26,12 +26,12 @@ body {
   font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
   background: linear-gradient(180deg, #e2e8f0 0%, var(--bg) 180px);
   color: var(--text);
-  line-height: 1.55;
+  line-height: 1.6;
   padding: 18px 14px 40px;
 }
 
 .app-shell {
-  max-width: 940px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -266,13 +266,27 @@ input[type="number"]:focus {
   transition: width 0.2s ease;
 }
 
-.context-box {
-  background: var(--surface-alt);
-  border: 1px solid #e2e8f0;
+.reading-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-left: 5px solid #2563eb;
   border-radius: 12px;
-  padding: 14px 16px;
-  margin-bottom: 16px;
-  font-size: 0.93rem;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.reading-header {
+  font-weight: 800;
+  color: #1e3a8a;
+  font-size: 0.96rem;
+  margin-bottom: 8px;
+}
+
+.reading-body {
+  white-space: pre-line;
+  font-size: 0.96rem;
   color: #1e293b;
 }
 
