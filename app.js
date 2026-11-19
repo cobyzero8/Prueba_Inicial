@@ -1,4 +1,4 @@
-const STORAGE_KEY = "prueba_inicial_coby_v7";
+const STORAGE_KEY = "prueba_inicial_coby_v8";
 
 const REGLAS_SUBPRUEBA = {
   "Comprensión Lectora": { puntos: 2, minimo: 30 },
@@ -13,6 +13,7 @@ let estado = {
   lectura: "TODAS",
   indiceActual: 0,
   respuestas: {},
+  reintentos: {},
   segundosRestantes: 0,
   rachaActual: 0,
   mejorRacha: 0,
@@ -54,13 +55,16 @@ const dom = {
   btnSiguiente: document.getElementById("btn-siguiente"),
   btnFinalizar: document.getElementById("btn-finalizar"),
   mapaPreguntas: document.getElementById("mapa-preguntas"),
+  resultadosTitulo: document.getElementById("resultados-titulo"),
   resultadoSubtitulo: document.getElementById("resultado-subtitulo"),
   resumenPuntaje: document.getElementById("resumen-puntaje"),
-  detalleRevision: document.getElementById("detalle-revision"),
-  btnFalladas: document.getElementById("btn-revisar-falladas"),
-  btnReintentarErrores: document.getElementById("btn-reintentar-errores"),
+  btnMisErrores: document.getElementById("btn-mis-errores"),
   btnTodas: document.getElementById("btn-ver-todas"),
-  btnInicio: document.getElementById("btn-volver-inicio")
+  btnInicio: document.getElementById("btn-volver-inicio"),
+  erroresLecturaBox: document.getElementById("errores-lectura-box"),
+  erroresLecturaTitulo: document.getElementById("errores-lectura-titulo"),
+  erroresLecturaCuerpo: document.getElementById("errores-lectura-cuerpo"),
+  detalleRevision: document.getElementById("detalle-revision")
 };
 
 function guardarEstado() {
@@ -72,6 +76,7 @@ function cargarEstado() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       estado = { ...estado, ...JSON.parse(raw) };
+      if (!estado.reintentos) estado.reintentos = {};
     }
   } catch (_) {}
 }
@@ -187,34 +192,6 @@ function iniciarSimulacro() {
   renderizarMapa();
 }
 
-function reintentarErrores() {
-  const cuad = obtenerCuadernilloSeleccionado();
-  if (!cuad || !ultimaEvaluacion.length) return;
-
-  const pendientes = ultimaEvaluacion
-    .filter((item) => item.resultado !== "ok")
-    .map((item) => item.p);
-
-  if (!pendientes.length) {
-    alert("¡No tienes errores ni preguntas sin marcar en esta sesión!");
-    return;
-  }
-
-  pendientes.forEach((p) => {
-    delete estado.respuestas[`${cuad.id}__${p.numero}`];
-  });
-
-  preguntasActivas = pendientes;
-  estado.modo = "practica";
-  estado.indiceActual = 0;
-  guardarEstado();
-
-  dom.resultsPanel.classList.add("hidden");
-  dom.quizPanel.classList.remove("hidden");
-  renderizarPregunta();
-  renderizarMapa();
-}
-
 function arrancarCronometro() {
   clearInterval(intervaloReloj);
   if (estado.modo === "examen" && estado.segundosRestantes > 0) {
@@ -318,10 +295,10 @@ function renderizarPregunta() {
       dom.feedbackBox.textContent = `Marcada (${marcada}). Clave oficial pendiente de confirmar.`;
     } else if (marcada === clave) {
       dom.feedbackBox.className = "feedback-banner feedback-ok";
-      dom.feedbackBox.textContent = `¡Excelente! Clave oficial: (${clave}).`;
+      dom.feedbackBox.textContent = `¡Excelente! Respuesta correcta: (${clave}).`;
     } else {
       dom.feedbackBox.className = "feedback-banner feedback-err";
-      dom.feedbackBox.textContent = `Revisa este punto: marcaste (${marcada}) y la clave oficial es (${clave}).`;
+      dom.feedbackBox.textContent = `Revisa este punto: marcaste (${marcada}) y la respuesta correcta es (${clave}).`;
     }
   }
 
@@ -400,6 +377,7 @@ function calificarSimulacro() {
     ? ((correctas / preguntasActivas.length) * 100).toFixed(1)
     : "0.0";
 
+  dom.resultadosTitulo.textContent = "Balance de tu Sesión";
   dom.resultadoSubtitulo.textContent = `${cuad.etiqueta || cuad.codigo || cuad.id} · ${preguntasActivas.length} evaluadas`;
 
   const tarjetasSub = Object.entries(statsSubprueba)
@@ -424,21 +402,43 @@ function calificarSimulacro() {
   `;
 
   renderizarRevision(ultimaEvaluacion, false);
-  dom.btnFalladas.onclick = () => renderizarRevision(ultimaEvaluacion, true);
-  dom.btnReintentarErrores.onclick = reintentarErrores;
-  dom.btnTodas.onclick = () => renderizarRevision(ultimaEvaluacion, false);
 
   dom.quizPanel.classList.add("hidden");
   dom.resultsPanel.classList.remove("hidden");
 }
 
-function renderizarRevision(evaluadas, soloFalladas) {
-  const lista = soloFalladas ? evaluadas.filter((x) => x.resultado !== "ok") : evaluadas;
+function mostrarLecturaDeErrores(falladas) {
+  const primeraConTexto = falladas.find((x) => x.p && x.p.textoLectura);
+  if (primeraConTexto) {
+    dom.erroresLecturaTitulo.textContent = `${primeraConTexto.p.tituloLectura || "Texto de lectura"} (para revisar tus fallas)`;
+    dom.erroresLecturaCuerpo.textContent = primeraConTexto.p.textoLectura;
+    dom.erroresLecturaBox.classList.remove("hidden");
+  } else {
+    dom.erroresLecturaBox.classList.add("hidden");
+  }
+}
+
+function renderizarRevision(evaluadas, modoMisErrores) {
+  const cuad = obtenerCuadernilloSeleccionado();
+  const lista = modoMisErrores
+    ? evaluadas.filter((x) => x.resultado !== "ok")
+    : evaluadas;
+
+  if (modoMisErrores) {
+    dom.resultadosTitulo.textContent = "Mis errores — Vuelve a responder";
+    mostrarLecturaDeErrores(lista);
+  } else {
+    dom.resultadosTitulo.textContent = "Balance de tu Sesión";
+    dom.erroresLecturaBox.classList.add("hidden");
+  }
+
   dom.detalleRevision.innerHTML = lista.length
     ? ""
-    : `<p style="margin-top:10px; color:var(--muted);">¡Sin errores ni pendientes en este filtro!</p>`;
+    : `<p style="margin-top:10px; color:var(--muted);">¡Excelente! No tienes errores ni preguntas sin marcar en este filtro.</p>`;
 
   lista.forEach(({ p, marcada, clave, resultado }) => {
+    const uid = `${cuad.id}__${p.numero}`;
+    const intentoNuevo = estado.reintentos[uid] || null;
     const esError = resultado === "err";
     const esSin = resultado === "sin";
     const icono = resultado === "ok" ? "✅" : esError ? "❌" : "⚪";
@@ -455,17 +455,61 @@ function renderizarRevision(evaluadas, soloFalladas) {
 
     const card = document.createElement("div");
     card.className = `review-card ${estadoClase}`;
+
+    let bloqueReintentoHTML = "";
+    if (modoMisErrores && clave) {
+      const botonesHTML = ["A", "B", "C"]
+        .map((letra) => {
+          let extra = "";
+          if (intentoNuevo) {
+            if (letra === clave) extra = "picked-ok";
+            else if (letra === intentoNuevo) extra = "picked-err";
+          }
+          return `<button type="button" class="retry-opt-btn ${extra}" data-uid="${uid}" data-letra="${letra}"><strong>${letra})</strong> ${p.alternativas[letra]}</button>`;
+        })
+        .join("");
+
+      let estadoReintentoMsg = "";
+      if (intentoNuevo) {
+        estadoReintentoMsg =
+          intentoNuevo === clave
+            ? `<div class="feedback-banner feedback-ok">¡Muy bien! Ahora marcaste (${intentoNuevo}) y es la respuesta correcta.</div>`
+            : `<div class="feedback-banner feedback-err">Aún no: elegiste (${intentoNuevo}). Revisa el texto o la clave verde.</div>`;
+      }
+
+      bloqueReintentoHTML = `
+        <div class="retry-options">${botonesHTML}</div>
+        ${estadoReintentoMsg}
+      `;
+    }
+
     card.innerHTML = `
       <div class="review-top">
         <strong>${icono} Pregunta ${p.numero} · <span style="color:var(--muted);">${p.subprueba}</span></strong>
         <span class="badge badge-slate">${esSin ? "Sin responder" : esError ? "Error" : "Acierto"}</span>
       </div>
       <div class="review-q">${p.enunciado}</div>
+      ${bloqueReintentoHTML}
       <div class="review-meta">
-        <div class="${claseMarca}">Tu respuesta: <strong>${textoMarca}</strong></div>
+        <div class="${claseMarca}">Tu respuesta anterior: <strong>${textoMarca}</strong></div>
         <div class="clave-caja">✓ Respuesta correcta: <strong>${claveTxt}</strong></div>
       </div>
     `;
+
+    card.querySelectorAll(".retry-opt-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const picked = btn.getAttribute("data-letra");
+        estado.reintentos[uid] = picked;
+        if (picked === clave) {
+          registrarRacha(true);
+        } else {
+          registrarRacha(false);
+        }
+        guardarEstado();
+        renderizarRevision(evaluadas, true);
+      });
+    });
+
     dom.detalleRevision.appendChild(card);
   });
 }
@@ -480,6 +524,7 @@ dom.btnIniciar.addEventListener("click", iniciarSimulacro);
 dom.btnLimpiar.addEventListener("click", () => {
   localStorage.removeItem(STORAGE_KEY);
   estado.respuestas = {};
+  estado.reintentos = {};
   estado.indiceActual = 0;
   estado.rachaActual = 0;
   estado.mejorRacha = 0;
@@ -502,6 +547,8 @@ dom.btnSiguiente.addEventListener("click", () => {
   }
 });
 dom.btnFinalizar.addEventListener("click", calificarSimulacro);
+dom.btnMisErrores.addEventListener("click", () => renderizarRevision(ultimaEvaluacion, true));
+dom.btnTodas.addEventListener("click", () => renderizarRevision(ultimaEvaluacion, false));
 dom.btnInicio.addEventListener("click", () => {
   dom.resultsPanel.classList.add("hidden");
   dom.setupPanel.classList.remove("hidden");
