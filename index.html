@@ -12,7 +12,7 @@
       <div class="brand">
         <span class="brand-tag">EBR NIVEL INICIAL</span>
         <h1>Plataforma de Simulacros Docentes</h1>
-        <p class="subtitle">Entrenamiento dinámico por cuadernillo y hoja de respuestas oficial</p>
+        <p class="subtitle">Lectura completa, cuadernillos separados y hoja de respuestas oficial</p>
       </div>
       <div id="timer-box" class="timer-pill hidden" aria-live="polite">
         <span>⏱️</span>
@@ -81,7 +81,12 @@
         <div id="progress-fill" class="progress-fill"></div>
       </div>
 
-      <div id="contexto-box" class="context-box hidden"></div>
+      <!-- LECTURA COMPLETA -->
+      <article id="contexto-box" class="reading-box hidden">
+        <div id="lectura-titulo" class="reading-header"></div>
+        <div id="lectura-cuerpo" class="reading-body"></div>
+      </article>
+
       <h3 id="enunciado-texto" class="question-title"></h3>
 
       <div id="alternativas-lista" class="options-list"></div>
@@ -118,7 +123,7 @@
     </section>
   </div>
 
-  <script src="data/bloques.js"></script>
+  <script src="data/C01-EBRI-11.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
