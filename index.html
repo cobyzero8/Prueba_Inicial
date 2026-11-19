@@ -10,35 +10,30 @@
   <div class="app-shell">
     <header class="topbar">
       <div class="brand">
-        <span class="brand-tag">EBR NIVEL INICIAL</span>
+        <span class="brand-tag">EBR NIVEL INICIAL · NOMBRAMIENTO</span>
         <h1>Plataforma de Simulacros Docentes</h1>
-        <p class="subtitle">Lectura completa, cuadernillos separados y hoja de respuestas oficial</p>
+        <p class="subtitle">Lecturas completas, confort visual y progreso claro por bloque</p>
       </div>
-      <div id="timer-box" class="timer-pill hidden" aria-live="polite">
-        <span>⏱️</span>
-        <span id="timer-display">00:00</span>
+      <div class="topbar-actions">
+        <button id="btn-tema" type="button" class="theme-btn">🌙 Modo Noche</button>
+        <div id="timer-box" class="timer-pill hidden" aria-live="polite">
+          <span>⏱️</span>
+          <span id="timer-display">00:00</span>
+        </div>
       </div>
     </header>
 
     <!-- CONFIGURACIÓN -->
     <section id="setup-panel" class="panel">
       <div class="panel-head">
-        <h2>Configuración del Simulacro</h2>
-        <span class="chip">Guardado automático activo</span>
+        <h2>Prepara tu sesión de estudio</h2>
+        <span id="racha-chip" class="chip">Racha activa: 0 seguidas</span>
       </div>
 
       <div class="config-grid">
         <div class="field">
-          <label for="bloque-select">Cuadernillo / Examen</label>
+          <label for="bloque-select">Cuadernillo</label>
           <select id="bloque-select"></select>
-        </div>
-
-        <div class="field">
-          <label for="modo-select">Modo de evaluación</label>
-          <select id="modo-select">
-            <option value="examen">Examen Real (cronómetro + calificación al final)</option>
-            <option value="practica">Práctica (corrección inmediata al marcar)</option>
-          </select>
         </div>
 
         <div class="field">
@@ -54,16 +49,36 @@
         </div>
 
         <div class="field">
-          <label for="minutos-input">Tiempo límite (minutos, 0 = libre)</label>
-          <input id="minutos-input" type="number" min="0" max="360" value="90" />
+          <label for="lectura-select">Filtrar por Lectura (Comprensión)</label>
+          <select id="lectura-select">
+            <option value="TODAS">Todas las lecturas cargadas</option>
+            <option value="Texto 1">Texto 1 — La tejedora</option>
+            <option value="Texto 2">Texto 2 — Marie-Olympe de Gouges</option>
+            <option value="Texto 3">Texto 3 — Servicio educativo y mercado</option>
+            <option value="Texto 4">Texto 4 — Industria azucarera y nutrición</option>
+            <option value="Texto 5">Texto 5 — Escolarización vs. aprendizaje</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="modo-select">Modo de estudio</label>
+          <select id="modo-select">
+            <option value="practica">Práctica guiada (clave y feedback al instante)</option>
+            <option value="examen">Simulacro cronometrado (calificación al final)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="minutos-input">Tiempo límite (min, 0 = libre)</label>
+          <input id="minutos-input" type="number" min="0" max="360" value="45" />
         </div>
       </div>
 
       <div id="bloque-info" class="info-card"></div>
 
       <div class="btn-row">
-        <button id="btn-iniciar" type="button" class="btn btn-primary">Comenzar Simulacro</button>
-        <button id="btn-limpiar-progreso" type="button" class="btn btn-ghost">Borrar progreso guardado</button>
+        <button id="btn-iniciar" type="button" class="btn btn-primary">Iniciar Sesión</button>
+        <button id="btn-limpiar-progreso" type="button" class="btn btn-ghost">Reiniciar progreso</button>
       </div>
     </section>
 
@@ -71,8 +86,9 @@
     <section id="quiz-panel" class="panel hidden">
       <div class="quiz-top">
         <div class="badges">
-          <span id="badge-bloque" class="badge badge-indigo"></span>
+          <span id="badge-bloque" class="badge badge-teal"></span>
           <span id="badge-subprueba" class="badge badge-slate"></span>
+          <span id="badge-racha" class="badge badge-amber">🔥 Racha: 0</span>
         </div>
         <div id="contador-pregunta" class="question-counter"></div>
       </div>
@@ -81,7 +97,6 @@
         <div id="progress-fill" class="progress-fill"></div>
       </div>
 
-      <!-- LECTURA COMPLETA -->
       <article id="contexto-box" class="reading-box hidden">
         <div id="lectura-titulo" class="reading-header"></div>
         <div id="lectura-cuerpo" class="reading-body"></div>
@@ -95,11 +110,11 @@
       <div class="btn-row nav-actions">
         <button id="btn-anterior" type="button" class="btn btn-secondary">← Anterior</button>
         <button id="btn-siguiente" type="button" class="btn btn-secondary">Siguiente →</button>
-        <button id="btn-finalizar" type="button" class="btn btn-success">Finalizar y Calificar</button>
+        <button id="btn-finalizar" type="button" class="btn btn-success">Finalizar y Ver Puntaje</button>
       </div>
 
       <div class="map-section">
-        <div class="map-label">Navegador rápido de preguntas cargadas</div>
+        <div class="map-label">Avance rápido de preguntas en esta sesión</div>
         <div id="mapa-preguntas" class="question-map"></div>
       </div>
     </section>
@@ -107,16 +122,16 @@
     <!-- RESULTADOS -->
     <section id="results-panel" class="panel hidden">
       <div class="panel-head">
-        <h2>Resultados del Simulacro</h2>
+        <h2>Balance de tu Sesión</h2>
         <span id="resultado-subtitulo" class="chip"></span>
       </div>
 
       <div id="resumen-puntaje" class="stats-grid"></div>
 
       <div class="btn-row">
-        <button id="btn-revisar-falladas" type="button" class="btn btn-warning">Solo falladas / sin responder</button>
+        <button id="btn-revisar-falladas" type="button" class="btn btn-warning">Repasar falladas / sin marcar</button>
         <button id="btn-ver-todas" type="button" class="btn btn-secondary">Ver todas</button>
-        <button id="btn-volver-inicio" type="button" class="btn btn-primary">Volver al inicio</button>
+        <button id="btn-volver-inicio" type="button" class="btn btn-primary">Nueva sesión</button>
       </div>
 
       <div id="detalle-revision" class="review-list"></div>
