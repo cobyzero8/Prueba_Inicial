@@ -12,7 +12,7 @@
       <div class="brand">
         <span class="brand-tag">EBR NIVEL INICIAL · NOMBRAMIENTO</span>
         <h1>Plataforma de Simulacros Docentes</h1>
-        <p class="subtitle">Lecturas completas, confort visual y repaso inteligente de errores</p>
+        <p class="subtitle">Lecturas completas, confort visual y práctica de errores</p>
       </div>
       <div class="topbar-actions">
         <button id="btn-tema" type="button" class="theme-btn">🌙 Modo Noche</button>
@@ -119,20 +119,24 @@
       </div>
     </section>
 
-    <!-- RESULTADOS -->
+    <!-- RESULTADOS Y MIS ERRORES -->
     <section id="results-panel" class="panel hidden">
       <div class="panel-head">
-        <h2>Balance de tu Sesión</h2>
+        <h2 id="resultados-titulo">Balance de tu Sesión</h2>
         <span id="resultado-subtitulo" class="chip"></span>
       </div>
 
       <div id="resumen-puntaje" class="stats-grid"></div>
 
       <div class="btn-row">
-        <button id="btn-revisar-falladas" type="button" class="btn btn-warning">Ver solo errores / sin marcar</button>
-        <button id="btn-reintentar-errores" type="button" class="btn btn-primary">↺ Reintentar errores</button>
+        <button id="btn-mis-errores" type="button" class="btn btn-warning">Mis errores (practicar aquí)</button>
         <button id="btn-ver-todas" type="button" class="btn btn-secondary">Ver todas</button>
-        <button id="btn-volver-inicio" type="button" class="btn btn-ghost">Nueva sesión</button>
+        <button id="btn-volver-inicio" type="button" class="btn btn-primary">Nueva prueba</button>
+      </div>
+
+      <div id="errores-lectura-box" class="reading-box hidden" style="margin-top:18px;">
+        <div id="errores-lectura-titulo" class="reading-header"></div>
+        <div id="errores-lectura-cuerpo" class="reading-body"></div>
       </div>
 
       <div id="detalle-revision" class="review-list"></div>
