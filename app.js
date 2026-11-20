@@ -77,6 +77,14 @@ function escaparHTML(str) {
     .replace(/"/g, "&quot;");
 }
 
+function formatearEnunciadoHTML(texto) {
+  const escapado = escaparHTML(texto);
+  return escapado.replace(
+    /&lt;mark class=&quot;clave-palabra&quot;&gt;(.*?)&lt;\/mark&gt;/g,
+    '<mark class="clave-palabra">$1</mark>'
+  );
+}
+
 function formatearLecturaHTML(texto) {
   const limpio = String(texto || "").trim();
   if (!limpio) return "";
@@ -388,7 +396,7 @@ function renderizarPregunta() {
     dom.contextoBox.classList.add("hidden");
   }
 
-  dom.enunciadoTexto.innerHTML = `${p.numero}. ${escaparHTML(p.enunciado)}${crearBloqueImagenHTML(p)}`;
+  dom.enunciadoTexto.innerHTML = `${p.numero}. ${formatearEnunciadoHTML(p.enunciado)}${crearBloqueImagenHTML(p)}`;
   dom.alternativasLista.innerHTML = "";
   dom.feedbackBox.classList.add("hidden");
 
@@ -644,7 +652,7 @@ function renderizarRevision(evaluadas, modoMisErrores) {
           esSin ? "Sin responder" : esError ? "Error" : "Acierto"
         }</span>
       </div>
-      <div class="review-q">${escaparHTML(p.enunciado)}${crearBloqueImagenHTML(p)}</div>
+      <div class="review-q">${formatearEnunciadoHTML(p.enunciado)}${crearBloqueImagenHTML(p)}</div>
       ${bloqueReintentoHTML}
       <div class="review-meta">
         <div class="${claseMarca}">Tu respuesta anterior: <strong>${escaparHTML(textoMarca)}</strong></div>
