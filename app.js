@@ -69,6 +69,53 @@ const dom = {
   detalleRevision: document.getElementById("detalle-revision")
 };
 
+function escaparHTML(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function formatearLecturaHTML(texto) {
+  const limpio = String(texto || "").trim();
+  if (!limpio) return "";
+
+  const bloques = limpio.split(/\n\s*\n/);
+  return bloques
+    .map((bloque) => {
+      const lineas = bloque
+        .split("\n")
+        .map((l) => l.trim())
+        .filter(Boolean);
+      if (!lineas.length) return "";
+
+      const esPoema =
+        lineas.length >= 4 &&
+        lineas.every((l) => l.length <= 75 && !/[.:]$/.test(l));
+
+      if (esPoema) {
+        return `<div class="reading-poem">${lineas
+          .map((l) => escaparHTML(l))
+          .join("<br>")}</div>`;
+      }
+
+      return `<p>${lineas.map((l) => escaparHTML(l)).join("<br>")}</p>`;
+    })
+    .join("");
+}
+
+function crearBloqueImagenHTML(pregunta, altTexto) {
+  if (!pregunta || !pregunta.imagen) return "";
+  const ruta = escaparHTML(pregunta.imagen);
+  const alt = escaparHTML(altTexto || `Esquema de la pregunta ${pregunta.numero}`);
+  return `
+    <div class="question-image-wrap">
+      <img src="${ruta}" alt="${alt}" loading="lazy" onerror="this.closest('.question-image-wrap').classList.add('hidden')">
+    </div>
+  `;
+}
+
 function guardarEstado() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(estado));
 }
@@ -332,16 +379,16 @@ function renderizarPregunta() {
 
   const texto = p.textoLectura || "";
   if (texto) {
-    dom.lecturaTitulo.textContent = p.tituloLectura || "Texto de lectura";
-    dom.lecturaCuerpo.textContent = texto;
+    dom.lecturaTitulo.textContent = `📖 ${p.tituloLectura || "Texto de lectura"}`;
+    dom.lecturaCuerpo.innerHTML = formatearLecturaHTML(texto);
     dom.contextoBox.classList.remove("hidden");
   } else {
     dom.lecturaTitulo.textContent = "";
-    dom.lecturaCuerpo.textContent = "";
+    dom.lecturaCuerpo.innerHTML = "";
     dom.contextoBox.classList.add("hidden");
   }
 
-  dom.enunciadoTexto.textContent = `${p.numero}. ${p.enunciado}`;
+  dom.enunciadoTexto.innerHTML = `${p.numero}. ${escaparHTML(p.enunciado)}${crearBloqueImagenHTML(p)}`;
   dom.alternativasLista.innerHTML = "";
   dom.feedbackBox.classList.add("hidden");
 
@@ -359,7 +406,7 @@ function renderizarPregunta() {
       else if (letra === marcada) btn.classList.add("incorrect");
     }
 
-    btn.innerHTML = `<strong>${letra})</strong> <span>${p.alternativas[letra]}</span>`;
+    btn.innerHTML = `<strong>${letra})</strong> <span>${escaparHTML(p.alternativas[letra])}</span>`;
     btn.addEventListener("click", () => {
       const primeraVez = !estado.respuestas[uid];
       estado.respuestas[uid] = letra;
@@ -513,10 +560,12 @@ function calificarSimulacro() {
 function mostrarLecturaDeErrores(falladas) {
   const primeraConTexto = falladas.find((x) => x.p && x.p.textoLectura);
   if (primeraConTexto) {
-    dom.erroresLecturaTitulo.textContent = `${
+    dom.erroresLecturaTitulo.textContent = `📖 ${
       primeraConTexto.p.tituloLectura || "Texto de lectura"
     } (revisa el texto para responder)`;
-    dom.erroresLecturaCuerpo.textContent = primeraConTexto.p.textoLectura;
+    dom.erroresLecturaCuerpo.innerHTML = formatearLecturaHTML(
+      primeraConTexto.p.textoLectura
+    );
     dom.erroresLecturaBox.classList.remove("hidden");
   } else {
     dom.erroresLecturaBox.classList.add("hidden");
@@ -570,7 +619,7 @@ function renderizarRevision(evaluadas, modoMisErrores) {
             if (letra === clave) extra = "picked-ok";
             else if (letra === intentoNuevo) extra = "picked-err";
           }
-          return `<button type="button" class="retry-opt-btn ${extra}" data-uid="${uid}" data-letra="${letra}"><strong>${letra})</strong> ${p.alternativas[letra]}</button>`;
+          return `<button type="button" class="retry-opt-btn ${extra}" data-uid="${uid}" data-letra="${letra}"><strong>${letra})</strong> ${escaparHTML(p.alternativas[letra])}</button>`;
         })
         .join("");
 
@@ -590,16 +639,16 @@ function renderizarRevision(evaluadas, modoMisErrores) {
 
     card.innerHTML = `
       <div class="review-top">
-        <strong>${icono} Pregunta ${p.numero} · <span style="color:var(--muted);">${p.subprueba}</span></strong>
+        <strong>${icono} Pregunta ${p.numero} · <span style="color:var(--muted);">${escaparHTML(p.subprueba)}</span></strong>
         <span class="badge badge-slate">${
           esSin ? "Sin responder" : esError ? "Error" : "Acierto"
         }</span>
       </div>
-      <div class="review-q">${p.enunciado}</div>
+      <div class="review-q">${escaparHTML(p.enunciado)}${crearBloqueImagenHTML(p)}</div>
       ${bloqueReintentoHTML}
       <div class="review-meta">
-        <div class="${claseMarca}">Tu respuesta anterior: <strong>${textoMarca}</strong></div>
-        <div class="clave-caja">✓ Respuesta correcta: <strong>${claveTxt}</strong></div>
+        <div class="${claseMarca}">Tu respuesta anterior: <strong>${escaparHTML(textoMarca)}</strong></div>
+        <div class="clave-caja">✓ Respuesta correcta: <strong>${escaparHTML(claveTxt)}</strong></div>
       </div>
     `;
 
