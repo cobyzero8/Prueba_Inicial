@@ -36,7 +36,7 @@ const TEXTO_2_C01 = `Marie-Olympe de Gouges es una de las muy pocas mujeres de l
 
 Nació en el seno de una familia burguesa en 1748, en el suroeste de Francia. Cuando tenía 17 años, sus padres arreglaron su matrimonio con un hombre mucho mayor, del que enviudó dos años después. Nunca volvió a casarse; por el contrario, la experiencia de un matrimonio forzado hizo nacer en ella un deseo de determinación e independencia. En 1770, se mudó a París, en donde frecuentó salones literarios y conoció a los intelectuales de la Ilustración.
 
-En 1774, empezó su carrera literaria, centrada en el teatro. Su pieza más conocida, Zamore y Mirza o el naufragio feliz, en la que buscó llamar la atención sobre las injusticias de la esclavitud, fue inscrita en el repertorio de la Comédie-Française -la tropa de teatro oficial del Estado francés- en 1785. El éxito inicial de la pieza se empañó rápidamente, sin embargo, cuando se comprendió que el drama hacía una crítica velada de la trata de personas. La Comédie dependía económicamente de la corte de Versalles, en la que muchos nobles se enriquecían con la trata de esclavos en las colonias francesas. La pieza fue dejada de lado, y de Gouges cometió el error de manifestar ruidosamente su decepción al respecto. Recibió una carta oficial del Estado en la que la amenazaban de encarcelamiento en la Bastilla. Vencida en un primer momento por el miedo, fue a partir de estos sucesos que nació su compromiso político. De 1785 hasta su muerte, 8 años después, publicó incansablemente sobre todos los temas que consideró importantes.
+En 1774, empezó su carrera literaria, centrada en el teatro. Su pieza más conocida, Zamore y Mirza o el naufragio feliz, en la que buscó llamar la atención sobre las injusticias de la esclavitud, fue inscrita en el repertorio de la Comédie-Française -la tropa de teatro oficial del Estado francés- en 1985. El éxito inicial de la pieza se empañó rápidamente, sin embargo, cuando se comprendió que el drama hacía una crítica velada de la trata de personas. La Comédie dependía económicamente de la corte de Versalles, en la que muchos nobles se enriquecían con la trata de esclavos en las colonias francesas. La pieza fue dejada de lado, y de Gouges cometió el error de manifestar ruidosamente su decepción al respecto. Recibió una carta oficial del Estado en la que la amenazaban de encarcelamiento en la Bastilla. Vencida en un primer momento por el miedo, fue a partir de estos sucesos que nació su compromiso político. De 1785 hasta su muerte, 8 años después, publicó incansablemente sobre todos los temas que consideró importantes.
 
 Cuando sobrevino la Revolución francesa, en 1789, Olympe había redoblado su actividad militante, multiplicando la producción de panfletos en los que exigía la igualdad de derechos para todos los ciudadanos, independientemente de su sexo, color de piel o ingresos.
 
@@ -49,6 +49,36 @@ Alineada ideológicamente con los girondinos, la suerte de Olympe estuvo echada 
 Olympe de Gouges fue guillotinada el 3 de noviembre de 1793. Según fuentes de la época, subió al cadalso con valor y dignidad. Tiempo después, y profetizando la oscuridad que caería por más de un siglo sobre la causa por los derechos de las mujeres, un adversario político montañés la mencionó en un discurso: "Recuerden a esa mujer-hombre, la descarada Olympe de Gouges, quien quiso politiquear y cometió crímenes; todos esos seres inmorales han sido eliminados bajo el hierro vengador de las leyes!". Y dirigiéndose a las mujeres en la audiencia, agregó: "¿Y ustedes quisieran imitarlos? No, solo se sentirán dignas de estima cuando sean lo que la naturaleza ha querido que fueran. Queremos que las mujeres se respeten, y es por ello que las forzaremos a respetarse a sí mismas".
 
 Adaptado de https://www.monde-diplomatique.fr/2008/11/BLANC/16516 y https://www.infobae.com/sociedad/2017/03/08/.`;
+
+const TEXTO_3_C01 = `En un mundo cada vez más tecnificado, y frente a las nuevas tendencias del mercado laboral, la educación aparece hoy más que nunca estrechamente ligada al desarrollo económico, por lo cual suele verse como una inversión y al servicio educativo como un bien de mercado, cuando en realidad es un derecho humano y un bien público social. Así, al ser un bien público social, es la sociedad y, en especial, el Estado quienes tienen el deber de garantizarlo a todos los ciudadanos y a todas las ciudadanas de manera igualitaria, sin exclusiones de ningún tipo, a fin de que puedan ejercer plenamente sus derechos.
+
+La visión del servicio educativo como un bien de mercado implica, además, considerar que este debe responder al juego de la oferta y la demanda, a los criterios de la competitividad y a los intereses individuales y de lucro. En cambio, si el servicio educativo es entendido como un bien público social y un derecho humano, debe regirse por criterios de equidad, solidaridad, justicia social y bien común, y no debe estar sometido a las leyes del mercado ni a intereses particulares.
+
+Esta concepción de la educación como un derecho humano y un bien público social se sustenta en el hecho de que la educación es un proceso que ocurre a lo largo de toda la vida y que tiene como propósito formar personas íntegras, libres y autónomas, capaces de participar de manera activa, crítica y responsable en la vida democrática y de contribuir al desarrollo sostenible de su comunidad y de su país. Por ello, la educación no puede reducirse a una simple capacitación técnica o a la adquisición de competencias orientadas exclusivamente a la inserción laboral, sino que debe promover el desarrollo integral de las personas en todas sus dimensiones: ética, intelectual, afectiva, estética, física y social.
+
+Asimismo, concebir la educación como un bien público social supone reconocer que es una responsabilidad compartida por la familia, la escuela, la comunidad y el Estado, y que todos los actores sociales tienen un rol fundamental en su garantía y fortalecimiento. En este sentido, el Estado debe asegurar una educación de calidad para todos, con equidad e inclusión, asignando los recursos necesarios y promoviendo políticas públicas que permitan superar las desigualdades sociales y educativas que aún persisten en nuestra sociedad.
+
+Adaptado de UNESCO.`;
+
+const TEXTO_4_C01 = `Durante décadas, la industria azucarera ha financiado investigaciones científicas y campañas de comunicación orientadas a minimizar el papel del azúcar en el desarrollo de enfermedades metabólicas y cardiovasculares, desviando la atención pública hacia otros factores como el consumo de grasas saturadas o el sedentarismo. Diversos estudios históricos y epidemiológicos han puesto en evidencia que, en muchos casos, estas iniciativas no respondían a criterios estrictamente científicos, sino a intereses comerciales destinados a proteger el consumo y la rentabilidad de los productos azucarados.
+
+Frente a este panorama, organizaciones internacionales de salud y numerosos investigadores advierten sobre los riesgos asociados a un consumo excesivo de azúcares libres, particularmente aquellos presentes en bebidas azucaradas y productos ultraprocesados. El exceso de azúcares libres se ha vinculado con el incremento del sobrepeso y la obesidad, así como con un mayor riesgo de padecer diabetes tipo 2, caries dental y otras alteraciones metabólicas que afectan la salud de la población desde edades tempranas.
+
+Por ello, se ha vuelto indispensable contar con políticas públicas claras y basadas en evidencia científica independiente, libres de conflictos de interés, que protejan la salud pública. Entre estas medidas destacan el etiquetado frontal de advertencia nutricional, la regulación de la publicidad dirigida a niños y niñas, la restricción de la venta de alimentos y bebidas ultraprocesados en las escuelas y la promoción de entornos alimentarios saludables que faciliten la elección de alimentos naturales y nutritivos.
+
+Asimismo, se subraya la importancia de fortalecer la educación alimentaria y nutricional en las familias y en las instituciones educativas, de modo que niños, niñas, adolescentes y adultos puedan tomar decisiones informadas sobre su alimentación y desarrollar hábitos saludables a lo largo de toda su vida.
+
+Adaptado de OMS / OPS.`;
+
+const TEXTO_5_C01 = `En la actualidad, suele confundirse escolarización con aprendizaje, como si el simple hecho de asistir a la escuela y cumplir con un conjunto de años o grados escolares garantizara automáticamente que los estudiantes aprendan de manera significativa y desarrollen las competencias necesarias para su vida personal, ciudadana y laboral. Sin embargo, la evidencia pedagógica muestra que la escolarización es una condición necesaria para ampliar el acceso a la educación, pero no suficiente por sí sola para asegurar aprendizajes de calidad.
+
+Para que exista un verdadero aprendizaje, no basta con transmitir información de manera memorística o fragmentada ni con evaluar únicamente la capacidad de repetir datos en un examen. El aprendizaje profundo y duradero requiere de experiencias significativas, desafiantes y contextualizadas, en las que los estudiantes participen activamente, reflexionen sobre lo que hacen, vinculen los nuevos saberes con sus experiencias previas y construyan sentido a partir de la interacción con sus pares y con sus docentes.
+
+En este proceso, el rol del docente resulta decisivo. Más que limitarse a ser un mero transmisor de contenidos, el docente actúa como mediador del aprendizaje, diseñando situaciones pedagógicas pertinentes, brindando retroalimentación oportuna, fomentando un clima de confianza y respeto en el aula y atendiendo a la diversidad de ritmos, estilos y necesidades de aprendizaje de cada estudiante.
+
+De igual manera, la gestión de la institución educativa y las políticas educativas deben orientarse a colocar el aprendizaje de los estudiantes en el centro de las decisiones, asegurando condiciones adecuadas en las aulas, acompañando la práctica docente y promoviendo una cultura de mejora continua que permita que todos los estudiantes, sin excepción, alcancen los aprendizajes esperados.
+
+Adaptado de MINEDU.`;
 
 window.CUADERNILLOS.push({
   id: "C01-EBRI-11",
@@ -207,6 +237,216 @@ window.CUADERNILLOS.push({
         A: "La publicación de una pieza teatral en la que denunciaba el enriquecimiento de la nobleza a partir de la trata de esclavos.",
         B: "La manifestación pública de su disconformidad ante la exclusión de su obra del repertorio de la Comédie-Française.",
         C: "La elaboración de un cartel propagandístico en el que defendía la causa de los líderes girondinos."
+      }
+    },
+    {
+      numero: 11,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 3",
+      tituloLectura: "Texto 3 — Servicio educativo y mercado",
+      textoLectura: TEXTO_3_C01,
+      enunciado: "Según el texto, ¿qué implica concebir el servicio educativo como un bien público social?",
+      alternativas: {
+        A: "Que el Estado y la sociedad tienen el deber de garantizarlo de manera igualitaria a toda la ciudadanía.",
+        B: "Que la educación debe ajustarse a las demandas de competitividad del mercado laboral actual.",
+        C: "Que las familias asumen de forma exclusiva la financiación y el control del servicio educativo."
+      }
+    },
+    {
+      numero: 12,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 3",
+      tituloLectura: "Texto 3 — Servicio educativo y mercado",
+      textoLectura: TEXTO_3_C01,
+      enunciado: "¿Cuál es la idea central del texto?",
+      alternativas: {
+        A: "La educación técnica permite a los jóvenes insertarse con rapidez en un mercado laboral exigente.",
+        B: "La cobertura escolar se ha ampliado gracias a la competencia entre instituciones educativas.",
+        C: "La educación es un derecho humano y un bien público social orientado al desarrollo integral de las personas."
+      }
+    },
+    {
+      numero: 13,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 3",
+      tituloLectura: "Texto 3 — Servicio educativo y mercado",
+      textoLectura: TEXTO_3_C01,
+      enunciado: "Según el texto, ¿cuál de las siguientes afirmaciones corresponde a la visión del servicio educativo como un bien de mercado?",
+      alternativas: {
+        A: "Promueve el desarrollo ético, afectivo y ciudadano por encima de los intereses económicos.",
+        B: "Se orienta por la oferta y la demanda, la competitividad y los intereses individuales o de lucro.",
+        C: "Exige políticas públicas inclusivas para eliminar toda desigualdad social en el acceso a la escuela."
+      }
+    },
+    {
+      numero: 14,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 3",
+      tituloLectura: "Texto 3 — Servicio educativo y mercado",
+      textoLectura: TEXTO_3_C01,
+      enunciado: "A partir del texto, ¿qué crítica se plantea frente a reducir la educación a una simple capacitación técnica?",
+      alternativas: {
+        A: "Que encarece los costos de funcionamiento de las instituciones educativas públicas.",
+        B: "Que limita el propósito formativo integral de las personas en sus dimensiones ética, intelectual, afectiva y social.",
+        C: "Que impide que los estudiantes aprendan a utilizar nuevas tecnologías en su vida cotidiana."
+      }
+    },
+    {
+      numero: 15,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 3",
+      tituloLectura: "Texto 3 — Servicio educativo y mercado",
+      textoLectura: TEXTO_3_C01,
+      enunciado: "Según el texto, ¿quiénes comparten la responsabilidad de garantizar y fortalecer la educación como bien público social?",
+      alternativas: {
+        A: "Únicamente los docentes y directivos de las instituciones educativas.",
+        B: "Las empresas privadas vinculadas al sector tecnológico y productivo.",
+        C: "La familia, la escuela, la comunidad y el Estado."
+      }
+    },
+    {
+      numero: 16,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 4",
+      tituloLectura: "Texto 4 — Industria azucarera y nutrición",
+      textoLectura: TEXTO_4_C01,
+      enunciado: "Según el texto, ¿qué estrategia ha empleado históricamente parte de la industria azucarera?",
+      alternativas: {
+        A: "Promover el etiquetado frontal de advertencia nutricional en todos los productos ultraprocesados.",
+        B: "Financiar investigaciones y campañas para minimizar el rol del azúcar y desviar la atención hacia otros factores.",
+        C: "Retirar voluntariamente las bebidas azucaradas de las escuelas para prevenir la obesidad infantil."
+      }
+    },
+    {
+      numero: 17,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 4",
+      tituloLectura: "Texto 4 — Industria azucarera y nutrición",
+      textoLectura: TEXTO_4_C01,
+      enunciado: "¿Con qué problemas de salud se vincula el consumo excesivo de azúcares libres según el texto?",
+      alternativas: {
+        A: "Con deficiencias de vitaminas y fracturas óseas en adultos mayores.",
+        B: "Con alergias estacionales y problemas respiratorios crónicos.",
+        C: "Con sobrepeso, obesidad, diabetes tipo 2, caries dental y otras alteraciones metabólicas."
+      }
+    },
+    {
+      numero: 18,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 4",
+      tituloLectura: "Texto 4 — Industria azucarera y nutrición",
+      textoLectura: TEXTO_4_C01,
+      enunciado: "¿Cuál es una de las medidas de política pública mencionadas en el texto para proteger la salud pública?",
+      alternativas: {
+        A: "El etiquetado frontal de advertencia nutricional y la regulación de la publicidad dirigida a niños y niñas.",
+        B: "La eliminación de los impuestos a las bebidas azucaradas y productos ultraprocesados.",
+        C: "La sustitución de la educación nutricional por campañas publicitarias en medios privados."
+      }
+    },
+    {
+      numero: 19,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 4",
+      tituloLectura: "Texto 4 — Industria azucarera y nutrición",
+      textoLectura: TEXTO_4_C01,
+      enunciado: "Según el texto, ¿por qué es necesario que las políticas públicas se basen en evidencia científica independiente?",
+      alternativas: {
+        A: "Para reducir el costo de producción de los alimentos envasados.",
+        B: "Para evitar que los estudiantes elijan alimentos naturales en los quioscos escolares.",
+        C: "Para estar libres de conflictos de interés y proteger efectivamente la salud de la población."
+      }
+    },
+    {
+      numero: 20,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 4",
+      tituloLectura: "Texto 4 — Industria azucarera y nutrición",
+      textoLectura: TEXTO_4_C01,
+      enunciado: "¿Qué rol cumple la educación alimentaria y nutricional según el último párrafo?",
+      alternativas: {
+        A: "Reemplaza la necesidad de crear entornos alimentarios saludables en las escuelas.",
+        B: "Ayuda a que personas de distintas edades tomen decisiones informadas y construyan hábitos saludables.",
+        C: "Se dirige exclusivamente a los profesionales de la salud y gestores de políticas públicas."
+      }
+    },
+    {
+      numero: 21,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 5",
+      tituloLectura: "Texto 5 — Escolarización vs. aprendizaje",
+      textoLectura: TEXTO_5_C01,
+      enunciado: "Según el texto, ¿cuál es la relación entre escolarización y aprendizaje?",
+      alternativas: {
+        A: "La escolarización garantiza por sí sola que todos los estudiantes alcancen aprendizajes profundos.",
+        B: "La escolarización amplía el acceso a la educación, pero no basta por sí sola para asegurar aprendizajes de calidad.",
+        C: "El aprendizaje profundo ocurre únicamente fuera de la institución educativa."
+      }
+    },
+    {
+      numero: 22,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 5",
+      tituloLectura: "Texto 5 — Escolarización vs. aprendizaje",
+      textoLectura: TEXTO_5_C01,
+      enunciado: "¿Qué características favorecen un aprendizaje profundo y duradero de acuerdo con el texto?",
+      alternativas: {
+        A: "Experiencias significativas, desafiantes y contextualizadas con participación activa y vinculación con saberes previos.",
+        B: "La repetición literal de información para obtener altas calificaciones en exámenes escritos.",
+        C: "El trabajo individual aislado sin interacción con los pares ni retroalimentación docente."
+      }
+    },
+    {
+      numero: 23,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 5",
+      tituloLectura: "Texto 5 — Escolarización vs. aprendizaje",
+      textoLectura: TEXTO_5_C01,
+      enunciado: "¿Cuál es el rol del docente que se destaca en el texto?",
+      alternativas: {
+        A: "Limitarse a exponer contenidos de manera uniforme para todos los estudiantes.",
+        B: "Actuar como mediador del aprendizaje, diseñando situaciones pertinentes, retroalimentando y atendiendo la diversidad.",
+        C: "Evaluar únicamente la memoria de los estudiantes al finalizar cada bimestre."
+      }
+    },
+    {
+      numero: 24,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 5",
+      tituloLectura: "Texto 5 — Escolarización vs. aprendizaje",
+      textoLectura: TEXTO_5_C01,
+      enunciado: "Según el texto, ¿qué deben priorizar la gestión escolar y las políticas educativas?",
+      alternativas: {
+        A: "Colocar el aprendizaje de los estudiantes en el centro, asegurando buenas condiciones, acompañamiento y mejora continua.",
+        B: "Centrarse exclusivamente en cumplir con el número de años de permanencia en el sistema escolar.",
+        C: "Uniformizar los ritmos y estilos de aprendizaje de todos los estudiantes del aula."
+      }
+    },
+    {
+      numero: 25,
+      subprueba: "Comprensión Lectora",
+      puntos: 2,
+      textoClave: "Texto 5",
+      tituloLectura: "Texto 5 — Escolarización vs. aprendizaje",
+      textoLectura: TEXTO_5_C01,
+      enunciado: "¿Cuál es el propósito central del texto?",
+      alternativas: {
+        A: "Explicar cómo evaluar exclusivamente mediante pruebas objetivas de selección múltiple.",
+        B: "Señalar que las familias no intervienen en el logro de aprendizajes de los estudiantes.",
+        C: "Diferenciar escolarización de aprendizaje y resaltar las condiciones pedagógicas y de gestión que aseguran aprendizajes de calidad."
       }
     }
   ]
