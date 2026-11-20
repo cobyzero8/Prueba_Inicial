@@ -91,6 +91,21 @@ function actualizarIndicadorRacha() {
   dom.badgeRacha.textContent = `🔥 Racha: ${estado.rachaActual}`;
 }
 
+function actualizarVisibilidadFiltroLectura() {
+  const sub = dom.subpruebaSelect.value;
+  const campoLectura = dom.lecturaSelect.closest(".field");
+  const mostrarLectura = sub === "TODAS" || sub === "Comprensión Lectora";
+
+  if (campoLectura) {
+    campoLectura.classList.toggle("hidden", !mostrarLectura);
+  }
+
+  if (!mostrarLectura) {
+    dom.lecturaSelect.value = "TODAS";
+    estado.lectura = "TODAS";
+  }
+}
+
 function obtenerCuadernillos() {
   return Array.isArray(window.CUADERNILLOS) ? window.CUADERNILLOS : [];
 }
@@ -109,19 +124,28 @@ function obtenerClaveOficial(cuadernillo, pregunta) {
   return null;
 }
 
-function actualizarVisibilidadFiltroLectura() {
-  const sub = dom.subpruebaSelect.value;
-  const campoLectura = dom.lecturaSelect.closest(".field");
-  const mostrarLectura = sub === "TODAS" || sub === "Comprensión Lectora";
+function poblarCuadernillos() {
+  const lista = obtenerCuadernillos();
+  dom.bloqueSelect.innerHTML = "";
 
-  if (campoLectura) {
-    campoLectura.classList.toggle("hidden", !mostrarLectura);
+  lista.forEach((b) => {
+    const opt = document.createElement("option");
+    opt.value = b.id;
+    opt.textContent = b.etiqueta || b.nombre;
+    dom.bloqueSelect.appendChild(opt);
+  });
+
+  if (estado.bloqueId && lista.some((b) => b.id === estado.bloqueId)) {
+    dom.bloqueSelect.value = estado.bloqueId;
   }
 
-  if (!mostrarLectura) {
-    dom.lecturaSelect.value = "TODAS";
-    estado.lectura = "TODAS";
-  }
+  dom.modoSelect.value = estado.modo || "practica";
+  dom.subpruebaSelect.value = estado.subprueba || "TODAS";
+  dom.lecturaSelect.value = estado.lectura || "TODAS";
+
+  actualizarVisibilidadFiltroLectura();
+  actualizarResumenCuadernillo();
+  actualizarIndicadorRacha();
 }
 
 function actualizarResumenCuadernillo() {
@@ -522,6 +546,11 @@ dom.bloqueSelect.addEventListener("change", () => {
   estado.bloqueId = dom.bloqueSelect.value;
   guardarEstado();
   actualizarResumenCuadernillo();
+});
+dom.subpruebaSelect.addEventListener("change", () => {
+  estado.subprueba = dom.subpruebaSelect.value;
+  actualizarVisibilidadFiltroLectura();
+  guardarEstado();
 });
 dom.btnIniciar.addEventListener("click", iniciarSimulacro);
 dom.btnLimpiar.addEventListener("click", () => {
