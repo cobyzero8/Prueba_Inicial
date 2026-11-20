@@ -1,4 +1,4 @@
-const STORAGE_KEY = "prueba_inicial_coby_v8";
+const STORAGE_KEY = "prueba_inicial_coby_v9";
 
 const REGLAS_SUBPRUEBA = {
   "Comprensión Lectora": { puntos: 2, minimo: 30 },
@@ -97,13 +97,14 @@ function obtenerCuadernillos() {
 
 function obtenerCuadernilloSeleccionado() {
   const lista = obtenerCuadernillos();
-  return lista.find((b) => b.id === dom.bloqueSelect.value) || lista[0] || null;
+  const porId = lista.find((b) => b.id === estado.bloqueId || b.id === dom.bloqueSelect.value);
+  return porId || lista[0] || null;
 }
 
 function obtenerClaveOficial(cuadernillo, pregunta) {
-  if (pregunta.correcta) return pregunta.correcta;
-  if (cuadernillo && cuadernillo.claves && cuadernillo.claves[pregunta.numero]) {
-    return cuadernillo.claves[pregunta.numero];
+  if (pregunta && pregunta.correcta) return pregunta.correcta;
+  if (cuadernillo && cuadernillo.claves && pregunta) {
+    return cuadernillo.claves[pregunta.numero] || cuadernillo.claves[String(pregunta.numero)] || null;
   }
   return null;
 }
@@ -233,6 +234,8 @@ function registrarRacha(esCorrecta) {
 function renderizarPregunta() {
   const cuad = obtenerCuadernilloSeleccionado();
   const p = preguntasActivas[estado.indiceActual];
+  if (!cuad || !p) return;
+
   const uid = `${cuad.id}__${p.numero}`;
   const marcada = estado.respuestas[uid] || null;
   const clave = obtenerClaveOficial(cuad, p);
@@ -339,13 +342,16 @@ function calificarSimulacro() {
   dom.timerBox.classList.add("hidden");
 
   const cuad = obtenerCuadernilloSeleccionado();
+  const basePreguntas = preguntasActivas.length ? preguntasActivas : (cuad ? cuad.preguntas : []);
+  if (!cuad || !basePreguntas.length) return;
+
   let correctas = 0;
   let incorrectas = 0;
   let sinResponder = 0;
   let puntajeTotal = 0;
   const statsSubprueba = {};
 
-  ultimaEvaluacion = preguntasActivas.map((p) => {
+  ultimaEvaluacion = basePreguntas.map((p) => {
     const uid = `${cuad.id}__${p.numero}`;
     const marcada = estado.respuestas[uid] || null;
     const clave = obtenerClaveOficial(cuad, p);
@@ -373,12 +379,12 @@ function calificarSimulacro() {
     return { p, marcada, clave, resultado };
   });
 
-  const efectividad = preguntasActivas.length
-    ? ((correctas / preguntasActivas.length) * 100).toFixed(1)
+  const efectividad = basePreguntas.length
+    ? ((correctas / basePreguntas.length) * 100).toFixed(1)
     : "0.0";
 
   dom.resultadosTitulo.textContent = "Balance de tu Sesión";
-  dom.resultadoSubtitulo.textContent = `${cuad.etiqueta || cuad.codigo || cuad.id} · ${preguntasActivas.length} evaluadas`;
+  dom.resultadoSubtitulo.textContent = `${cuad.etiqueta || cuad.codigo || cuad.id} · ${basePreguntas.length} evaluadas`;
 
   const tarjetasSub = Object.entries(statsSubprueba)
     .map(([nombreSub, d]) => {
@@ -393,7 +399,7 @@ function calificarSimulacro() {
     .join("");
 
   dom.resumenPuntaje.innerHTML = `
-    <div class="stat-box"><div class="stat-num">${correctas}/${preguntasActivas.length}</div><div class="stat-desc">Correctas</div></div>
+    <div class="stat-box"><div class="stat-num">${correctas}/${basePreguntas.length}</div><div class="stat-desc">Correctas</div></div>
     <div class="stat-box"><div class="stat-num">${incorrectas}</div><div class="stat-desc">Incorrectas</div></div>
     <div class="stat-box"><div class="stat-num">${sinResponder}</div><div class="stat-desc">Sin responder</div></div>
     <div class="stat-box"><div class="stat-num">${efectividad}%</div><div class="stat-desc">Efectividad</div></div>
@@ -404,13 +410,14 @@ function calificarSimulacro() {
   renderizarRevision(ultimaEvaluacion, false);
 
   dom.quizPanel.classList.add("hidden");
+  dom.setupPanel.classList.add("hidden");
   dom.resultsPanel.classList.remove("hidden");
 }
 
 function mostrarLecturaDeErrores(falladas) {
   const primeraConTexto = falladas.find((x) => x.p && x.p.textoLectura);
   if (primeraConTexto) {
-    dom.erroresLecturaTitulo.textContent = `${primeraConTexto.p.tituloLectura || "Texto de lectura"} (para revisar tus fallas)`;
+    dom.erroresLecturaTitulo.textContent = `${primeraConTexto.p.tituloLectura || "Texto de lectura"} (revisa el texto para responder)`;
     dom.erroresLecturaCuerpo.textContent = primeraConTexto.p.textoLectura;
     dom.erroresLecturaBox.classList.remove("hidden");
   } else {
@@ -473,8 +480,8 @@ function renderizarRevision(evaluadas, modoMisErrores) {
       if (intentoNuevo) {
         estadoReintentoMsg =
           intentoNuevo === clave
-            ? `<div class="feedback-banner feedback-ok">¡Muy bien! Ahora marcaste (${intentoNuevo}) y es la respuesta correcta.</div>`
-            : `<div class="feedback-banner feedback-err">Aún no: elegiste (${intentoNuevo}). Revisa el texto o la clave verde.</div>`;
+            ? `<div class="feedback-banner feedback-ok">¡Muy bien! Marcaste (${intentoNuevo}) y es la respuesta correcta.</div>`
+            : `<div class="feedback-banner feedback-err">Aún no: elegiste (${intentoNuevo}). Revisa el texto o la respuesta correcta.</div>`;
       }
 
       bloqueReintentoHTML = `
@@ -519,7 +526,11 @@ dom.btnTema.addEventListener("click", () => {
   aplicarTema();
   guardarEstado();
 });
-dom.bloqueSelect.addEventListener("change", actualizarResumenCuadernillo);
+dom.bloqueSelect.addEventListener("change", () => {
+  estado.bloqueId = dom.bloqueSelect.value;
+  guardarEstado();
+  actualizarResumenCuadernillo();
+});
 dom.btnIniciar.addEventListener("click", iniciarSimulacro);
 dom.btnLimpiar.addEventListener("click", () => {
   localStorage.removeItem(STORAGE_KEY);
