@@ -94,7 +94,7 @@ function actualizarIndicadorRacha() {
 function actualizarVisibilidadFiltroLectura() {
   const sub = dom.subpruebaSelect.value;
   const campoLectura = dom.lecturaSelect.closest(".field");
-  const mostrarLectura = sub === "TODAS" || sub === "Comprensión Lectora";
+  const mostrarLectura = sub === "Comprensión Lectora";
 
   if (campoLectura) {
     campoLectura.classList.toggle("hidden", !mostrarLectura);
