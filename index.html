@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prueba Inicial — Simulacro Docente EBR</title>
+  <title>Simulador de Evaluación Docente — Nivel Inicial</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <div class="brand">
-        <span class="brand-tag">EBR NIVEL INICIAL · NOMBRAMIENTO</span>
-        <h1>Plataforma de Simulacros Docentes</h1>
-        <p class="subtitle">Lecturas completas, confort visual y práctica de errores</p>
+      <div>
+        <span class="brand-tag">SIMULADOR DOCENTE · MINEDU</span>
+        <h1>Evaluación Docente — Nivel Inicial</h1>
+        <p class="subtitle">Práctica por subprueba, revisión inmediata y reintento de errores</p>
       </div>
       <div class="topbar-actions">
-        <button id="btn-tema" type="button" class="theme-btn">🌙 Modo Noche</button>
-        <div id="timer-box" class="timer-pill hidden" aria-live="polite">
+        <span class="chip" id="racha-chip">Racha actual: 0 · Récord: 0</span>
+        <button type="button" class="theme-btn" id="btn-tema">🌙 Modo Noche</button>
+        <div class="timer-pill hidden" id="timer-box">
           <span>⏱️</span>
           <span id="timer-display">00:00</span>
         </div>
       </div>
     </header>
 
-    <!-- CONFIGURACIÓN -->
-    <section id="setup-panel" class="panel">
+    <section class="panel" id="setup-panel">
       <div class="panel-head">
         <h2>Prepara tu sesión de estudio</h2>
-        <span id="racha-chip" class="chip">Racha actual: 0 · Récord: 0</span>
+        <span class="chip">Claves oficiales cargadas</span>
       </div>
 
       <div class="config-grid">
@@ -39,12 +39,10 @@
         <div class="field">
           <label for="subprueba-select">Subprueba</label>
           <select id="subprueba-select">
-            <option value="TODAS">Todas las preguntas cargadas</option>
+            <option value="TODAS">Todas las subpruebas</option>
             <option value="Comprensión Lectora">Comprensión Lectora</option>
             <option value="Razonamiento Lógico">Razonamiento Lógico</option>
-            <option value="Conocimientos Curriculares y Pedagógicos de la Especialidad">
-              Conocimientos Curriculares y Pedagógicos de la Especialidad
-            </option>
+            <option value="Conocimientos Curriculares y Pedagógicos de la Especialidad">Conocimientos Curriculares y Pedagógicos de la Especialidad</option>
           </select>
         </div>
 
@@ -64,82 +62,81 @@
           <label for="modo-select">Modo de estudio</label>
           <select id="modo-select">
             <option value="practica">Práctica guiada (clave y feedback al instante)</option>
-            <option value="examen">Simulacro cronometrado (calificación al final)</option>
+            <option value="examen">Simulacro de examen (evaluación al finalizar)</option>
           </select>
         </div>
 
         <div class="field">
           <label for="minutos-input">Tiempo límite (min, 0 = libre)</label>
-          <input id="minutos-input" type="number" min="0" max="360" value="45" />
+          <input type="number" id="minutos-input" min="0" max="300" value="45" />
         </div>
       </div>
 
-      <div id="bloque-info" class="info-card"></div>
+      <div class="info-card" id="bloque-info"></div>
 
       <div class="btn-row">
-        <button id="btn-iniciar" type="button" class="btn btn-primary">Iniciar prueba</button>
-        <button id="btn-limpiar-progreso" type="button" class="btn btn-ghost">Reiniciar progreso</button>
+        <button type="button" class="btn btn-primary" id="btn-iniciar">Iniciar prueba</button>
+        <button type="button" class="btn btn-ghost" id="btn-limpiar-progreso">Reiniciar progreso</button>
       </div>
     </section>
 
-    <!-- RESOLUCIÓN -->
-    <section id="quiz-panel" class="panel hidden">
+    <section class="panel hidden" id="quiz-panel">
       <div class="quiz-top">
         <div class="badges">
-          <span id="badge-bloque" class="badge badge-teal"></span>
-          <span id="badge-subprueba" class="badge badge-slate"></span>
-          <span id="badge-racha" class="badge badge-amber">🔥 Racha: 0</span>
+          <span class="badge badge-teal" id="badge-bloque"></span>
+          <span class="badge badge-amber" id="badge-subprueba"></span>
+          <span class="badge badge-slate" id="badge-racha">🔥 Racha: 0</span>
         </div>
-        <div id="contador-pregunta" class="question-counter"></div>
+        <span class="question-counter" id="contador-pregunta"></span>
       </div>
 
       <div class="progress-track">
-        <div id="progress-fill" class="progress-fill"></div>
+        <div class="progress-fill" id="progress-fill"></div>
       </div>
 
-      <article id="contexto-box" class="reading-box hidden">
-        <div id="lectura-titulo" class="reading-header"></div>
-        <div id="lectura-cuerpo" class="reading-body"></div>
+      <article class="reading-box hidden" id="contexto-box">
+        <div class="reading-header" id="lectura-titulo"></div>
+        <div class="reading-body" id="lectura-cuerpo"></div>
       </article>
 
-      <h3 id="enunciado-texto" class="question-title"></h3>
+      <h2 class="question-title" id="enunciado-texto"></h2>
+      <div class="options-list" id="alternativas-lista"></div>
+      <div class="feedback-banner hidden" id="feedback-box"></div>
 
-      <div id="alternativas-lista" class="options-list"></div>
-      <div id="feedback-box" class="feedback-banner hidden"></div>
-
-      <div class="btn-row nav-actions">
-        <button id="btn-anterior" type="button" class="btn btn-secondary">← Anterior</button>
-        <button id="btn-siguiente" type="button" class="btn btn-secondary">Siguiente →</button>
-        <button id="btn-finalizar" type="button" class="btn btn-success">Finalizar y Ver Puntaje</button>
+      <div class="btn-row">
+        <button type="button" class="btn btn-secondary" id="btn-anterior">← Anterior</button>
+        <button type="button" class="btn btn-secondary" id="btn-siguiente">Siguiente →</button>
+        <button type="button" class="btn btn-success" id="btn-finalizar">Finalizar y Ver Puntaje</button>
       </div>
 
       <div class="map-section">
-        <div class="map-label">Avance rápido de preguntas en esta sesión</div>
-        <div id="mapa-preguntas" class="question-map"></div>
+        <div class="map-label">Mapa de preguntas (clic para saltar)</div>
+        <div class="question-map" id="mapa-preguntas"></div>
       </div>
     </section>
 
-    <!-- RESULTADOS Y MIS ERRORES -->
-    <section id="results-panel" class="panel hidden">
+    <section class="panel hidden" id="results-panel">
       <div class="panel-head">
-        <h2 id="resultados-titulo">Balance de tu Sesión</h2>
-        <span id="resultado-subtitulo" class="chip"></span>
+        <div>
+          <h2 id="resultados-titulo">Balance de tu Sesión</h2>
+          <p class="subtitle" id="resultado-subtitulo"></p>
+        </div>
       </div>
 
-      <div id="resumen-puntaje" class="stats-grid"></div>
+      <div class="stats-grid" id="resumen-puntaje"></div>
 
       <div class="btn-row">
-        <button id="btn-mis-errores" type="button" class="btn btn-warning">Mis errores (practicar aquí)</button>
-        <button id="btn-ver-todas" type="button" class="btn btn-secondary">Ver todas</button>
-        <button id="btn-volver-inicio" type="button" class="btn btn-primary">Nueva prueba</button>
+        <button type="button" class="btn btn-warning" id="btn-mis-errores">Mis errores (volver a responder)</button>
+        <button type="button" class="btn btn-secondary" id="btn-ver-todas">Ver todas las preguntas</button>
+        <button type="button" class="btn btn-primary" id="btn-volver-inicio">Volver a configurar</button>
       </div>
 
-      <div id="errores-lectura-box" class="reading-box hidden" style="margin-top:18px;">
-        <div id="errores-lectura-titulo" class="reading-header"></div>
-        <div id="errores-lectura-cuerpo" class="reading-body"></div>
-      </div>
+      <article class="reading-box hidden" id="errores-lectura-box" style="margin-top:18px;">
+        <div class="reading-header" id="errores-lectura-titulo"></div>
+        <div class="reading-body" id="errores-lectura-cuerpo"></div>
+      </article>
 
-      <div id="detalle-revision" class="review-list"></div>
+      <div class="review-list" id="detalle-revision"></div>
     </section>
   </div>
 
