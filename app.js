@@ -492,6 +492,34 @@ function mostrarLecturaDeErrores(falladas) {
     dom.erroresLecturaBox.classList.add("hidden");
   }
 }
+function actualizarOpcionesLectura() {
+  const cuad = obtenerCuadernilloSeleccionado();
+  if (!cuad || !dom.lecturaSelect) return;
+
+  const mapaLecturas = new Map();
+  cuad.preguntas.forEach((p) => {
+    if (p.textoClave && !mapaLecturas.has(p.textoClave)) {
+      mapaLecturas.set(p.textoClave, p.tituloLectura || p.textoClave);
+    }
+  });
+
+  const seleccionPrevia = dom.lecturaSelect.value;
+  dom.lecturaSelect.innerHTML = `<option value="TODAS">Todas las lecturas cargadas</option>`;
+
+  mapaLecturas.forEach((titulo, clave) => {
+    const opt = document.createElement("option");
+    opt.value = clave;
+    opt.textContent = titulo;
+    dom.lecturaSelect.appendChild(opt);
+  });
+
+  if (mapaLecturas.has(seleccionPrevia)) {
+    dom.lecturaSelect.value = seleccionPrevia;
+  } else {
+    dom.lecturaSelect.value = "TODAS";
+    estado.lectura = "TODAS";
+  }
+}
 
 function renderizarRevision(evaluadas, modoMisErrores) {
   const cuad = obtenerCuadernilloSeleccionado();
