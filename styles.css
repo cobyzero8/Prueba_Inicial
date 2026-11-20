@@ -59,7 +59,7 @@ body {
 }
 
 .app-shell {
-  max-width: 980px;
+  max-width: 1020px;
   margin: 0 auto;
 }
 
@@ -151,11 +151,11 @@ body.theme-noche .timer-pill {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .panel-head h2 {
-  font-size: 1.22rem;
+  font-size: 1.24rem;
 }
 
 .chip {
@@ -170,44 +170,52 @@ body.theme-noche .timer-pill {
 
 .config-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   gap: 16px;
+  align-items: end;
 }
 
 .field {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 6px;
+  min-width: 0;
 }
 
 .field label {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 700;
   color: var(--muted);
+  line-height: 1.3;
 }
 
 select,
 input[type="number"] {
   width: 100%;
+  min-width: 0;
   padding: 11px 13px;
   border: 1.5px solid var(--border);
   border-radius: 11px;
   background: var(--reading-bg);
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 0.94rem;
+  text-overflow: ellipsis;
 }
 
 select:focus,
 input[type="number"]:focus {
   outline: none;
   border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
 }
 
 .info-card {
-  margin-top: 18px;
-  padding: 15px 17px;
+  margin-top: 20px;
+  padding: 16px 18px;
   border-radius: 12px;
   background: var(--surface-alt);
+  border: 1px solid var(--border);
   border-left: 4px solid var(--primary);
   font-size: 0.93rem;
 }
@@ -272,9 +280,14 @@ body.theme-noche .btn-warning {
 }
 
 .btn-ghost {
-  background: transparent;
+  background: var(--reading-bg);
   color: var(--muted);
   border: 1.5px solid var(--border);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--muted);
 }
 
 .quiz-top {
@@ -613,6 +626,20 @@ body.theme-noche .map-btn.active {
   border: 2px solid var(--danger-border);
   color: var(--danger);
   font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .panel {
+    padding: 18px 16px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .btn-row .btn {
+    flex: 1 1 auto;
+  }
 }
 
 .hidden {
