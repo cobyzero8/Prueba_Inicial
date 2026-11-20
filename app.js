@@ -109,27 +109,19 @@ function obtenerClaveOficial(cuadernillo, pregunta) {
   return null;
 }
 
-function poblarCuadernillos() {
-  const lista = obtenerCuadernillos();
-  dom.bloqueSelect.innerHTML = "";
+function actualizarVisibilidadFiltroLectura() {
+  const sub = dom.subpruebaSelect.value;
+  const campoLectura = dom.lecturaSelect.closest(".field");
+  const mostrarLectura = sub === "TODAS" || sub === "Comprensión Lectora";
 
-  lista.forEach((b) => {
-    const opt = document.createElement("option");
-    opt.value = b.id;
-    opt.textContent = b.etiqueta || b.nombre;
-    dom.bloqueSelect.appendChild(opt);
-  });
-
-  if (estado.bloqueId && lista.some((b) => b.id === estado.bloqueId)) {
-    dom.bloqueSelect.value = estado.bloqueId;
+  if (campoLectura) {
+    campoLectura.classList.toggle("hidden", !mostrarLectura);
   }
 
-  dom.modoSelect.value = estado.modo || "practica";
-  dom.subpruebaSelect.value = estado.subprueba || "TODAS";
-  dom.lecturaSelect.value = estado.lectura || "TODAS";
-
-  actualizarResumenCuadernillo();
-  actualizarIndicadorRacha();
+  if (!mostrarLectura) {
+    dom.lecturaSelect.value = "TODAS";
+    estado.lectura = "TODAS";
+  }
 }
 
 function actualizarResumenCuadernillo() {
