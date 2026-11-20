@@ -676,6 +676,14 @@ body.theme-noche .map-btn.active {
   color: var(--danger);
   font-weight: 700;
 }
+.clave-palabra {
+  background: transparent;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  font-weight: 800;
+}
 
 @media (max-width: 600px) {
   .panel {
