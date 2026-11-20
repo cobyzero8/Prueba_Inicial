@@ -150,6 +150,38 @@ function obtenerClaveOficial(cuadernillo, pregunta) {
   return null;
 }
 
+function actualizarOpcionesLectura() {
+  const cuad = obtenerCuadernilloSeleccionado();
+  if (!cuad || !dom.lecturaSelect) return;
+
+  const mapaLecturas = new Map();
+  cuad.preguntas.forEach((p) => {
+    if (p.subprueba === "Comprensión Lectora" && p.textoClave) {
+      if (!mapaLecturas.has(p.textoClave)) {
+        mapaLecturas.set(p.textoClave, p.tituloLectura || p.textoClave);
+      }
+    }
+  });
+
+  const seleccionPrevia = estado.lectura || dom.lecturaSelect.value || "TODAS";
+  dom.lecturaSelect.innerHTML = `<option value="TODAS">Todas las lecturas cargadas</option>`;
+
+  mapaLecturas.forEach((titulo, clave) => {
+    const opt = document.createElement("option");
+    opt.value = clave;
+    opt.textContent = titulo;
+    dom.lecturaSelect.appendChild(opt);
+  });
+
+  if (seleccionPrevia && mapaLecturas.has(seleccionPrevia)) {
+    dom.lecturaSelect.value = seleccionPrevia;
+    estado.lectura = seleccionPrevia;
+  } else {
+    dom.lecturaSelect.value = "TODAS";
+    estado.lectura = "TODAS";
+  }
+}
+
 function poblarCuadernillos() {
   const lista = obtenerCuadernillos();
   dom.bloqueSelect.innerHTML = "";
@@ -169,10 +201,8 @@ function poblarCuadernillos() {
   if (dom.subpruebaSelect) {
     dom.subpruebaSelect.value = estado.subprueba || "TODAS";
   }
-  if (dom.lecturaSelect) {
-    dom.lecturaSelect.value = estado.lectura || "TODAS";
-  }
 
+  actualizarOpcionesLectura();
   actualizarVisibilidadFiltroLectura();
   actualizarResumenCuadernillo();
   actualizarIndicadorRacha();
@@ -492,34 +522,6 @@ function mostrarLecturaDeErrores(falladas) {
     dom.erroresLecturaBox.classList.add("hidden");
   }
 }
-function actualizarOpcionesLectura() {
-  const cuad = obtenerCuadernilloSeleccionado();
-  if (!cuad || !dom.lecturaSelect) return;
-
-  const mapaLecturas = new Map();
-  cuad.preguntas.forEach((p) => {
-    if (p.textoClave && !mapaLecturas.has(p.textoClave)) {
-      mapaLecturas.set(p.textoClave, p.tituloLectura || p.textoClave);
-    }
-  });
-
-  const seleccionPrevia = dom.lecturaSelect.value;
-  dom.lecturaSelect.innerHTML = `<option value="TODAS">Todas las lecturas cargadas</option>`;
-
-  mapaLecturas.forEach((titulo, clave) => {
-    const opt = document.createElement("option");
-    opt.value = clave;
-    opt.textContent = titulo;
-    dom.lecturaSelect.appendChild(opt);
-  });
-
-  if (mapaLecturas.has(seleccionPrevia)) {
-    dom.lecturaSelect.value = seleccionPrevia;
-  } else {
-    dom.lecturaSelect.value = "TODAS";
-    estado.lectura = "TODAS";
-  }
-}
 
 function renderizarRevision(evaluadas, modoMisErrores) {
   const cuad = obtenerCuadernilloSeleccionado();
@@ -626,6 +628,8 @@ dom.btnTema.addEventListener("click", () => {
 });
 dom.bloqueSelect.addEventListener("change", () => {
   estado.bloqueId = dom.bloqueSelect.value;
+  estado.lectura = "TODAS";
+  actualizarOpcionesLectura();
   guardarEstado();
   actualizarResumenCuadernillo();
 });
@@ -636,15 +640,23 @@ if (dom.subpruebaSelect) {
     guardarEstado();
   });
 }
+if (dom.lecturaSelect) {
+  dom.lecturaSelect.addEventListener("change", () => {
+    estado.lectura = dom.lecturaSelect.value;
+    guardarEstado();
+  });
+}
 dom.btnIniciar.addEventListener("click", iniciarSimulacro);
 dom.btnLimpiar.addEventListener("click", () => {
   localStorage.removeItem(STORAGE_KEY);
   estado.respuestas = {};
   estado.reintentos = {};
   estado.indiceActual = 0;
+  estado.lectura = "TODAS";
   estado.rachaActual = 0;
   estado.mejorRacha = 0;
   guardarEstado();
+  actualizarOpcionesLectura();
   actualizarIndicadorRacha();
   alert("Progreso reiniciado.");
 });
@@ -672,6 +684,7 @@ dom.btnTodas.addEventListener("click", () =>
 dom.btnInicio.addEventListener("click", () => {
   dom.resultsPanel.classList.add("hidden");
   dom.setupPanel.classList.remove("hidden");
+  actualizarOpcionesLectura();
   actualizarResumenCuadernillo();
 });
 
