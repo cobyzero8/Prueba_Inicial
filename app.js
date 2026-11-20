@@ -28,7 +28,9 @@ const dom = {
   btnTema: document.getElementById("btn-tema"),
   rachaChip: document.getElementById("racha-chip"),
   bloqueSelect: document.getElementById("bloque-select"),
-  subpruebaSelect: document.getElementById("subprueba-select"),
+  subpruebaSelect:
+    document.getElementById("subprueba-select") ||
+    document.getElementById("modulo-select"),
   lecturaSelect: document.getElementById("lectura-select"),
   modoSelect: document.getElementById("modo-select"),
   minutosInput: document.getElementById("minutos-input"),
@@ -92,12 +94,19 @@ function actualizarIndicadorRacha() {
 }
 
 function actualizarVisibilidadFiltroLectura() {
-  const selectSub = dom.subpruebaSelect || document.getElementById("subprueba-select") || document.getElementById("modulo-select");
+  const selectSub =
+    dom.subpruebaSelect ||
+    document.getElementById("subprueba-select") ||
+    document.getElementById("modulo-select");
   const selectLec = dom.lecturaSelect || document.getElementById("lectura-select");
   if (!selectSub || !selectLec) return;
 
   const valor = String(selectSub.value || "").trim().toUpperCase();
-  const textoSeleccionado = String(selectSub.options[selectSub.selectedIndex]?.textContent || "").trim().toUpperCase();
+  const textoSeleccionado = String(
+    selectSub.options[selectSub.selectedIndex]?.textContent || ""
+  )
+    .trim()
+    .toUpperCase();
 
   const esComprension =
     valor === "COMPRENSIÓN LECTORA" ||
@@ -123,14 +132,20 @@ function obtenerCuadernillos() {
 
 function obtenerCuadernilloSeleccionado() {
   const lista = obtenerCuadernillos();
-  const porId = lista.find((b) => b.id === estado.bloqueId || b.id === dom.bloqueSelect.value);
+  const porId = lista.find(
+    (b) => b.id === estado.bloqueId || b.id === dom.bloqueSelect.value
+  );
   return porId || lista[0] || null;
 }
 
 function obtenerClaveOficial(cuadernillo, pregunta) {
   if (pregunta && pregunta.correcta) return pregunta.correcta;
   if (cuadernillo && cuadernillo.claves && pregunta) {
-    return cuadernillo.claves[pregunta.numero] || cuadernillo.claves[String(pregunta.numero)] || null;
+    return (
+      cuadernillo.claves[pregunta.numero] ||
+      cuadernillo.claves[String(pregunta.numero)] ||
+      null
+    );
   }
   return null;
 }
@@ -151,8 +166,12 @@ function poblarCuadernillos() {
   }
 
   dom.modoSelect.value = estado.modo || "practica";
-  dom.subpruebaSelect.value = estado.subprueba || "TODAS";
-  dom.lecturaSelect.value = estado.lectura || "TODAS";
+  if (dom.subpruebaSelect) {
+    dom.subpruebaSelect.value = estado.subprueba || "TODAS";
+  }
+  if (dom.lecturaSelect) {
+    dom.lecturaSelect.value = estado.lectura || "TODAS";
+  }
 
   actualizarVisibilidadFiltroLectura();
   actualizarResumenCuadernillo();
@@ -190,20 +209,27 @@ function iniciarSimulacro() {
   const cuad = obtenerCuadernilloSeleccionado();
   if (!cuad) return;
 
+  actualizarVisibilidadFiltroLectura();
+
   estado.bloqueId = cuad.id;
   estado.modo = dom.modoSelect.value;
-  estado.subprueba = dom.subpruebaSelect.value;
-  estado.lectura = dom.lecturaSelect.value;
+  estado.subprueba = dom.subpruebaSelect ? dom.subpruebaSelect.value : "TODAS";
+  estado.lectura = dom.lecturaSelect ? dom.lecturaSelect.value : "TODAS";
   estado.indiceActual = 0;
 
   preguntasActivas = cuad.preguntas.filter((p) => {
     const pasaSub = estado.subprueba === "TODAS" || p.subprueba === estado.subprueba;
-    const pasaLec = estado.lectura === "TODAS" || p.textoClave === estado.lectura;
+    const pasaLec =
+      estado.subprueba !== "Comprensión Lectora" ||
+      estado.lectura === "TODAS" ||
+      p.textoClave === estado.lectura;
     return pasaSub && pasaLec;
   });
 
   if (!preguntasActivas.length) {
-    alert("No hay preguntas cargadas para ese filtro en este cuadernillo. Cambia el filtro de lectura o subprueba.");
+    alert(
+      "No hay preguntas cargadas para ese filtro en este cuadernillo. Cambia el filtro de lectura o subprueba."
+    );
     return;
   }
 
@@ -369,7 +395,11 @@ function calificarSimulacro() {
   dom.timerBox.classList.add("hidden");
 
   const cuad = obtenerCuadernilloSeleccionado();
-  const basePreguntas = preguntasActivas.length ? preguntasActivas : (cuad ? cuad.preguntas : []);
+  const basePreguntas = preguntasActivas.length
+    ? preguntasActivas
+    : cuad
+    ? cuad.preguntas
+    : [];
   if (!cuad || !basePreguntas.length) return;
 
   let correctas = 0;
@@ -382,11 +412,18 @@ function calificarSimulacro() {
     const uid = `${cuad.id}__${p.numero}`;
     const marcada = estado.respuestas[uid] || null;
     const clave = obtenerClaveOficial(cuad, p);
-    const regla = REGLAS_SUBPRUEBA[p.subprueba] || { puntos: p.puntos ?? 2, minimo: null };
+    const regla = REGLAS_SUBPRUEBA[p.subprueba] || {
+      puntos: p.puntos ?? 2,
+      minimo: null
+    };
     const pts = p.puntos ?? regla.puntos;
 
     if (!statsSubprueba[p.subprueba]) {
-      statsSubprueba[p.subprueba] = { aciertos: 0, puntaje: 0, minimo: regla.minimo };
+      statsSubprueba[p.subprueba] = {
+        aciertos: 0,
+        puntaje: 0,
+        minimo: regla.minimo
+      };
     }
 
     let resultado = "sin";
@@ -411,7 +448,9 @@ function calificarSimulacro() {
     : "0.0";
 
   dom.resultadosTitulo.textContent = "Balance de tu Sesión";
-  dom.resultadoSubtitulo.textContent = `${cuad.etiqueta || cuad.codigo || cuad.id} · ${basePreguntas.length} evaluadas`;
+  dom.resultadoSubtitulo.textContent = `${
+    cuad.etiqueta || cuad.codigo || cuad.id
+  } · ${basePreguntas.length} evaluadas`;
 
   const tarjetasSub = Object.entries(statsSubprueba)
     .map(([nombreSub, d]) => {
@@ -444,7 +483,9 @@ function calificarSimulacro() {
 function mostrarLecturaDeErrores(falladas) {
   const primeraConTexto = falladas.find((x) => x.p && x.p.textoLectura);
   if (primeraConTexto) {
-    dom.erroresLecturaTitulo.textContent = `${primeraConTexto.p.tituloLectura || "Texto de lectura"} (revisa el texto para responder)`;
+    dom.erroresLecturaTitulo.textContent = `${
+      primeraConTexto.p.tituloLectura || "Texto de lectura"
+    } (revisa el texto para responder)`;
     dom.erroresLecturaCuerpo.textContent = primeraConTexto.p.textoLectura;
     dom.erroresLecturaBox.classList.remove("hidden");
   } else {
@@ -520,7 +561,9 @@ function renderizarRevision(evaluadas, modoMisErrores) {
     card.innerHTML = `
       <div class="review-top">
         <strong>${icono} Pregunta ${p.numero} · <span style="color:var(--muted);">${p.subprueba}</span></strong>
-        <span class="badge badge-slate">${esSin ? "Sin responder" : esError ? "Error" : "Acierto"}</span>
+        <span class="badge badge-slate">${
+          esSin ? "Sin responder" : esError ? "Error" : "Acierto"
+        }</span>
       </div>
       <div class="review-q">${p.enunciado}</div>
       ${bloqueReintentoHTML}
@@ -558,11 +601,13 @@ dom.bloqueSelect.addEventListener("change", () => {
   guardarEstado();
   actualizarResumenCuadernillo();
 });
-dom.subpruebaSelect.addEventListener("change", () => {
-  estado.subprueba = dom.subpruebaSelect.value;
-  actualizarVisibilidadFiltroLectura();
-  guardarEstado();
-});
+if (dom.subpruebaSelect) {
+  dom.subpruebaSelect.addEventListener("change", () => {
+    estado.subprueba = dom.subpruebaSelect.value;
+    actualizarVisibilidadFiltroLectura();
+    guardarEstado();
+  });
+}
 dom.btnIniciar.addEventListener("click", iniciarSimulacro);
 dom.btnLimpiar.addEventListener("click", () => {
   localStorage.removeItem(STORAGE_KEY);
@@ -590,8 +635,12 @@ dom.btnSiguiente.addEventListener("click", () => {
   }
 });
 dom.btnFinalizar.addEventListener("click", calificarSimulacro);
-dom.btnMisErrores.addEventListener("click", () => renderizarRevision(ultimaEvaluacion, true));
-dom.btnTodas.addEventListener("click", () => renderizarRevision(ultimaEvaluacion, false));
+dom.btnMisErrores.addEventListener("click", () =>
+  renderizarRevision(ultimaEvaluacion, true)
+);
+dom.btnTodas.addEventListener("click", () =>
+  renderizarRevision(ultimaEvaluacion, false)
+);
 dom.btnInicio.addEventListener("click", () => {
   dom.resultsPanel.classList.add("hidden");
   dom.setupPanel.classList.remove("hidden");
