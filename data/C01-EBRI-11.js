@@ -138,7 +138,7 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 1",
       tituloLectura: "Texto 1 — La tejedora",
       textoLectura: TEXTO_1_C01,
-      enunciado: "¿Cuál de las siguientes afirmaciones se puede concluir del texto?",
+      enunciado: "¿Cuál de las siguientes afirmaciones se puede <mark class="clave-palabra">concluir</mark> del texto?",
       alternativas: {
         A: "La mujer podía tejer todos los alimentos que quería comer.",
         B: "La mujer decidió provocar la nieve mientras tejía el palacio.",
@@ -152,7 +152,7 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 1",
       tituloLectura: "Texto 1 — La tejedora",
       textoLectura: TEXTO_1_C01,
-      enunciado: "¿Cuál es la razón principal por la que a la tejedora 'le pareció que su tristeza era más grande que el palacio'?",
+      enunciado: "¿Cuál es la razón <mark class="clave-palabra">principal</mark> por la que a la tejedora 'le pareció que su tristeza era más grande que el palacio'?",
       alternativas: {
         A: "Porque su esposo se olvidó de la idea de tener hijos junto a ella.",
         B: "Porque su esposo la había aislado en la torre más alta del palacio.",
