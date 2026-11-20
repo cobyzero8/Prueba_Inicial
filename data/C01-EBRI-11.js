@@ -448,6 +448,356 @@ window.CUADERNILLOS.push({
         B: "Señalar que las familias no intervienen en el logro de aprendizajes de los estudiantes.",
         C: "Diferenciar escolarización de aprendizaje y resaltar las condiciones pedagógicas y de gestión que aseguran aprendizajes de calidad."
       }
+    },
+    {
+      numero: 26,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Un estudiante emplea ocho horas del día en dormir, seis horas en sus labores académicas y tres horas en alimentarse. ¿Qué parte del día le queda para realizar otras actividades?",
+      alternativas: {
+        A: "7/24",
+        B: "9/24",
+        C: "17/24"
+      }
+    },
+    {
+      numero: 27,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Una heladería ofrece los siguientes sabores de helado: vainilla, fresa, chocolate y lúcuma acompañados de un tipo de recubrimiento que puede ser mermelada, pecanas o frutas confitadas. Si solo se puede elegir un sabor de helado y un tipo de recubrimiento, ¿cuántas combinaciones diferentes se pueden pedir?",
+      alternativas: {
+        A: "7",
+        B: "12",
+        C: "24"
+      }
+    },
+    {
+      numero: 28,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Adrián, Bruno y Cristian viven en un edificio de tres pisos, cada uno en un piso distinto. Uno de ellos es dentista, otro es profesor y el otro es taxista. Se sabe que: El dentista vive inmediatamente debajo de Cristian. Adrián vive entre el profesor y Bruno. ¿Cuál de las siguientes afirmaciones es verdadera?",
+      alternativas: {
+        A: "El taxista vive en el segundo piso.",
+        B: "El dentista vive en el primer piso.",
+        C: "Bruno es el taxista."
+      }
+    },
+    {
+      numero: 29,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Dada la siguiente secuencia: RUSIA2018RUSIA2018RUSIA2018RUS... Considerando el orden de izquierda a derecha, ¿cuál es la letra o cifra que ocupa el lugar 100?",
+      alternativas: {
+        A: "R",
+        B: "8",
+        C: "A"
+      }
+    },
+    {
+      numero: 30,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Lea con atención las siguientes premisas: Todos los trabajadores de la empresa E han estudiado en el instituto T. Todos los que han estudiado en el instituto T han llevado un curso de reciclaje. A partir de las premisas anteriores, ¿qué se puede inferir?",
+      alternativas: {
+        A: "Todos los que han llevado un curso de reciclaje trabajan en la empresa E.",
+        B: "Todos los trabajadores de la empresa E han llevado un curso de reciclaje.",
+        C: "Solo los que trabajan en la empresa E han llevado un curso de reciclaje."
+      }
+    },
+    {
+      numero: 31,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Si se sabe que: Relacionando 1, 8 y 2, se obtiene 4. Relacionando 2, 9 y 3, se obtiene 6. Relacionando 2, 16 y 4, se obtiene 8. Si se mantiene la misma relación, ¿cuánto se obtiene al relacionar 4, 12 y 6?",
+      alternativas: {
+        A: "8",
+        B: "10",
+        C: "12"
+      }
+    },
+    {
+      numero: 32,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "En una región del Perú, se realizan trueques entre los pobladores de una comunidad. Dichos pobladores intercambian una olla de barro por 1/2 kg de zanahorias y 1 kg de alverjas. Por otro lado, 1 kg de alverjas se puede intercambiar por 2 kg de zanahorias. ¿Cuántas ollas de barro se pueden intercambiar por 20 kg de alverjas?",
+      alternativas: {
+        A: "8 ollas de barro.",
+        B: "16 ollas de barro.",
+        C: "25 ollas de barro."
+      }
+    },
+    {
+      numero: 33,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "En una ciudad, hay tres tipos de monedas: kina, soti y lets; los cambios monetarios se realizan entre kinas y sotis, y entre sotis y letses. Si se sabe que dos kinas equivalen a tres sotis y un soti equivale a tres letses, ¿cuál es el precio en kinas de un artefacto que cuesta 54 letses?",
+      alternativas: {
+        A: "12 kinas.",
+        B: "27 kinas.",
+        C: "36 kinas."
+      }
+    },
+    {
+      numero: 34,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "En un cuadrado de 10 cm de lado, cada vértice está representado por las letras J, K, L y M, en ese orden y de forma consecutiva. Si un punto móvil inicia su recorrido en el vértice J, luego se dirige al vértice K, luego a L, después a M y continúa hacia J, y vuelve a repetir sucesivamente el mismo trayecto, ¿en qué vértice se encontrará el punto móvil cuando recorra 370 cm?",
+      alternativas: {
+        A: "J",
+        B: "K",
+        C: "L"
+      }
+    },
+    {
+      numero: 35,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Un año bisiesto es aquel que tiene 366 días, es decir, un día más que un año común. Además, se sabe que: Si un año es bisiesto, será múltiplo de cuatro. Si un año es múltiplo de cuatro, será un número par. De lo anterior, se puede inferir lo siguiente:",
+      alternativas: {
+        A: "Si un año es múltiplo de cuatro, ese año será bisiesto.",
+        B: "Si un año es un número par, ese año será bisiesto.",
+        C: "Si un año es bisiesto, ese año será un número par."
+      }
+    },
+    {
+      numero: 36,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Los tiempos (en segundos) de los concursantes de una competencia de natación estilo mariposa en la prueba de 100 m son los siguientes: Roger: 50,6; Daniel: 50,788; Ernesto: 50,42. ¿Quién llegó primero?",
+      alternativas: {
+        A: "Roger",
+        B: "Daniel",
+        C: "Ernesto"
+      }
+    },
+    {
+      numero: 37,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Alicia, Bianca, Charo, Dafne y Elena se sientan alrededor de una mesa circular con seis asientos distribuidos simétricamente. Se observa que: Elena se sienta junto a Charo y frente a Bianca. Alicia se sienta frente a Dafne. Entonces, se puede afirmar que necesariamente el asiento vacío se encuentra",
+      alternativas: {
+        A: "junto a Alicia.",
+        B: "junto a Dafne.",
+        C: "junto a Bianca."
+      }
+    },
+    {
+      numero: 38,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Melina, Nancy, Olivia y Paola compitieron en una carrera en la que no hubo empates. Más tarde, Rodrigo le preguntó a cada una cómo le fue y ellas respondieron lo siguiente: Melina: 'Yo gané'. Nancy: 'Yo quedé última'. Olivia: 'Yo no quedé última'. Paola: 'Yo no quedé primera ni última'. Diego, quien presenció la carrera, le dijo a Rodrigo los puestos de llegada de cada una. Así Rodrigo descubrió que una de las cuatro competidoras le había mentido. ¿Quién ganó la carrera?",
+      alternativas: {
+        A: "Melina",
+        B: "Olivia",
+        C: "Paola"
+      }
+    },
+    {
+      numero: 39,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "A partir de las siguientes premisas: Todos los exalumnos del colegio C son norteños, a excepción de uno que es pelirrojo. Ningún pelirrojo es músico. ¿Cuál de los siguientes razonamientos es correcto?",
+      alternativas: {
+        A: "Adrián es un norteño pelirrojo; por lo tanto, estudió en el colegio C.",
+        B: "Claudio es músico y estudió en el colegio C; por lo tanto, es norteño.",
+        C: "Bonifacio no es pelirrojo y estudió en el colegio C; por lo tanto, es músico."
+      }
+    },
+    {
+      numero: 40,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "En la ciudad de Nairobi amanece antes que en la ciudad de Kinshasa y, además, hay dos horas de diferencia entre ambas ciudades. El vuelo entre estas dos ciudades dura 3 horas 15 minutos. Si un avión parte al mediodía de la ciudad de Nairobi (hora de Nairobi), ¿a qué hora llegará a la ciudad de Kinshasa (hora de Kinshasa)?",
+      alternativas: {
+        A: "17:15 h",
+        B: "15:15 h",
+        C: "13:15 h"
+      }
+    },
+    {
+      numero: 41,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "A un taller de capacitación asistieron 80 docentes peruanos. Además, se sabe que: 44 de ellos eran de Comunicación y los restantes eran de Matemática. 18 docentes de Comunicación nacieron en Lima y 21 docentes de Matemática nacieron en una región diferente de Lima. Del total de asistentes al taller, ¿cuántos docentes nacieron en una región diferente de Lima?",
+      alternativas: {
+        A: "47",
+        B: "33",
+        C: "21"
+      }
+    },
+    {
+      numero: 42,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Juan decide preparar un flan para la cena. Según las indicaciones de una receta, se necesitan 6 huevos, 240 g de azúcar y 540 mL de leche. Juan desea obtener más porciones, manteniendo la misma proporción de los ingredientes de la receta. Si tiene pensado usar 8 huevos, ¿qué cantidad de azúcar y de leche necesitará?",
+      alternativas: {
+        A: "242 g de azúcar y 542 mL de leche.",
+        B: "320 g de azúcar y 720 mL de leche.",
+        C: "480 g de azúcar y 1080 mL de leche."
+      }
+    },
+    {
+      numero: 43,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Cinthya es 3 cm más alta que su madre y su madre es 5 cm más baja que su abuela. Si se sabe que la estatura de Cinthya es 1,65 m, ¿cuál de las siguientes afirmaciones es verdadera?",
+      alternativas: {
+        A: "La estatura de la abuela de Cinthya es 1,67 m.",
+        B: "Cinthya es 2 cm más alta que su abuela.",
+        C: "La madre de Cinthya mide 1,68 m."
+      }
+    },
+    {
+      numero: 44,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Se ha formado una secuencia de figuras con palitos de helado de la siguiente manera: En la primera figura, se usan cuatro palitos para formar un cuadrado. En la segunda figura, se usan siete palitos para formar dos cuadrados contiguos. En la tercera figura, se usan diez palitos para formar tres cuadrados contiguos. ¿Cuántos palitos se usarán para formar la figura 12?",
+      alternativas: {
+        A: "48",
+        B: "40",
+        C: "37"
+      }
+    },
+    {
+      numero: 45,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Una carretera pasa por las ciudades P, Q, R y S, pero no necesariamente en ese orden. Su recorrido es de sur a norte y viceversa. Si se sabe que la ciudad S está al norte de Q y R, la ciudad Q está al sur de P y la ciudad S está entre P y R, ¿cuál de estas ciudades está más al norte?",
+      alternativas: {
+        A: "P",
+        B: "Q",
+        C: "R"
+      }
+    },
+    {
+      numero: 46,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "En una maratón de baile, gana la pareja que logre bailar sin descanso por más tiempo. Si la pareja ganadora empezó a bailar a las 17:36 h y paró a las 20:14 h del mismo día, ¿cuánto tiempo estuvo bailando?",
+      alternativas: {
+        A: "3 h 38 min",
+        B: "3 h 22 min",
+        C: "2 h 38 min"
+      }
+    },
+    {
+      numero: 47,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Si se organiza un concurso entre cinco equipos de tal manera que cada equipo compite con otro una sola vez, ¿cuántos encuentros se deben programar?",
+      alternativas: {
+        A: "10",
+        B: "20",
+        C: "25"
+      }
+    },
+    {
+      numero: 48,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Lucas está de vacaciones en Europa. De los 100 dólares que tiene, gasta 30 dólares en una tienda y el equivalente a 40 euros en otra. Sabiendo que un dólar equivale a 3,25 soles y un euro equivale a 3,80 soles, ¿a cuántos soles equivale el monto que le sobra?",
+      alternativas: {
+        A: "75,50 soles.",
+        B: "97,50 soles.",
+        C: "114,00 soles."
+      }
+    },
+    {
+      numero: 49,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "En una biblioteca, por cada tres libros leídos, el lector recibe dos pulseras amarillas; por cuatro pulseras amarillas, recibe tres pulseras rojas; y, por cada seis pulseras rojas, recibe dos pulseras verdes. Si Jaime tiene seis pulseras verdes, ¿cuál de las siguientes afirmaciones es verdadera?",
+      alternativas: {
+        A: "Por las seis pulseras verdes, Jaime tuvo que leer nueve libros.",
+        B: "Jaime leyó ocho libros para obtener dos pulseras verdes.",
+        C: "Por cada pulsera roja, Jaime tuvo que leer dos libros."
+      }
+    },
+    {
+      numero: 50,
+      subprueba: "Razonamiento Lógico",
+      puntos: 2,
+      textoClave: "",
+      tituloLectura: "",
+      textoLectura: "",
+      enunciado: "Ante la cercanía de un encuentro deportivo internacional, el dueño de una tienda comercial de venta de artefactos eléctricos decide incrementar en 25% el precio de venta de los televisores. Si uno de los televisores se vendió a S/ 2000 con el incremento, ¿cuál era el precio de venta inicial?",
+      alternativas: {
+        A: "S/ 1500",
+        B: "S/ 1600",
+        C: "S/ 1975"
+      }
     }
   ]
 });
