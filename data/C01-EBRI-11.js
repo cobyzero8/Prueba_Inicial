@@ -138,7 +138,7 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 1",
       tituloLectura: "Texto 1 — La tejedora",
       textoLectura: TEXTO_1_C01,
-      enunciado: "¿Cuál de las siguientes afirmaciones se puede <<mark class=\"clave-palabra\">concluir</mark> del texto?" del texto?",
+      enunciado: "¿Cuál de las siguientes afirmaciones se puede <<mark class=\"clave-palabra\">concluir</mark> del texto?",
       alternativas: {
         A: "La mujer podía tejer todos los alimentos que quería comer.",
         B: "La mujer decidió provocar la nieve mientras tejía el palacio.",
