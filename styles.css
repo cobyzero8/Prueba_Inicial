@@ -351,34 +351,82 @@ body.theme-noche .btn-warning {
   transition: width 0.22s ease;
 }
 
+/* ===== BLOQUE DE LECTURA Y SITUACIONES LARGAS ===== */
 .reading-box {
   background: var(--reading-bg);
   border: 1.5px solid var(--border);
   border-left: 5px solid var(--accent);
   border-radius: 13px;
-  padding: 16px 18px;
+  padding: 18px 22px;
   margin-bottom: 18px;
-  max-height: 360px;
+  max-height: 410px;
   overflow-y: auto;
 }
 
 .reading-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 800;
   color: var(--accent);
-  font-size: 0.98rem;
-  margin-bottom: 8px;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--border);
 }
 
 .reading-body {
   white-space: pre-line;
-  font-size: 0.97rem;
+  font-size: 0.98rem;
+  line-height: 1.75;
   color: var(--text);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.reading-body p {
+  margin-bottom: 12px;
+}
+
+.reading-body p:last-child {
+  margin-bottom: 0;
+}
+
+.reading-poem {
+  text-align: center;
+  font-style: italic;
+  margin: 14px auto;
+  padding: 10px 14px;
+  background: var(--surface-alt);
+  border-radius: 10px;
+  white-space: pre-line;
+}
+
+/* ===== IMÁGENES / ESQUEMAS DE PREGUNTA ===== */
+.question-image-wrap {
+  margin: 12px 0 16px;
+  padding: 14px;
+  background: var(--surface-alt);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.question-image-wrap img {
+  max-width: 100%;
+  max-height: 320px;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  display: inline-block;
 }
 
 .question-title {
   font-size: clamp(1.03rem, 2vw, 1.18rem);
   font-weight: 700;
   margin-bottom: 16px;
+  white-space: pre-line;
 }
 
 .options-list {
@@ -556,6 +604,7 @@ body.theme-noche .map-btn.active {
   margin: 10px 0 12px;
   font-weight: 700;
   font-size: 1rem;
+  white-space: pre-line;
 }
 
 .review-meta {
