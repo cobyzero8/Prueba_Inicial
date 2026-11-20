@@ -92,16 +92,27 @@ function actualizarIndicadorRacha() {
 }
 
 function actualizarVisibilidadFiltroLectura() {
-  const sub = dom.subpruebaSelect.value;
-  const campoLectura = dom.lecturaSelect.closest(".field");
-  const mostrarLectura = sub === "Comprensión Lectora";
+  const selectSub = dom.subpruebaSelect || document.getElementById("subprueba-select") || document.getElementById("modulo-select");
+  const selectLec = dom.lecturaSelect || document.getElementById("lectura-select");
+  if (!selectSub || !selectLec) return;
 
+  const valor = String(selectSub.value || "").trim().toUpperCase();
+  const textoSeleccionado = String(selectSub.options[selectSub.selectedIndex]?.textContent || "").trim().toUpperCase();
+
+  const esComprension =
+    valor === "COMPRENSIÓN LECTORA" ||
+    valor === "COMPRENSION LECTORA" ||
+    textoSeleccionado.includes("COMPRENSIÓN LECTORA") ||
+    textoSeleccionado.includes("COMPRENSION LECTORA");
+
+  const campoLectura = selectLec.closest(".field") || selectLec.parentElement;
   if (campoLectura) {
-    campoLectura.classList.toggle("hidden", !mostrarLectura);
+    campoLectura.style.display = esComprension ? "" : "none";
+    campoLectura.classList.toggle("hidden", !esComprension);
   }
 
-  if (!mostrarLectura) {
-    dom.lecturaSelect.value = "TODAS";
+  if (!esComprension) {
+    selectLec.value = "TODAS";
     estado.lectura = "TODAS";
   }
 }
