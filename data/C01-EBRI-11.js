@@ -109,7 +109,7 @@ El profesor Chucrut pensó y dijo: “¿Tendrá algo que ver el color?”. Enton
 
 Cansadas del profesor Chucrut, las vacas se organizaron para protestar y dejaron de dar la leche como la conocemos. Ahora solo dan leche en polvo.
 
-<div style="text-align:center; margin:12px 0;"><img src="img/vacas_chucrut_82_84.png" alt="Ilustración del cuento Las vacas que dan leche con sabor" style="max-width:360px; width:100%; border-radius:10px; border:1px solid #cfc9bc;"></div>`;
+<div style="text-align:center; margin:12px 0;"><img src="Prueba_Inicial/img/vacas_chucrut_82_84.png" alt="Ilustración del cuento Las vacas que dan leche con sabor" style="max-width:360px; width:100%; border-radius:10px; border:1px solid #cfc9bc;"></div>`;
 
 const CUENTO_BAGRECICO_88_90 = `El bagrecico
 (Fragmento)
@@ -133,7 +133,7 @@ El bagrecico sentía pena por su madre. Ella, preocupada, anduvo buscándolo tod
 - ¿Y si alguien lo pesca?
 - No creo. Él es muy hábil.
 
-<div style="text-align:center; margin:12px 0;"><img src="img/bagrecico_88_90.png" alt="Ilustración del fragmento El bagrecico" style="max-width:360px; width:100%; border-radius:10px; border:1px solid #cfc9bc;"></div>`;
+<div style="text-align:center; margin:12px 0;"><img src="Prueba_Inicial/img/bagrecico_88_90.png" alt="Ilustración del fragmento El bagrecico" style="max-width:360px; width:100%; border-radius:10px; border:1px solid #cfc9bc;"></div>`;
 
 window.CUADERNILLOS.push({
   id: "C01-EBRI-11",
@@ -853,7 +853,7 @@ window.CUADERNILLOS.push({
     {
       numero: 73, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Lea la siguiente situación y responda las preguntas 73 y 74.",
-      textoLectura: "Ricardo, de cinco años, lleva al aula el siguiente paracaídas de juguete:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"img/paracaidas_73.png\" alt=\"Paracaídas de juguete\" style=\"max-width:240px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\nAl verlo jugar con el paracaídas, los niños se entusiasman y participan del juego. Luego, le comentan a la docente que les gustaría tener un juguete igual. Entonces, acuerdan elaborar un paracaídas de juguete.",
+      textoLectura: "Ricardo, de cinco años, lleva al aula el siguiente paracaídas de juguete:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"Prueba_Inicial/img/paracaidas_73.png\" alt=\"Paracaídas de juguete\" style=\"max-width:240px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\nAl verlo jugar con el paracaídas, los niños se entusiasman y participan del juego. Luego, le comentan a la docente que les gustaría tener un juguete igual. Entonces, acuerdan elaborar un paracaídas de juguete.",
       enunciado: "La docente busca aprovechar esta situación para favorecer que los niños diseñen prototipos. ¿Cuál de las siguientes acciones es <mark class=\"clave-palabra\">más</mark> pertinente para ese propósito?",
       alternativas: {
         A: "Pedir a cada grupo que proponga cómo elaborar el paracaídas y con qué materiales. Luego, decirles que dibujen su propuesta y expliquen a sus compañeros cómo la realizarán.",
@@ -864,7 +864,7 @@ window.CUADERNILLOS.push({
     {
       numero: 74, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Lea la siguiente situación y responda las preguntas 73 y 74.",
-      textoLectura: "Ricardo, de cinco años, lleva al aula el siguiente paracaídas de juguete:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"img/paracaidas_73.png\" alt=\"Paracaídas de juguete\" style=\"max-width:240px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\nAl verlo jugar con el paracaídas, los niños se entusiasman y participan del juego. Luego, le comentan a la docente que les gustaría tener un juguete igual. Entonces, acuerdan elaborar un paracaídas de juguete.\n\nMientras los niños construyen sus paracaídas, la docente los acompaña y conversa con ellos. Les pide que le comenten cómo lo están haciendo, qué dificultades han tenido hasta el momento y cómo las han solucionado.",
+      textoLectura: "Ricardo, de cinco años, lleva al aula el siguiente paracaídas de juguete:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"Prueba_Inicial/img/paracaidas_73.png\" alt=\"Paracaídas de juguete\" style=\"max-width:240px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\nAl verlo jugar con el paracaídas, los niños se entusiasman y participan del juego. Luego, le comentan a la docente que les gustaría tener un juguete igual. Entonces, acuerdan elaborar un paracaídas de juguete.\n\nMientras los niños construyen sus paracaídas, la docente los acompaña y conversa con ellos. Les pide que le comenten cómo lo están haciendo, qué dificultades han tenido hasta el momento y cómo las han solucionado.",
       enunciado: "En la situación presentada, ¿qué acción realiza principalmente la docente?",
       alternativas: { A: "Activar saberes previos.", B: "Promover la metacognición.", C: "Generar conflicto cognitivo." }
     },
@@ -888,7 +888,7 @@ window.CUADERNILLOS.push({
     },
     {
       numero: 77, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
-      enunciado: "José, de tres años, ha realizado el siguiente dibujo:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"img/dibujo_jose_77.png\" alt=\"Dibujo de José de tres años\" style=\"max-width:340px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\n¿Cuál de las siguientes acciones es pertinente para favorecer que José continúe desarrollando su capacidad de representación?",
+      enunciado: "José, de tres años, ha realizado el siguiente dibujo:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"Prueba_Inicial/img/dibujo_jose_77.png\" alt=\"Dibujo de José de tres años\" style=\"max-width:340px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\n¿Cuál de las siguientes acciones es pertinente para favorecer que José continúe desarrollando su capacidad de representación?",
       alternativas: {
         A: "Proporcionarle fichas de trabajo con imágenes de personas, animales u objetos incompletos para que identifique qué partes les faltan a dichas imágenes y las dibuje.",
         B: "Después de haber realizado actividades que involucren juego libre, experiencias corporales y exploración de materiales, proponerle que las dibuje.",
@@ -897,7 +897,7 @@ window.CUADERNILLOS.push({
     },
     {
       numero: 78, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
-      enunciado: "La docente y los niños del aula de cinco años salieron a los alrededores de la IE para recolectar libros para la biblioteca del aula. Al retorno, la docente pide a los niños que dibujen la actividad realizada. Juan acompaña su dibujo con el siguiente escrito:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"img/escrito_juan_78.png\" alt=\"Escrito de Juan de cinco años\" style=\"max-width:380px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\nLuego, le muestra su dibujo a la docente. Cuando ella le pregunta qué escribió, el niño responde: “La vecina nos regaló revistas”.\n\nSegún los niveles de apropiación del sistema de escritura propuestos por Emilia Ferreiro, ¿en qué nivel se encuentra Juan?",
+      enunciado: "La docente y los niños del aula de cinco años salieron a los alrededores de la IE para recolectar libros para la biblioteca del aula. Al retorno, la docente pide a los niños que dibujen la actividad realizada. Juan acompaña su dibujo con el siguiente escrito:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"Prueba_Inicial/img/escrito_juan_78.png\" alt=\"Escrito de Juan de cinco años\" style=\"max-width:380px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\nLuego, le muestra su dibujo a la docente. Cuando ella le pregunta qué escribió, el niño responde: “La vecina nos regaló revistas”.\n\nSegún los niveles de apropiación del sistema de escritura propuestos por Emilia Ferreiro, ¿en qué nivel se encuentra Juan?",
       alternativas: { A: "En el nivel presilábico.", B: "En el nivel silábico.", C: "En el nivel silábico alfabético." }
     },
     {
@@ -980,7 +980,7 @@ window.CUADERNILLOS.push({
     },
     {
       numero: 86, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
-      enunciado: "La docente del aula de cinco años tiene como propósito que los niños creen historias. Aprovechando que los niños están llevando a cabo el proyecto “Hacemos un huerto”, les presenta la siguiente imagen:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"img/huerto_conejos_86.png\" alt=\"Dos niños mirando sorprendidos en el huerto mientras dos conejos comen zanahorias\" style=\"max-width:380px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\n¿Cuál de las siguientes acciones es pertinente para que los niños creen historias a partir de esta imagen?",
+      enunciado: "La docente del aula de cinco años tiene como propósito que los niños creen historias. Aprovechando que los niños están llevando a cabo el proyecto “Hacemos un huerto”, les presenta la siguiente imagen:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"Prueba_Inicial/img/huerto_conejos_86.png\" alt=\"Dos niños mirando sorprendidos en el huerto mientras dos conejos comen zanahorias\" style=\"max-width:380px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\n¿Cuál de las siguientes acciones es pertinente para que los niños creen historias a partir de esta imagen?",
       alternativas: {
         A: "Contar a los niños que los personajes de la imagen se llaman Rosa y José, y que un día descubrieron a dos conejos comiéndose las zanahorias de su huerto. Luego, decirles que cuenten de nuevo la historia cambiando de nombre a los personajes.",
         B: "Preguntarles: \"¿Qué están haciendo los niños de la imagen? ¿Qué hacen los conejos? ¿Qué opinan de lo que hacen los conejos?\". Luego, pedirles que propongan ideas para que otros animalitos no hagan lo mismo en el huerto que están construyendo.",
