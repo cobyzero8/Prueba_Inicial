@@ -77,6 +77,13 @@ function escaparHTML(str) {
     .replace(/"/g, "&quot;");
 }
 
+function textoPlano(str) {
+  return String(str || "")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function normalizarRutaImg(ruta) {
   const r = String(ruta || "").trim();
   if (!r) return "";
@@ -176,6 +183,118 @@ function crearBloqueImagenHTML(pregunta, altTexto) {
   return `
     <div class="question-image-wrap">
       <img src="${ruta}" alt="${alt}" loading="lazy" onerror="this.closest('.question-image-wrap').classList.add('hidden')">
+    </div>
+  `;
+}
+
+function generarResolucionAutonoma(cuad, p, marcada, clave) {
+  const enun = textoPlano(p.enunciado).toLowerCase();
+  const sub = String(p.subprueba || "").toLowerCase();
+  const textoClave = clave && p.alternativas?.[clave] ? p.alternativas[clave] : "";
+  const textoMarcada =
+    marcada && p.alternativas?.[marcada] ? p.alternativas[marcada] : "";
+  const etiquetaCuad = cuad?.etiqueta || cuad?.codigo || cuad?.id || "cuadernillo";
+
+  let truco = "";
+  let pasoAPaso = "";
+
+  if (sub.includes("lectora")) {
+    if (
+      enun.includes("explícita") ||
+      enun.includes("explicita") ||
+      enun.includes("literal")
+    ) {
+      truco =
+        "Información explícita = dato dicho o mostrado tal cual en el texto. No supongas ni interpretes más allá de lo escrito.";
+    } else if (
+      enun.includes("infiere") ||
+      enun.includes("deduce") ||
+      enun.includes("concluye")
+    ) {
+      truco =
+        "Inferencia = conclusión lógica apoyada en pistas del texto, sin inventar información ajena al relato.";
+    } else if (
+      enun.includes("opina") ||
+      enun.includes("parece") ||
+      enun.includes("postura")
+    ) {
+      truco =
+        "Opinión o postura = identifica lo que piensa, valora o siente el personaje o hablante sobre lo ocurrido.";
+    } else {
+      truco =
+        "Vuelve al texto, ubica la idea clave y descarta cualquier opción que exagere o contradiga lo leído.";
+    }
+
+    pasoAPaso = clave
+      ? `1) Lee qué pide la pregunta ${p.numero} (${etiquetaCuad}). 2) Contrasta cada alternativa con el texto correspondiente. 3) La opción (${clave}) "${textoClave}" es la que coincide con la consigna.`
+      : "1) Relee el párrafo clave del texto. 2) Selecciona la opción que se ajuste con exactitud al relato.";
+  } else if (sub.includes("lógico") || sub.includes("logico")) {
+    if (enun.includes("piso") || enun.includes("edificio")) {
+      truco =
+        "Arma un esquema del 3.er al 1.er piso, coloca primero las pistas de 'encima / debajo / entre' y descarta contradicciones.";
+    } else if (
+      enun.includes("mesa circular") ||
+      enun.includes("alrededor de una mesa")
+    ) {
+      truco =
+        "Dibuja la mesa circular con sus asientos, ubica primero 'frente a' y 'junto a', y comprueba qué lugar queda libre.";
+    } else if (
+      enun.includes("premisa") ||
+      enun.includes("infiere") ||
+      enun.includes("razonamiento")
+    ) {
+      truco =
+        "Sigue la cadena lógica (si A -> B y B -> C, entonces A -> C) sin invertir la flecha ni asumir lo que no dice la premisa.";
+    } else if (
+      enun.includes("secuencia") ||
+      enun.includes("relacionando") ||
+      enun.includes("obtiene")
+    ) {
+      truco =
+        "Comprueba la regla matemática en los casos ya resueltos antes de aplicarla al caso que te piden.";
+    } else {
+      truco =
+        "Organiza los datos en una mini-tabla o relación breve y elimina de inmediato la opción que rompa alguna condición.";
+    }
+
+    pasoAPaso = clave
+      ? `1) Separa cada condición de la pregunta ${p.numero}. 2) Verifica qué alternativa cumple todas las condiciones sin excepción. 3) La clave correcta es (${clave}) "${textoClave}".`
+      : "1) Ordena los datos paso a paso. 2) Descarta toda opción que contradiga una condición.";
+  } else {
+    truco =
+      "Enfoque pedagógico: prefiere la acción que promueva la exploración, el pensamiento crítico y la autonomía del niño, evitando darle la respuesta hecha o condicionar de forma mecánica.";
+    pasoAPaso = clave
+      ? `1) Identifica el propósito pedagógico de la pregunta ${p.numero}. 2) Compara cómo actúa el docente en cada alternativa. 3) La clave correcta es (${clave}) "${textoClave}".`
+      : "1) Analiza qué busca lograr la actividad. 2) Elige la opción que favorezca el aprendizaje autónomo del niño.";
+  }
+
+  let trampaMarcada = "";
+  if (marcada && marcada !== clave) {
+    if (p.trampas && p.trampas[marcada]) {
+      trampaMarcada = p.trampas[marcada];
+    } else {
+      trampaMarcada = `Marcaste (${marcada}) "${textoMarcada}". Suele fallar porque confunde un dato parcial, altera una condición o responde a algo distinto de lo que pide la pregunta.`;
+    }
+  } else if (!marcada) {
+    trampaMarcada =
+      "Dejaste esta pregunta sin marcar; conviene resolverla con un esquema rápido o por descarte antes de avanzar.";
+  }
+
+  return {
+    truco: p.truco || truco,
+    pasoAPaso: p.explicacion || pasoAPaso,
+    trampaMarcada
+  };
+}
+
+function construirResolucionTodoEnUnoHTML(cuad, p, marcada, clave) {
+  const guia = generarResolucionAutonoma(cuad, p, marcada, clave);
+
+  return `
+    <div style="margin-top:10px; padding:12px 14px; border-radius:10px; background:rgba(120,130,140,0.12); border-left:4px solid #d97706; line-height:1.45;">
+      <div><strong>⚡ Truco:</strong> ${escaparHTML(guia.truco)}</div>
+      <div style="margin-top:6px;"><strong>🧠 Paso a paso:</strong> ${escaparHTML(guia.pasoAPaso)}</div>
+      <div style="margin-top:6px;"><strong>⚠️ Por qué fallaste:</strong> ${escaparHTML(guia.trampaMarcada)}</div>
     </div>
   `;
 }
@@ -584,6 +703,11 @@ function calificarSimulacro() {
     return { p, marcada, clave, resultado };
   });
 
+  const totalFalladas = incorrectas + sinResponder;
+  if (dom.btnMisErrores) {
+    dom.btnMisErrores.textContent = `Mis errores (${totalFalladas})`;
+  }
+
   const efectividad = basePreguntas.length
     ? ((correctas / basePreguntas.length) * 100).toFixed(1)
     : "0.0";
@@ -626,7 +750,7 @@ function mostrarLecturaDeErrores(falladas) {
   if (primeraConTexto) {
     dom.erroresLecturaTitulo.textContent = `📖 ${
       primeraConTexto.p.tituloLectura || "Texto de lectura"
-    } (revisa el texto para responder)`;
+    } (texto de apoyo para tus errores)`;
     dom.erroresLecturaCuerpo.innerHTML = formatearLecturaHTML(
       primeraConTexto.p.textoLectura
     );
@@ -643,7 +767,7 @@ function renderizarRevision(evaluadas, modoMisErrores) {
     : evaluadas;
 
   if (modoMisErrores) {
-    dom.resultadosTitulo.textContent = "Mis errores — Vuelve a responder";
+    dom.resultadosTitulo.textContent = `Mis errores (${lista.length} por reforzar)`;
     mostrarLecturaDeErrores(lista);
   } else {
     dom.resultadosTitulo.textContent = "Balance de tu Sesión";
@@ -652,7 +776,11 @@ function renderizarRevision(evaluadas, modoMisErrores) {
 
   dom.detalleRevision.innerHTML = lista.length
     ? ""
-    : `<p style="margin-top:10px; color:var(--muted);">¡Excelente! No tienes errores ni preguntas sin marcar en este filtro.</p>`;
+    : `<p style="margin-top:10px; color:var(--muted);">${
+        modoMisErrores
+          ? "¡Excelente! En este cuadernillo no tuviste errores ni preguntas sin responder."
+          : "No hay preguntas para mostrar en este filtro."
+      }</p>`;
 
   lista.forEach(({ p, marcada, clave, resultado }) => {
     const uid = `${cuad.id}__${p.numero}`;
@@ -692,7 +820,7 @@ function renderizarRevision(evaluadas, modoMisErrores) {
         estadoReintentoMsg =
           intentoNuevo === clave
             ? `<div class="feedback-banner feedback-ok">¡Muy bien! Marcaste (${intentoNuevo}) y es la respuesta correcta.</div>`
-            : `<div class="feedback-banner feedback-err">Aún no: elegiste (${intentoNuevo}). Revisa el texto o la respuesta correcta.</div>`;
+            : `<div class="feedback-banner feedback-err">Aún no: elegiste (${intentoNuevo}). Revisa el truco y el paso a paso abajo.</div>`;
       }
 
       bloqueReintentoHTML = `
@@ -700,6 +828,11 @@ function renderizarRevision(evaluadas, modoMisErrores) {
         ${estadoReintentoMsg}
       `;
     }
+
+    const bloqueTodoEnUno =
+      modoMisErrores || esError || esSin
+        ? construirResolucionTodoEnUnoHTML(cuad, p, intentoNuevo || marcada, clave)
+        : "";
 
     card.innerHTML = `
       <div class="review-top">
@@ -714,6 +847,7 @@ function renderizarRevision(evaluadas, modoMisErrores) {
         <div class="${claseMarca}">Tu respuesta anterior: <strong>${escaparHTML(textoMarca)}</strong></div>
         <div class="clave-caja">✓ Respuesta correcta: <strong>${escaparHTML(claveTxt)}</strong></div>
       </div>
+      ${bloqueTodoEnUno}
     `;
 
     card.querySelectorAll(".retry-opt-btn").forEach((btn) => {
@@ -742,6 +876,7 @@ dom.btnTema.addEventListener("click", () => {
 dom.bloqueSelect.addEventListener("change", () => {
   estado.bloqueId = dom.bloqueSelect.value;
   estado.lectura = "TODAS";
+  estado.indiceActual = 0;
   actualizarOpcionesLectura();
   guardarEstado();
   actualizarResumenCuadernillo();
