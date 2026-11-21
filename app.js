@@ -77,17 +77,57 @@ function escaparHTML(str) {
     .replace(/"/g, "&quot;");
 }
 
-function formatearEnunciadoHTML(texto) {
-  const escapado = escaparHTML(texto);
-  return escapado
+function normalizarRutaImg(ruta) {
+  const r = String(ruta || "").trim();
+  if (!r) return "";
+  if (
+    r.startsWith("http://") ||
+    r.startsWith("https://") ||
+    r.startsWith("/Prueba_Inicial/")
+  ) {
+    return r;
+  }
+  if (r.startsWith("/")) {
+    return `/Prueba_Inicial${r}`;
+  }
+  return `/Prueba_Inicial/${r.replace(/^\.\//, "")}`;
+}
+
+function limpiarEtiquetasInternas(htmlStr) {
+  return String(htmlStr || "")
+    .replace(/&lt;br&gt;/gi, "<br>")
+    .replace(/<br\s*\/?>/gi, "<br>")
+    .replace(/&lt;strong&gt;([\s\S]*?)&lt;\/strong&gt;/gi, "<strong>$1</strong>")
     .replace(
-      /&lt;mark class=&quot;clave-palabra&quot;&gt;(.*?)&lt;\/mark&gt;/g,
+      /&lt;mark class=&quot;clave-palabra&quot;&gt;([\s\S]*?)&lt;\/mark&gt;/gi,
       '<mark class="clave-palabra">$1</mark>'
-    )
-    .replace(
-      /&lt;div style=&quot;([^&]*)&quot;&gt;&lt;img src=&quot;([^&]*)&quot; alt=&quot;([^&]*)&quot; style=&quot;([^&]*)&quot;&gt;&lt;\/div&gt;/g,
-      '<div style="$1"><img src="$2" alt="$3" style="$4" loading="lazy"></div>'
     );
+}
+
+function formatearEnunciadoHTML(texto) {
+  let html = escaparHTML(texto);
+
+  html = html.replace(
+    /&lt;mark class=&quot;clave-palabra&quot;&gt;([\s\S]*?)&lt;\/mark&gt;/g,
+    '<mark class="clave-palabra">$1</mark>'
+  );
+
+  html = html.replace(
+    /&lt;div style=&quot;background:#e6e2d8; border-radius:10px; padding:12px 16px; margin:8px 0; color:#1f2421;&quot;&gt;([\s\S]*?)&lt;\/div&gt;/g,
+    (_, interior) => {
+      const limpioInterior = limpiarEtiquetasInternas(interior);
+      return `<div style="background:#e6e2d8; border-radius:10px; padding:12px 16px; margin:8px 0; color:#1f2421;">${limpioInterior}</div>`;
+    }
+  );
+
+  html = html.replace(
+    /&lt;div style=&quot;([^&]*)&quot;&gt;&lt;img src=&quot;([^&]*)&quot; alt=&quot;([^&]*)&quot; style=&quot;([^&]*)&quot;&gt;&lt;\/div&gt;/g,
+    (_, divStyle, src, alt, imgStyle) =>
+      `<div style="${divStyle}"><img src="${normalizarRutaImg(src)}" alt="${alt}" style="${imgStyle}" loading="lazy"></div>`
+  );
+
+  html = html.replace(/\n\n/g, "<br><br>").replace(/\n/g, "<br>");
+  return html;
 }
 
 function formatearLecturaHTML(texto) {
@@ -99,9 +139,11 @@ function formatearLecturaHTML(texto) {
     .map((bloque) => {
       const trimBloque = bloque.trim();
 
-      // Si el bloque ya es un contenedor HTML con imagen, lo renderizamos directo
       if (/^<div\b[^>]*>[\s\S]*<img\b[^>]*>[\s\S]*<\/div>$/i.test(trimBloque)) {
-        return trimBloque;
+        return trimBloque.replace(
+          /src=["']([^"']+)["']/i,
+          (_, src) => `src="${normalizarRutaImg(src)}"`
+        );
       }
 
       const lineas = trimBloque
@@ -127,8 +169,10 @@ function formatearLecturaHTML(texto) {
 
 function crearBloqueImagenHTML(pregunta, altTexto) {
   if (!pregunta || !pregunta.imagen) return "";
-  const ruta = escaparHTML(pregunta.imagen);
-  const alt = escaparHTML(altTexto || `Esquema de la pregunta ${pregunta.numero}`);
+  const ruta = escaparHTML(normalizarRutaImg(pregunta.imagen));
+  const alt = escaparHTML(
+    altTexto || `Esquema de la pregunta ${pregunta.numero}`
+  );
   return `
     <div class="question-image-wrap">
       <img src="${ruta}" alt="${alt}" loading="lazy" onerror="this.closest('.question-image-wrap').classList.add('hidden')">
