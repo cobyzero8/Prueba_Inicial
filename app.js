@@ -166,7 +166,7 @@ function formatearLecturaHTML(texto) {
     .map((bloque) => {
       const trimBloque = bloque.trim();
 
-      if (/^<div\b[^>]*>[\s\S]*<img\b[^>]*>[\s\S]*<\/div>$/i.test(trimBloque)) {
+      if (/<div\b[^>]*>[\s\S]*?<img\b[^>]*>[\s\S]*?<\/div>/i.test(trimBloque)) {
         return trimBloque.replace(
           /src=["']([^"']+)["']/i,
           (_, src) => `src="${normalizarRutaImg(src)}"`
