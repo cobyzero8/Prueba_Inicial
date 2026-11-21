@@ -84,6 +84,26 @@ function textoPlano(str) {
     .trim();
 }
 
+function palabrasANumeros(texto) {
+  const mapa = {
+    cero: 0, uno: 1, una: 1, un: 1, dos: 2, tres: 3, cuatro: 4,
+    cinco: 5, seis: 6, siete: 7, ocho: 8, nueve: 9, diez: 10,
+    once: 11, doce: 12, trece: 13, catorce: 14, quince: 15,
+    dieciseis: 16, dieciséis: 16, diecisiete: 17, dieciocho: 18,
+    diecinueve: 19, veinte: 20, veinticuatro: 24, treinta: 30
+  };
+  return texto.replace(/\b([a-záéíóúü]+)\b/gi, (match) => {
+    const k = match.toLowerCase();
+    return Object.prototype.hasOwnProperty.call(mapa, k) ? String(mapa[k]) : match;
+  });
+}
+
+function extraerNumeros(texto) {
+  const normalizado = palabrasANumeros(texto);
+  const matches = normalizado.match(/\d+(?:[.,]\d+)?/g) || [];
+  return matches.map((n) => Number(n.replace(",", ".")));
+}
+
 function normalizarRutaImg(ruta) {
   const r = String(ruta || "").trim();
   if (!r) return "";
@@ -187,85 +207,124 @@ function crearBloqueImagenHTML(pregunta, altTexto) {
   `;
 }
 
+function resolverMatematicoPorReglas(enunLimpio, clave, textoClave) {
+  const lower = enunLimpio.toLowerCase();
+  const nums = extraerNumeros(enunLimpio);
+
+  // Caso 1: Parte del día / horas / fracción del total
+  if (
+    (lower.includes("parte del día") || lower.includes("parte del dia")) &&
+    lower.includes("horas")
+  ) {
+    const totalDia = 24;
+    const horasUsadas = nums.filter((n) => n > 0 && n <= 24);
+    if (horasUsadas.length >= 2) {
+      const suma = horasUsadas.reduce((a, b) => a + b, 0);
+      const restante = totalDia - suma;
+      return {
+        truco:
+          "Cuando te piden qué 'parte del día' queda, usa el total del día (24 horas), suma las horas empleadas, réstalas a 24 y coloca el resultado sobre 24.",
+        pasoAPaso: `1) El día tiene 24 horas. 2) Sumamos las horas empleadas: ${horasUsadas.join(" + ")} = ${suma} horas. 3) Restamos lo que queda del día: 24 - ${suma} = ${restante} horas. 4) Como fracción del día completo es ${restante}/24 -> clave (${clave}) ${textoClave}.`
+      };
+    }
+  }
+
+  // Caso 2: Combinaciones (principio multiplicativo)
+  if (
+    lower.includes("combinaciones") ||
+    (lower.includes("cada") && (lower.includes("sabor") || lower.includes("tipo") || lower.includes("color") || lower.includes("par")))
+  ) {
+    const alts = Object.values(clave ? { [clave]: textoClave } : {});
+    const matchClaveNum = String(textoClave || "").match(/\d+/);
+    if (matchClaveNum && nums.length >= 2) {
+      const objetivo = Number(matchClaveNum[0]);
+      for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+          if (nums[i] * nums[j] === objetivo) {
+            return {
+              truco:
+                "En problemas de combinaciones (elegir 1 de un grupo y 1 de otro), multiplica la cantidad de opciones de cada grupo; no las sumes.",
+              pasoAPaso: `1) Identificamos los dos grupos de opciones: ${nums[i]} y ${nums[j]}. 2) Multiplicamos para formar todas las parejas posibles: ${nums[i]} × ${nums[j]} = ${objetivo} combinaciones. 3) Marca (${clave}) ${textoClave}.`
+            };
+          }
+        }
+      }
+    }
+  }
+
+  // Caso 3: Secuencias numéricas o de figuras
+  if (lower.includes("secuencia") || lower.includes("figura") || lower.includes("palitos")) {
+    return {
+      truco:
+        "Anota la cantidad de elementos de la figura 1, figura 2 y figura 3; halla cuánto aumenta de una a otra (patrón constante) y aplícalo hasta la figura pedida.",
+      pasoAPaso: `1) Lista los valores de las primeras figuras según el enunciado. 2) Determina la regularidad o suma constante entre términos consecutivos. 3) Calcula el término solicitado y verifica con (${clave}) ${textoClave}.`
+    };
+  }
+
+  // Caso 4: Edades, conjuntos o porcentajes
+  if (lower.includes("edad") || lower.includes("años") || lower.includes("docentes") || lower.includes("asistieron")) {
+    return {
+      truco:
+        "Traduce cada dato a cantidades concretas y separa subconjuntos (por ejemplo, lo que se sabe de un grupo frente al total) antes de sumar o restar.",
+      pasoAPaso: `1) Anota el total y los datos parciales indicados en el problema. 2) Calcula los subgrupos faltantes por diferencia o suma. 3) Confirma el valor que responde a la pregunta: (${clave}) ${textoClave}.`
+    };
+  }
+
+  // Caso 5: Ubicación (pisos, filas, mesa circular) o premisas lógicas
+  if (lower.includes("piso") || lower.includes("mesa") || lower.includes("premisa") || lower.includes("infiere")) {
+    return {
+      truco:
+        "Representa las posiciones o relaciones en un esquema rápido (pisos, asientos o flechas de implicación) y descarta cualquier opción que contradiga una pista.",
+      pasoAPaso: `1) Coloca primero las relaciones más directas o fijas del enunciado. 2) Revisa qué posición o conclusión queda obligatoriamente determinada. 3) Selecciona (${clave}) ${textoClave}.`
+    };
+  }
+
+  return {
+    truco:
+      "Identifica qué magnitud te piden hallar al final, extrae los datos numéricos o condiciones del texto y haz la operación directa sin mezclar totales con partes.",
+    pasoAPaso: `1) Lee la pregunta final y anota los datos dados. 2) Plantea la operación o relación correspondiente. 3) La alternativa correcta es (${clave}) ${textoClave}.`
+  };
+}
+
 function generarResolucionAutonoma(cuad, p, marcada, clave) {
-  const enun = textoPlano(p.enunciado).toLowerCase();
+  const enun = textoPlano(p.enunciado);
+  const lower = enun.toLowerCase();
   const sub = String(p.subprueba || "").toLowerCase();
   const textoClave = clave && p.alternativas?.[clave] ? p.alternativas[clave] : "";
   const textoMarcada =
     marcada && p.alternativas?.[marcada] ? p.alternativas[marcada] : "";
-  const etiquetaCuad = cuad?.etiqueta || cuad?.codigo || cuad?.id || "cuadernillo";
 
   let truco = "";
   let pasoAPaso = "";
 
   if (sub.includes("lectora")) {
-    if (
-      enun.includes("explícita") ||
-      enun.includes("explicita") ||
-      enun.includes("literal")
-    ) {
+    if (lower.includes("explícita") || lower.includes("explicita") || lower.includes("literal")) {
       truco =
-        "Información explícita = dato dicho o mostrado tal cual en el texto. No supongas ni interpretes más allá de lo escrito.";
-    } else if (
-      enun.includes("infiere") ||
-      enun.includes("deduce") ||
-      enun.includes("concluye")
-    ) {
+        "Información explícita = está escrita o dicha tal cual en el texto. No supongas ni interpretes algo que no aparezca allí.";
+    } else if (lower.includes("infiere") || lower.includes("deduce") || lower.includes("concluye")) {
       truco =
-        "Inferencia = conclusión lógica apoyada en pistas del texto, sin inventar información ajena al relato.";
-    } else if (
-      enun.includes("opina") ||
-      enun.includes("parece") ||
-      enun.includes("postura")
-    ) {
+        "Inferencia = conclusión que se desprende de las pistas del texto sin inventar datos ajenos a la historia.";
+    } else if (lower.includes("opina") || lower.includes("parece") || lower.includes("postura")) {
       truco =
-        "Opinión o postura = identifica lo que piensa, valora o siente el personaje o hablante sobre lo ocurrido.";
+        "Opinión o postura = identifica el juicio, valoración o actitud del personaje o autor frente a lo ocurrido.";
     } else {
       truco =
-        "Vuelve al texto, ubica la idea clave y descarta cualquier opción que exagere o contradiga lo leído.";
+        "Vuelve al texto, ubica la idea central y descarta opciones que exageren o contradigan lo leído.";
     }
 
     pasoAPaso = clave
-      ? `1) Lee qué pide la pregunta ${p.numero} (${etiquetaCuad}). 2) Contrasta cada alternativa con el texto correspondiente. 3) La opción (${clave}) "${textoClave}" es la que coincide con la consigna.`
-      : "1) Relee el párrafo clave del texto. 2) Selecciona la opción que se ajuste con exactitud al relato.";
+      ? `1) Revisa qué tipo de información pide la pregunta ${p.numero}. 2) Contrasta las alternativas A, B y C con el texto. 3) La opción (${clave}) "${textoClave}" es la que responde fielmente al texto.`
+      : "1) Relee el texto clave. 2) Elige la alternativa que se ajuste con precisión a lo leído.";
   } else if (sub.includes("lógico") || sub.includes("logico")) {
-    if (enun.includes("piso") || enun.includes("edificio")) {
-      truco =
-        "Arma un esquema del 3.er al 1.er piso, coloca primero las pistas de 'encima / debajo / entre' y descarta contradicciones.";
-    } else if (
-      enun.includes("mesa circular") ||
-      enun.includes("alrededor de una mesa")
-    ) {
-      truco =
-        "Dibuja la mesa circular con sus asientos, ubica primero 'frente a' y 'junto a', y comprueba qué lugar queda libre.";
-    } else if (
-      enun.includes("premisa") ||
-      enun.includes("infiere") ||
-      enun.includes("razonamiento")
-    ) {
-      truco =
-        "Sigue la cadena lógica (si A -> B y B -> C, entonces A -> C) sin invertir la flecha ni asumir lo que no dice la premisa.";
-    } else if (
-      enun.includes("secuencia") ||
-      enun.includes("relacionando") ||
-      enun.includes("obtiene")
-    ) {
-      truco =
-        "Comprueba la regla matemática en los casos ya resueltos antes de aplicarla al caso que te piden.";
-    } else {
-      truco =
-        "Organiza los datos en una mini-tabla o relación breve y elimina de inmediato la opción que rompa alguna condición.";
-    }
-
-    pasoAPaso = clave
-      ? `1) Separa cada condición de la pregunta ${p.numero}. 2) Verifica qué alternativa cumple todas las condiciones sin excepción. 3) La clave correcta es (${clave}) "${textoClave}".`
-      : "1) Ordena los datos paso a paso. 2) Descarta toda opción que contradiga una condición.";
+    const mat = resolverMatematicoPorReglas(enun, clave, textoClave);
+    truco = mat.truco;
+    pasoAPaso = mat.pasoAPaso;
   } else {
     truco =
-      "Enfoque pedagógico: prefiere la acción que promueva la exploración, el pensamiento crítico y la autonomía del niño, evitando darle la respuesta hecha o condicionar de forma mecánica.";
+      "Enfoque pedagógico: elige la actuación docente que promueva que el niño explore, compare, explique o construya su propio aprendizaje, evitando darle la respuesta hecha.";
     pasoAPaso = clave
-      ? `1) Identifica el propósito pedagógico de la pregunta ${p.numero}. 2) Compara cómo actúa el docente en cada alternativa. 3) La clave correcta es (${clave}) "${textoClave}".`
-      : "1) Analiza qué busca lograr la actividad. 2) Elige la opción que favorezca el aprendizaje autónomo del niño.";
+      ? `1) Identifica qué busca desarrollar la situación en la pregunta ${p.numero}. 2) Evalúa qué propuesta favorece la participación y reflexión del niño. 3) La clave correcta es (${clave}) "${textoClave}".`
+      : "1) Analiza la intención pedagógica de la pregunta. 2) Elige la alternativa centrada en el aprendizaje autónomo del niño.";
   }
 
   let trampaMarcada = "";
@@ -273,11 +332,11 @@ function generarResolucionAutonoma(cuad, p, marcada, clave) {
     if (p.trampas && p.trampas[marcada]) {
       trampaMarcada = p.trampas[marcada];
     } else {
-      trampaMarcada = `Marcaste (${marcada}) "${textoMarcada}". Suele fallar porque confunde un dato parcial, altera una condición o responde a algo distinto de lo que pide la pregunta.`;
+      trampaMarcada = `Elegiste (${marcada}) "${textoMarcada}". Suele fallar porque confunde un dato parcial, aplica una operación distinta a la que pide la consigna o no responde directamente a la pregunta.`;
     }
   } else if (!marcada) {
     trampaMarcada =
-      "Dejaste esta pregunta sin marcar; conviene resolverla con un esquema rápido o por descarte antes de avanzar.";
+      "No marcaste ninguna opción durante el intento. Revisa el cálculo o esquema del paso a paso y vuelve a probar en los botones de arriba.";
   }
 
   return {
@@ -820,7 +879,7 @@ function renderizarRevision(evaluadas, modoMisErrores) {
         estadoReintentoMsg =
           intentoNuevo === clave
             ? `<div class="feedback-banner feedback-ok">¡Muy bien! Marcaste (${intentoNuevo}) y es la respuesta correcta.</div>`
-            : `<div class="feedback-banner feedback-err">Aún no: elegiste (${intentoNuevo}). Revisa el truco y el paso a paso abajo.</div>`;
+            : `<div class="feedback-banner feedback-err">Aún no: elegiste (${intentoNuevo}). Revisa el cálculo y el paso a paso abajo.</div>`;
       }
 
       bloqueReintentoHTML = `
