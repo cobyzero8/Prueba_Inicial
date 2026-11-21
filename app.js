@@ -79,10 +79,15 @@ function escaparHTML(str) {
 
 function formatearEnunciadoHTML(texto) {
   const escapado = escaparHTML(texto);
-  return escapado.replace(
-    /&lt;mark class=&quot;clave-palabra&quot;&gt;(.*?)&lt;\/mark&gt;/g,
-    '<mark class="clave-palabra">$1</mark>'
-  );
+  return escapado
+    .replace(
+      /&lt;mark class=&quot;clave-palabra&quot;&gt;(.*?)&lt;\/mark&gt;/g,
+      '<mark class="clave-palabra">$1</mark>'
+    )
+    .replace(
+      /&lt;div style=&quot;([^&]*)&quot;&gt;&lt;img src=&quot;([^&]*)&quot; alt=&quot;([^&]*)&quot; style=&quot;([^&]*)&quot;&gt;&lt;\/div&gt;/g,
+      '<div style="$1"><img src="$2" alt="$3" style="$4" loading="lazy"></div>'
+    );
 }
 
 function formatearLecturaHTML(texto) {
@@ -92,7 +97,14 @@ function formatearLecturaHTML(texto) {
   const bloques = limpio.split(/\n\s*\n/);
   return bloques
     .map((bloque) => {
-      const lineas = bloque
+      const trimBloque = bloque.trim();
+
+      // Si el bloque ya es un contenedor HTML con imagen, lo renderizamos directo
+      if (/^<div\b[^>]*>[\s\S]*<img\b[^>]*>[\s\S]*<\/div>$/i.test(trimBloque)) {
+        return trimBloque;
+      }
+
+      const lineas = trimBloque
         .split("\n")
         .map((l) => l.trim())
         .filter(Boolean);
