@@ -207,6 +207,25 @@ function crearBloqueImagenHTML(pregunta, altTexto) {
   `;
 }
 
+function obtenerResolucionExterna(cuad, p) {
+  const mapaGlobal = window.RESOLUCIONES_POR_CUADERNILLO;
+  if (!mapaGlobal || typeof mapaGlobal !== "object" || !cuad || !p) {
+    return null;
+  }
+
+  const keysCuad = [cuad.id, cuad.codigo].filter(Boolean);
+  for (const k of keysCuad) {
+    const porCuad = mapaGlobal[k];
+    if (porCuad && typeof porCuad === "object") {
+      const entry = porCuad[p.numero] || porCuad[String(p.numero)];
+      if (entry && typeof entry === "object") {
+        return entry;
+      }
+    }
+  }
+  return null;
+}
+
 function resolverMatematicoPorReglas(enunLimpio, clave, textoClave) {
   const lower = enunLimpio.toLowerCase();
   const nums = extraerNumeros(enunLimpio);
@@ -299,6 +318,7 @@ function resolverMatematicoPorReglas(enunLimpio, clave, textoClave) {
 }
 
 function generarResolucionAutonoma(cuad, p, marcada, clave) {
+  const ext = obtenerResolucionExterna(cuad, p) || {};
   const enun = textoPlano(p.enunciado);
   const lower = enun.toLowerCase();
   const sub = String(p.subprueba || "").toLowerCase();
@@ -382,6 +402,7 @@ function generarResolucionAutonoma(cuad, p, marcada, clave) {
   }
 
   const trampasCombinadas = {
+    ...(ext.porqueFallo || {}),
     ...(resObj.porqueFallo || {}),
     ...(p.trampas || {})
   };
@@ -399,8 +420,8 @@ function generarResolucionAutonoma(cuad, p, marcada, clave) {
   }
 
   return {
-    truco: resObj.truco || p.truco || truco,
-    pasoAPaso: resObj.pasoAPaso || p.explicacion || pasoAPaso,
+    truco: ext.truco || resObj.truco || p.truco || truco,
+    pasoAPaso: ext.pasoAPaso || resObj.pasoAPaso || p.explicacion || pasoAPaso,
     trampaMarcada
   };
 }
