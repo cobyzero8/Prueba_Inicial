@@ -292,7 +292,7 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 3",
       tituloLectura: "Texto 3 — Servicio educativo y mercado",
       textoLectura: TEXTO_3_C01,
-      enunciado: "¿Cuál de las siguientes alternativas <mark class=\"clave-palabra\">NO</mark> es uno de los 'ejes de comparación' utilizados por el autor?",
+      enunciado: "Bárbara leyó el texto y realizó la siguiente observación:\n\n“El autor utiliza varios ejes de comparación para contrastar el servicio que brinda una escuela con el servicio ofrecido por un restaurante”.\n\n¿Cuál de las siguientes alternativas <mark class=\"clave-palabra\">NO</mark> es uno de los “ejes de comparación” utilizados por el autor?",
       alternativas: {
         A: "La frecuencia con la que se contrata el servicio.",
         B: "El nivel de innovación en la prestación del servicio.",
