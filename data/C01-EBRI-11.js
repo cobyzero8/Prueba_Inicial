@@ -98,6 +98,43 @@ Quizás el mensaje más importante del informe es que los países de menores ing
 
 Adaptado de https://elpais.com/elpais/2018/02/17/opinion/1518885620_434917.html.`;
 
+const CUENTO_VACAS_82_84 = `Las vacas que dan leche con sabor
+Esteban Cabezas
+
+El profesor Chucrut era un científico que vivía en el País de los Sabores. A él le gustaba mucho la canción de las vacas que dan leche con sabor a chocolate y leche condensada. Un día quiso saber si de verdad las vacas podían dar leche con sabor.
+
+Entonces investigó el tema durante dos años y luego se puso a experimentar. Primero alimentó a una vaca solo con chocolate, pero no dio resultado y la vaca quedó súper acelerada. A otra le dio kilos de azúcar, pero solo le salieron caries. A otra vaca la alimentó con tanto manjar que la pobre no quiso volver a comerlo jamás.
+
+El profesor Chucrut pensó y dijo: “¿Tendrá algo que ver el color?”. Entonces pintó a una vaca de color fresa, pero nada. Después pintó a una de amarillo para ver si daba leche con sabor a plátano, pero tampoco pasó nada. Entonces cogió a una vaca y la subió a un helicóptero para ver si daba leche batida. Pero no. La vaca se mareó y quedó atontada, y no pudo pararse en dos días. Y la leche, claro, no salió batida.
+
+Cansadas del profesor Chucrut, las vacas se organizaron para protestar y dejaron de dar la leche como la conocemos. Ahora solo dan leche en polvo.
+
+<div style="text-align:center; margin:12px 0;"><img src="img/vacas_chucrut_82_84.png" alt="Ilustración del cuento Las vacas que dan leche con sabor" style="max-width:360px; width:100%; border-radius:10px; border:1px solid #cfc9bc;"></div>`;
+
+const CUENTO_BAGRECICO_88_90 = `El bagrecico
+(Fragmento)
+Francisco Izquierdo Ríos
+
+En un riachuelito de la selva del Perú, vivía un viejo pez bagre, de barbas muy largas. Él decía con su voz ronca: «Yo conozco el mar. Cuando joven he viajado a él, y he vuelto».
+
+Y en el fondo de las aguas se movía de un lado a otro orgullosamente. Los peces niños y jóvenes le miraban y escuchaban con admiración. «¡Ese viejo conoce el mar!».
+
+Tanto oírlo, un bagrecico se le acercó una noche y le dijo: «Abuelo, yo también quiero conocer el mar».
+- ¿Tú?
+- Sí.
+- Bien, muchacho. Yo tenía tu edad cuando realicé el gran viaje.
+
+Esa noche, el viejo bagre enseñó al bagrecico cómo llegar al lejano mar. Al amanecer, el bagrecico partió. «Tienes que volver», le dijo, despidiéndolo, el viejo bagre, quien era el único que sabía de aquella aventura.
+
+El bagrecico sentía pena por su madre. Ella, preocupada, anduvo buscándolo todo el día.
+«¿Qué te sucede?», le preguntó el anciano bagre cuando la vio.
+- ¿Usted sabe dónde está mi hijo?
+- No. Pero lo que te puedo decir es que no tengas pena. El muchacho va a volver. Seguramente ha salido a conocer mundo.
+- ¿Y si alguien lo pesca?
+- No creo. Él es muy hábil.
+
+<div style="text-align:center; margin:12px 0;"><img src="img/bagrecico_88_90.png" alt="Ilustración del fragmento El bagrecico" style="max-width:360px; width:100%; border-radius:10px; border:1px solid #cfc9bc;"></div>`;
+
 window.CUADERNILLOS.push({
   id: "C01-EBRI-11",
   codigo: "C01-EBRI-11",
@@ -320,7 +357,7 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 3",
       tituloLectura: "Texto 3 — Servicio educativo y mercado",
       textoLectura: TEXTO_3_C01,
-      enunciado: "En este texto, el autor se opone a la idea de que la libre competencia por sí sola puede mejorar la educación.  ¿Cuál es el argumento <mark class=\"clave-palabra\">principal</mark> del autor para defender que la libre competencia por sí sola no mejora la educación?",
+      enunciado: "En este texto, el autor se opone a la idea de que la libre competencia por sí sola puede mejorar la educación. ¿Cuál es el argumento <mark class=\"clave-palabra\">principal</mark> del autor para defender que la libre competencia por sí sola no mejora la educación?",
       alternativas: {
         A: "Las decisiones ante la problemática del servicio educativo deben estar basadas en reflexiones sesudas y no en actos de fe.",
         B: "Existen fuertes diferencias entre el servicio educativo y el servicio de comida con relación a la disponibilidad de información.",
@@ -348,7 +385,7 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 4",
       tituloLectura: "Texto 4 — Industria azucarera y ciencia",
       textoLectura: TEXTO_4_C01,
-      enunciado: "En el penúltimo párrafo, se presenta la siguiente cita:\n\n“Estamos muy conscientes de su interés particular”.\n\n¿Cuál es el tema <mark class=\">central</mark> de este texto?",
+      enunciado: "En el penúltimo párrafo, se presenta la siguiente cita:\n\n“Estamos muy conscientes de su interés particular”.\n\n¿Cuál es el tema <mark class=\"clave-palabra\">central</mark> de este texto?",
       alternativas: {
         A: "Los efectos negativos del azúcar en la salud.",
         B: "El debate científico sobre la industria alimenticia en EE. UU.",
@@ -418,7 +455,7 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 5",
       tituloLectura: "Texto 5 — Escolarización y aprendizaje",
       textoLectura: TEXTO_5_C01,
-      enunciado: "En el texto, ¿Por qué el autor afirma que 'la escolarización sin aprendizaje no es solo una oportunidad perdida, sino también una gran injusticia hacia los estudiantes pobres'?",
+      enunciado: "En el texto, ¿por qué el autor afirma que 'la escolarización sin aprendizaje no es solo una oportunidad perdida, sino también una gran injusticia hacia los estudiantes pobres'?",
       alternativas: {
         A: "Porque perpetúa la desigualdad entre los estudiantes pobres y aquellos que provienen de hogares con mayores ingresos.",
         B: "Porque las autoridades ignoran que la problemática educacional tiene que ver con una crisis de los aprendizajes.",
@@ -460,7 +497,7 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 5",
       tituloLectura: "Texto 5 — Escolarización y aprendizaje",
       textoLectura: TEXTO_5_C01,
-      enunciado: "Relea el siguiente fragmento del último párrafo del texto: /n/n“Entonces, ¿es posible lograr mejoras en el aprendizaje de los estudiantes?”./n/n ¿Cuál es el objetivo <mark class=\"clave-palabra\">principal</mark> por el que el autor utiliza esta pregunta en el texto?,
+      enunciado: "Relea el siguiente fragmento del último párrafo del texto:\n\n“Entonces, ¿es posible lograr mejoras en el aprendizaje de los estudiantes?”\n\n¿Cuál es el objetivo <mark class=\"clave-palabra\">principal</mark> por el que el autor utiliza esta pregunta en el texto?",
       alternativas: {
         A: "Exhortar a las autoridades educativas a que respondan si es posible mejorar los aprendizajes.",
         B: "Transmitir dudas sobre la posibilidad de mejorar los aprendizajes en países en vías de desarrollo.",
@@ -498,7 +535,7 @@ window.CUADERNILLOS.push({
     },
     {
       numero: 31, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
-      eenunciado: "Si se sabe que:\n\n<div style=\"background:#e6e2d8; border-radius:10px; padding:12px 16px; margin:8px 0; color:#1f2421;\">• Relacionando 1, 8 y 2, se obtiene 4.<br>• Relacionando 2, 9 y 3, se obtiene 6.<br>• Relacionando 2, 16 y 4, se obtiene 8.</div>\nSi se mantiene la misma relación, ¿cuánto se obtiene al relacionar 4, 12 y 6?",
+      enunciado: "Si se sabe que:\n\n<div style=\"background:#e6e2d8; border-radius:10px; padding:12px 16px; margin:8px 0; color:#1f2421;\">• Relacionando 1, 8 y 2, se obtiene 4.<br>• Relacionando 2, 9 y 3, se obtiene 6.<br>• Relacionando 2, 16 y 4, se obtiene 8.</div>\nSi se mantiene la misma relación, ¿cuánto se obtiene al relacionar 4, 12 y 6?",
       alternativas: { A: "8", B: "10", C: "12" }
     },
     {
@@ -508,7 +545,7 @@ window.CUADERNILLOS.push({
     },
     {
       numero: 33, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
-      enunciado: "En una ciudad, hay tres tipos de monedas: kina, soti y lets; los cambios monetarios se realizan entre kinas y sotis, y entre sotis y letses./n/n Si se sabe que dos kinas equivalen a tres sotis y un soti equivale a tres letses, ¿cuál es el precio en kinas de un artefacto que cuesta 54 letses?/n/n",
+      enunciado: "En una ciudad, hay tres tipos de monedas: kina, soti y lets; los cambios monetarios se realizan entre kinas y sotis, y entre sotis y letses.\n\nSi se sabe que dos kinas equivalen a tres sotis y un soti equivale a tres letses, ¿cuál es el precio en kinas de un artefacto que cuesta 54 letses?",
       alternativas: { A: "12 kinas.", B: "27 kinas.", C: "36 kinas." }
     },
     {
@@ -815,7 +852,7 @@ window.CUADERNILLOS.push({
     },
     {
       numero: 73, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
-      tituloLectura: "tituloLectura: Lea la siguiente situación y responda las preguntas 73 y 74.",
+      tituloLectura: "Lea la siguiente situación y responda las preguntas 73 y 74.",
       textoLectura: "Ricardo, de cinco años, lleva al aula el siguiente paracaídas de juguete:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"img/paracaidas_73.png\" alt=\"Paracaídas de juguete\" style=\"max-width:240px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\nAl verlo jugar con el paracaídas, los niños se entusiasman y participan del juego. Luego, le comentan a la docente que les gustaría tener un juguete igual. Entonces, acuerdan elaborar un paracaídas de juguete.",
       enunciado: "La docente busca aprovechar esta situación para favorecer que los niños diseñen prototipos. ¿Cuál de las siguientes acciones es <mark class=\"clave-palabra\">más</mark> pertinente para ese propósito?",
       alternativas: {
@@ -890,19 +927,6 @@ window.CUADERNILLOS.push({
         C: "Preguntar a Daniela: \"¿Por qué crees que ahí está escrito tu nombre? ¿Te parece si buscamos tu nombre en el cartel de asistencia?\". Después de hacerlo, añadir: \"Ahora vamos a la silla en la que está Damaris. ¿Ahí dice tu nombre? ¿En qué se parece a tu nombre? ¿En qué se diferencia?\"."
       }
     },
-    const CUENTO_VACAS_82_84 = `Las vacas que dan leche con sabor
-Esteban Cabezas
-
-El profesor Chucrut era un científico que vivía en el País de los Sabores. A él le gustaba mucho la canción de las vacas que dan leche con sabor a chocolate y leche condensada. Un día quiso saber si de verdad las vacas podían dar leche con sabor.
-
-Entonces investigó el tema durante dos años y luego se puso a experimentar. Primero alimentó a una vaca solo con chocolate, pero no dio resultado y la vaca quedó súper acelerada. A otra le dio kilos de azúcar, pero solo le salieron caries. A otra vaca la alimentó con tanto manjar que la pobre no quiso volver a comerlo jamás.
-
-El profesor Chucrut pensó y dijo: “¿Tendrá algo que ver el color?”. Entonces pintó a una vaca de color fresa, pero nada. Después pintó a una de amarillo para ver si daba leche con sabor a plátano, pero tampoco pasó nada. Entonces cogió a una vaca y la subió a un helicóptero para ver si daba leche batida. Pero no. La vaca se mareó y quedó atontada, y no pudo pararse en dos días. Y la leche, claro, no salió batida.
-
-Cansadas del profesor Chucrut, las vacas se organizaron para protestar y dejaron de dar la leche como la conocemos. Ahora solo dan leche en polvo.
-
-<div style="text-align:center; margin:12px 0;"><img src="img/vacas_chucrut_82_84.png" alt="Ilustración del cuento Las vacas que dan leche con sabor" style="max-width:360px; width:100%; border-radius:10px; border:1px solid #cfc9bc;"></div>`;
-
     {
       numero: 82,
       subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
@@ -954,10 +978,10 @@ Cansadas del profesor Chucrut, las vacas se organizaron para protestar y dejaron
         C: "Mostrarles cómo se paran, mueven su cuerpo y caminan los patitos. Luego, ensayar con ellos hasta que logren realizar los movimientos de los patitos."
       }
     },
-{
+    {
       numero: 86, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
-     enunciado: "La docente del aula de cinco años tiene como propósito que los niños creen historias. Aprovechando que los niños están llevando a cabo el proyecto “Hacemos un huerto”, les presenta la siguiente imagen:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"img/huerto_conejos_86.png\" alt=\"Dos niños mirando sorprendidos en el huerto mientras dos conejos comen zanahorias\" style=\"max-width:380px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\n¿Cuál de las siguientes acciones es pertinente para que los niños creen historias a partir de esta imagen?",
-      alternativas:{
+      enunciado: "La docente del aula de cinco años tiene como propósito que los niños creen historias. Aprovechando que los niños están llevando a cabo el proyecto “Hacemos un huerto”, les presenta la siguiente imagen:\n\n<div style=\"text-align:center; margin:12px 0;\"><img src=\"img/huerto_conejos_86.png\" alt=\"Dos niños mirando sorprendidos en el huerto mientras dos conejos comen zanahorias\" style=\"max-width:380px; width:100%; border-radius:10px; border:1px solid #cfc9bc;\"></div>\n¿Cuál de las siguientes acciones es pertinente para que los niños creen historias a partir de esta imagen?",
+      alternativas: {
         A: "Contar a los niños que los personajes de la imagen se llaman Rosa y José, y que un día descubrieron a dos conejos comiéndose las zanahorias de su huerto. Luego, decirles que cuenten de nuevo la historia cambiando de nombre a los personajes.",
         B: "Preguntarles: \"¿Qué están haciendo los niños de la imagen? ¿Qué hacen los conejos? ¿Qué opinan de lo que hacen los conejos?\". Luego, pedirles que propongan ideas para que otros animalitos no hagan lo mismo en el huerto que están construyendo.",
         C: "Pedir a los niños que observen la imagen. Luego, preguntarles quiénes serán los personajes, en qué lugar estarán, qué creen que está sucediendo, qué habrá pasado antes y cómo quisieran que termine la historia. Finalmente, pedirles que cuenten la historia completa."
@@ -972,30 +996,6 @@ Cansadas del profesor Chucrut, las vacas se organizaron para protestar y dejaron
         C: "Proponer a los niños que lleven al aula el juguete que más les gusta y compartan con sus compañeros por qué les gusta."
       }
     },
-    const CUENTO_BAGRECICO_88_90 = `El bagrecico
-(Fragmento)
-Francisco Izquierdo Ríos
-
-En un riachuelito de la selva del Perú, vivía un viejo pez bagre, de barbas muy largas. Él decía con su voz ronca: «Yo conozco el mar. Cuando joven he viajado a él, y he vuelto».
-
-Y en el fondo de las aguas se movía de un lado a otro orgullosamente. Los peces niños y jóvenes le miraban y escuchaban con admiración. «¡Ese viejo conoce el mar!».
-
-Tanto oírlo, un bagrecico se le acercó una noche y le dijo: «Abuelo, yo también quiero conocer el mar».
-- ¿Tú?
-- Sí.
-- Bien, muchacho. Yo tenía tu edad cuando realicé el gran viaje.
-
-Esa noche, el viejo bagre enseñó al bagrecico cómo llegar al lejano mar. Al amanecer, el bagrecico partió. «Tienes que volver», le dijo, despidiéndolo, el viejo bagre, quien era el único que sabía de aquella aventura.
-
-El bagrecico sentía pena por su madre. Ella, preocupada, anduvo buscándolo todo el día.
-«¿Qué te sucede?», le preguntó el anciano bagre cuando la vio.
-- ¿Usted sabe dónde está mi hijo?
-- No. Pero lo que te puedo decir es que no tengas pena. El muchacho va a volver. Seguramente ha salido a conocer mundo.
-- ¿Y si alguien lo pesca?
-- No creo. Él es muy hábil.
-
-<div style="text-align:center; margin:12px 0;"><img src="img/bagrecico_88_90.png" alt="Ilustración del fragmento El bagrecico" style="max-width:360px; width:100%; border-radius:10px; border:1px solid #cfc9bc;"></div>`;
-
     {
       numero: 88,
       subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
