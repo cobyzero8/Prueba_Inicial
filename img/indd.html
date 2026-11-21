@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de Evaluación Docente — Nivel Inicial</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <span class="brand-tag">SIMULADOR DOCENTE · MINEDU</span>
+        <h1>Evaluación Docente — Nivel Inicial</h1>
+        <p class="subtitle">Simulador de práctica con cuadernillos oficiales MINEDU para docentes de EBR Nivel Inicial (EBRI)</p>
+      </div>
+      <div class="topbar-actions">
+        <span class="chip" id="racha-chip">Racha actual: 0 · Récord: 0</span>
+        <button type="button" class="theme-btn" id="btn-tema">🌙 Modo Noche</button>
+        <div class="timer-pill hidden" id="timer-box">
+          <span>⏱️</span>
+          <span id="timer-display">00:00</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel" id="setup-panel">
+      <div class="panel-head">
+        <h2>Prepara tu sesión de estudio</h2>
+        <span class="chip">Claves oficiales cargadas</span>
+      </div>
+
+      <div class="config-grid">
+        <div class="field">
+          <label for="bloque-select">Cuadernillo</label>
+          <select id="bloque-select"></select>
+        </div>
+
+        <div class="field">
+          <label for="subprueba-select">Modulos</label>
+          <select id="subprueba-select">
+            <option value="TODAS">PRUEBA COMPLETA</option>
+            <option value="Comprensión Lectora">Comprensión Lectora</option>
+            <option value="Razonamiento Lógico">Razonamiento Lógico</option>
+            <option value="Conocimientos Curriculares y Pedagógicos de la Especialidad">Conocimientos Curriculares y Pedagógicos de la Especialidad</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="lectura-select">Filtrar por Lectura (Comprensión)</label>
+          <select id="lectura-select">
+            <option value="TODAS">Todas las lecturas cargadas</option>
+            <option value="Texto 1">Texto 1 — La tejedora</option>
+            <option value="Texto 2">Texto 2 — Marie-Olympe de Gouges</option>
+            <option value="Texto 3">Texto 3 — Servicio educativo y mercado</option>
+            <option value="Texto 4">Texto 4 — Industria azucarera y nutrición</option>
+            <option value="Texto 5">Texto 5 — Escolarización vs. aprendizaje</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="modo-select">Modo de estudio</label>
+          <select id="modo-select">
+            <option value="practica">Práctica guiada (feedback al instante)</option>
+            <option value="examen">Simulacro de examen (evaluación final)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="minutos-input">Tiempo límite (min, 0 = libre)</label>
+          <input type="number" id="minutos-input" min="0" max="300" value="45" />
+        </div>
+      </div>
+
+      <div class="info-card" id="bloque-info"></div>
+
+      <div class="btn-row">
+        <button type="button" class="btn btn-primary" id="btn-iniciar">Iniciar prueba</button>
+        <button type="button" class="btn btn-ghost" id="btn-limpiar-progreso">Reiniciar progreso</button>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="quiz-panel">
+      <div class="quiz-top">
+        <div class="badges">
+          <span class="badge badge-teal" id="badge-bloque"></span>
+          <span class="badge badge-amber" id="badge-subprueba"></span>
+          <span class="badge badge-slate" id="badge-racha">🔥 Racha: 0</span>
+        </div>
+        <span class="question-counter" id="contador-pregunta"></span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <article class="reading-box hidden" id="contexto-box">
+        <div class="reading-header" id="lectura-titulo"></div>
+        <div class="reading-body" id="lectura-cuerpo"></div>
+      </article>
+
+      <h2 class="question-title" id="enunciado-texto"></h2>
+      <div class="options-list" id="alternativas-lista"></div>
+      <div class="feedback-banner hidden" id="feedback-box"></div>
+
+      <div class="btn-row">
+        <button type="button" class="btn btn-secondary" id="btn-anterior">← Anterior</button>
+        <button type="button" class="btn btn-secondary" id="btn-siguiente">Siguiente →</button>
+        <button type="button" class="btn btn-success" id="btn-finalizar">Finalizar y Ver Puntaje</button>
+      </div>
+
+      <div class="map-section">
+        <div class="map-label">Mapa de preguntas (clic para saltar)</div>
+        <div class="question-map" id="mapa-preguntas"></div>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="results-panel">
+      <div class="panel-head">
+        <div>
+          <h2 id="resultados-titulo">Balance de tu Sesión</h2>
+          <p class="subtitle" id="resultado-subtitulo"></p>
+        </div>
+      </div>
+
+      <div class="stats-grid" id="resumen-puntaje"></div>
+
+      <div class="btn-row">
+        <button type="button" class="btn btn-warning" id="btn-mis-errores">Mis errores (volver a responder)</button>
+        <button type="button" class="btn btn-secondary" id="btn-ver-todas">Ver todas las preguntas</button>
+        <button type="button" class="btn btn-primary" id="btn-volver-inicio">Volver a configurar</button>
+      </div>
+
+      <article class="reading-box hidden" id="errores-lectura-box" style="margin-top:18px;">
+        <div class="reading-header" id="errores-lectura-titulo"></div>
+        <div class="reading-body" id="errores-lectura-cuerpo"></div>
+      </article>
+
+      <div class="review-list" id="detalle-revision"></div>
+    </section>
+  </div>
+
+  <script src="data/C01-EBRI-11.js"></script>
+  <script src="data/C02-EBRI-12.js"></script>
+  <script src="data/CO1-EBRI-11-2019.js"></script>
+  <script src="data/CO2-EBRI-12-2019.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
