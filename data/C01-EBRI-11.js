@@ -1,84 +1,14 @@
 window.CUADERNILLOS = window.CUADERNILLOS || [];
 
-const TEXTO_1_C01 = `La mujer se despertaba cuando todavía estaba oscuro, como si pudiera oír al sol llegando por detrás de los márgenes de la noche. Luego, se sentaba al telar. Comenzaba el día con una hebra clara. Era un trazo delicado del color de la luz que iba pasando entre los hilos extendidos, mientras afuera la claridad de la mañana dibujaba el horizonte.
+const TEXTO_1_C01 = `Resumen del relato "La tejedora" (adaptado de Marina Colasanti): Una joven teje en su telar elementos que cobran vida o influyen en su entorno (como el clima, los alimentos y la compañía). Crea a un esposo, quien al descubrir el poder del telar exige cada vez más riquezas y un palacio, aislando el telar en lo alto de una torre. Ante la tristeza y la pérdida de libertad, la tejedora desteje de noche lo construido y recupera su tranquilidad.`;
 
-Durante la mañana, la mujer tejía un largo tapiz que no acababa nunca. Ponía en la lanzadera gruesos hilos del algodón más cálido, y el sol se volvía demasiado fuerte y los pétalos se desvanecían en el jardín. La artesana elegía entonces rápidamente un hilo de plata que bordaba sobre el tejido con gruesos puntos. Al rato, una lluvia suave llegaba hasta la ventana a saludarla.
+const TEXTO_2_C01 = `Resumen biográfico de Marie-Olympe de Gouges (1748–1793): Escritora y activista de la Ilustración y la Revolución francesa que defendió los derechos de las mujeres y de las personas esclavizadas. Tras un matrimonio impuesto en su juventud, se trasladó a París e inició su carrera teatral en 1774; en 1785 su obra Zamore y Mirza enfrentó tensiones vinculadas a la trata de esclavos y amenazas de prisión en la Bastilla, impulsando su activismo político. En 1791 redactó la Declaración de los Derechos de la Mujer y de la Ciudadana, y en noviembre de 1793 fue ejecutada durante el conflicto político con los montañeses.`;
 
-Si durante muchos días el viento y el frío peleaban con las hojas y espantaban los pájaros, bastaba con que la joven tejiera con sus bellos hilos dorados para que el sol volviera a apaciguar a la naturaleza. De esa manera, la muchacha pasaba sus días cruzando la lanzadera de un lado para el otro y llevando los grandes peines del telar para adelante y para atrás.
+const TEXTO_3_C01 = `Síntesis del artículo sobre educación y mercado (adaptado de Hugo Ñopo): Contrasta el servicio educativo con un servicio comercial típico como un restaurante, señalando diferencias en la medición de la calidad (especialmente habilidades socioemocionales), el horizonte temporal para ver resultados, el rol activo de estudiantes, familias y pares, la baja frecuencia de elección escolar y los retos de equidad.`;
 
-Cuando tenía hambre, tejía un lindo pescado, poniendo especial cuidado en las escamas. Y rápidamente el pescado estaba en la mesa, esperando que ella lo comiese. Si tenía sed, entremezclaba en el tapiz una lana suave del color de la leche. Por la noche, dormía tranquila después de pasar su hilo de oscuridad.
+const TEXTO_4_C01 = `Síntesis del reportaje sobre la industria azucarera y la ciencia nutricional (basado en publicaciones de JAMA Internal Medicine y The New York Times): Analiza cómo, desde mediados del siglo XX (1964–1967) con figuras como John Hickson y la Sugar Research Foundation hasta informes recientes, intereses comerciales influyeron en investigaciones y narrativas sobre el azúcar, las grasas y la salud.`;
 
-Pero tejiendo y tejiendo, ella misma trajo el tiempo en que se sintió sola, y pensó que sería bueno tener un esposo. Comenzó a entremezclar en el tapiz las lanas y los colores que le darían compañía. Poco a poco, su deseo fue apareciendo: sombrero con plumas, rostro barbado, cuerpo armonioso, zapatos lustrados. Cuando estaba a punto de tramar el último hilo de la punta de los zapatos, el joven llegó a su puerta, se quitó el sombrero y fue entrando en su vida.
-
-Aquella noche, recostada sobre su hombro, la mujer pensó en los hijos que tendría para que su felicidad fuera mayor.
-
-Y fue feliz por algún tiempo. Si el hombre había pensado en tener hijos, pronto lo olvidó. Una vez que descubrió el poder del telar, solo pensó en todas las cosas que podía tener.
-
-"Necesitamos una casa mejor", le dijo a su mujer. Y a ella le pareció justo, porque ahora eran dos. Él le exigió que escogiera las más bellas lanas color ladrillo, hilos verdes para las puertas y las ventanas, y prisa para que la casa estuviera lista lo antes posible. Pero una vez que la casa estuvo terminada, no le pareció suficiente.
-
-"¿Por qué tener una casa si podemos tener un palacio?", preguntó. Ordenó inmediatamente que fuera de piedra con terminaciones de plata. Día tras día trabajó la mujer tejiendo techos y puertas, patios y escaleras, y salones y pozos. Afuera caía la nieve, pero ella no tenía tiempo para llamar al sol. Cuando llegaba la noche, ella no tenía tiempo para rematar el día. Tejía y entristecía mientras los peines batían sin parar al ritmo de la lanzadera.
-
-Finalmente el palacio quedó listo. Y entre tantos ambientes, el esposo escogió para ella y su telar el cuarto más alto, en la torre más alta. "Es para que nadie sepa lo del tapiz", dijo. Y antes de retirarse le advirtió: "Faltan los establos. ¡Y no olvides los caballos!".
-
-La mujer tejía sin descanso los caprichos de su esposo, llenando el palacio de lujos, los cofres de monedas, las salas de criados.
-
-Y tejiendo y tejiendo, ella misma trajo el tiempo en que le pareció que su tristeza era más grande que el palacio, con riquezas y todo. Y por primera vez pensó que sería bueno estar sola nuevamente.
-
-Solo esperó a que llegara el anochecer. Se levantó mientras su esposo dormía soñando con nuevas exigencias. Descalza, para no hacer ruido, subió la larga escalera de la torre y se sentó al telar. Tomó la lanzadera al revés y, pasando velozmente de un lado para el otro, comenzó a destejer su tela. Destejió los caballos, los carruajes, los establos, los jardines, los criados y al palacio con todas sus maravillas. Y nuevamente se vio en su pequeña casa y sonrió mirando el jardín a través de la ventana.
-
-La noche estaba terminando, cuando el esposo se despertó extrañado por la dureza de la cama. Espantado, miró a su alrededor. No tuvo tiempo de levantarse. Ella ya había comenzado a deshacer el oscuro dibujo de sus zapatos y él vio desaparecer sus pies, esfumarse sus piernas. Rápidamente la nada subió por el cuerpo, tomó el pecho armonioso, el sombrero con plumas.
-
-Entonces, como si hubiese percibido la llegada del sol, la mujer eligió una hebra clara. Fue pasándola lentamente entre los hilos, con alegría, como un delicado trazo de luz que la mañana repitió en la línea del horizonte.
-
-Adaptado de "La tejedora" de Marina Colasanti.`;
-
-const TEXTO_2_C01 = `Marie-Olympe de Gouges es una de las muy pocas mujeres de la historia antigua en haber sido ejecutadas por la publicación de escritos políticos. A pesar de ello, su estatus como precursora en la historia de las ideas no ha cobrado relevancia sino recientemente. Fue una figura de excepción de la Ilustración francesa, no solo por su compromiso político, sino sobre todo por sus posturas de vanguardia, valientemente expresadas, con relación a la condición de los esclavos negros y la de las mujeres. Fue severamente juzgada por la "mayoría moral" de su tiempo, para la cual la maternidad, el cuidado del hogar y la educación de los niños debían mantenerse como temas exclusivos de la actividad de las mujeres -al menos de aquellas de las que se decía que "se respetaban a sí mismas"-. No fue sino tras la Segunda Guerra Mundial, cuando se discutieron bajo una nueva perspectiva las cuestiones sociales de fondo sobre las mujeres, el racismo y las minorías, que el recuerdo trágico de Olympe volvió a los escenarios.
-
-Nació en el seno de una familia burguesa en 1748, en el suroeste de Francia. Cuando tenía 17 años, sus padres arreglaron su matrimonio con un hombre mucho mayor, del que enviudó dos años después. Nunca volvió a casarse; por el contrario, la experiencia de un matrimonio forzado hizo nacer en ella un deseo de determinación e independencia. En 1770, se mudó a París, en donde frecuentó salones literarios y conoció a los intelectuales de la Ilustración.
-
-En 1774, empezó su carrera literaria, centrada en el teatro. Su pieza más conocida, Zamore y Mirza o el naufragio feliz, en la que buscó llamar la atención sobre las injusticias de la esclavitud, fue inscrita en el repertorio de la Comédie-Française -la tropa de teatro oficial del Estado francés- en 1985. El éxito inicial de la pieza se empañó rápidamente, sin embargo, cuando se comprendió que el drama hacía una crítica velada de la trata de personas. La Comédie dependía económicamente de la corte de Versalles, en la que muchos nobles se enriquecían con la trata de esclavos en las colonias francesas. La pieza fue dejada de lado, y de Gouges cometió el error de manifestar ruidosamente su decepción al respecto. Recibió una carta oficial del Estado en la que la amenazaban de encarcelamiento en la Bastilla. Vencida en un primer momento por el miedo, fue a partir de estos sucesos que nació su compromiso político. De 1785 hasta su muerte, 8 años después, publicó incansablemente sobre todos los temas que consideró importantes.
-
-Cuando sobrevino la Revolución francesa, en 1789, Olympe había redoblado su actividad militante, multiplicando la producción de panfletos en los que exigía la igualdad de derechos para todos los ciudadanos, independientemente de su sexo, color de piel o ingresos.
-
-Precisamente en ese año, se produjo un hecho bisagra para la historia en general, y para de Gouges en particular: la Asamblea Constituyente aprobó la Declaración de los Derechos del Hombre y del Ciudadano, texto fundamental de la Revolución francesa, cuyos principios (incluyendo la libertad de opinión y el derecho al sufragio) aún forman parte de los gobiernos democráticos contemporáneos. El alcance del documento era relativo, sin embargo, pues en los años de la revolución solo eran considerados ciudadanos con derecho a voto los varones de más de 25 años que pagaran una contribución directa igual o superior al valor de tres jornales. Eso reducía la cantidad de electores a un escaso 15%. Los hombres menores de 25 años, las personas sin residencia fija y las mujeres eran considerados ciudadanos pasivos, sin derecho de participación en la vida pública.
-
-En 1791, Olympe decidió responder al escrito con su propia Declaración de los Derechos de la Mujer y de la Ciudadana, cuyo encabezado reza: "Hombre, ¿eres capaz de ser justo? Una mujer te hace esta pregunta". En este documento, uno de los primeros en proponer la igualdad de derechos para la mujer, de Gouges denunció la pena de muerte y reclamó el derecho al voto independientemente del sexo. Asimismo, y tal vez presintiendo su final próximo, anunciaba: "La mujer que tiene el derecho de subir al cadalso también debe tener el derecho de subir a la tribuna".
-
-Alineada ideológicamente con los girondinos, la suerte de Olympe estuvo echada cuando, en junio de 1793, sus rivales políticos en la Convención, los montañeses, se hicieron con el poder de manera violenta. Ella había criticado duramente las ideas políticas (y las personas) de Robespierre y Marat, dos de los principales líderes montañeses. Tres días después de la ejecución de los líderes de los girondinos, fue detenida por ser la autora de un cartel propagandístico a favor de su causa, y llevada ante el Tribunal Revolucionario, que la condenó sumariamente a muerte por su activismo político.
-
-Olympe de Gouges fue guillotinada el 3 de noviembre de 1793. Según fuentes de la época, subió al cadalso con valor y dignidad. Tiempo después, y profetizando la oscuridad que caería por más de un siglo sobre la causa por los derechos de las mujeres, un adversario político montañés la mencionó en un discurso: "Recuerden a esa mujer-hombre, la descarada Olympe de Gouges, quien quiso politiquear y cometió crímenes; todos esos seres inmorales han sido eliminados bajo el hierro vengador de las leyes!". Y dirigiéndose a las mujeres en la audiencia, agregó: "¿Y ustedes quisieran imitarlos? No, solo se sentirán dignas de estima cuando sean lo que la naturaleza ha querido que fueran. Queremos que las mujeres se respeten, y es por ello que las forzaremos a respetarse a sí mismas".
-
-Adaptado de https://www.monde-diplomatique.fr/2008/11/BLANC/16516 y https://www.infobae.com/sociedad/2017/03/08/.`;
-
-const TEXTO_3_C01 = `En un mundo cada vez más tecnificado, y frente a las nuevas tendencias del mercado laboral, la educación aparece hoy más que nunca estrechamente ligada al desarrollo económico, por lo cual suele verse como una inversión y al servicio educativo como un bien de mercado, cuando en realidad es un derecho humano y un bien público social. Así, al ser un bien público social, es la sociedad y, en especial, el Estado quienes tienen el deber de garantizarlo a todos los ciudadanos y a todas las ciudadanas de manera igualitaria, sin exclusiones de ningún tipo, a fin de que puedan ejercer plenamente sus derechos.
-
-La visión del servicio educativo como un bien de mercado implica, además, considerar que este debe responder al juego de la oferta y la demanda, a los criterios de la competitividad y a los intereses individuales y de lucro. En cambio, si el servicio educativo es entendido como un bien público social y un derecho humano, debe regirse por criterios de equidad, solidaridad, justicia social y bien común, y no debe estar sometido a las leyes del mercado ni a intereses particulares.
-
-Esta concepción de la educación como un derecho humano y un bien público social se sustenta en el hecho de que la educación es un proceso que ocurre a lo largo de toda la vida y que tiene como propósito formar personas íntegras, libres y autónomas, capaces de participar de manera activa, crítica y responsable en la vida democrática y de contribuir al desarrollo sostenible de su comunidad y de su país. Por ello, la educación no puede reducirse a una simple capacitación técnica o a la adquisición de competencias orientadas exclusivamente a la inserción laboral, sino que debe promover el desarrollo integral de las personas en todas sus dimensiones: ética, intelectual, afectiva, estética, física y social.
-
-Asimismo, concebir la educación como un bien público social supone reconocer que es una responsabilidad compartida por la familia, la escuela, la comunidad y el Estado, y que todos los actores sociales tienen un rol fundamental en su garantía y fortalecimiento. En este sentido, el Estado debe asegurar una educación de calidad para todos, con equidad e inclusión, asignando los recursos necesarios y promoviendo políticas públicas que permitan superar las desigualdades sociales y educativas que aún persisten en nuestra sociedad.
-
-Adaptado de UNESCO.`;
-
-const TEXTO_4_C01 = `Durante décadas, la industria azucarera ha financiado investigaciones científicas y campañas de comunicación orientadas a minimizar el papel del azúcar en el desarrollo de enfermedades metabólicas y cardiovasculares, desviando la atención pública hacia otros factores como el consumo de grasas saturadas o el sedentarismo. Diversos estudios históricos y epidemiológicos han puesto en evidencia que, en muchos casos, estas iniciativas no respondían a criterios estrictamente científicos, sino a intereses comerciales destinados a proteger el consumo y la rentabilidad de los productos azucarados.
-
-Frente a este panorama, organizaciones internacionales de salud y numerosos investigadores advierten sobre los riesgos asociados a un consumo excesivo de azúcares libres, particularmente aquellos presentes en bebidas azucaradas y productos ultraprocesados. El exceso de azúcares libres se ha vinculado con el incremento del sobrepeso y la obesidad, así como con un mayor riesgo de padecer diabetes tipo 2, caries dental y otras alteraciones metabólicas que afectan la salud de la población desde edades tempranas.
-
-Por ello, se ha vuelto indispensable contar con políticas públicas claras y basadas en evidencia científica independiente, libres de conflictos de interés, que protejan la salud pública. Entre estas medidas destacan el etiquetado frontal de advertencia nutricional, la regulación de la publicidad dirigida a niños y niñas, la restricción de la venta de alimentos y bebidas ultraprocesados en las escuelas y la promoción de entornos alimentarios saludables que faciliten la elección de alimentos naturales y nutritivos.
-
-Asimismo, se subraya la importancia de fortalecer la educación alimentaria y nutricional en las familias y en las instituciones educativas, de modo que niños, niñas, adolescentes y adultos puedan tomar decisiones informadas sobre su alimentación y desarrollar hábitos saludables a lo largo de toda su vida.
-
-Adaptado de OMS / OPS.`;
-
-const TEXTO_5_C01 = `En la actualidad, suele confundirse escolarización con aprendizaje, como si el simple hecho de asistir a la escuela y cumplir con un conjunto de años o grados escolares garantizara automáticamente que los estudiantes aprendan de manera significativa y desarrollen las competencias necesarias para su vida personal, ciudadana y laboral. Sin embargo, la evidencia pedagógica muestra que la escolarización es una condición necesaria para ampliar el acceso a la educación, pero no suficiente por sí sola para asegurar aprendizajes de calidad.
-
-Para que exista un verdadero aprendizaje, no basta con transmitir información de manera memorística o fragmentada ni con evaluar únicamente la capacidad de repetir datos en un examen. El aprendizaje profundo y duradero requiere de experiencias significativas, desafiantes y contextualizadas, en las que los estudiantes participen activamente, reflexionen sobre lo que hacen, vinculen los nuevos saberes con sus experiencias previas y construyan sentido a partir de la interacción con sus pares y con sus docentes.
-
-En este proceso, el rol del docente resulta decisivo. Más que limitarse a ser un mero transmisor de contenidos, el docente actúa como mediador del aprendizaje, diseñando situaciones pedagógicas pertinentes, brindando retroalimentación oportuna, fomentando un clima de confianza y respeto en el aula y atendiendo a la diversidad de ritmos, estilos y necesidades de aprendizaje de cada estudiante.
-
-De igual manera, la gestión de la institución educativa y las políticas educativas deben orientarse a colocar el aprendizaje de los estudiantes en el centro de las decisiones, asegurando condiciones adecuadas en las aulas, acompañando la práctica docente y promoviendo una cultura de mejora continua que permita que todos los estudiantes, sin excepción, alcancen los aprendizajes esperados.
-
-Adaptado de MINEDU.`;
+const TEXTO_5_C01 = `Síntesis del análisis sobre escolarización y aprendizaje (basado en el Informe sobre el desarrollo mundial 2018 del Banco Mundial y El País): Distingue entre asistir a la escuela (cobertura) y lograr aprendizajes efectivos, ilustrando brechas en distintos países, el impacto de la desigualdad y medidas como medir resultados, priorizar la calidad y fortalecer la educación inicial.`;
 
 window.CUADERNILLOS.push({
   id: "C01-EBRI-11",
@@ -166,7 +96,7 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 1",
       tituloLectura: "Texto 1 — La tejedora",
       textoLectura: TEXTO_1_C01,
-      enunciado: "¿Cuál de las siguientes frases expresa la enseñanza principal del cuento?",
+      enunciado: "¿Cuál de las siguientes frases expresa la enseñanza <mark class=\"clave-palabra\">principal</mark> del cuento?",
       alternativas: {
         A: "'En la boca del mentiroso, lo cierto se hace más que dudoso'.",
         B: "'No todo lo que se ama se desea, ni todo lo que se desea se ama'.",
@@ -194,7 +124,7 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 2",
       tituloLectura: "Texto 2 — Marie-Olympe de Gouges",
       textoLectura: TEXTO_2_C01,
-      enunciado: "Según el texto, ¿cuál de los siguientes hechos ocurrió primero?",
+      enunciado: "Según el texto, ¿cuál de los siguientes hechos ocurrió <mark class=\"clave-palabra\">primero</mark>?",
       alternativas: {
         A: "Olympe escribió la Declaración de los Derechos de la Mujer y de la Ciudadana.",
         B: "Los montañeses tomaron el poder político francés de manera violenta.",
@@ -208,7 +138,7 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 2",
       tituloLectura: "Texto 2 — Marie-Olympe de Gouges",
       textoLectura: TEXTO_2_C01,
-      enunciado: "En el último párrafo del texto, el autor cita un comentario de un adversario político de Olympe. ¿Cuál es la finalidad principal del autor al citar este comentario?",
+      enunciado: "En el último párrafo del texto, el autor cita un comentario de un adversario político de Olympe. ¿Cuál es la finalidad <mark class=\"clave-palabra\">principal</mark> del autor al citar este comentario?",
       alternativas: {
         A: "Señalar que Olympe terminó siendo considerada una criminal por sus orientaciones políticas.",
         B: "Cuestionar la actitud intolerante de los líderes políticos montañeses hacia las ideas de sus rivales girondinos.",
@@ -246,11 +176,11 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 3",
       tituloLectura: "Texto 3 — Servicio educativo y mercado",
       textoLectura: TEXTO_3_C01,
-      enunciado: "Según el texto, ¿qué implica concebir el servicio educativo como un bien público social?",
+      enunciado: "Según el autor, ¿por qué los 'consumidores del servicio educativo' juegan un rol importante en la provisión de dicho servicio?",
       alternativas: {
-        A: "Que el Estado y la sociedad tienen el deber de garantizarlo de manera igualitaria a toda la ciudadanía.",
-        B: "Que la educación debe ajustarse a las demandas de competitividad del mercado laboral actual.",
-        C: "Que las familias asumen de forma exclusiva la financiación y el control del servicio educativo."
+        A: "Porque el aprendizaje en la escuela depende en buena parte del esfuerzo de los estudiantes y de cómo interactúan entre ellos.",
+        B: "Porque los estudiantes que cuentan con mayores recursos económicos reciben un mejor servicio educativo.",
+        C: "Porque la eficiencia de una escuela se ve reflejada en el éxito que logren alcanzar sus exalumnos."
       }
     },
     {
@@ -260,11 +190,11 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 3",
       tituloLectura: "Texto 3 — Servicio educativo y mercado",
       textoLectura: TEXTO_3_C01,
-      enunciado: "¿Cuál es la idea central del texto?",
+      enunciado: "¿Cuál de las siguientes afirmaciones se puede <mark class=\"clave-palabra\">concluir</mark> a partir de lo sostenido por el autor?",
       alternativas: {
-        A: "La educación técnica permite a los jóvenes insertarse con rapidez en un mercado laboral exigente.",
-        B: "La cobertura escolar se ha ampliado gracias a la competencia entre instituciones educativas.",
-        C: "La educación es un derecho humano y un bien público social orientado al desarrollo integral de las personas."
+        A: "Es sencillo medir el desarrollo de las habilidades socioemocionales de los estudiantes.",
+        B: "El mercado se encarga de asignar más recursos educativos en zonas menos favorecidas.",
+        C: "Evaluar la calidad de una escuela es más complejo que evaluar la calidad de un restaurante."
       }
     },
     {
@@ -274,11 +204,11 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 3",
       tituloLectura: "Texto 3 — Servicio educativo y mercado",
       textoLectura: TEXTO_3_C01,
-      enunciado: "Según el texto, ¿cuál de las siguientes afirmaciones corresponde a la visión del servicio educativo como un bien de mercado?",
+      enunciado: "¿Cuál de las siguientes alternativas <mark class=\"clave-palabra\">NO</mark> es uno de los 'ejes de comparación' utilizados por el autor?",
       alternativas: {
-        A: "Promueve el desarrollo ético, afectivo y ciudadano por encima de los intereses económicos.",
-        B: "Se orienta por la oferta y la demanda, la competitividad y los intereses individuales o de lucro.",
-        C: "Exige políticas públicas inclusivas para eliminar toda desigualdad social en el acceso a la escuela."
+        A: "La frecuencia con la que se contrata el servicio.",
+        B: "El nivel de innovación en la prestación del servicio.",
+        C: "El tiempo que toma conocer los resultados del servicio."
       }
     },
     {
@@ -288,11 +218,11 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 3",
       tituloLectura: "Texto 3 — Servicio educativo y mercado",
       textoLectura: TEXTO_3_C01,
-      enunciado: "A partir del texto, ¿qué crítica se plantea frente a reducir la educación a una simple capacitación técnica?",
+      enunciado: "Según el texto, ¿cuál fue la razón <mark class=\"clave-palabra\">principal</mark> por la que, en las últimas décadas, el Estado redujo su participación activa en los mercados?",
       alternativas: {
-        A: "Que encarece los costos de funcionamiento de las instituciones educativas públicas.",
-        B: "Que limita el propósito formativo integral de las personas en sus dimensiones ética, intelectual, afectiva y social.",
-        C: "Que impide que los estudiantes aprendan a utilizar nuevas tecnologías en su vida cotidiana."
+        A: "Porque las decisiones del Estado relacionadas con el servicio educativo habían tenido resultados desalentadores.",
+        B: "Porque el motor de la libre competencia indujo a la mejora y al aumento de la productividad en múltiples sectores.",
+        C: "Porque el Estado debió concentrarse en aquellos mercados que tenían que ser regulados para volverse eficientes."
       }
     },
     {
@@ -302,11 +232,11 @@ window.CUADERNILLOS.push({
       textoClave: "Texto 3",
       tituloLectura: "Texto 3 — Servicio educativo y mercado",
       textoLectura: TEXTO_3_C01,
-      enunciado: "Según el texto, ¿quiénes comparten la responsabilidad de garantizar y fortalecer la educación como bien público social?",
+      enunciado: "¿Cuál es el argumento <mark class=\"clave-palabra\">principal</mark> del autor para defender que la libre competencia por sí sola no mejora la educación?",
       alternativas: {
-        A: "Únicamente los docentes y directivos de las instituciones educativas.",
-        B: "Las empresas privadas vinculadas al sector tecnológico y productivo.",
-        C: "La familia, la escuela, la comunidad y el Estado."
+        A: "Las decisiones ante la problemática del servicio educativo deben estar basadas en reflexiones sesudas y no en actos de fe.",
+        B: "Existen fuertes diferencias entre el servicio educativo y el servicio de comida con relación a la disponibilidad de información.",
+        C: "Las propuestas de mejora desde la libre competencia ignoran las importantes particularidades que tiene el servicio educativo."
       }
     },
     {
@@ -314,13 +244,13 @@ window.CUADERNILLOS.push({
       subprueba: "Comprensión Lectora",
       puntos: 2,
       textoClave: "Texto 4",
-      tituloLectura: "Texto 4 — Industria azucarera y nutrición",
+      tituloLectura: "Texto 4 — Industria azucarera y ciencia",
       textoLectura: TEXTO_4_C01,
-      enunciado: "Según el texto, ¿qué estrategia ha empleado históricamente parte de la industria azucarera?",
+      enunciado: "Entre los hechos presentados en el texto, ¿cuál ocurrió <mark class=\"clave-palabra\">primero</mark>?",
       alternativas: {
-        A: "Promover el etiquetado frontal de advertencia nutricional en todos los productos ultraprocesados.",
-        B: "Financiar investigaciones y campañas para minimizar el rol del azúcar y desviar la atención hacia otros factores.",
-        C: "Retirar voluntariamente las bebidas azucaradas de las escuelas para prevenir la obesidad infantil."
+        A: "El Dr. Mark Hegsted llegó a convertirse en el director de nutrición del Departamento de Agricultura de EE. UU.",
+        B: "John Hickson y sus colegas discutieron un plan para redireccionar la opinión pública sobre el azúcar y la salud.",
+        C: "La prensa informó que algunas empresas financiaban estudios sobre el peso de los niños que consumían dulces."
       }
     },
     {
@@ -328,13 +258,13 @@ window.CUADERNILLOS.push({
       subprueba: "Comprensión Lectora",
       puntos: 2,
       textoClave: "Texto 4",
-      tituloLectura: "Texto 4 — Industria azucarera y nutrición",
+      tituloLectura: "Texto 4 — Industria azucarera y ciencia",
       textoLectura: TEXTO_4_C01,
-      enunciado: "¿Con qué problemas de salud se vincula el consumo excesivo de azúcares libres según el texto?",
+      enunciado: "¿Cuál es el tema central de este texto?",
       alternativas: {
-        A: "Con deficiencias de vitaminas y fracturas óseas en adultos mayores.",
-        B: "Con alergias estacionales y problemas respiratorios crónicos.",
-        C: "Con sobrepeso, obesidad, diabetes tipo 2, caries dental y otras alteraciones metabólicas."
+        A: "Los efectos negativos del azúcar en la salud.",
+        B: "El debate científico sobre la industria alimenticia en EE. UU.",
+        C: "La manipulación de información sobre los efectos del azúcar."
       }
     },
     {
@@ -342,13 +272,13 @@ window.CUADERNILLOS.push({
       subprueba: "Comprensión Lectora",
       puntos: 2,
       textoClave: "Texto 4",
-      tituloLectura: "Texto 4 — Industria azucarera y nutrición",
+      tituloLectura: "Texto 4 — Industria azucarera y ciencia",
       textoLectura: TEXTO_4_C01,
-      enunciado: "¿Cuál es una de las medidas de política pública mencionadas en el texto para proteger la salud pública?",
+      enunciado: "¿En qué consiste el 'interés particular' al que se refiere la cita del penúltimo párrafo?",
       alternativas: {
-        A: "El etiquetado frontal de advertencia nutricional y la regulación de la publicidad dirigida a niños y niñas.",
-        B: "La eliminación de los impuestos a las bebidas azucaradas y productos ultraprocesados.",
-        C: "La sustitución de la educación nutricional por campañas publicitarias en medios privados."
+        A: "En procurar que la opinión pública desconozca la relación entre el consumo de azúcar y las enfermedades cardiovasculares.",
+        B: "En procurar que el público reflexione sobre las decisiones de los empresarios vinculados a la industria alimentaria.",
+        C: "En procurar que el debate sobre los efectos del azúcar y las grasas en la salud siguiera vigente."
       }
     },
     {
@@ -356,13 +286,13 @@ window.CUADERNILLOS.push({
       subprueba: "Comprensión Lectora",
       puntos: 2,
       textoClave: "Texto 4",
-      tituloLectura: "Texto 4 — Industria azucarera y nutrición",
+      tituloLectura: "Texto 4 — Industria azucarera y ciencia",
       textoLectura: TEXTO_4_C01,
-      enunciado: "Según el texto, ¿por qué es necesario que las políticas públicas se basen en evidencia científica independiente?",
+      enunciado: "¿Cuál de las siguientes afirmaciones se puede <mark class=\"clave-palabra\">concluir</mark> a partir de la información del texto?",
       alternativas: {
-        A: "Para reducir el costo de producción de los alimentos envasados.",
-        B: "Para evitar que los estudiantes elijan alimentos naturales en los quioscos escolares.",
-        C: "Para estar libres de conflictos de interés y proteger efectivamente la salud de la población."
+        A: "Mark Hegsted fue nombrado en un alto cargo gubernamental a pesar de saberse que estaba involucrado en tráfico de influencias.",
+        B: "La investigación de JAMA muestra que los azúcares generan mayor riesgo cardiaco que las grasas saturadas.",
+        C: "Los estudios financiados por la Asociación Azucarera fueron publicados en una revista prestigiosa para influir en la opinión pública."
       }
     },
     {
@@ -370,13 +300,13 @@ window.CUADERNILLOS.push({
       subprueba: "Comprensión Lectora",
       puntos: 2,
       textoClave: "Texto 4",
-      tituloLectura: "Texto 4 — Industria azucarera y nutrición",
+      tituloLectura: "Texto 4 — Industria azucarera y ciencia",
       textoLectura: TEXTO_4_C01,
-      enunciado: "¿Qué rol cumple la educación alimentaria y nutricional según el último párrafo?",
+      enunciado: "¿Cuál de los siguientes hechos apoya la idea de que la industria azucarera continúa ejerciendo influencia en la ciencia de la nutrición?",
       alternativas: {
-        A: "Reemplaza la necesidad de crear entornos alimentarios saludables en las escuelas.",
-        B: "Ayuda a que personas de distintas edades tomen decisiones informadas y construyan hábitos saludables.",
-        C: "Se dirige exclusivamente a los profesionales de la salud y gestores de políticas públicas."
+        A: "John Hickson propuso contrarrestar descubrimientos sobre el azúcar con una investigación patrocinada por la industria.",
+        B: "Fabricantes de dulces financiaron estudios que aseguraban que los niños que comían dulces tendían a pesar menos.",
+        C: "Un grupo de científicos investigó una teoría sobre grasas saturadas y enfermedades del corazón."
       }
     },
     {
@@ -384,13 +314,13 @@ window.CUADERNILLOS.push({
       subprueba: "Comprensión Lectora",
       puntos: 2,
       textoClave: "Texto 5",
-      tituloLectura: "Texto 5 — Escolarización vs. aprendizaje",
+      tituloLectura: "Texto 5 — Escolarización y aprendizaje",
       textoLectura: TEXTO_5_C01,
-      enunciado: "Según el texto, ¿cuál es la relación entre escolarización y aprendizaje?",
+      enunciado: "¿Por qué el autor afirma que una gran parte de la inversión educativa se pierde?",
       alternativas: {
-        A: "La escolarización garantiza por sí sola que todos los estudiantes alcancen aprendizajes profundos.",
-        B: "La escolarización amplía el acceso a la educación, pero no basta por sí sola para asegurar aprendizajes de calidad.",
-        C: "El aprendizaje profundo ocurre únicamente fuera de la institución educativa."
+        A: "Porque los estudiantes de países de menores ingresos aún tienen dificultades para acceder a una escuela.",
+        B: "Porque los estudiantes desarrollan pocas habilidades que los ayuden a moverse eficazmente en el mundo.",
+        C: "Porque los estudiantes pasan demasiadas horas realizando actividades de lectura, matemáticas y otras materias."
       }
     },
     {
@@ -398,13 +328,13 @@ window.CUADERNILLOS.push({
       subprueba: "Comprensión Lectora",
       puntos: 2,
       textoClave: "Texto 5",
-      tituloLectura: "Texto 5 — Escolarización vs. aprendizaje",
+      tituloLectura: "Texto 5 — Escolarización y aprendizaje",
       textoLectura: TEXTO_5_C01,
-      enunciado: "¿Qué características favorecen un aprendizaje profundo y duradero de acuerdo con el texto?",
+      enunciado: "¿Por qué el autor afirma que 'la escolarización sin aprendizaje no es solo una oportunidad perdida, sino también una gran injusticia hacia los estudiantes pobres'?",
       alternativas: {
-        A: "Experiencias significativas, desafiantes y contextualizadas con participación activa y vinculación con saberes previos.",
-        B: "La repetición literal de información para obtener altas calificaciones en exámenes escritos.",
-        C: "El trabajo individual aislado sin interacción con los pares ni retroalimentación docente."
+        A: "Porque perpetúa la desigualdad entre los estudiantes pobres y aquellos que provienen de hogares con mayores ingresos.",
+        B: "Porque las autoridades ignoran que la problemática educacional tiene que ver con una crisis de los aprendizajes.",
+        C: "Porque la evidencia muestra que los estudiantes pobres fracasan en las evaluaciones cinco veces más que los más favorecidos."
       }
     },
     {
@@ -412,13 +342,13 @@ window.CUADERNILLOS.push({
       subprueba: "Comprensión Lectora",
       puntos: 2,
       textoClave: "Texto 5",
-      tituloLectura: "Texto 5 — Escolarización vs. aprendizaje",
+      tituloLectura: "Texto 5 — Escolarización y aprendizaje",
       textoLectura: TEXTO_5_C01,
-      enunciado: "¿Cuál es el rol del docente que se destaca en el texto?",
+      enunciado: "¿Cuál es la idea <mark class=\"clave-palabra\">principal</mark> del texto?",
       alternativas: {
-        A: "Limitarse a exponer contenidos de manera uniforme para todos los estudiantes.",
-        B: "Actuar como mediador del aprendizaje, diseñando situaciones pertinentes, retroalimentando y atendiendo la diversidad.",
-        C: "Evaluar únicamente la memoria de los estudiantes al finalizar cada bimestre."
+        A: "Una conclusión clave del informe del Banco Mundial es que los países de menores ingresos tienen posibilidades reales de que sus jóvenes aprendan.",
+        B: "Los esfuerzos por ampliar la cobertura educativa serán insuficientes si no están acompañados por políticas orientadas a la mejora significativa de los aprendizajes.",
+        C: "Además de ser una oportunidad perdida, la escolarización de baja calidad es una injusticia que puede generar conflictos."
       }
     },
     {
@@ -426,13 +356,13 @@ window.CUADERNILLOS.push({
       subprueba: "Comprensión Lectora",
       puntos: 2,
       textoClave: "Texto 5",
-      tituloLectura: "Texto 5 — Escolarización vs. aprendizaje",
+      tituloLectura: "Texto 5 — Escolarización y aprendizaje",
       textoLectura: TEXTO_5_C01,
-      enunciado: "Según el texto, ¿qué deben priorizar la gestión escolar y las políticas educativas?",
+      enunciado: "¿Cuál de las siguientes medidas <mark class=\"clave-palabra\">NO</mark> forma parte de las propuestas del autor para mejorar los aprendizajes?",
       alternativas: {
-        A: "Colocar el aprendizaje de los estudiantes en el centro, asegurando buenas condiciones, acompañamiento y mejora continua.",
-        B: "Centrarse exclusivamente en cumplir con el número de años de permanencia en el sistema escolar.",
-        C: "Uniformizar los ritmos y estilos de aprendizaje de todos los estudiantes del aula."
+        A: "Facilitar el acceso de niños y jóvenes a la escuela.",
+        B: "Medir el rendimiento educativo de los estudiantes.",
+        C: "Implementar el uso de la tecnología de forma funcional."
       }
     },
     {
@@ -440,78 +370,37 @@ window.CUADERNILLOS.push({
       subprueba: "Comprensión Lectora",
       puntos: 2,
       textoClave: "Texto 5",
-      tituloLectura: "Texto 5 — Escolarización vs. aprendizaje",
+      tituloLectura: "Texto 5 — Escolarización y aprendizaje",
       textoLectura: TEXTO_5_C01,
-      enunciado: "¿Cuál es el propósito central del texto?",
+      enunciado: "¿Cuál es el objetivo <mark class=\"clave-palabra\">principal</mark> de la pregunta 'Entonces, ¿es posible lograr mejoras en el aprendizaje de los estudiantes?'?",
       alternativas: {
-        A: "Explicar cómo evaluar exclusivamente mediante pruebas objetivas de selección múltiple.",
-        B: "Señalar que las familias no intervienen en el logro de aprendizajes de los estudiantes.",
-        C: "Diferenciar escolarización de aprendizaje y resaltar las condiciones pedagógicas y de gestión que aseguran aprendizajes de calidad."
+        A: "Exhortar a las autoridades educativas a que respondan si es posible mejorar los aprendizajes.",
+        B: "Transmitir dudas sobre la posibilidad de mejorar los aprendizajes en países en vías de desarrollo.",
+        C: "Recalcar, sobre la base de ejemplos descritos en el texto, que existe la posibilidad de mejorar los aprendizajes."
       }
     },
     {
-      numero: 26,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 26, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Un estudiante emplea ocho horas del día en dormir, seis horas en sus labores académicas y tres horas en alimentarse. ¿Qué parte del día le queda para realizar otras actividades?",
-      alternativas: {
-        A: "7/24",
-        B: "9/24",
-        C: "17/24"
-      }
+      alternativas: { A: "7/24", B: "9/24", C: "17/24" }
     },
     {
-      numero: 27,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 27, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Una heladería ofrece los siguientes sabores de helado: vainilla, fresa, chocolate y lúcuma acompañados de un tipo de recubrimiento que puede ser mermelada, pecanas o frutas confitadas. Si solo se puede elegir un sabor de helado y un tipo de recubrimiento, ¿cuántas combinaciones diferentes se pueden pedir?",
-      alternativas: {
-        A: "7",
-        B: "12",
-        C: "24"
-      }
+      alternativas: { A: "7", B: "12", C: "24" }
     },
     {
-      numero: 28,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 28, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Adrián, Bruno y Cristian viven en un edificio de tres pisos, cada uno en un piso distinto. Uno de ellos es dentista, otro es profesor y el otro es taxista. Se sabe que: El dentista vive inmediatamente debajo de Cristian. Adrián vive entre el profesor y Bruno. ¿Cuál de las siguientes afirmaciones es verdadera?",
-      alternativas: {
-        A: "El taxista vive en el segundo piso.",
-        B: "El dentista vive en el primer piso.",
-        C: "Bruno es el taxista."
-      }
+      alternativas: { A: "El taxista vive en el segundo piso.", B: "El dentista vive en el primer piso.", C: "Bruno es el taxista." }
     },
     {
-      numero: 29,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 29, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Dada la siguiente secuencia: RUSIA2018RUSIA2018RUSIA2018RUS... Considerando el orden de izquierda a derecha, ¿cuál es la letra o cifra que ocupa el lugar 100?",
-      alternativas: {
-        A: "R",
-        B: "8",
-        C: "A"
-      }
+      alternativas: { A: "R", B: "8", C: "A" }
     },
     {
-      numero: 30,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 30, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Lea con atención las siguientes premisas: Todos los trabajadores de la empresa E han estudiado en el instituto T. Todos los que han estudiado en el instituto T han llevado un curso de reciclaje. A partir de las premisas anteriores, ¿qué se puede inferir?",
       alternativas: {
         A: "Todos los que han llevado un curso de reciclaje trabajan en la empresa E.",
@@ -520,68 +409,27 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 31,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 31, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Si se sabe que: Relacionando 1, 8 y 2, se obtiene 4. Relacionando 2, 9 y 3, se obtiene 6. Relacionando 2, 16 y 4, se obtiene 8. Si se mantiene la misma relación, ¿cuánto se obtiene al relacionar 4, 12 y 6?",
-      alternativas: {
-        A: "8",
-        B: "10",
-        C: "12"
-      }
+      alternativas: { A: "8", B: "10", C: "12" }
     },
     {
-      numero: 32,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 32, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "En una región del Perú, se realizan trueques entre los pobladores de una comunidad. Dichos pobladores intercambian una olla de barro por 1/2 kg de zanahorias y 1 kg de alverjas. Por otro lado, 1 kg de alverjas se puede intercambiar por 2 kg de zanahorias. ¿Cuántas ollas de barro se pueden intercambiar por 20 kg de alverjas?",
-      alternativas: {
-        A: "8 ollas de barro.",
-        B: "16 ollas de barro.",
-        C: "25 ollas de barro."
-      }
+      alternativas: { A: "8 ollas de barro.", B: "16 ollas de barro.", C: "25 ollas de barro." }
     },
     {
-      numero: 33,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 33, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "En una ciudad, hay tres tipos de monedas: kina, soti y lets; los cambios monetarios se realizan entre kinas y sotis, y entre sotis y letses. Si se sabe que dos kinas equivalen a tres sotis y un soti equivale a tres letses, ¿cuál es el precio en kinas de un artefacto que cuesta 54 letses?",
-      alternativas: {
-        A: "12 kinas.",
-        B: "27 kinas.",
-        C: "36 kinas."
-      }
+      alternativas: { A: "12 kinas.", B: "27 kinas.", C: "36 kinas." }
     },
     {
-      numero: 34,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 34, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "En un cuadrado de 10 cm de lado, cada vértice está representado por las letras J, K, L y M, en ese orden y de forma consecutiva. Si un punto móvil inicia su recorrido en el vértice J, luego se dirige al vértice K, luego a L, después a M y continúa hacia J, y vuelve a repetir sucesivamente el mismo trayecto, ¿en qué vértice se encontrará el punto móvil cuando recorra 370 cm?",
-      alternativas: {
-        A: "J",
-        B: "K",
-        C: "L"
-      }
+      alternativas: { A: "J", B: "K", C: "L" }
     },
     {
-      numero: 35,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 35, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Un año bisiesto es aquel que tiene 366 días, es decir, un día más que un año común. Además, se sabe que: Si un año es bisiesto, será múltiplo de cuatro. Si un año es múltiplo de cuatro, será un número par. De lo anterior, se puede inferir lo siguiente:",
       alternativas: {
         A: "Si un año es múltiplo de cuatro, ese año será bisiesto.",
@@ -590,54 +438,22 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 36,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 36, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Los tiempos (en segundos) de los concursantes de una competencia de natación estilo mariposa en la prueba de 100 m son los siguientes: Roger: 50,6; Daniel: 50,788; Ernesto: 50,42. ¿Quién llegó primero?",
-      alternativas: {
-        A: "Roger",
-        B: "Daniel",
-        C: "Ernesto"
-      }
+      alternativas: { A: "Roger", B: "Daniel", C: "Ernesto" }
     },
     {
-      numero: 37,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 37, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Alicia, Bianca, Charo, Dafne y Elena se sientan alrededor de una mesa circular con seis asientos distribuidos simétricamente. Se observa que: Elena se sienta junto a Charo y frente a Bianca. Alicia se sienta frente a Dafne. Entonces, se puede afirmar que necesariamente el asiento vacío se encuentra",
-      alternativas: {
-        A: "junto a Alicia.",
-        B: "junto a Dafne.",
-        C: "junto a Bianca."
-      }
+      alternativas: { A: "junto a Alicia.", B: "junto a Dafne.", C: "junto a Bianca." }
     },
     {
-      numero: 38,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 38, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Melina, Nancy, Olivia y Paola compitieron en una carrera en la que no hubo empates. Más tarde, Rodrigo le preguntó a cada una cómo le fue y ellas respondieron lo siguiente: Melina: 'Yo gané'. Nancy: 'Yo quedé última'. Olivia: 'Yo no quedé última'. Paola: 'Yo no quedé primera ni última'. Diego, quien presenció la carrera, le dijo a Rodrigo los puestos de llegada de cada una. Así Rodrigo descubrió que una de las cuatro competidoras le había mentido. ¿Quién ganó la carrera?",
-      alternativas: {
-        A: "Melina",
-        B: "Olivia",
-        C: "Paola"
-      }
+      alternativas: { A: "Melina", B: "Olivia", C: "Paola" }
     },
     {
-      numero: 39,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 39, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "A partir de las siguientes premisas: Todos los exalumnos del colegio C son norteños, a excepción de uno que es pelirrojo. Ningún pelirrojo es músico. ¿Cuál de los siguientes razonamientos es correcto?",
       alternativas: {
         A: "Adrián es un norteño pelirrojo; por lo tanto, estudió en el colegio C.",
@@ -646,40 +462,17 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 40,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 40, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "En la ciudad de Nairobi amanece antes que en la ciudad de Kinshasa y, además, hay dos horas de diferencia entre ambas ciudades. El vuelo entre estas dos ciudades dura 3 horas 15 minutos. Si un avión parte al mediodía de la ciudad de Nairobi (hora de Nairobi), ¿a qué hora llegará a la ciudad de Kinshasa (hora de Kinshasa)?",
-      alternativas: {
-        A: "17:15 h",
-        B: "15:15 h",
-        C: "13:15 h"
-      }
+      alternativas: { A: "17:15 h", B: "15:15 h", C: "13:15 h" }
     },
     {
-      numero: 41,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 41, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "A un taller de capacitación asistieron 80 docentes peruanos. Además, se sabe que: 44 de ellos eran de Comunicación y los restantes eran de Matemática. 18 docentes de Comunicación nacieron en Lima y 21 docentes de Matemática nacieron en una región diferente de Lima. Del total de asistentes al taller, ¿cuántos docentes nacieron en una región diferente de Lima?",
-      alternativas: {
-        A: "47",
-        B: "33",
-        C: "21"
-      }
+      alternativas: { A: "47", B: "33", C: "21" }
     },
     {
-      numero: 42,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 42, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Juan decide preparar un flan para la cena. Según las indicaciones de una receta, se necesitan 6 huevos, 240 g de azúcar y 540 mL de leche. Juan desea obtener más porciones, manteniendo la misma proporción de los ingredientes de la receta. Si tiene pensado usar 8 huevos, ¿qué cantidad de azúcar y de leche necesitará?",
       alternativas: {
         A: "242 g de azúcar y 542 mL de leche.",
@@ -688,12 +481,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 43,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 43, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Cinthya es 3 cm más alta que su madre y su madre es 5 cm más baja que su abuela. Si se sabe que la estatura de Cinthya es 1,65 m, ¿cuál de las siguientes afirmaciones es verdadera?",
       alternativas: {
         A: "La estatura de la abuela de Cinthya es 1,67 m.",
@@ -702,82 +490,32 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 44,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 44, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Se ha formado una secuencia de figuras con palitos de helado de la siguiente manera: En la primera figura, se usan cuatro palitos para formar un cuadrado. En la segunda figura, se usan siete palitos para formar dos cuadrados contiguos. En la tercera figura, se usan diez palitos para formar tres cuadrados contiguos. ¿Cuántos palitos se usarán para formar la figura 12?",
-      alternativas: {
-        A: "48",
-        B: "40",
-        C: "37"
-      }
+      alternativas: { A: "48", B: "40", C: "37" }
     },
     {
-      numero: 45,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 45, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Una carretera pasa por las ciudades P, Q, R y S, pero no necesariamente en ese orden. Su recorrido es de sur a norte y viceversa. Si se sabe que la ciudad S está al norte de Q y R, la ciudad Q está al sur de P y la ciudad S está entre P y R, ¿cuál de estas ciudades está más al norte?",
-      alternativas: {
-        A: "P",
-        B: "Q",
-        C: "R"
-      }
+      alternativas: { A: "P", B: "Q", C: "R" }
     },
     {
-      numero: 46,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 46, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "En una maratón de baile, gana la pareja que logre bailar sin descanso por más tiempo. Si la pareja ganadora empezó a bailar a las 17:36 h y paró a las 20:14 h del mismo día, ¿cuánto tiempo estuvo bailando?",
-      alternativas: {
-        A: "3 h 38 min",
-        B: "3 h 22 min",
-        C: "2 h 38 min"
-      }
+      alternativas: { A: "3 h 38 min", B: "3 h 22 min", C: "2 h 38 min" }
     },
     {
-      numero: 47,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 47, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Si se organiza un concurso entre cinco equipos de tal manera que cada equipo compite con otro una sola vez, ¿cuántos encuentros se deben programar?",
-      alternativas: {
-        A: "10",
-        B: "20",
-        C: "25"
-      }
+      alternativas: { A: "10", B: "20", C: "25" }
     },
     {
-      numero: 48,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 48, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Lucas está de vacaciones en Europa. De los 100 dólares que tiene, gasta 30 dólares en una tienda y el equivalente a 40 euros en otra. Sabiendo que un dólar equivale a 3,25 soles y un euro equivale a 3,80 soles, ¿a cuántos soles equivale el monto que le sobra?",
-      alternativas: {
-        A: "75,50 soles.",
-        B: "97,50 soles.",
-        C: "114,00 soles."
-      }
+      alternativas: { A: "75,50 soles.", B: "97,50 soles.", C: "114,00 soles." }
     },
     {
-      numero: 49,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 49, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "En una biblioteca, por cada tres libros leídos, el lector recibe dos pulseras amarillas; por cuatro pulseras amarillas, recibe tres pulseras rojas; y, por cada seis pulseras rojas, recibe dos pulseras verdes. Si Jaime tiene seis pulseras verdes, ¿cuál de las siguientes afirmaciones es verdadera?",
       alternativas: {
         A: "Por las seis pulseras verdes, Jaime tuvo que leer nueve libros.",
@@ -786,26 +524,12 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 50,
-      subprueba: "Razonamiento Lógico",
-      puntos: 2,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 50, subprueba: "Razonamiento Lógico", puntos: 2, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Ante la cercanía de un encuentro deportivo internacional, el dueño de una tienda comercial de venta de artefactos eléctricos decide incrementar en 25% el precio de venta de los televisores. Si uno de los televisores se vendió a S/ 2000 con el incremento, ¿cuál era el precio de venta inicial?",
-      alternativas: {
-        A: "S/ 1500",
-        B: "S/ 1600",
-        C: "S/ 1975"
-      }
+      alternativas: { A: "S/ 1500", B: "S/ 1600", C: "S/ 1975" }
     },
     {
-      numero: 51,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 51, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "En un niño de seis meses, la sonrisa constituye un indicio de que busca interactuar socialmente. Considerando la importancia de este hecho, ¿qué acción es pertinente realizar ante la sonrisa de un niño de seis meses?",
       alternativas: {
         A: "Hacerle cosquillas para prolongar su alegría.",
@@ -814,12 +538,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 52,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 52, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "La docente del aula de dos a tres años busca favorecer la colaboración voluntaria entre los niños. ¿Cuál de las siguientes intervenciones es pertinente para ese propósito?",
       alternativas: {
         A: "\"¿Quién puede llevar las cucharas a la mesa para comer el refrigerio?\".",
@@ -828,12 +547,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 53,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 53, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Los niños del aula de doce a dieciocho meses están jugando. Andrea sostiene un payasito y Saúl se acerca a ella con la intención de quitárselo. Al verlo, la niña toma el juguete con un brazo y, con el otro, aleja a Saúl. Ante ello, el niño mira a la docente buscando su apoyo. Frente a esta situación de conflicto, ¿cuál de las siguientes intervenciones es pertinente que realice la docente?",
       alternativas: {
         A: "\"Andrea, tú ya jugaste con el payasito. Dámelo para entregárselo a Saúl, porque él también quiere jugar\".",
@@ -842,12 +556,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 54,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 54, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Los niños del aula de cinco años y la docente han salido al parque. Un grupo de niños se acercan a las flores y las observan. De pronto, Sofía comenta que le gustan mucho las margaritas y arranca algunas. Al verla arrancar las flores, sus compañeros la imitan. La docente se percata de ello y decide aprovechar la situación para que los niños comprendan la importancia de cuidar el espacio público. ¿Cuál de las siguientes intervenciones es más pertinente para ese propósito?",
       alternativas: {
         A: "Decir: \"Niños, ¿por qué rompen las flores? ¿A la plantita le dolerá si le arrancan sus flores? Entonces, ¿estará bien romperlas?\".",
@@ -856,12 +565,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 55,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 55, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Los niños del aula de cinco años se están lavando las manos. En ese contexto, la docente observa que, cuando terminan de asearse, algunos niños dejan el caño abierto. Ante ello, la docente busca que los niños comprendan la importancia de cuidar el agua. ¿Cuál de las siguientes acciones es más pertinente para ese propósito?",
       alternativas: {
         A: "Proponerles dramatizar lo sucedido durante el lavado de manos. Luego, explicarles que las personas, animales y plantas necesitan agua para vivir. Finalmente, decirles que el agua se va a acabar en cualquier momento y, por lo tanto, es importante cuidarla.",
@@ -870,12 +574,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 56,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 56, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Los niños del aula de cinco años juegan en el patio de la IE. Julio y sus amigos están saltando liga en un extremo del patio. De pronto, Ana y un grupo de niños corren cerca de Julio y sus compañeros e interfieren en el juego de estos. Fastidiado, Julio le dice a Ana que ella y su grupo deben jugar en otro sitio, pues él y sus amigos estaban en ese lugar primero. Ana le responde que el patio es de todos. Ante ello, los niños empiezan a discutir. La docente, que estuvo observando la situación, se acerca para intervenir. ¿Cuál de las siguientes acciones es pertinente que la docente realice a continuación para promover la resolución del conflicto entre los niños?",
       alternativas: {
         A: "Explicar a los niños que todos tienen derecho a jugar en el patio. Luego, asignar a cada grupo un espacio en el patio para que jueguen. Finalmente, pedir a ambos grupos que se amisten.",
@@ -884,12 +583,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 57,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 57, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Los niños del aula de cinco años están desarrollando el proyecto \"Conociendo cómo nacen y crecen los peces\". Previamente, la docente ha coordinado con los padres la realización de una visita y han acordado que los niños elegirán el lugar. En este punto, los niños tienen dos propuestas: visitar el río o una piscigranja, ambas cercanas a la IE. Ellos están divididos frente a ambas propuestas y no logran ponerse de acuerdo. En esa situación, la docente busca desarrollar en los niños habilidades para una convivencia democrática. ¿Cuál de las siguientes intervenciones es más pertinente para ese propósito?",
       alternativas: {
         A: "Decir: \"Niños, ¿qué les parece si hacemos un sorteo para decidir a dónde iremos? Después del sorteo, todos debemos aceptar la propuesta ganadora\".",
@@ -898,12 +592,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 58,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 58, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Piero, de tres años, está resfriado. Para limpiarse la nariz, constantemente le pide ayuda a la docente. Ante ello, la docente busca que él aprenda a limpiarse la nariz autónomamente. ¿Cuál de las siguientes acciones es pertinente para ese propósito?",
       alternativas: {
         A: "Animar a Piero diciéndole que él ya es un niño grande y que los niños grandes sí pueden limpiarse la nariz solos.",
@@ -912,24 +601,14 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 59,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 59, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Situación — Plantas de la comunidad (59 y 60)",
       textoLectura: "En una IE de la sierra sur, los niños y la docente del aula de cinco años recorren la chacra que se encuentra alrededor de la institución para reconocer las plantas que existen en la comunidad. Durante el recorrido, se produce el siguiente diálogo:\nDocente: (Señalando una planta) ¿Alguien conoce esta planta?\nRosa: Sí... ¡es muña!\nDocente: ¿Cómo lo sabes?\nRosa: Es que cuando me dolía la barriga, mi mamá me dio agua de esa planta.\nDocente: ¿Y te pasó el dolor?\nRosa: ¡Sí!\nDocente: ¡Muy bien! ¿Y qué me dicen de esta otra planta?\nLeonardo: ¡Ah! ¡Esa es paico!\nDocente: ¿Así?\nLeonardo: ¡Sí! Es que mi mamá le echa sus hojas a la sopa. ¡Sale riiiica!\nDocente: ¡Qué bien! ¿Y de qué otras maneras se usará el paico?\nJimena: En mi casa, mi papá toma agua de paico cuando come mucho.",
       enunciado: "En esta situación, ¿qué acción está realizando principalmente la docente?",
-      alternativas: {
-        A: "Recoger saberes previos.",
-        B: "Brindar retroalimentación.",
-        C: "Generar conflicto cognitivo."
-      }
+      alternativas: { A: "Recoger saberes previos.", B: "Brindar retroalimentación.", C: "Generar conflicto cognitivo." }
     },
     {
-      numero: 60,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 60, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Situación — Preparación de infusiones (60)",
       textoLectura: "Al volver al aula, los niños y la docente conversan sobre las plantas que observaron durante el recorrido y sus diferentes usos en la comunidad. Durante la conversación, los niños le dicen a la docente que desean preparar infusiones. En ese contexto, se produce el siguiente diálogo:\nDocente: ¿De qué plantas quisieran preparar infusiones?\nTeresa: ¡De muña!\nCristian: ¡De hierba buena!\nDocente: ¡Muy bien! ¿Y qué necesitamos para preparar nuestras infusiones?\nTeresa: ¡Las hojas!\nDocente: Así es. ¿Qué más?\nAntonio: ¡Agua!\nDocente: ¿Y cómo tiene que estar el agua?\nAntonio: Fría.\nDocente: ¿Será lo mismo usar agua caliente o fría para preparar infusiones?\nAntonio: ¡Sí!\nMaría: ¡No! ¡Mi mamá le echa agua caliente!\nLa docente busca aprovechar esta situación para que los niños formulen hipótesis. ¿Cuál de las siguientes preguntas es pertinente para ese propósito?",
       alternativas: {
@@ -939,12 +618,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 61,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 61, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Sonia es una niña de cinco años que presenta hipoacusia leve o sordera leve. Ella requiere mirar el rostro de las personas para observar sus gestos, y, de ese modo, comprender mejor lo que dicen. Sonia será incluida en una IE. En el marco de un enfoque inclusivo, la docente busca generar condiciones que favorezcan el aprendizaje de la niña. ¿Cuál de las siguientes acciones es pertinente que realice la docente para ese propósito?",
       alternativas: {
         A: "Preparar para Sonia actividades de aprendizaje más sencillas que las propuestas para el resto de sus compañeros. Así, ella podrá realizarlas y valorar sus logros.",
@@ -953,12 +627,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 62,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 62, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Micaela, de dos meses, ha descubierto sus manos en su campo visual. Para favorecer que la niña continúe explorando sus manos, ¿cuál de las siguientes acciones es pertinente?",
       alternativas: {
         A: "Recostarla sobre su espalda y dejar sus manos libres.",
@@ -967,12 +636,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 63,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 63, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Desde hace una semana, Bruno, de ocho meses, se chupa los dedos de su mano. Esta acción le brinda seguridad y calma. Tomando en cuenta el desarrollo emocional de Bruno, ¿cuál de las siguientes acciones es pertinente que realice la docente en esta situación?",
       alternativas: {
         A: "Estar atenta a los momentos en que Bruno intente chuparse los dedos para decirle que no lo haga. Luego, distraerlo con acciones y juguetes de su agrado.",
@@ -981,12 +645,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 64,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 64, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "La docente del aula de cinco años busca desarrollar habilidades de clasificación en los niños. Para ello, aprovechando que los niños están realizando un proyecto para reutilizar objetos del aula, entrega a cada equipo una caja con plumones usados. Considerando el propósito de la docente, ¿qué acción es pertinente que realice a continuación?",
       alternativas: {
         A: "Decirles que agrupen los plumones en función de si pintan o no.",
@@ -995,12 +654,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 65,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 65, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "La docente del aula de cinco años conversa con los niños respecto de sus responsabilidades para la presente semana. Cuando conversa con el grupo \"Las hormiguitas\", que cuenta con 5 integrantes, les dice que ellos estarán a cargo de las siguientes responsabilidades:\n1. Regar las plantas.\n2. Repartir las loncheras.\n3. Limpiar las mesas después del refrigerio.\nLuego, añade lo siguiente: \"Niños, las 3 responsabilidades deben ser repartidas entre todos los integrantes\". Considerando que la docente busca aprovechar esta situación para que los niños resuelvan problemas cotidianos, ¿qué acción debe realizar a continuación?",
       alternativas: {
         A: "Decirles que piensen cómo podrían distribuir las 3 responsabilidades en el grupo de modo que todos realicen por lo menos una.",
@@ -1009,26 +663,12 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 66,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 66, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Hace dos semanas, los niños del aula de cinco años han sembrado frejolitos. Cada día se acercan a observar cómo crecen. Hoy, Carolina y Antonio están discutiendo, pues cada uno afirma que su frejolito creció más que el de su compañero. Al escucharlos, la docente se acerca a los niños y se produce el siguiente diálogo:\nDocente: ¿Por qué están discutiendo?\nCarolina: Es que Antonio dice que su frejolito creció más que el mío.\nAntonio: ¡Sí, el mío creció más!\nDocente: ¿Cómo podemos saber cuál de los frejolitos creció más?\nAmbos: No sé.\nDocente: ¿Qué les parece si los comparamos?\nCarolina: ¿Cómo es comparar?\nDocente: A ver... Acerquemos la mesa en la que están sus plantitas a la pared. Ahora, cada uno estire el tallo del frejolito con mucho cuidado para que no se rompa.\nCarolina: ¿Así está bien?\nDocente: Sí, así está bien... Ahora, lo que haremos será marcar en la pared la altura de las dos plantitas. Luego, vamos a mirar las dos marcas y ver cuál creció más. Es decir, vamos a comparar las plantitas.\nAntonio: ¡Ahh! ¡Así me mide mi papá para ver cuánto he crecido!\nDocente: ¡Lo ves! Cada vez que tu papá te mide, compara tu altura con la marca anterior y así sabe cuánto has crecido.\n(Luego, la docente procede a marcar la altura de ambas plantas en la pared).\nA ver, ahora comparen la altura de los frejolitos. ¿Qué dicen?\nAmbos: ¡¡Yeee!!! ¡¡Los dos crecieron igual!!!\nEn esta situación, ¿qué acción está desarrollando principalmente la docente?",
-      alternativas: {
-        A: "Brindar andamiaje.",
-        B: "Generar conflicto cognitivo.",
-        C: "Promover la transferencia de los aprendizajes."
-      }
+      alternativas: { A: "Brindar andamiaje.", B: "Generar conflicto cognitivo.", C: "Promover la transferencia de los aprendizajes." }
     },
     {
-      numero: 67,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 67, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Organizados en grupos de 6 integrantes, los niños del aula de cinco años han reciclado materiales y construido un juguete. Ahora, se preparan para explicar a sus compañeros cómo lo hicieron. La docente busca aprovechar esta situación para que los niños resuelvan problemas. Para ello, primero les dice lo siguiente: \"Necesitamos que 2 niños de cada grupo cuenten cómo construyeron el juguete y el resto responda las preguntas que hagan sus compañeros. Entonces, ¿cuántos niños deberán responder las preguntas?\". Luego, se asegura de que los niños comprendan el problema que les acaba de plantear. En el marco de la resolución de problemas, ¿qué acción es pertinente que la docente realice a continuación?",
       alternativas: {
         A: "Pedirles que cada uno resuelva el problema. Luego, decirles que comparen sus respuestas con las de sus compañeros.",
@@ -1037,12 +677,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 68,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 68, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "¿En cuál de las siguientes acciones se evidencia el principio de cardinalidad?",
       alternativas: {
         A: "La docente le dice a Daniel que le ayude a contar las pelotas que hay en la caja. Daniel lo hace diciendo lo siguiente: \"1, 2, 3, 4 y 5. Hay 5 pelotas\".",
@@ -1051,12 +686,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 69,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 69, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "La docente y los niños del aula de cinco años han recolectado diversos materiales como botellas, cajas, bloques de madera, etc. para el sector de construcción. Ahora, la docente les plantea el siguiente problema: \"Niños, ¿cómo podrían ordenar estos materiales en el sector de construcción para que puedan utilizarlos con facilidad?\". En esta situación, ¿cuál de las siguientes acciones es pertinente para favorecer la resolución de problemas?",
       alternativas: {
         A: "Presentarles un dibujo del sector de construcción en el que se considere el criterio de accesibilidad a los materiales. Luego, pedirles que ordenen el sector guiándose del dibujo.",
@@ -1065,12 +695,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 70,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 70, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "¿Cuál de las siguientes acciones es pertinente para atender a la necesidad de sueño de niños menores de dieciocho meses?",
       alternativas: {
         A: "Observar a cada niño para identificar en qué momentos suele tener sueño y llevarlo al espacio de descanso.",
@@ -1079,10 +704,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 71,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 71, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Situación — Puesto de venta de flores (71 y 72)",
       textoLectura: "Los niños y la docente del aula de cinco años han salido al mercado. Al pasar por un puesto de venta de flores, los niños observan sorprendidos sus colores. \"¡Mira, hay flores azules!\" \"¡Y verdes!\" \"¡Qué colores tan bonitos!\" \"¡Yo nunca vi flores de estos colores!\", exclaman.\nJuana se queda observando las flores detenidamente. Luego de unos momentos, le pregunta a la docente: \"¿Por qué las flores tienen color?\".",
       enunciado: "La docente busca ayudar a Juana a construir sus propias explicaciones respecto del mundo físico. Considerando ese propósito, ¿qué acción es más pertinente que realice la docente ante la inquietud de la niña?",
@@ -1093,10 +715,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 72,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 72, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Situación — Flores teñidas (72)",
       textoLectura: "La vendedora les comenta a los niños que algunas de esas flores han sido teñidas. Cuando los niños le preguntan qué quiere decir \"teñidas\", ella les precisa que eso significa que se les ha cambiado de color. Entusiasmados, los niños le dicen a la docente que ellos también desean teñir flores. De regreso al aula, conversan sobre la propuesta.",
       enunciado: "La docente busca conocer qué saben los niños respecto del proceso de teñir. ¿Cuál de las siguientes preguntas NO es pertinente para recoger los saberes previos de los niños sobre el proceso de teñir?",
@@ -1107,10 +726,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 73,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 73, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Situación — Paracaídas de juguete (73 y 74)",
       textoLectura: "Ricardo, de cinco años, lleva al aula el siguiente paracaídas de juguete:\nAl verlo jugar con el paracaídas, los niños se entusiasman y participan del juego. Luego, le comentan a la docente que les gustaría tener un juguete igual. Entonces, acuerdan elaborar un paracaídas de juguete.",
       enunciado: "La docente busca aprovechar esta situación para favorecer que los niños diseñen prototipos. ¿Cuál de las siguientes acciones es más pertinente para ese propósito?",
@@ -1121,26 +737,14 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 74,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 74, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Situación — Elaboración de paracaídas (74)",
       textoLectura: "Mientras los niños construyen sus paracaídas, la docente los acompaña y conversa con ellos. Les pide que le comenten cómo lo están haciendo, qué dificultades han tenido hasta el momento y cómo las han solucionado.",
       enunciado: "En la situación presentada, ¿qué acción realiza principalmente la docente?",
-      alternativas: {
-        A: "Activar saberes previos.",
-        B: "Promover la metacognición.",
-        C: "Generar conflicto cognitivo."
-      }
+      alternativas: { A: "Activar saberes previos.", B: "Promover la metacognición.", C: "Generar conflicto cognitivo." }
     },
     {
-      numero: 75,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 75, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Marcela, de seis meses, ha comenzado a emitir vocalizaciones. Lo hace sobre todo cuando está en compañía de adultos o de otros niños. ¿Qué acción es pertinente realizar en el momento de cuidados infantiles para favorecer los intentos comunicativos de Marcela?",
       alternativas: {
         A: "Dejar que Marcela emita vocalizaciones sin cortar su iniciativa. Luego, reproducir sonidos de diferentes animales para que experimente estímulos distintos a los que escucha regularmente.",
@@ -1149,12 +753,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 76,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 76, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "En el aula de 2 años, Pilar se encuentra jugando con una muñeca cerca a la hora de salida. Cuando su mamá llega a recogerla, Pilar le muestra la muñeca. Entonces, su mamá le dice: \"¡Qué linda! ¡Es una bebé como tú!\". Ante ello, Pilar le responde: \"¡No ya, no yeyo bebé, yeyo niña!\". Considerando el enfoque comunicativo, ¿qué intervención es pertinente para favorecer el desarrollo de la expresión oral de la niña en esta situación?",
       alternativas: {
         A: "\"Pilar, no se dice 'yeyo', se dice 'soy'. A ver, repite conmigo 'no soy bebé, soy una niña\".",
@@ -1163,12 +762,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 77,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 77, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "José, de tres años, ha realizado un dibujo compuesto por trazos y formas circulares dispersas. ¿Cuál de las siguientes acciones es pertinente para favorecer que José continúe desarrollando su capacidad de representación?",
       alternativas: {
         A: "Proporcionarle fichas de trabajo con imágenes de personas, animales u objetos incompletos para que identifique qué partes les faltan a dichas imágenes y las dibuje.",
@@ -1177,26 +771,12 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 78,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 78, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "La docente y los niños del aula de cinco años salieron a los alrededores de la IE para recolectar libros para la biblioteca del aula. Al retorno, la docente pide a los niños que dibujen la actividad realizada. Juan acompaña su dibujo con un escrito con grafías variadas y trazos separados. Luego, le muestra su dibujo a la docente. Cuando ella le pregunta qué escribió, el niño responde: \"La vecina nos regaló revistas\". Según los niveles de apropiación del sistema de escritura propuestos por Emilia Ferreiro, ¿en qué nivel se encuentra Juan?",
-      alternativas: {
-        A: "En el nivel presilábico.",
-        B: "En el nivel silábico.",
-        C: "En el nivel silábico alfabético."
-      }
+      alternativas: { A: "En el nivel presilábico.", B: "En el nivel silábico.", C: "En el nivel silábico alfabético." }
     },
     {
-      numero: 79,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 79, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "La docente del aula de cinco años busca favorecer la apropiación del sistema de escritura en los niños. ¿Cuál de las siguientes acciones es pertinente para dicho propósito?",
       alternativas: {
         A: "Escribir en la pizarra un comunicado corto dirigido a los padres de familia. Luego, pedir a los niños que lo transcriban a sus cuadernos de control.",
@@ -1205,12 +785,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 80,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 80, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "Después de visitar la tienda de la localidad, los niños y la docente del aula de cinco años deciden organizar una tienda en el aula. Para ello, los niños recolectan botellas, empaques y envolturas de distintos productos. Mientras los niños ordenan la tienda, la docente recorre el aula y observa que Samuel está sujetando una envoltura y mirándola fijamente. La docente tiene la intención de aprovechar esa situación para favorecer que Samuel se aproxime a la lectura. ¿Qué acción es pertinente para dicho propósito?",
       alternativas: {
         A: "Preguntar a Samuel qué dirá en la envoltura y por qué piensa que eso es lo que dice en esta.",
@@ -1219,12 +794,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 81,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 81, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "La docente del aula de cinco años busca favorecer el acercamiento de los niños a la lectura. Para ello, ha colocado en el respaldo de las sillas tarjetas con sus respectivos nombres y ha cambiado las sillas de lugar antes de que ellos ingresen al aula. Cuando los niños ingresan, la docente les propone que encuentren sus sillas guiándose de las tarjetas que observan en ellas. Entonces, Daniela y Damaris se acercan al mismo tiempo a la silla de Damaris. Este es el diálogo que surge a continuación:\nDaniela: ¡Ah! ¡Ya encontré mi silla!\nDamaris: ¡No, ya! ¡Esta silla es mía! Mira, ¡aquí dice \"Damaris\"!\nDaniela: ¡No, es mi silla! ¡Aquí dice \"Daniela\"!\nDamaris: ¡Lee bien! ¡Aquí dice \"DA-MA-RIS\"! (la niña lee su nombre mientras señala el escrito).\nDaniela mira desconcertada a la docente. Ante esta situación, ¿cuál de las siguientes acciones es más pertinente para favorecer el acercamiento de Daniela a la lectura?",
       alternativas: {
         A: "Preguntar a Daniela: \"¿Todavía no sabes reconocer tu nombre? ¿Te gustaría que te enseñe a reconocerlo?\". Luego, llevarla hacia su silla, señalar la tarjeta y decirle: \"Mira, aquí dice Daniela. Ahora ya puedes sentarte en tu silla\".",
@@ -1233,12 +803,9 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 82,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 82, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Cuento — Las vacas que dan leche con sabor (82, 83 y 84)",
-      textoLectura: "Las vacas que dan leche con sabor\nEsteban Cabezas\n\nEl profesor Chucrut era un científico que vivía en el País de los Sabores. A él le gustaba mucho la canción de las vacas que dan leche con sabor a chocolate y leche condensada. Un día quiso saber si de verdad las vacas podían dar leche con sabor.\n\nEntonces investigó el tema durante dos años y luego se puso a experimentar. Primero alimentó a una vaca solo con chocolate, pero no dio resultado y la vaca quedó súper acelerada. A otra le dio kilos de azúcar, pero solo le salieron caries. A otra vaca la alimentó con tanto manjar que la pobre no quiso volver a comerlo jamás.\n\nEl profesor Chucrut pensó y dijo: \"¿Tendrá algo que ver el color?\". Entonces pintó a una vaca de color fresa, pero nada. Después pintó a una de amarillo para ver si daba leche con sabor a plátano, pero tampoco pasó nada. Entonces cogió a una vaca y la subió a un helicóptero para ver si daba leche batida. Pero no. La vaca se mareó y quedó atontada, y no pudo pararse en dos días. Y la leche, claro, no salió batida.\n\nCansadas del profesor Chucrut, las vacas se organizaron para protestar y dejaron de dar la leche como la conocemos. Ahora solo dan leche en polvo.\n\nAdaptado de \"Un cuento al día\".",
+      textoLectura: "Resumen del cuento 'Las vacas que dan leche con sabor' (Esteban Cabezas): El profesor Chucrut investiga y experimenta alimentando a las vacas con dulces, pintándolas de colores y subiéndolas a un helicóptero para intentar obtener leche saborizada; tras cansarse de sus experimentos, las vacas protestan y solo dan leche en polvo.",
       enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños identifiquen información explícita en este cuento?",
       alternativas: {
         A: "¿Para qué pintó el profesor Chucrut de color fresa a una de las vacas?",
@@ -1247,12 +814,9 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 83,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 83, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Cuento — Las vacas que dan leche con sabor (82, 83 y 84)",
-      textoLectura: "Las vacas que dan leche con sabor\nEsteban Cabezas\n\nEl profesor Chucrut era un científico que vivía en el País de los Sabores. A él le gustaba mucho la canción de las vacas que dan leche con sabor a chocolate y leche condensada. Un día quiso saber si de verdad las vacas podían dar leche con sabor.\n\nEntonces investigó el tema durante dos años y luego se puso a experimentar. Primero alimentó a una vaca solo con chocolate, pero no dio resultado y la vaca quedó súper acelerada. A otra le dio kilos de azúcar, pero solo le salieron caries. A otra vaca la alimentó con tanto manjar que la pobre no quiso volver a comerlo jamás.\n\nEl profesor Chucrut pensó y dijo: \"¿Tendrá algo que ver el color?\". Entonces pintó a una vaca de color fresa, pero nada. Después pintó a una de amarillo para ver si daba leche con sabor a plátano, pero tampoco pasó nada. Entonces cogió a una vaca y la subió a un helicóptero para ver si daba leche batida. Pero no. La vaca se mareó y quedó atontada, y no pudo pararse en dos días. Y la leche, claro, no salió batida.\n\nCansadas del profesor Chucrut, las vacas se organizaron para protestar y dejaron de dar la leche como la conocemos. Ahora solo dan leche en polvo.\n\nAdaptado de \"Un cuento al día\".",
+      textoLectura: "Resumen del cuento 'Las vacas que dan leche con sabor' (Esteban Cabezas): El profesor Chucrut investiga y experimenta alimentando a las vacas con dulces, pintándolas de colores y subiéndolas a un helicóptero para intentar obtener leche saborizada; tras cansarse de sus experimentos, las vacas protestan y solo dan leche en polvo.",
       enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños realicen inferencias sobre este cuento?",
       alternativas: {
         A: "¿Qué hicieron las vacas para protestar contra el profesor Chucrut?",
@@ -1261,12 +825,9 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 84,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 84, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Cuento — Las vacas que dan leche con sabor (82, 83 y 84)",
-      textoLectura: "Las vacas que dan leche con sabor\nEsteban Cabezas\n\nEl profesor Chucrut era un científico que vivía en el País de los Sabores. A él le gustaba mucho la canción de las vacas que dan leche con sabor a chocolate y leche condensada. Un día quiso saber si de verdad las vacas podían dar leche con sabor.\n\nEntonces investigó el tema durante dos años y luego se puso a experimentar. Primero alimentó a una vaca solo con chocolate, pero no dio resultado y la vaca quedó súper acelerada. A otra le dio kilos de azúcar, pero solo le salieron caries. A otra vaca la alimentó con tanto manjar que la pobre no quiso volver a comerlo jamás.\n\nEl profesor Chucrut pensó y dijo: \"¿Tendrá algo que ver el color?\". Entonces pintó a una vaca de color fresa, pero nada. Después pintó a una de amarillo para ver si daba leche con sabor a plátano, pero tampoco pasó nada. Entonces cogió a una vaca y la subió a un helicóptero para ver si daba leche batida. Pero no. La vaca se mareó y quedó atontada, y no pudo pararse en dos días. Y la leche, claro, no salió batida.\n\nCansadas del profesor Chucrut, las vacas se organizaron para protestar y dejaron de dar la leche como la conocemos. Ahora solo dan leche en polvo.\n\nAdaptado de \"Un cuento al día\".",
+      textoLectura: "Resumen del cuento 'Las vacas que dan leche con sabor' (Esteban Cabezas): El profesor Chucrut investiga y experimenta alimentando a las vacas con dulces, pintándolas de colores y subiéndolas a un helicóptero para intentar obtener leche saborizada; tras cansarse de sus experimentos, las vacas protestan y solo dan leche en polvo.",
       enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños reflexionen acerca de este cuento?",
       alternativas: {
         A: "¿Dónde vivía el profesor Chucrut? ¿Cuántos años investigó cómo hacer que las vacas den leche con sabor?",
@@ -1275,12 +836,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 85,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 85, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "En el aula de cuatro años, los niños están cantando la canción \"Los patitos\". En ese contexto, la docente busca favorecer la expresión corporal y gestual de los niños al entonar dicha canción. ¿Cuál de las siguientes acciones es más pertinente para ese propósito?",
       alternativas: {
         A: "Pedirles que imaginen que son patitos y preguntarles cómo se moverían. Luego, dejarles experimentar libremente esos movimientos.",
@@ -1289,12 +845,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 86,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 86, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "La docente del aula de cinco años tiene como propósito que los niños creen historias. Aprovechando que los niños están llevando a cabo el proyecto \"Hacemos un huerto\", les presenta una imagen en la que aparecen dos niños mirando sorprendidos en su huerto mientras dos conejos comen zanahorias. ¿Cuál de las siguientes acciones es pertinente para que los niños creen historias a partir de esta imagen?",
       alternativas: {
         A: "Contar a los niños que los personajes de la imagen se llaman Rosa y José, y que un día descubrieron a dos conejos comiéndose las zanahorias de su huerto. Luego, decirles que cuenten de nuevo la historia cambiando de nombre a los personajes.",
@@ -1303,12 +854,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 87,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
-      tituloLectura: "",
-      textoLectura: "",
+      numero: 87, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "", tituloLectura: "", textoLectura: "",
       enunciado: "La docente del aula de cuatro años busca promover la expresión oral de los niños. ¿Cuál de las siguientes acciones es menos pertinente para ese propósito?",
       alternativas: {
         A: "Plantear a los niños que elaboren predicciones antes y durante la lectura de cuentos.",
@@ -1317,12 +863,9 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 88,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 88, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Fragmento — El bagrecico (88, 89 y 90)",
-      textoLectura: "El bagrecico (Fragmento)\nFrancisco Izquierdo Ríos\n\nEn un riachuelito de la selva del Perú, vivía un viejo pez bagre, de barbas muy largas. Él decía con su voz ronca: «Yo conozco el mar. Cuando joven he viajado a él, y he vuelto».\n\nY en el fondo de las aguas se movía de un lado a otro orgullosamente. Los peces niños y jóvenes le miraban y escuchaban con admiración. «¡Ese viejo conoce el mar!».\n\nTanto oírlo, un bagrecico se le acercó una noche y le dijo: «Abuelo, yo también quiero conocer el mar».\n- ¿Tú?\n- Sí.\n- Bien, muchacho. Yo tenía tu edad cuando realicé el gran viaje.\n\nEsa noche, el viejo bagre enseñó al bagrecico cómo llegar al lejano mar. Al amanecer, el bagrecico partió. «Tienes que volver», le dijo, despidiéndolo, el viejo bagre, quien era el único que sabía de aquella aventura.\n\nEl bagrecico sentía pena por su madre. Ella, preocupada, anduvo buscándolo todo el día.\n«¿Qué te sucede?», le preguntó el anciano bagre cuando la vio.\n- ¿Usted sabe dónde está mi hijo?\n- No. Pero lo que te puedo decir es que no tengas pena. El muchacho va a volver. Seguramente ha salido a conocer mundo.\n- ¿Y si alguien lo pesca?\n- No creo. Él es muy hábil.\n\nAdaptado.",
+      textoLectura: "Resumen del fragmento 'El bagrecico' (Francisco Izquierdo Ríos): En un riachuelo de la selva, un viejo bagre cuenta orgulloso que conoció el mar de joven; un bagrecito decide emprender el viaje al amanecer tras aprender el camino, mientras su madre lo busca preocupada y el anciano bagre la tranquiliza confiando en su regreso.",
       enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños identifiquen información explícita en este fragmento?",
       alternativas: {
         A: "¿Qué será un bagrecico?",
@@ -1331,12 +874,9 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 89,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 89, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Fragmento — El bagrecico (88, 89 y 90)",
-      textoLectura: "El bagrecico (Fragmento)\nFrancisco Izquierdo Ríos\n\nEn un riachuelito de la selva del Perú, vivía un viejo pez bagre, de barbas muy largas. Él decía con su voz ronca: «Yo conozco el mar. Cuando joven he viajado a él, y he vuelto».\n\nY en el fondo de las aguas se movía de un lado a otro orgullosamente. Los peces niños y jóvenes le miraban y escuchaban con admiración. «¡Ese viejo conoce el mar!».\n\nTanto oírlo, un bagrecico se le acercó una noche y le dijo: «Abuelo, yo también quiero conocer el mar».\n- ¿Tú?\n- Sí.\n- Bien, muchacho. Yo tenía tu edad cuando realicé el gran viaje.\n\nEsa noche, el viejo bagre enseñó al bagrecico cómo llegar al lejano mar. Al amanecer, el bagrecico partió. «Tienes que volver», le dijo, despidiéndolo, el viejo bagre, quien era el único que sabía de aquella aventura.\n\nEl bagrecico sentía pena por su madre. Ella, preocupada, anduvo buscándolo todo el día.\n«¿Qué te sucede?», le preguntó el anciano bagre cuando la vio.\n- ¿Usted sabe dónde está mi hijo?\n- No. Pero lo que te puedo decir es que no tengas pena. El muchacho va a volver. Seguramente ha salido a conocer mundo.\n- ¿Y si alguien lo pesca?\n- No creo. Él es muy hábil.\n\nAdaptado.",
+      textoLectura: "Resumen del fragmento 'El bagrecico' (Francisco Izquierdo Ríos): En un riachuelo de la selva, un viejo bagre cuenta orgulloso que conoció el mar de joven; un bagrecito decide emprender el viaje al amanecer tras aprender el camino, mientras su madre lo busca preocupada y el anciano bagre la tranquiliza confiando en su regreso.",
       enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños realicen inferencias sobre este fragmento?",
       alternativas: {
         A: "¿Cómo eran las barbas del viejo bagre?",
@@ -1345,12 +885,9 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      numero: 90,
-      subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad",
-      puntos: 2.5,
-      textoClave: "",
+      numero: 90, subprueba: "Conocimientos Curriculares y Pedagógicos de la Especialidad", puntos: 2.5, textoClave: "",
       tituloLectura: "Fragmento — El bagrecico (88, 89 y 90)",
-      textoLectura: "El bagrecico (Fragmento)\nFrancisco Izquierdo Ríos\n\nEn un riachuelito de la selva del Perú, vivía un viejo pez bagre, de barbas muy largas. Él decía con su voz ronca: «Yo conozco el mar. Cuando joven he viajado a él, y he vuelto».\n\nY en el fondo de las aguas se movía de un lado a otro orgullosamente. Los peces niños y jóvenes le miraban y escuchaban con admiración. «¡Ese viejo conoce el mar!».\n\nTanto oírlo, un bagrecico se le acercó una noche y le dijo: «Abuelo, yo también quiero conocer el mar».\n- ¿Tú?\n- Sí.\n- Bien, muchacho. Yo tenía tu edad cuando realicé el gran viaje.\n\nEsa noche, el viejo bagre enseñó al bagrecico cómo llegar al lejano mar. Al amanecer, el bagrecico partió. «Tienes que volver», le dijo, despidiéndolo, el viejo bagre, quien era el único que sabía de aquella aventura.\n\nEl bagrecico sentía pena por su madre. Ella, preocupada, anduvo buscándolo todo el día.\n«¿Qué te sucede?», le preguntó el anciano bagre cuando la vio.\n- ¿Usted sabe dónde está mi hijo?\n- No. Pero lo que te puedo decir es que no tengas pena. El muchacho va a volver. Seguramente ha salido a conocer mundo.\n- ¿Y si alguien lo pesca?\n- No creo. Él es muy hábil.\n\nAdaptado.",
+      textoLectura: "Resumen del fragmento 'El bagrecico' (Francisco Izquierdo Ríos): En un riachuelo de la selva, un viejo bagre cuenta orgulloso que conoció el mar de joven; un bagrecito decide emprender el viaje al amanecer tras aprender el camino, mientras su madre lo busca preocupada y el anciano bagre la tranquiliza confiando en su regreso.",
       enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños reflexionen sobre este fragmento?",
       alternativas: {
         A: "¿Te parece bien que el bagrecico no se despidiera de su mamá antes de partir?",
