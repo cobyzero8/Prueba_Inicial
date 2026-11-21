@@ -1007,6 +1007,41 @@ function renderizarRevision(evaluadas, modoMisErrores) {
   });
 }
 
+function darOtroExamenDesdeCero() {
+  clearInterval(intervaloReloj);
+  dom.timerBox.classList.add("hidden");
+
+  const temaGuardado = Boolean(estado.temaNoche);
+  localStorage.removeItem(STORAGE_KEY);
+
+  estado = {
+    bloqueId: dom.bloqueSelect ? dom.bloqueSelect.value : null,
+    modo: dom.modoSelect ? dom.modoSelect.value : "practica",
+    subprueba: dom.subpruebaSelect ? dom.subpruebaSelect.value : "TODAS",
+    lectura: "TODAS",
+    indiceActual: 0,
+    respuestas: {},
+    reintentos: {},
+    segundosRestantes: 0,
+    rachaActual: 0,
+    mejorRacha: 0,
+    temaNoche: temaGuardado
+  };
+
+  preguntasActivas = [];
+  ultimaEvaluacion = [];
+
+  guardarEstado();
+  actualizarIndicadorRacha();
+
+  dom.resultsPanel.classList.add("hidden");
+  dom.quizPanel.classList.add("hidden");
+  dom.setupPanel.classList.remove("hidden");
+  actualizarOpcionesLectura();
+  actualizarVisibilidadFiltroLectura();
+  actualizarResumenCuadernillo();
+}
+
 dom.btnTema.addEventListener("click", () => {
   estado.temaNoche = !estado.temaNoche;
   aplicarTema();
@@ -1068,12 +1103,10 @@ dom.btnMisErrores.addEventListener("click", () =>
 dom.btnTodas.addEventListener("click", () =>
   renderizarRevision(ultimaEvaluacion, false)
 );
-dom.btnInicio.addEventListener("click", () => {
-  dom.resultsPanel.classList.add("hidden");
-  dom.setupPanel.classList.remove("hidden");
-  actualizarOpcionesLectura();
-  actualizarResumenCuadernillo();
-});
+if (dom.btnInicio) {
+  dom.btnInicio.textContent = "Dar otro examen (desde cero)";
+  dom.btnInicio.addEventListener("click", darOtroExamenDesdeCero);
+}
 
 cargarEstado();
 aplicarTema();
