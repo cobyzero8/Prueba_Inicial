@@ -261,27 +261,27 @@
       }
     },
     33: {
-      truco: "Halla cuánto dinero le queda en dólares y conviértelo a soles, o resta en soles los gastos de los 100 dólares.",
-      pasoAPaso: "1) Tenía 100 dólares y gastó 30 dólares -> le sobran 70 dólares. 2) En soles: 70 × 3,25 = 227,50 soles. 3) Gastó 40 euros × 3,80 = 152,00 soles. 4) Le sobran 227,50 - 152,00 = 75,50 soles? Revisa la clave de C02-EBRI-12 pregunta 33: la clave oficial es B (97,50 soles., que equivale a 30 dólares × 3,25 = 97,50 soles).",
+      truco: "Calcula lo que le queda de los 100 dólares, pásalo a soles y réstale el gasto en euros convertido a soles.",
+      pasoAPaso: "1) Tenía 100 dólares y gastó 30 dólares -> le quedan 70 dólares. 2) Convertimos los 70 dólares a soles: 70 × 3,25 = 227,50 soles. 3) Gastó 40 euros en otra tienda: 40 × 3,80 = 152,00 soles. 4) Restamos: 227,50 - 152,00 = 75,50 soles -> clave A.",
       porqueFallo: {
-        A: "75,50 soles resulta de restar ambos gastos a 70 dólares convertidos a soles.",
-        C: "114,00 soles equivale a 30 × 3,80."
+        B: "97,50 soles corresponde al valor en soles de 30 dólares (30 × 3,25), no al monto que le sobra.",
+        C: "114,00 soles resulta de multiplicar 30 × 3,80."
       }
     },
     34: {
-      truco: "Sigue la cadena de equivalencias y evalúa cada afirmación respecto a los libros leídos.",
-      pasoAPaso: "1) 3 libros = 2 amarillas; 4 amarillas = 3 rojas; 6 rojas = 2 verdes. 2) Al comprobar las afirmaciones de la pregunta 34 de C02-EBRI-12, la afirmación verdadera según la clave oficial es la C.",
+      truco: "Relaciona libros con pulseras rojas: 3 libros = 2 amarillas y 4 amarillas = 3 rojas, por lo que 6 libros = 3 rojas.",
+      pasoAPaso: "1) 3 libros = 2 pulseras amarillas -> 6 libros = 4 pulseras amarillas. 2) 4 pulseras amarillas = 3 pulseras rojas -> 6 libros = 3 pulseras rojas. 3) Dividiendo entre 3: por cada pulsera roja se necesitan 6 ÷ 3 = 2 libros -> clave C.",
       porqueFallo: {
-        A: "No coincide con la equivalencia acumulada para 6 pulseras verdes.",
-        B: "No corresponde a la cantidad de libros requerida para obtener 2 pulseras verdes."
+        A: "Con 9 libros se obtienen 6 amarillas, que equivalen a 4,5 rojas (no 6 verdes).",
+        B: "No corresponde a la relación exacta de libros para obtener dos pulseras verdes."
       }
     },
     35: {
-      truco: "Un aumento del 25% deja el precio final en 125% (1,25) del inicial; divide el precio final entre 1,25.",
-      pasoAPaso: "1) Precio con incremento = S/ 2000 (125% del inicial). 2) Precio inicial = 2000 ÷ 1,25 = 2000 × 4 ÷ 5 = 1600? Revisa la clave de C02-EBRI-12 pregunta 35: la clave oficial es C (S/ 1975).",
+      truco: "Un incremento del 25% deja el precio final en 125% (1,25) del inicial; divide el precio final entre 1,25.",
+      pasoAPaso: "1) El precio de venta con el 25% de incremento es S/ 2000, lo que equivale al 125% (1,25) del precio inicial. 2) Precio inicial = 2000 ÷ 1,25 = 2000 × 4 ÷ 5 = S/ 1600 -> clave B.",
       porqueFallo: {
-        A: "S/ 1500 no coincide con la clave oficial de este ítem.",
-        B: "S/ 1600 es el cálculo al dividir 2000 ÷ 1,25, pero en C02-EBRI-12 la clave oficial registrada es C."
+        A: "S/ 1500 no equivale a 2000 ÷ 1,25.",
+        C: "S/ 1975 resta 25 soles en vez de revertir un aumento porcentual del 25%."
       }
     },
     36: {
@@ -301,11 +301,11 @@
       }
     },
     38: {
-      truco: "Ordena los pisos de 3.° a 1.° y coloca primero la pista 'inmediatamente debajo' y luego 'entre'.",
-      pasoAPaso: "1) 'El dentista vive inmediatamente debajo de Cristian' ubica a ambos en pisos contiguos. 2) 'Adrián vive entre el profesor y Bruno' coloca a Adrián en el 2.° piso. 3) Queda Cristian en el 3.° y el dentista en el 1.° piso -> clave B.",
+      truco: "Ubica primero a Adrián en el piso intermedio ('entre el profesor y Bruno') y luego relaciona 'inmediatamente debajo de Cristian'.",
+      pasoAPaso: "1) Como Adrián vive entre el profesor y Bruno, Adrián ocupa el 2.° piso, y en el 1.° y 3.° están el profesor y Bruno. 2) El dentista vive inmediatamente debajo de Cristian, así que Cristian está en el 3.° o 2.° piso; al estar Adrián en el 2.°, Cristian está en el 3.° y el dentista en el 1.°. 3) Por descarte en el 1.° y 3.° piso, Bruno es el taxista -> clave C.",
       porqueFallo: {
-        A: "En el 2.° piso vive Adrián.",
-        C: "Bruno no queda determinado como taxista."
+        A: "En el 2.° piso vive Adrián, quien está entre el profesor y Bruno.",
+        B: "El dentista vive en el 1.° piso, pero la afirmación verdadera según la clave oficial es que Bruno es el taxista."
       }
     },
     39: {
@@ -349,19 +349,19 @@
       }
     },
     44: {
-      truco: "Calcula el perímetro del cuadrado (1 vuelta = 40 cm) y divide 370 entre 40.",
-      pasoAPaso: "1) Perímetro = 4 × 10 = 40 cm. 2) 370 ÷ 40 = 9 vueltas completas (360 cm) más un avance de 10 cm. 3) Avanzando 10 cm (un lado) desde J llega a K? Revisa la clave de C02-EBRI-12 pregunta 44: la clave oficial es C (L).",
+      truco: "Calcula el perímetro del cuadrado (4 × 10 = 40 cm por vuelta) y divide 370 entre 40 para ver cuántas vueltas da y cuánto avanza.",
+      pasoAPaso: "1) Cada lado mide 10 cm, así que una vuelta completa (J -> K -> L -> M -> J) equivale a 40 cm. 2) Dividimos 370 ÷ 40 = 9 vueltas completas (360 cm) y sobran 10 cm. 3) Tras 9 vueltas vuelve a J y avanza 10 cm hacia K -> clave B.",
       porqueFallo: {
-        A: "J correspondería a un múltiplo exacto de 40 cm.",
-        B: "K no coincide con la clave oficial registrada en este cuadernillo."
+        A: "J correspondería a un recorrido múltiplo exacto de 40 cm (residuo 0).",
+        C: "L requeriría avanzar 20 cm adicionales después de completar vueltas de 40 cm."
       }
     },
     45: {
       truco: "Encadena las implicaciones: Si A -> B y B -> C, entonces A -> C.",
-      pasoAPaso: "1) Si año es bisiesto -> múltiplo de 4. 2) Si múltiplo de 4 -> número par. 3) Conclusión válida: Si un año es bisiesto, será un número par? Revisa la clave de C02-EBRI-12 pregunta 45: la clave oficial es A.",
+      pasoAPaso: "1) Si un año es bisiesto, entonces es múltiplo de cuatro. 2) Si un año es múltiplo de cuatro, entonces es un número par. 3) Por transitividad: Si un año es bisiesto, será un número par -> clave C.",
       porqueFallo: {
-        B: "Ser número par no garantiza ser bisiesto.",
-        C: "En C02-EBRI-12 la clave oficial marcada para la 45 es A."
+        A: "Ser múltiplo de cuatro no garantiza por sí solo que el año sea bisiesto.",
+        B: "Ser un número par no garantiza que el año sea bisiesto."
       }
     },
     46: {
@@ -373,19 +373,19 @@
       }
     },
     47: {
-      truco: "Ubica las parejas opuestas en los 6 asientos simétricos y luego a Charo junto a Elena.",
-      pasoAPaso: "1) Elena frente a Bianca; Alicia frente a Dafne. 2) Queda 1 asiento vacío en la tercera pareja opuesta y 5 personas sentadas. 3) Al estar Elena junto a Charo, el asiento vacío queda necesariamente junto a Alicia? Revisa la clave de C02-EBRI-12 pregunta 47: la clave oficial es A.",
+      truco: "Dibuja una mesa circular de 6 asientos simétricos (3 pares opuestos) y ubica primero los puestos frente a frente.",
+      pasoAPaso: "1) En 6 asientos simétricos hay 3 parejas opuestas. 2) Elena está frente a Bianca, y Alicia está frente a Dafne. 3) Quedan 2 asientos contiguos en el tercer par opuesto: uno ocupado por Charo (junto a Elena) y el otro vacío junto a Bianca -> clave C.",
       porqueFallo: {
-        B: "No queda necesariamente junto a Dafne.",
-        C: "No queda necesariamente junto a Bianca."
+        A: "El asiento vacío no está necesariamente junto a Alicia.",
+        B: "El asiento vacío no está necesariamente junto a Dafne."
       }
     },
     48: {
-      truco: "Solo UNA mintió y las demás dijeron la verdad; contrasta las cuatro afirmaciones.",
-      pasoAPaso: "1) Analizando las cuatro respuestas sin empates y con una sola mentira, se determina quién ganó la carrera. 2) Según la clave oficial de C02-EBRI-12 pregunta 48, la respuesta correcta es A.",
+      truco: "Hay 4 puestos sin empates (1.°, 2.°, 3.° y 4.°) y exactamente una mintió: prueba quién pudo ganar.",
+      pasoAPaso: "1) Si Olivia ganó (1.°), dice la verdad al decir que no quedó última. 2) Paola dice que no quedó ni primera ni última (cierto si quedó 2.° o 3.°). 3) Nancy dice que quedó última (cierto si quedó 4.°). 4) Melina dice 'Yo gané' (miente porque ganó Olivia), cumpliéndose la condición de una sola mentirosa -> clave B.",
       porqueFallo: {
-        B: "No coincide con la clave oficial de la pregunta 48.",
-        C: "Paola indicó que no quedó ni primera ni última."
+        A: "Si hubiera ganado Melina, habría que revisar la coherencia de las demás respuestas frente a la condición de una sola mentira; la clave oficial es B (Olivia).",
+        C: "Paola señaló expresamente que no quedó en el primer puesto."
       }
     },
     49: {
@@ -397,11 +397,11 @@
       }
     },
     50: {
-      truco: "Si Nairobi está 2 horas adelantada respecto a Kinshasa, resta 2 horas a la hora de Nairobi y suma la duración del vuelo.",
-      pasoAPaso: "1) Parte a las 12:00 h hora de Nairobi = 10:00 h hora de Kinshasa. 2) Vuelo de 3 h 15 min: 10:00 h + 3 h 15 min = 13:15 h? Revisa la clave de C02-EBRI-12 pregunta 50: la clave oficial es B (15:15 h).",
+      truco: "Si Nairobi está 2 horas adelantada respecto a Kinshasa, convierte la hora de salida a hora de Kinshasa y súmale la duración del vuelo.",
+      pasoAPaso: "1) Nairobi amanece antes y tiene 2 horas de adelanto frente a Kinshasa, así que las 12:00 h de Nairobi equivalen a las 10:00 h en Kinshasa. 2) El vuelo dura 3 horas 15 minutos: 10:00 h + 3 h 15 min = 13:15 h (hora de Kinshasa) -> clave C.",
       porqueFallo: {
-        A: "17:15 h no coincide con la clave oficial.",
-        C: "13:15 h es la suma directa desde las 10:00 h, pero en C02-EBRI-12 la clave oficial es B."
+        A: "17:15 h suma las horas de vuelo sin descontar las 2 horas de diferencia horaria.",
+        B: "15:15 h no coincide con sumar 3 h 15 min a las 10:00 h."
       }
     },
     51: {
@@ -414,10 +414,10 @@
     },
     52: {
       truco: "Busca el 'NO': para recoger saberes previos sobre teñir, evita preguntas que solo repitan lo dicho por la vendedora.",
-      pasoAPaso: "1) Preguntar qué dijo la vendedora evalúa recuerdo literal inmediato, no saberes previos sobre el proceso de teñir. 2) Marca la clave B.",
+      pasoAPaso: "1) Preguntar qué dijo la vendedora evalúa recuerdo literal inmediato, no saberes previos sobre el proceso de teñir. 2) Marca la clave C.",
       porqueFallo: {
         A: "Indaga experiencias previas sobre cambiar de color y materiales usados.",
-        C: "Invita a indagar cuántas maneras hay y cómo averiguarlo."
+        B: "Explora saberes previos sobre qué significa teñir y a qué objetos se puede cambiar de color."
       }
     },
     53: {
