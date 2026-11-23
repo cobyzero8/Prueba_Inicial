@@ -378,7 +378,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       conLectura({
         numero: 23,
         subprueba: "Comprensión Lectora",
-        enunciado: "¿Cuál de las siguientes palabras tiene el mismo sentido que \"esquilmar\" en el fragmento sobre las reservas de litio y el ecosistema?",
+        enunciado: "Lea el siguiente fragmento del texto:\n\n“Lo cierto es que, “aunque nadie se cuestione sobre la necesidad de abandonar los combustibles fósiles para frenar el cambio climático, la transición energética tampoco debe entenderse como un cheque en blanco para extraer el litio a costa de la biodiversidad de la zona”, afirma Heredia. De lo contrario, se corre el riesgo de esquilmar las reservas de litio y de arrasar con un ecosistema único en el mundo.”\n\n¿Cuál de las siguientes palabras tiene el mismo sentido que “esquilmar” en este fragmento?",
         alternativas: {
           A: "Acabar",
           B: "Destruir",
