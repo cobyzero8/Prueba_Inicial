@@ -6,8 +6,8 @@
   window.CUADERNILLOS.push({
     id: "CO1-EBRI-11-2019",
     codigo: "CO1-EBRI-11",
-    etiqueta: "INICIAL 07-2019 (F1)",
-    nombre: "Evaluación Docente — EBR Inicial (CO1-EBRI-11 - Forma 1)",
+    etiqueta: "INICIAL 07-2019 (I)",
+    nombre: "Evaluación Docente — EBR Inicial (CO1-EBRI-11 - I)",
     fecha: "Julio de 2019",
     claves: {
       1: "A", 2: "C", 3: "A", 4: "B", 5: "B",
