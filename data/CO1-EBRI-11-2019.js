@@ -248,7 +248,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       conLectura({
         numero: 10,
         subprueba: "Comprensión Lectora",
-        enunciado: "La actividad descrita en el comentario del docente (crear perfiles de personajes históricos en redes sociales, investigar y contrastar fuentes) está basada en una idea que también se desprende del texto. ¿Cuál es esta idea?",
+        enunciado: "En una entrevista, un docente realizó el siguiente comentario:\n\n“Hace poco, recuerdo haber propuesto a mis estudiantes llevar a cabo una actividad que consistía en crear perfiles de personajes históricos en la red social que más utilicen. La actividad los motivó a investigar en la web sobre la vida de esos personajes. Para ello, tenían que buscar y contrastar diversas fuentes de información acerca de sus datos biográficos. Además, tuvieron que realizar una selección de imágenes, determinar ‘los contactos’ de dichos personajes y explicar qué relación existió entre ellos en función de la época en que vivieron”.\nAdaptado de https://peru21.pe/peru/facebook-profesor-ica-ensena-alumnos-historia-peru-perfiles-red-social-fotos-nndc-465982\n\nLa actividad descrita en el comentario anterior está basada en una idea que también se desprende del texto. ¿Cuál es esta idea?",
         alternativas: {
           A: "Cada día más, la educación básica es fundamental para enseñar a los estudiantes los mecanismos de búsqueda de información en internet.",
           B: "Un adecuado proceso de alfabetización digital puede contribuir a que los estudiantes se desenvuelvan con responsabilidad en el contexto que les toca vivir.",
