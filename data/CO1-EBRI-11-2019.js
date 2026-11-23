@@ -3,6 +3,131 @@
 
   const SUB_PED = "Conocimientos Curriculares y Pedagógicos de la Especialidad";
 
+  const TEXTO_1_TITULO = "Texto 1 — Del tamaño de un hermano";
+  const TEXTO_1_CUERPO = `Tenía un hermano pequeño, y a nadie más tenía. Hacía mucho tiempo, desde la muerte de sus padres, habitaban los dos solos esa playa desierta, rodeada de montañas. Pescaban, cazaban, recogían frutos y eran felices.
+
+En verdad, tan pequeño era el otro, apenas como la palma de su mano, que el hermano grande encontraba normal ocuparse de todo. Pero siempre atento a su pequeño hermano, delicado y único en su minúsculo tamaño.
+
+Nada hacía sin llevarlo consigo. Si era día de pesca, se iban los dos mar adentro, el hermano grande metido en el agua hasta los muslos, el pequeño encaramado en su oreja, ambos inclinados sobre la transparencia del agua, esperando el momento en que el pez se acercaría y, ¡zas!, caería preso en la celada de sus manos. Si se trataba de cazar, salían al bosque, el pequeño acomodado a sus anchas en la alforja de cuero de su hermano, quien daba largos pasos por entre los arbustos, en busca de algún animal salvaje que les garantizara el almuerzo, o de frutas maduras y jugosas que calmaran la sed. Nada faltaba a los dos hermanos.
+
+Pero en las noches, sentados frente al fuego, la casa entera parecía llenarse de vacío. Casi sin advertirlo, comenzaban a hablar de un mundo más allá de las montañas, preguntándose cómo sería, si estaría habitado, e imaginando la vida de aquellos habitantes. De una suposición a otra, la charla se ampliaba hasta el amanecer con nuevas historias que se ligaban entre sí.
+
+Durante el día, los dos hermanos solo pensaban en la llegada de la noche, momento en que habrían de sentarse junto al fuego a imaginar ese mundo que ignoraban. Y la noche se fue haciendo mejor que el día, la imaginación más seductora que la realidad. Hasta que una vez, ya cerca del amanecer, el pequeño, con firmeza, le propuso a su hermano salir de casa para viajar hacia ese mundo que desconocían. Y el grande se sorprendió de no haber pensado en algo tan evidente.
+
+No tardaron mucho en los preparativos. Reunieron algunas provisiones, tomaron pieles para enfrentar el frío, cerraron bien la puerta de su casa y se pusieron en camino.
+
+Montado encima de la cabeza del hermano, asegurando con vigor las redes de su cabello, el pequeño se sentía valiente, como si también él fuera alto y poderoso. Pisando tierras cada vez más desconocidas, el grande se sentía estremecer por dentro, como si también él fuera pequeño. Pero los dos cantaban, estaban juntos, y aquella era su más linda aventura.
+
+Después de algunos días, el suelo dejó de ser plano, y comenzó la cuesta de la montaña. Subieron por caminos antes abiertos por los animales. Desde la cabeza del hermano, el pequeño, con determinación, señalaba los rumbos más fáciles. El grande se aferraba a las piedras, rodeaba zanjones y bordeaba precipicios. Acampaban por la noche entre las rocas, envueltos en pieles. Y al amanecer proseguían su lenta ascensión.
+
+Tanto subieron un día que, de repente, no hubo ya modo de subir más. Habían llegado a la cima de la montaña. Y desde arriba, extasiados, contemplaron por fin el otro lado del mundo.
+
+Qué bonito era. En la distancia, todo era tan diminuto, limpio y bien dispuesto. Las colinas descendían, suaves, hasta los valles sembrados de huertos. Los campos, salpicados de aldeas y casitas, parecían moverse a lo lejos.
+
+Alegres, los dos hermanos comenzaron a descender. Bajaron y bajaron, por caminos ahora más fáciles, trazados por otros pies. Curiosamente, por más que avanzaban, las casas y las personas no crecían tanto como habían esperado. Ellos estaban cada vez más cerca y los otros seguían siendo pequeños.
+
+Casi estaban llegando a la primera aldea, cuando oyeron un grito y después otro, y vieron que todas aquellas personitas corrían a encerrarse en sus casas, cerrando luego tras de sí puertas y ventanas. Sin entender lo que sucedía, el hermano grande depositó en el suelo al pequeño. Y este, viéndose por primera vez en un mundo de su tamaño, infló el pecho y resueltamente se acercó a la casa más próxima, llamó a la puerta, y esperó que algún aldeano lo atendiera.
+
+A través de la hendija que se abrió con cautela, dos ojos, exactamente a la altura de los suyos, espiaron. Silencio al otro lado de la puerta. Pero un segundo después, también la ventana se abrió levemente, dando espacio a la vivaz curiosidad de otro par de ojos. Y en cada casa se abrieron temblorosas otras hendijas, asomó tras ellas el destello de otras miradas. Al principio recelosas, casi encogidas entre los hombros, después más osadas, surgieron cabezas de hombres, de mujeres y de niños. Cabezas pequeñas, todas minúsculas como la de su hermano, pensó el mayor, mientras trataba afanoso de comprender. No había nadie allí que fuera grande, nadie de su propio tamaño. Y sin duda, sucedía lo mismo en las aldeas vecinas, en todas aquellas casas que él había creído pequeñas solo a causa de la distancia.
+
+En ese momento, el mundo, descubrió con súbito sobresalto al comprender por fin la realidad, estaba hecho a la medida de su hermano. Entonces, vio que este, tras hablar con los habitantes de la casa, volvía hacia él tendiéndole la mano. El hermano, que siempre le pareciera tan frágil, lo llamaba con dulce firmeza. Y él se inclinó hasta tocar su manecita, y se dejó guiar hasta las gentes de la aldea, que miraban asombradas, por primera vez, al único gigante de este mundo.
+
+Adaptado de "Del tamaño de un hermano", Marina Colasanti.`;
+
+  const TEXTO_2_TITULO = "Texto 2 — Educación y transformación digital";
+  const TEXTO_2_CUERPO = `Desde 2017, el gobierno francés prohíbe que los escolares menores de 15 años acudan a las escuelas públicas portando teléfonos móviles con pantallas táctiles (también llamados smartphones o teléfonos inteligentes). Algunos docentes celebraron entusiastas la noticia. Otros docentes sostenemos que, detrás de este tipo de medidas, triunfa la absurda idea de contraponer educación y desarrollo tecnológico.
+
+Ante esto, uno se pregunta por las razones que motivan a que las mismas instituciones, que antes reclamaban recursos para poner computadoras en las aulas, ahora pretendan nada menos que evitar que los estudiantes las lleven en sus bolsillos.
+
+La respuesta es sencilla. En lugar de llevar a cabo un verdadero proceso de transformación digital, la mayoría de escuelas pretenden seguir haciendo lo mismo que han hecho siempre: introducir un poco de tecnología aquí y allá, usar una pizarra digital que funcione igual que la pizarra de tiza, pero sin el polvo, o leer un libro digitalizado, idéntico al de papel, pero con video.
+
+Así pues, se nos presenta una visión triste y restringida del uso de la tecnología digital, que afecta el desarrollo de varias generaciones de estudiantes para, por ejemplo, reconocer noticias falsas o identificar fuentes de información confiables. No se tiene en cuenta que un adecuado proceso de alfabetización digital puede contribuir, en gran medida, a que los estudiantes se comporten responsablemente en el contexto en el que les toca vivir.
+
+¿De verdad se puede pensar que excluir la tecnología de la educación o introducirla de manera anecdótica y superficial puede ser una buena idea? En un mundo en el que utilizamos los smartphones para casi todo, ¿por qué entusiasma la idea de eliminar su presencia de las escuelas?
+
+Ahora bien, no se trata tan solo de pedir a los estudiantes que lleven sus smartphones a las aulas para que, en lugar de usarlos en casa, lo hagan en clases. De ser así, nos encontraríamos con sesiones imposibles de gestionar y con distracciones constantes, que es lo que preocupa a aquellos docentes que están de acuerdo con quitarlos de la escuela. El reto de la educación actual consiste en integrar la tecnología en el aprendizaje, ofreciendo a los estudiantes alternativas para usarla, y evitando que la consideren, únicamente, como una herramienta de entretenimiento.
+
+Para que ello ocurra, la educación debe evolucionar. Por diversas razones, seguimos educándonos con los mismos métodos del siglo XX con los que se educaron nuestros padres y nuestros abuelos. Aún existen instituciones que buscan desarrollar aprendizajes basándose en un solo libro de texto cuyo contenido es necesario memorizar y repetir en un examen. Esto trae como consecuencia que se produzca la dependencia por una sola fuente. En muchos casos, los estudiantes se forman con la idea de que una información es indiscutible si está impresa en un libro o aparece en una pantalla.
+
+En la educación básica, cada día más, los mecanismos de verificación de fuentes resultan fundamentales, considerando que vivimos en una sociedad caracterizada por la hiperabundancia y la saturación de información proveniente de internet. Hasta ahora, la escuela no ha sido capaz de dotar a los estudiantes de las habilidades y herramientas adecuadas para lidiar con la gran cantidad de contenidos a los que tienen acceso.
+
+Desde nuestro quehacer, los docentes podemos ayudar a que los estudiantes comprendan que el conocimiento no está encerrado en un solo libro o una sola fuente, a que se manejen entre cantidades ilimitadas de información, y que sean capaces de cualificarla, de reflexionar críticamente sobre ella, descartarla cuando es mala y compartirla cuando es buena. Bajo esta perspectiva, podríamos plantear retos o problemas significativos que los estudiantes tengan que resolver con las fuentes que estén a su disposición. Nuestro rol consiste, entonces, en guiarlos para que sepan bucear dentro de ese mar de información.
+
+En este sentido, es necesario promover que los estudiantes tengan un papel mucho más activo y protagónico en la verificación y búsqueda de fuentes de información, de modo que utilicen diversos métodos que les permitan revisar la validez de las fuentes de forma colaborativa.
+
+Así, en lugar de asumir el papel de referente universal, los docentes debemos actuar como moderadores de las actividades. Aunque es una tarea compleja, es importante reorientar las dinámicas de las aulas, a fin de que la tecnología digital tenga un espacio en el proceso de aprender y que los estudiantes también participen, en dicho proceso, reflexivamente.
+
+Adaptado de "Educación y transformación digital", Enrique Dans.`;
+
+  const TEXTO_3_TITULO = "Texto 3 — Maestros, mistis y campesinos";
+  const TEXTO_3_CUERPO = `En 1944, José María Arguedas escribió un artículo en el que proponía un método para promover el desarrollo de la lectura y la escritura en la población quechuahablante del Perú. Si los indígenas no conseguían hablar ni leer en castellano, esto se debía a que no se les enseñaba, primero, a leer en su propia lengua. No existían materiales educativos ni se contaba con un alfabeto más o menos estándar para fomentar la lectura en esta lengua. Así, para Arguedas, la alfabetización en quechua haría que los indígenas aprendan a leer y escribir exitosamente, y esto afirmaría su identidad cultural. Se trataba, además, de una cuestión estratégica. Según él, la población quechuahablante podría sentirse motivada a leer y escribir en castellano, lo que le abriría las puertas hacia la modernidad que se producía en los centros urbanos del país.
+
+Ese mismo año, Arguedas sería invitado por los representantes del sector educativo estatal a dialogar junto con José Antonio Encinas y Luis E. Valcárcel para la gestación del proyecto educativo indigenista. Las ideas pedagógicas y lingüísticas que Arguedas compartió en ese diálogo se concretaron, desde 1945, en una serie de medidas realmente ambiciosas. Aparte de la alfabetización en quechua, otro frente de este proyecto educativo fue el mejoramiento salarial de los docentes en la sociedad rural. Asimismo, se decidió ampliar la gratuidad y obligatoriedad de la enseñanza a los tres primeros años de la secundaria. Se dispuso, también, que las haciendas donde vivieran treinta o más niños en edad escolar estuvieran obligadas a abrir una escuela sostenida por el propietario.
+
+Además, se implementaron los núcleos educativos comunales. Estos consistían en la creación de una escuela central, alrededor de la cual se agrupaban quince o veinte escuelas. La primera debía controlar la marcha de estas a través de inspecciones periódicas. Los docentes debían ser quechuahablantes, especialmente los de la escuela central. En 1947, funcionaban 320 escuelas dentro de este sistema en un par de regiones, y superarían las 1500 en once regiones en la década de 1950.
+
+De otro lado, el despliegue presupuestal para el sector educativo, que en 1936 era de 15,7 millones de soles, fue de 101,7 millones en 1946, y llegaría a la suma de 195,1 millones en 1949. Esta inyección económica contribuyó a que, entre 1940 y 1966, el total de escuelas primarias pasara de 4882 a 19 587, y que la cantidad de maestros pasara de 8911 en 1937 a 62 416 en 1966.
+
+Estas medidas sembraron la esperanza de que la reivindicación de la población indígena, finalmente, se lograría. Sin embargo, el censo nacional de 1961 mostraría las limitaciones de estas reformas educativas. Si bien el avance con respecto al censo de 1940 no era despreciable, la cuestión era que, una vez más, la brecha en cuanto a los aprendizajes entre la costa y la sierra no se reducía: mientras que en la costa el promedio de analfabetismo en castellano era de 27%, en la sierra era de 56%.
+
+¿Qué ocasionaba que esta nueva reforma educativa no tuviera los resultados esperados? Para empezar, el desinterés de la propia sociedad campesina por el acceso de las mujeres a la escuela. Existía la percepción de que la educación alejaba a la mujer de sus "actividades tradicionales". El censo mostró que dos de cada tres analfabetos mayores de 15 años eran mujeres.
+
+Otro hecho que influyó en los resultados del censo era la persistente migración de la sierra a los centros urbanos costeños de los sectores jóvenes más educados. Si bien la educación intentaba expandirse por todo el territorio nacional, Lima y otras ciudades de la costa eran los espacios en los que se focalizaba el trabajo y la posibilidad de bienestar socioeconómico.
+
+Un tercer obstáculo fue la dificultad de aplicar la estrategia de alfabetización en quechua. Por un lado, la formación de alfabetizadores y maestros quechuahablantes, y la elaboración de textos y materiales educativos en quechua resultaban complicadas y muy costosas. Por otro lado, los padres de familia campesinos consideraban que dicha estrategia solo hacía más lento el aprendizaje del castellano. Cuando sus hijos, al cabo de dos o tres años de escolaridad eran incapaces de expresarse en castellano, se desilusionaban y los retiraban de la escuela.
+
+A pesar de que existieron estos obstáculos, el censo no desató la frustración ni el descrédito del proyecto indigenista: se había cobrado ya la convicción de que la educación era un proceso a largo plazo. Los resultados del censo, más bien, ayudaron a comprender que la mejora de las condiciones de vida de los indígenas en el Perú necesitaba no solo de innovaciones en las estrategias educativas, sino, sobre todo, de profundas reformas socioeconómicas. Esta toma de conciencia fue quizá uno de los aportes más relevantes de lo que implicó el proyecto educativo indigenista.
+
+Adaptado de "Maestros, mistis y campesinos en el Perú rural del siglo XX", Carlos Contreras.`;
+
+  const TEXTO_4_TITULO = "Texto 4 — Sin fines de lucro";
+  const TEXTO_4_CUERPO = `Vivimos en un mundo donde nos encontramos unos frente a otros cruzando las brechas de la geografía, el lenguaje y la nacionalidad. Todos dependemos de personas que jamás hemos visto y que, a su vez, dependen de nosotros. Si las personas que se encuentran distantes no se unen para cooperar como jamás lo han hecho, no es posible resolver los problemas económicos, ambientales, religiosos y políticos. Tomemos como ejemplos el calentamiento global, los regímenes de comercio internacional, los peligros de las armas nucleares, los flujos migratorios de mano de obra y la elaboración de normas laborales dignas. Son problemas que solo pueden afrontarse de verdad si existe un diálogo multinacional.
+
+Nuestras decisiones más básicas como consumidores o productores afectan el estándar de vida de otras personas que habitan otros países debido a la forma en que funciona la economía global. Por lo tanto, es irresponsable la indiferencia que mostramos sobre cómo nuestros actos inciden en la vida de otras personas. En este contexto, es fundamental la educación, pues ella debería proporcionarnos los elementos necesarios para desenvolvernos de manera eficaz en ese diálogo multinacional como "ciudadanos del mundo".
+
+Si en las escuelas y en las universidades no se ofrece una buena base para la cooperación internacional, lo más probable es que nuestras interacciones humanas se vean mediadas por normas tan variables como las del mercado, que conciben las vidas humanas principalmente como instrumentos para obtener ganancias. Por lo tanto, todas las instituciones educativas tienen una tarea importante y urgente: desarrollar en los estudiantes la capacidad de concebirse como integrantes de una nación heterogénea (como lo son todas las naciones modernas) y de un mundo incluso más heterogéneo, así como ayudar a los estudiantes a comprender, al menos en parte, la historia y las características de los diversos grupos que habitan el planeta.
+
+Este aspecto de la educación requiere más que una simple manifestación de principios como mostrar respeto por el otro o ser consciente del carácter diverso del mundo. Es necesario que se desplieguen una gran cantidad de conocimientos fácticos: se trata de conocimientos sobre los varios subgrupos étnicos, religiosos, nacionales, que conforman la propia nación, y sobre los logros, las luchas y los aportes de esos subgrupos, pero también acerca de sus tradiciones y costumbres. Por eso, es necesario procurar que, desde edades muy tempranas, los estudiantes aprendan a relacionarse con el mundo a través de una curiosidad respetuosa, que les permita entender tanto las diferencias que impiden la comprensión mutua entre naciones y grupos distintos como las necesidades y los intereses compartidos que inciden en esa misma comprensión para la resolución de problemas en común. El verdadero pensamiento crítico solo puede adquirir vigor si las escuelas nos proveen, desde niños, de esos conocimientos fácticos para formar ciudadanos que piensen cooperativamente, más allá de sus intereses y fronteras nacionales.
+
+Quizás es difícil imaginar que, en efecto, una escuela busque desarrollar dichos conocimientos; sobre todo, en un contexto en el que se prioriza "producir" futuros adultos que compitan entre sí en un mundo globalizado. Pero ¿no es acaso esperanzador pensar que sí es posible tener ese tipo de escuela?
+
+En 1901, en una época en la que no existían las innumerables posibilidades de acceder a la información, el escritor Rabindranath Tagore inauguró una escuela primaria en la India en la que se enseñaba a los niños y a las niñas en qué consistían las distintas tradiciones étnicas y religiosas de su país y de otras naciones. En esta escuela, se celebraban festivales de amistad entre los hindúes, los cristianos y los musulmanes, y con frecuencia se organizaban distintos festejos religiosos en los que actuaban todos los estudiantes para aprender las costumbres de los demás. Se buscaba que la educación de los niños y las niñas se fundara inicialmente en las tradiciones locales, con un dominio sólido del idioma y las costumbres bengalíes, para luego expandir sus horizontes hacia el reconocimiento de tradiciones que no les eran propias.
+
+Ejemplos como estos demuestran que se puede aprovechar la curiosidad natural de los niños y las niñas para contarles historias que sean acordes a su edad sobre las diversas tradiciones del mundo, pidiéndoles que describan sus prácticas y creencias, y fomentando el respeto por dichas tradiciones. En este sentido, los programas curriculares de educación básica podrían planificarse enfatizando el desarrollo de las competencias necesarias para que, desde las primeras etapas, los niños puedan valorar la diversidad del mundo, sus historias y culturas.
+
+Adaptado de Sin fines de lucro. Por qué la democracia necesita de las humanidades, Martha Nussbaum.`;
+
+  const TEXTO_5_TITULO = "Texto 5 — Las víctimas del litio: los flamencos andinos";
+  const TEXTO_5_CUERPO = `El litio es un metal alcalino blanco y muy liviano, empleado para almacenar energía. Si bien puede contribuir a la reducción del uso de combustibles perjudiciales para el ambiente, también es posible que ponga en riesgo a todo el ecosistema de las zonas de donde se extrae. Así lo ha hecho notar Borja Heredia, director de la Unidad de Aves de la Convención de las Especies Migratorias (CEM) de las Naciones Unidas, quien explica que la gran biodiversidad del altiplano peligra por la extracción de litio. Los flamencos son las aves más afectadas, debido a que, en épocas de calor, emigran hacia las lagunas y pantanos ubicados a 4000 metros de altura en el denominado "triángulo de litio", ubicado entre Argentina, Bolivia y Chile.
+
+Desde el descubrimiento de las minas de litio, los gobiernos de dichos países se enfrentan a una intrincada situación aún sin visos de solución en el corto plazo. Según acuerdos internacionales, la conservación de los hábitats de especies naturales, como el hábitat de los flamencos, debe ser una prioridad. No obstante, e incluso tomando en cuenta que la minería de litio es muy agresiva por los recursos hídricos que consume, no pueden perderse de vista los beneficios que genera, por ejemplo, en la producción de vidrio y cerámica, así como en la industria automotriz y de los fármacos.
+
+Así, urge que los países involucrados asuman el compromiso de proteger los hábitats naturales; sobre todo, si tenemos en cuenta que las salmueras (repositorios de agua con alta concentración de sal) de donde se obtiene el litio están rodeadas de acuíferos de agua dulce que constituyen un sistema hidrogeológico único en el mundo. En el proceso de extracción, se generan vacíos en la tierra que se llenan con el agua de los acuíferos aledaños que dan vida a las zonas que habitan los flamencos. El resultado es que la minería del litio lleva consigo consecuencias muy graves: por una parte, la gran cantidad de agua dulce que consume y, por otra, la gran concentración salina de la salmuera ya sin litio (10 veces mayor que la del agua de mar), que queda como residuo.
+
+Heredia no cuestiona que el litio, en la actualidad, sea fundamental para abordar la transición energética y frenar el cambio climático. Lo que solicita es que se investigue y se encuentren métodos para emplear menos agua dulce, y que la sobrante sea recuperable al final del proceso.
+
+El experto afirma que se necesitan investigaciones exhaustivas del sistema de acuíferos del altiplano. Hasta el momento, se extrapolan los resultados de una zona de extracción a las demás, algo inútil desde el punto de vista de Heredia, quien asevera que cada zona es única, y requiere estudios detallados y específicos. Además, se necesitan modelos matemáticos para predecir a largo plazo la longevidad de los yacimientos. El litio es un material no renovable, por lo que, si se extrae indiscriminadamente, en veinte años, se puede terminar con las reservas.
+
+Asimismo, Heredia destacó la necesidad de mejorar los mecanismos legales para reducir el impacto ambiental. Con esto, puede superarse la falta de rigor con la que los gobiernos enfrentan este problema y el hecho de que sean las propias empresas extractoras de litio las que financian los estudios de impacto ambiental. Lo cierto es que, "aunque nadie se cuestione sobre la necesidad de abandonar los combustibles fósiles para frenar el cambio climático, la transición energética tampoco debe entenderse como un cheque en blanco para extraer el litio a costa de la biodiversidad de la zona", afirma Heredia. De lo contrario, se corre el riesgo de esquilmar las reservas de litio y de arrasar con un ecosistema único en el mundo.
+
+Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez Angulo.`;
+
+  const LECTURAS = {
+    t1: { clave: "Texto 1", titulo: TEXTO_1_TITULO, texto: TEXTO_1_CUERPO },
+    t2: { clave: "Texto 2", titulo: TEXTO_2_TITULO, texto: TEXTO_2_CUERPO },
+    t3: { clave: "Texto 3", titulo: TEXTO_3_TITULO, texto: TEXTO_3_CUERPO },
+    t4: { clave: "Texto 4", titulo: TEXTO_4_TITULO, texto: TEXTO_4_CUERPO },
+    t5: { clave: "Texto 5", titulo: TEXTO_5_TITULO, texto: TEXTO_5_CUERPO }
+  };
+
+  function conLectura(pregunta, lec) {
+    return Object.assign({}, pregunta, {
+      textoClave: lec.clave,
+      tituloLectura: lec.titulo,
+      textoLectura: lec.texto
+    });
+  }
+
   window.CUADERNILLOS.push({
     id: "CO1-EBRI-11-2019",
     codigo: "CO1-EBRI-11",
@@ -30,7 +155,7 @@
       86: "A", 87: "B", 88: "B", 89: "C", 90: "A"
     },
     preguntas: [
-      {
+      conLectura({
         numero: 1,
         subprueba: "Comprensión Lectora",
         enunciado: "Según el texto, ¿dónde permanecía el hermano pequeño cuando iba a pescar con su hermano?",
@@ -39,8 +164,8 @@
           B: "En la alforja de su hermano.",
           C: "Encima de la cabeza de su hermano."
         }
-      },
-      {
+      }, LECTURAS.t1),
+      conLectura({
         numero: 2,
         subprueba: "Comprensión Lectora",
         enunciado: "De acuerdo con el desarrollo de la historia, ¿cuál de los siguientes hechos ocurrió primero?",
@@ -49,8 +174,8 @@
           B: "El hermano pequeño buscó conversar con alguno de los habitantes de la aldea.",
           C: "Ambos hermanos oyeron gritos que provenían de la aldea a la que llegaron."
         }
-      },
-      {
+      }, LECTURAS.t1),
+      conLectura({
         numero: 3,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál de las siguientes ideas se puede deducir a partir de la lectura del texto?",
@@ -59,8 +184,8 @@
           B: "El hermano grande sentía un gran temor por atravesar las montañas caminando.",
           C: "Los hermanos se encontraban tristes por vivir solos en una playa desierta."
         }
-      },
-      {
+      }, LECTURAS.t1),
+      conLectura({
         numero: 4,
         subprueba: "Comprensión Lectora",
         enunciado: "En el texto, ¿cuál es el principal rasgo de personalidad del hermano pequeño?",
@@ -69,8 +194,8 @@
           B: "Es decidido.",
           C: "Es indiscreto."
         }
-      },
-      {
+      }, LECTURAS.t1),
+      conLectura({
         numero: 5,
         subprueba: "Comprensión Lectora",
         enunciado: "¿De qué trata principalmente el texto?",
@@ -79,8 +204,8 @@
           B: "De un descubrimiento que cambia la perspectiva de dos hermanos sobre sí mismos.",
           C: "De los problemas que dos hermanos enfrentan en su viaje a una aldea desconocida."
         }
-      },
-      {
+      }, LECTURAS.t1),
+      conLectura({
         numero: 6,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál de las siguientes afirmaciones NO se puede concluir del texto?",
@@ -89,8 +214,8 @@
           B: "El uso de un solo libro de texto puede ser un obstáculo para fomentar que los estudiantes aprendan a contrastar la información de diversas fuentes.",
           C: "El uso limitado que algunos docentes le dan a la tecnología digital se debe a que la consideran una distracción para los estudiantes."
         }
-      },
-      {
+      }, LECTURAS.t2),
+      conLectura({
         numero: 7,
         subprueba: "Comprensión Lectora",
         enunciado: "En el texto, el autor menciona un hecho que, según él, muestra que la idea de contraponer educación y tecnología ha triunfado. ¿Cuál es ese hecho?",
@@ -99,8 +224,8 @@
           B: "La prohibición por parte del gobierno francés del uso de smartphones en las escuelas.",
           C: "La costumbre de los estudiantes franceses de utilizar la tecnología solo para entretenerse."
         }
-      },
-      {
+      }, LECTURAS.t2),
+      conLectura({
         numero: 8,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál es el propósito principal del texto?",
@@ -109,8 +234,8 @@
           B: "Describir algunas propuestas pedagógicas que fomentan la reflexión crítica sobre el uso de tecnologías digitales.",
           C: "Resaltar la necesidad de incluir los avances del desarrollo tecnológico digital en la práctica pedagógica."
         }
-      },
-      {
+      }, LECTURAS.t2),
+      conLectura({
         numero: 9,
         subprueba: "Comprensión Lectora",
         enunciado: "En el tercer párrafo del texto, el autor afirma lo siguiente: \"[...] la mayoría de escuelas pretenden seguir haciendo lo mismo que han hecho siempre [...]\". ¿A qué se refiere?",
@@ -119,8 +244,8 @@
           B: "A que estas escuelas introducen las tecnologías digitales en las aulas de forma superficial y anecdótica.",
           C: "A que estas escuelas están comprometidas con el desarrollo digital de varias generaciones de estudiantes."
         }
-      },
-      {
+      }, LECTURAS.t2),
+      conLectura({
         numero: 10,
         subprueba: "Comprensión Lectora",
         enunciado: "La actividad descrita en el comentario del docente (crear perfiles de personajes históricos en redes sociales, investigar y contrastar fuentes) está basada en una idea que también se desprende del texto. ¿Cuál es esta idea?",
@@ -129,8 +254,8 @@
           B: "Un adecuado proceso de alfabetización digital puede contribuir a que los estudiantes se desenvuelvan con responsabilidad en el contexto que les toca vivir.",
           C: "El reto de la educación actual consiste en integrar las tecnologías digitales en las actividades de aprendizaje, aprovechando lo que los estudiantes ya conocen sobre ellas."
         }
-      },
-      {
+      }, LECTURAS.t2),
+      conLectura({
         numero: 11,
         subprueba: "Comprensión Lectora",
         enunciado: "De acuerdo con el primer párrafo del texto, ¿por qué, para Arguedas, era una cuestión estratégica que la población quechuahablante fuera alfabetizada en su lengua materna?",
@@ -139,8 +264,8 @@
           B: "Porque contaría con un alfabeto estándar que serviría para fomentar sus habilidades de lectura y escritura.",
           C: "Porque se sentiría motivada a leer y a escribir en castellano, y esto le abriría las puertas hacia la modernidad."
         }
-      },
-      {
+      }, LECTURAS.t3),
+      conLectura({
         numero: 12,
         subprueba: "Comprensión Lectora",
         enunciado: "Según el texto, ¿en qué año la partida presupuestal para el sector educativo alcanzó los 101,7 millones de soles?",
@@ -149,8 +274,8 @@
           B: "En 1946.",
           C: "En 1949."
         }
-      },
-      {
+      }, LECTURAS.t3),
+      conLectura({
         numero: 13,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál es el propósito principal del texto?",
@@ -159,8 +284,8 @@
           B: "Dar a conocer en qué consistió el proyecto educativo indigenista y cuáles fueron los resultados de su aplicación.",
           C: "Exponer las ideas fundamentales que sustentaron el proyecto educativo indigenista en los aspectos pedagógico y lingüístico."
         }
-      },
-      {
+      }, LECTURAS.t3),
+      conLectura({
         numero: 14,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál de las siguientes afirmaciones NO se puede concluir del texto?",
@@ -169,8 +294,8 @@
           B: "Según Arguedas, la población quechuahablante debería, primero, ser alfabetizada en su lengua materna si se busca que aprenda a leer y escribir en castellano.",
           C: "El censo de 1961 dejó en claro que las reformas al modelo educativo causaron un aumento en el promedio de analfabetismo de la población rural y urbana de la sierra."
         }
-      },
-      {
+      }, LECTURAS.t3),
+      conLectura({
         numero: 15,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál de las siguientes alternativas expresa la idea principal del último párrafo del texto?",
@@ -179,8 +304,8 @@
           B: "El censo de 1961 no desacreditó las ideas del proyecto indigenista, ya que se tenía la convicción de que la educación era un proceso a largo plazo.",
           C: "Existieron diversas dificultades que impidieron la aplicación de las reformas educativas del proyecto indigenista propuesto por Arguedas."
         }
-      },
-      {
+      }, LECTURAS.t3),
+      conLectura({
         numero: 16,
         subprueba: "Comprensión Lectora",
         enunciado: "Según el texto, ¿a qué se debe que nuestras acciones como consumidores o productores afecten el estándar de vida de otros?",
@@ -189,8 +314,8 @@
           B: "A la falta de cooperación y diálogo multinacional.",
           C: "A las brechas de la geografía, el lenguaje y la nacionalidad."
         }
-      },
-      {
+      }, LECTURAS.t4),
+      conLectura({
         numero: 17,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál de las siguientes afirmaciones es inconsistente con la postura de la autora del texto?",
@@ -199,8 +324,8 @@
           B: "El reconocimiento del carácter heterogéneo de las naciones es insuficiente para que las personas se desenvuelvan eficazmente en el mundo.",
           C: "Las instituciones educativas deben centrarse en formar estudiantes capaces de competir entre sí en función de las demandas económicas."
         }
-      },
-      {
+      }, LECTURAS.t4),
+      conLectura({
         numero: 18,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál es la finalidad principal de la autora al mencionar la escuela que se implementó en la India?",
@@ -209,8 +334,8 @@
           B: "Subrayar los resultados positivos de un tipo de enseñanza que se centró en reconocer y celebrar las costumbres y tradiciones de varios pueblos.",
           C: "Dejar en claro que una formación integral y sólida debe fomentar la convivencia entre personas que tienen distintas tradiciones religiosas."
         }
-      },
-      {
+      }, LECTURAS.t4),
+      conLectura({
         numero: 19,
         subprueba: "Comprensión Lectora",
         enunciado: "En el texto, la autora menciona que es necesario desarrollar diversos conocimientos fácticos en la escuela para que los estudiantes se conciban como integrantes de un mundo heterogéneo. ¿Cuál es uno de esos conocimientos?",
@@ -219,8 +344,8 @@
           B: "Conocimientos sobre los desafíos ambientales que afronta el mundo.",
           C: "Conocimientos sobre los diversos grupos étnicos que conforman las naciones."
         }
-      },
-      {
+      }, LECTURAS.t4),
+      conLectura({
         numero: 20,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál de las siguientes alternativas expresa la idea principal del texto?",
@@ -229,8 +354,8 @@
           B: "Los niños y las niñas muestran una curiosidad natural que debe ser aprovechada para fomentar el diálogo y el respeto por las distintas tradiciones del mundo.",
           C: "Las interacciones humanas están mediadas por normas como las del mercado, que consideran a las personas como instrumentos para generar ganancias."
         }
-      },
-      {
+      }, LECTURAS.t4),
+      conLectura({
         numero: 21,
         subprueba: "Comprensión Lectora",
         enunciado: "¿A qué se refiere la autora del texto cuando afirma que los países del \"triángulo de litio\" se enfrentan a una intrincada situación?",
@@ -239,8 +364,8 @@
           B: "A que deben trabajar en la protección del hábitat de los flamencos y, a la vez, promover una extracción responsable de litio.",
           C: "A que necesitan un marco legal para evitar que las empresas extractoras de litio financien los estudios sobre impacto ambiental."
         }
-      },
-      {
+      }, LECTURAS.t5),
+      conLectura({
         numero: 22,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál es la idea principal del primer párrafo del texto?",
@@ -249,8 +374,8 @@
           B: "La extracción de litio en el altiplano hace peligrar la gran biodiversidad de esa zona.",
           C: "Los flamencos son las aves más afectadas en el altiplano a causa de la extracción de litio."
         }
-      },
-      {
+      }, LECTURAS.t5),
+      conLectura({
         numero: 23,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál de las siguientes palabras tiene el mismo sentido que \"esquilmar\" en el fragmento sobre las reservas de litio y el ecosistema?",
@@ -259,8 +384,8 @@
           B: "Destruir",
           C: "Malgastar"
         }
-      },
-      {
+      }, LECTURAS.t5),
+      conLectura({
         numero: 24,
         subprueba: "Comprensión Lectora",
         enunciado: "Frente al comentario de que las investigaciones sobre consecuencias ambientales de la extracción de litio pueden estar sesgadas, ¿cuál de las siguientes ideas del texto lo apoya?",
@@ -269,8 +394,8 @@
           B: "Las empresas dedicadas a la extracción de litio son aquellas que también financian los estudios de impacto ambiental.",
           C: "Es inútil extrapolar los resultados de la investigación de una zona de extracción de litio a otra, pues cada zona es única."
         }
-      },
-      {
+      }, LECTURAS.t5),
+      conLectura({
         numero: 25,
         subprueba: "Comprensión Lectora",
         enunciado: "¿Cuál es el propósito principal del texto?",
@@ -279,7 +404,7 @@
           B: "Explicar el procedimiento que se sigue para la extracción de litio en el altiplano.",
           C: "Dar a conocer los riesgos ecológicos que implica extraer litio en el altiplano."
         }
-      },
+      }, LECTURAS.t5),
       {
         numero: 26,
         subprueba: "Razonamiento Lógico",
