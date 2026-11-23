@@ -708,7 +708,8 @@
       {
         numero: 69,
         area: "Conocimientos Pedagógicos - Inicial",
-        enunciado: "Fernando, de cuatro años, al contar dice \"1, 2, 3, 4, 5\" incluso cuando cuenta un mismo objeto dos veces. ¿Qué principio del conteo evidencia haber alcanzado?",
+        imagen: "img/1.png",
+        enunciado: "Cuando Fernando, de cuatro años, cuenta objetos, suele decir lo siguiente: \"1, 2, 3, 4, 5\". Dice esto incluso cuando cuenta un mismo objeto dos veces, como en este caso. De acuerdo con la información presentada, ¿qué principio del conteo evidencia haber alcanzado Fernando?",
         opciones: {
           A: "Orden estable.",
           B: "No pertinencia del orden.",
@@ -778,7 +779,8 @@
       {
         numero: 76,
         area: "Conocimientos Pedagógicos - Inicial",
-        enunciado: "Kevin y Eduardo, de cinco años, hacen bolitas de plastilina y concluyen quién hizo más sin emparejar elemento por elemento. ¿Qué principio del conteo evidencian NO haber alcanzado aún?",
+        imagen: "img/2.png",
+        enunciado: "Kevin y Eduardo, de cinco años, han elaborado bolitas de plastilina de la siguiente manera. Luego, ambos niños comentan lo siguiente:\nKevin: Mira, yo hice más bolitas.\nEduardo: Es cierto. ¡Ahora haré más!\nEn la situación presentada, ¿qué principio del conteo evidencian NO haber alcanzado aún los niños?",
         opciones: {
           A: "De abstracción.",
           B: "De orden estable.",
@@ -878,7 +880,8 @@
       {
         numero: 86,
         area: "Conocimientos Pedagógicos - Inicial",
-        enunciado: "Considerando los niveles de apropiación del sistema de escritura de Emilia Ferreiro, según cómo Saida escribe su nombre, ¿en qué nivel se encuentra?",
+        imagen: "img/3.png",
+        enunciado: "La docente del aula de cinco años busca que los niños escriban por sí mismos sus nombres en sus trabajos. Para favorecer ello, ha colocado los nombres de los niños en los carteles del aula. Al terminar una actividad, la docente observa que Saida escribe su nombre en su hoja de trabajo de la siguiente manera. Considerando los niveles de apropiación del sistema de escritura propuestos por Emilia Ferreiro, ¿en qué nivel se encuentra Saida?",
         opciones: {
           A: "Presilábico.",
           B: "Silábico.",
@@ -888,16 +891,18 @@
       {
         numero: 87,
         area: "Conocimientos Pedagógicos - Inicial",
-        enunciado: "Para favorecer la apropiación del sistema de escritura en Saida, ¿qué acción es pertinente?",
+        imagen: "img/3.png",
+        enunciado: "La docente tiene como propósito favorecer la apropiación del sistema de escritura en Saida. ¿Cuál de las siguientes acciones es pertinente para dicho propósito?",
         opciones: {
-          A: "Ayudarla a encontrar su nombre en un cartel del aula y pedirle que repase las letras varias veces con el dedo índice.",
+          A: "Ayudarla a encontrar su nombre en uno de los carteles del aula y pedirle que repase las letras varias veces con el dedo índice.",
           B: "Pedirle que ubique su nombre en alguno de los carteles del aula, lo compare con el texto que escribió e identifique las diferencias.",
-          C: "Brindarle hojas con su nombre escrito para que lo contornee con bolitas de papel, semillas o lanas."
+          C: "Brindarle hojas con su nombre escrito para que lo contornee con bolitas de papel, semillas, lanas de color u otros materiales de su agrado."
         }
       },
       {
         numero: 88,
         area: "Conocimientos Pedagógicos - Inicial",
+        imagen: "img/4.png",
         enunciado: "A partir del cuento \"Frederick\", ¿cuál pregunta es pertinente para que los niños identifiquen información explícita?",
         opciones: {
           A: "¿Qué querrá decir \"bayas\"?",
@@ -908,6 +913,7 @@
       {
         numero: 89,
         area: "Conocimientos Pedagógicos - Inicial",
+        imagen: "img/4.png",
         enunciado: "A partir del cuento \"Frederick\", ¿cuál pregunta es pertinente para que los niños realicen inferencias sobre el texto?",
         opciones: {
           A: "¿Dónde vivían los ratoncitos?",
@@ -918,6 +924,7 @@
       {
         numero: 90,
         area: "Conocimientos Pedagógicos - Inicial",
+        imagen: "img/4.png",
         enunciado: "A partir del cuento \"Frederick\", ¿cuál pregunta es pertinente para que los niños reflexionen sobre el texto?",
         opciones: {
           A: "¿Qué piensan de lo que hacía Frederick en el cuento?",
