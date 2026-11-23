@@ -112,6 +112,44 @@ Asimismo, Heredia destacó la necesidad de mejorar los mecanismos legales para r
 
 Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez Angulo.`;
 
+  const CUENTO_FREDERICK_TITULO = "Frederick — Leo Lionni";
+  const CUENTO_FREDERICK_CUERPO = `En el campo había una casa de campesinos que estaba vacía, pues los dueños se habían ido muy lejos. Cerca de la casa, había un muro de piedra en el que vivían cinco ratoncitos. Como el invierno estaba cerca, los ratoncitos empezaron a recoger maíz, trigo y bayas.
+
+Todos trabajaban día y noche. Todos menos Frederick.
+“Frederick, ¿por qué no trabajas?”, le preguntaron.
+“Yo trabajo”, dijo Frederick. “Recojo rayos de sol y colores para los fríos y oscuros días de invierno”.
+
+Una vez, Frederick parecía medio dormido.
+“¿Estás soñando, Frederick?”, le preguntaron con reproche.
+Pero Frederick dijo: “Oh, no. Estoy juntando palabras, porque los días de invierno son muy largos y no habrá mucho de qué hablar”.
+
+Los días de invierno llegaron y, cuando cayó la primera nieve, los ratoncitos se instalaron en el muro. Al principio había alimentos para comer. Eran una familia feliz. Pero, poco a poco, el maíz, el trigo y las bayas se acabaron. En el muro hacía frío y nadie sentía ganas de conversar. Entonces recordaron que Frederick les había dicho que recogía rayos de sol, colores y palabras.
+
+“¿Qué hay de tus provisiones, Frederick?”, le preguntaron.
+“Cierren los ojos”, les dijo.
+Entonces les habló de los rayos del sol. Y, a medida que Frederick hablaba, los cuatro ratoncitos sintieron de nuevo la tibieza del sol. Se sintieron felices nuevamente.
+
+“¿Y qué hay de los colores, Frederick?”, preguntaron ansiosamente.
+“Cierren los ojos otra vez”, dijo Frederick. Y cuando les habló de los trigos amarillos, de las dulces uvas verdes y de una hermosa flor azul llamada “pervinca”, ellos veían los colores con tanta claridad como si estuvieran pintados en sus mentes.
+
+“¿Y las palabras, Frederick?”.
+Frederick aclaró su garganta y les recitó:
+“¿Quién derrite el hielo?
+¿Quién hace bonito el tiempo?
+¿Quién enciende la luna?
+Cuatro ratoncitos de campo, que viven en el cielo.
+Uno es Ratón Primavera, que baila bajo la lluvia.
+Otro es Ratón Verano, que pinta en las flores.
+Otoño Ratón les sigue, y trae trigo y nueces.
+Y el último es Ratón Invierno, que tiene los piececitos fríos.
+¡Pronto se irá Ratón Invierno y llegará bailando la primavera!”.
+
+Cuando Frederick terminó, todos los ratoncitos le aplaudieron emocionados.
+“Pero, Frederick”, le dijeron. “¡Tú eres un poeta!”.
+Frederick se ruborizó, hizo una reverencia y dijo tímidamente: “Ya lo sé”.
+
+Adaptación`;
+
   const LECTURAS = {
     t1: { clave: "Texto 1", titulo: TEXTO_1_TITULO, texto: TEXTO_1_CUERPO },
     t2: { clave: "Texto 2", titulo: TEXTO_2_TITULO, texto: TEXTO_2_CUERPO },
@@ -125,6 +163,14 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       textoClave: lec.clave,
       tituloLectura: lec.titulo,
       textoLectura: lec.texto
+    });
+  }
+
+  function conFrederick(pregunta) {
+    return Object.assign({}, pregunta, {
+      imagen: "./img/4.png",
+      tituloLectura: CUENTO_FREDERICK_TITULO,
+      textoLectura: CUENTO_FREDERICK_CUERPO
     });
   }
 
@@ -418,7 +464,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 27,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Ariana, Belén, Celeste, Dayana y Elisa van en bicicleta en fila. Ariana va detrás de Belén e inmediatamente delante de Celeste; Elisa no va en primer lugar; Dayana va delante de Celeste e inmediatamente detrás de Elisa. ¿Cuál alternativa es verdadera?",
+        enunciado: "Ariana, Belén, Celeste, Dayana y Elisa van en sus respectivas bicicletas en una fila, una detrás de la otra, pero no necesariamente en ese orden. Además, se sabe lo siguiente:\n\n• Ariana va en algún lugar detrás de Belén, e inmediatamente delante de Celeste.\n• Elisa no va en primer lugar.\n• Dayana va en algún lugar delante de Celeste, pero inmediatamente detrás de Elisa.\n\n¿Cuál de las siguientes alternativas es verdadera?",
         alternativas: {
           A: "Belén va inmediatamente detrás de Elisa.",
           B: "Elisa va inmediatamente detrás de Celeste.",
@@ -428,7 +474,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 28,
         subprueba: "Razonamiento Lógico",
-        enunciado: "De 200 estudiantes encuestados, a 130 les gusta el rock, a 80 les gusta la salsa y a 50 les gustan ambos. ¿A cuántos estudiantes NO les gusta ninguno de los dos géneros?",
+        enunciado: "Una encuesta sobre preferencias por el rock o la salsa fue aplicada a 200 estudiantes. Al contabilizar las respuestas, se encontró que 130 estudiantes indicaron que les gusta el rock y 80 estudiantes mencionaron que les gusta la salsa. Además, hubo 50 estudiantes que mencionaron que les gusta tanto el rock como la salsa. ¿A cuántos estudiantes NO les gusta ninguno de los dos géneros musicales mencionados?",
         alternativas: {
           A: "40",
           B: "60",
@@ -438,7 +484,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 29,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Jesús, Elías y Carlos piden cada uno un jugo diferente: fresa, papaya o surtido. Carlos pidió papaya y Elías no pidió fresa. ¿Cuál enunciado es correcto?",
+        enunciado: "Jesús, Elías y Carlos llegan a una juguería, y cada uno pide un jugo diferente entre las siguientes opciones: fresa, papaya o surtido. Si se sabe que Carlos pidió jugo de papaya y Elías no pidió jugo de fresa, ¿cuál de los siguientes enunciados es correcto?",
         alternativas: {
           A: "Elías no pidió jugo surtido.",
           B: "Jesús no pidió jugo surtido.",
@@ -448,7 +494,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 30,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Respuestas a 3 preguntas (V/F): Luis (V, V, F), Abel (F, V, V), Hugo (F, F, V). Uno acertó todas, otro falló en todas y el restante solo falló en una. ¿Quién respondió correctamente todas las preguntas?",
+        enunciado: "Hugo, Abel y Luis respondieron tres preguntas con “verdadero” o “falso”. Sus respuestas a las preguntas 1, 2 y 3 (en ese orden) se muestran a continuación:\n\nLuis: verdadero, verdadero, falso.\nAbel: falso, verdadero, verdadero.\nHugo: falso, falso, verdadero.\n\nSi se sabe que uno de ellos respondió correctamente todas las preguntas, otro se equivocó en todas y el restante solo se equivocó en una, ¿quién de ellos respondió correctamente todas las preguntas?",
         alternativas: {
           A: "Luis",
           B: "Abel",
@@ -458,7 +504,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 31,
         subprueba: "Razonamiento Lógico",
-        enunciado: "El seguro médico asumió el 60 % de los gastos de Roberto en la clínica y él pagó S/ 120. ¿Cuál fue el costo total de la atención?",
+        enunciado: "Roberto sufrió una intoxicación y se atendió en una clínica. El seguro médico que tenía asumió el 60% de todos los gastos que realizó. Si Roberto tuvo que pagar solo S/ 120, ¿cuál fue el costo total de la atención de Roberto en la clínica?",
         alternativas: {
           A: "S/ 180",
           B: "S/ 200",
@@ -468,7 +514,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 32,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Recorrido por 5 lugares: mirador después del templo; museo en el penúltimo lugar; mercado después del mirador; laguna antes que el mercado y después que el mirador. ¿Cuál afirmación es correcta?",
+        enunciado: "Un grupo de turistas están planificando un recorrido por la ciudad a la que han llegado. Los lugares que pueden visitar son cinco: el museo, el mirador, el templo, la laguna y el mercado (en cualquier orden). Luego de ponerse de acuerdo, concluyeron lo siguiente:\n\n• Visitar el mirador después de ir al templo.\n• Visitar el museo en el penúltimo lugar.\n• Visitar el mercado después del mirador.\n• Visitar la laguna antes que el mercado y después que el mirador.\n\nA partir de la información anterior, ¿cuál de las siguientes afirmaciones es correcta?",
         alternativas: {
           A: "Se visitará la laguna antes que el museo.",
           B: "El templo se visitará después que la laguna.",
@@ -478,7 +524,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 33,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Cuatro parejas de hermanos (Antonio-Beatriz, Celia-Daniel, Edith-Fabio, Gloria-Hans) en 8 asientos circulares: cada pareja frente a frente; Beatriz, Edith y Gloria no se sientan juntas; Celia está entre Antonio y Gloria. ¿Quién se sienta entre Daniel y Fabio?",
+        enunciado: "Cuatro parejas de hermanos, Antonio y Beatriz, Celia y Daniel, Edith y Fabio, y Gloria y Hans, se sientan alrededor de una mesa circular con ocho asientos distribuidos simétricamente. Si se sabe lo siguiente:\n\n• Los hermanos que conforman una pareja se sientan uno frente al otro.\n• Beatriz, Edith y Gloria no se sientan juntas.\n• Celia está sentada entre Antonio y Gloria.\n\n¿Quién se sienta entre Daniel y Fabio?",
         alternativas: {
           A: "Hans",
           B: "Edith",
@@ -488,7 +534,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 34,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Todos los conductores respetan las leyes de tránsito y toda persona que respeta las leyes de tránsito es paciente. ¿Qué se puede inferir correctamente?",
+        enunciado: "Si se sabe lo siguiente:\n\n• Todos los conductores respetan las leyes de tránsito.\n• Toda persona que respeta las leyes de tránsito es una persona paciente.\n\n¿Cuál de las siguientes alternativas se puede inferir correctamente?",
         alternativas: {
           A: "Todo aquel que respeta las leyes de tránsito es un conductor.",
           B: "Todas las personas pacientes respetan las leyes de tránsito.",
@@ -498,7 +544,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 35,
         subprueba: "Razonamiento Lógico",
-        enunciado: "La altura de la basílica de San Pedro en una maqueta es 70 cm y su altura real es 140 m. ¿Qué relación guardan las medidas de la maqueta con las medidas reales?",
+        enunciado: "Un estudiante asiste a una exposición en la que se presenta una maqueta de la Ciudad del Vaticano. El estudiante desea saber qué relación guarda la maqueta con las medidas reales; entonces, pregunta por la altura de la basílica de San Pedro en la maqueta y le informan que tiene 70 cm. Si la altura real de la basílica es 140 m, ¿qué relación guardan las medidas de la maqueta con las medidas reales?",
         alternativas: {
           A: "Las medidas de la maqueta corresponden a la mitad de las medidas reales.",
           B: "Las medidas de la maqueta son 200 veces menores que las medidas reales.",
@@ -508,7 +554,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 36,
         subprueba: "Razonamiento Lógico",
-        enunciado: "En un restaurante asistieron 14 mujeres más que varones. Se sirvieron 45 cebiches (27 consumidos por varones) y 31 mujeres pidieron rocoto relleno (cada cliente eligió cebiche o rocoto). ¿Cuántos comensales asistieron?",
+        enunciado: "En el restaurante “Mi Perú” cada cliente puede escoger o cebiche o rocoto relleno como plato de entrada. Cierto día, se registró una concurrencia de 14 mujeres más que varones. En esa oportunidad, se sirvieron 45 cebiches, 27 de los cuales fueron consumidos por varones. Además, se sabe que 31 mujeres pidieron rocoto relleno. ¿Cuántos comensales asistieron ese día al restaurante?",
         alternativas: {
           A: "84",
           B: "72",
@@ -518,7 +564,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 37,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Rita quiere formar un triángulo de 20 cm de lado usando piezas triangulares de 5 cm de lado sin superponerlas ni dejar vacíos. ¿Cuántas piezas necesitará?",
+        enunciado: "Rita se propone formar un triángulo de 20 cm de lado empleando piezas triangulares de cartulina de 5 cm de lado. Para ello, se debe tener en cuenta lo siguiente:\n\n• Las piezas no pueden estar una sobre otra.\n• Las piezas no deben dejar espacios vacíos sin cubrir.\n\n¿Cuántas piezas triangulares de cartulina necesitará para formar dicho triángulo?",
         alternativas: {
           A: "4",
           B: "10",
@@ -528,7 +574,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 38,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Pedro sembró zanahorias en la mitad de su terreno rectangular y tomates en 10 m². Luego sembró ajíes en la mitad de lo que faltaba y frejoles en los 6 m² restantes. ¿Cuántos metros cuadrados usó para zanahorias?",
+        enunciado: "Pedro tiene un terreno de forma rectangular. Al inicio, él sembró zanahorias en la mitad del terreno y, además, tomates en 10 m². Semanas después, sembró ajíes en la mitad de la parte del terreno que aún faltaba sembrar y frejoles en los 6 m² restantes. Si de ese modo todo el terreno quedó sembrado, ¿cuántos metros cuadrados utilizó Pedro para sembrar zanahorias?",
         alternativas: {
           A: "22 m²",
           B: "32 m²",
@@ -538,7 +584,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 39,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Cinco gallinas equivalen a dos cuyes y un conejo; tres gallinas equivalen a un cuy y un conejo. ¿Cuántos conejos se intercambian por seis gallinas?",
+        enunciado: "El trueque es una práctica común de intercambio de bienes entre dos comunidades. Se conoce que cinco gallinas se intercambian por dos cuyes y un conejo, y que tres gallinas se intercambian por un cuy y un conejo.\n\n¿Cuál de las siguientes alternativas corresponde a la cantidad de conejos que se intercambian por seis gallinas?",
         alternativas: {
           A: "3",
           B: "4",
@@ -548,7 +594,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 40,
         subprueba: "Razonamiento Lógico",
-        enunciado: "A partir de la proposición \"Todos los peruanos son patriotas\", ¿cuál de los siguientes enunciados se puede inferir correctamente?",
+        enunciado: "A partir de la proposición “Todos los peruanos son patriotas”, ¿cuál de los siguientes enunciados se puede inferir correctamente?",
         alternativas: {
           A: "Si Andrés es patriota entonces es peruano.",
           B: "Si Andrés no es patriota entonces no es peruano.",
@@ -558,7 +604,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 41,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Nombres de parques de dos palabras: primera entre \"Parque\", \"Bosque\", \"Jardín\", \"Huerto\"; segunda entre \"Jubiloso\", \"Hermoso\", \"Bello\", \"Paraíso\". Las dos palabras deben empezar con letra diferente. ¿Cuántos nombres distintos se pueden dar?",
+        enunciado: "El municipio ha dictaminado que el nombre de los parques del distrito deberá estar compuesto por dos palabras. La primera palabra puede elegirse entre las opciones “Parque”, “Bosque”, “Jardín” y “Huerto”; mientras que la segunda palabra puede elegirse entre las opciones “Jubiloso”, “Hermoso”, “Bello” y “Paraíso”. Si, además, las dos palabras que conforman el nombre deben empezar con una letra diferente, ¿cuántos nombres distintos se puede dar a los parques de este distrito?",
         alternativas: {
           A: "7",
           B: "12",
@@ -568,7 +614,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 42,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Tardanzas: Manuel (4), Noelia (5), Elmer (3), Sara (2). ¿Quiénes tuvieron por lo menos cuatro tardanzas?",
+        enunciado: "Se han contabilizado las siguientes tardanzas de cuatro estudiantes:\n\nManuel: 4 tardanzas\nNoelia: 5 tardanzas\nElmer: 3 tardanzas\nSara: 2 tardanzas\n\n¿Quiénes tuvieron por lo menos cuatro tardanzas?",
         alternativas: {
           A: "Manuel y Noelia.",
           B: "Solo Manuel.",
@@ -578,7 +624,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 43,
         subprueba: "Razonamiento Lógico",
-        enunciado: "45 kg de azúcar cuestan igual que 30 kg de arroz; 12 kg de arroz cuestan igual que 9 kg de café; 25 kg de café cuestan S/ 300. ¿Cuál es el precio de un kilogramo de azúcar?",
+        enunciado: "En un mercado de productos alimenticios ocurre lo siguiente:\n\n• 45 kilogramos de azúcar cuestan igual que 30 kilogramos de arroz.\n• 12 kilogramos de arroz cuestan igual que 9 kilogramos de café.\n• 25 kilogramos de café cuestan 300 soles.\n\nSegún estos datos, ¿cuál es el precio de un kilogramo de azúcar?",
         alternativas: {
           A: "S/ 6,00",
           B: "S/ 12,00",
@@ -588,7 +634,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 44,
         subprueba: "Razonamiento Lógico",
-        enunciado: "En un quiosco venden jugos (fresa, papaya, especial, surtido) y refrescos (chicha, maracuyá, limonada), en dos presentaciones: heladas o sin helar. ¿Cuántos pedidos distintos de una bebida se pueden realizar?",
+        enunciado: "En el quiosco de un campo deportivo venden dos tipos de bebidas: jugos (fresa, papaya, especial y surtido) y refrescos (chicha, maracuyá y limonada), que se pueden pedir en dos presentaciones: heladas o sin helar. Si se quiere comprar una bebida, ¿cuántos pedidos distintos se pueden realizar?",
         alternativas: {
           A: "24",
           B: "14",
@@ -598,7 +644,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 45,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Para 36 niños, María tiene 3 sobres de gelatina que rinden 6 vasos cada uno, y cada sobre de flan rinde 4 vasos. ¿Cuántos sobres de flan debe comprar como mínimo?",
+        enunciado: "Para una fiesta de cumpleaños a la que asistirán 36 niños, María preparará dos tipos de postre: gelatina y flan. Ella tiene 3 sobres de gelatina que rinden 6 vasos cada uno y, para que todos los niños puedan comer uno de los postres, María debe comprar la cantidad suficiente de sobres de flan. Si cada sobre de flan rinde 4 vasos, ¿cuántos sobres de flan debe comprar como mínimo?",
         alternativas: {
           A: "3 sobres.",
           B: "4 sobres.",
@@ -608,7 +654,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 46,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Carlos dibuja flechas siguiendo el patrón: horizontal a la derecha, vertical hacia abajo, horizontal a la derecha, vertical hacia arriba... Tras dibujar 30 flechas, ¿en qué posiciones estarán las tres siguientes?",
+        enunciado: "Carlos dibuja flechas, una a continuación de la otra: una horizontal a la derecha, una vertical hacia abajo, una horizontal a la derecha, una vertical hacia arriba, una horizontal a la derecha, una vertical hacia abajo, una horizontal a la derecha, una vertical hacia arriba, y así continúa siguiendo el patrón. Asimismo, en cada flecha escribe un número que indica la cantidad de flechas que va dibujando hasta ese momento, es decir, 1, 2, 3, 4, y así sucesivamente.\n\nSi ya ha dibujado 30 flechas, cuando dibuje las tres flechas siguientes, ¿en qué posiciones se encontrarán?",
         alternativas: {
           A: "Horizontal a la derecha - vertical hacia abajo - horizontal a la derecha.",
           B: "Horizontal a la derecha - vertical hacia arriba - horizontal a la derecha.",
@@ -618,7 +664,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 47,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Cada especialista está certificado en un oficio distinto y puede cubrir otros: Camila (albañilería, vigilancia); Fidel (albañilería, atención al cliente, logística); Darío (atención al cliente); Raúl (albañilería, cerrajería, vigilancia); Zoe (atención al cliente, logística). ¿Quién está certificado en albañilería?",
+        enunciado: "En una agencia de empleos hay varios especialistas. Cada uno de ellos está certificado en un oficio diferente. Además de desempeñarse en el oficio en el que están certificados, también pueden desempeñarse en otros oficios.\n\nA continuación, se presentan los oficios en los que se desempeñan los especialistas:\n\nCamila: Albañilería y vigilancia.\nFidel: Albañilería, atención al cliente y logística.\nDarío: Atención al cliente.\nRaúl: Albañilería, cerrajería y vigilancia.\nZoe: Atención al cliente y logística.\n\nA partir de la información presentada, ¿quién es el especialista certificado en albañilería?",
         alternativas: {
           A: "Camila",
           B: "Fidel",
@@ -628,7 +674,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 48,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Andrés, Bruno, César y Daniel tienen 6, 8, 10 y 12 años y prefieren ajedrez, damas, dominó o jenga. Quien prefiere ajedrez tiene el doble de edad que quien prefiere damas; Bruno es el mayor; César prefiere jenga. ¿Qué dato adicional determina cada edad y juego?",
+        enunciado: "Andrés, Bruno, César y Daniel son cuatro hermanos de 6, 8, 10 y 12 años de edad (no necesariamente en ese orden) cuyos juegos de mesa preferidos son ajedrez, damas, dominó y jenga (no necesariamente en ese orden). Si se sabe lo siguiente:\n\n• El que prefiere jugar ajedrez tiene el doble de la edad de quien prefiere jugar damas.\n• Bruno es el hermano mayor.\n• El juego preferido de César es jenga.\n\n¿Qué información adicional se necesitaría conocer para determinar la edad de cada hermano y cuál es su juego preferido?",
         alternativas: {
           A: "Daniel no es el hermano menor.",
           B: "El juego preferido de Daniel es dominó.",
@@ -638,7 +684,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 49,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Un jardín cuadrado pasa de 2 m de lado a 4 m de lado. ¿En qué porcentaje se incrementó la nueva superficie respecto de la anterior?",
+        enunciado: "Mario tiene un jardín cuya superficie es de forma cuadrada y cada lado mide 2 m. En cierto momento, decide ampliar su jardín de tal manera que la superficie siga siendo de forma cuadrada pero cada lado mida 4 m.\n\n¿En qué porcentaje se habrá incrementado la nueva superficie del jardín respecto de la anterior?",
         alternativas: {
           A: "En 75%",
           B: "En 100%",
@@ -648,7 +694,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 50,
         subprueba: "Razonamiento Lógico",
-        enunciado: "Jimena llevó 200 huevos: el 10 % estaban malogrados y vendió el 80 % de los que estaban en buen estado. ¿Cuántos huevos de los que llevó no se vendieron?",
+        enunciado: "Jimena llevó 200 huevos al mercado para venderlos, pero el 10% de estos estaban malogrados y los restantes estaban en buen estado.\n\nSi solo pudo vender el 80% de los huevos que estaban en buen estado, ¿cuántos huevos de los que llevó Jimena al mercado no se vendieron?",
         alternativas: {
           A: "36",
           B: "56",
@@ -658,7 +704,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 51,
         subprueba: SUB_PED,
-        enunciado: "Carlos, de 18 meses, señala con el dedo un objeto que quiere que le den. Para favorecer su expresión oral, ¿qué acción es pertinente?",
+        enunciado: "Cuando Carlos, de dieciocho meses, quiere que la docente le dé un objeto, él lo señala con el dedo. Si la docente busca favorecer la expresión oral de Carlos en esa situación, ¿cuál de las siguientes acciones es pertinente?",
         alternativas: {
           A: "Decirle a Carlos que si quiere que le dé un objeto debe pedirlo por su nombre.",
           B: "Entregarle a Carlos el objeto que ha señalado como muestra de que lo ha comprendido.",
@@ -668,17 +714,17 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 52,
         subprueba: SUB_PED,
-        enunciado: "Andrea, de dos años, suele decir \"feyo\" cuando algo no le agrada. ¿Cuál intervención favorece su expresión oral?",
+        enunciado: "Andrea, de dos años, suele decir “feyo” cuando algo no le agrada. ¿Cuál de las siguientes intervenciones favorece la expresión oral de Andrea en esa situación?",
         alternativas: {
-          A: "\"Andrea, ¿estás diciendo que algo es feo? ¿Es así? ¿Qué es?\".",
-          B: "\"¿Quién dijo 'feyo'? No has sido tú, ¿verdad, Andrea?\".",
-          C: "\"Andrea, se dice 'feo'. Repite conmigo: 'Fee-oo'\"."
+          A: "“Andrea, ¿estás diciendo que algo es feo? ¿Es así? ¿Qué es?”.",
+          B: "“¿Quién dijo ‘feyo’? No has sido tú, ¿verdad, Andrea?”.",
+          C: "“Andrea, se dice ‘feo’. Repite conmigo: ‘Fee-oo’”."
         }
       },
       {
         numero: 53,
         subprueba: SUB_PED,
-        enunciado: "Roberto, de tres años, se pone los zapatos por sí mismo pero al revés. Para continuar favoreciendo su autonomía, ¿qué acción es pertinente?",
+        enunciado: "Roberto, de tres años, puede ponerse los zapatos por sí mismo, pero se los coloca al revés. En esa situación, la docente busca continuar favoreciendo la autonomía de Roberto.\n\n¿Cuál de las siguientes acciones es pertinente para ese propósito?",
         alternativas: {
           A: "Decirle a Roberto que él es un niño grande y, por tanto, ya puede ponerse bien los zapatos. Luego, pedirle que se los ponga correctamente.",
           B: "Pedir a Roberto que camine y preguntarle si puede hacerlo cómodamente cuando usa los zapatos de esa manera. Luego, ayudarle a ponérselos adecuadamente.",
@@ -688,17 +734,17 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 54,
         subprueba: SUB_PED,
-        enunciado: "Carla, de tres años, está en proceso de adaptación y se aferra a su oso de peluche al acercarse o retraerse en el aula. Para continuar favoreciendo ese proceso, ¿qué intervención es pertinente?",
+        enunciado: "Carla, de tres años, ha ingresado hace poco al jardín. El primer día, ella se resistía a ingresar al aula. Entonces, la mamá le entregó a Carla el oso de peluche favorito de la niña para que la acompañe. Tras ello, Carla ingresó al aula, pero se mantuvo aislada de sus compañeros toda la jornada mientras se aferraba a su oso. Al segundo día, Carla ingresó al aula con su oso, pero se mantuvo junto a la docente. Al tercer día, la docente observa que de vez en cuando Carla se acerca a sus compañeros, pero inmediatamente se retrae y vuelve a interactuar solo con su oso.\n\nLa docente interpreta que Carla se encuentra en proceso de transición del hogar a la escuela y busca continuar favoreciendo ese proceso. Considerando dicho propósito, ¿cuál de las siguientes intervenciones es pertinente que realice la docente?",
         alternativas: {
-          A: "\"Carla, ven; vamos a trabajar todos juntos. Guardaré tu osito y te lo devolveré a la hora de salida\".",
-          B: "\"Carla, pregúntale a tu osito si quiere estar con nosotros. Nosotros tenemos muchas ganas de trabajar con ustedes\".",
-          C: "\"Carla, creo que tu osito quiere descansar. Vamos a sentarlo en ese estante y, desde allí, él te va a cuidar mientras trabajamos todos juntos\"."
+          A: "“Carla, ven; vamos a trabajar todos juntos. Guardaré tu osito y te lo devolveré a la hora de salida”.",
+          B: "“Carla, pregúntale a tu osito si quiere estar con nosotros. Nosotros tenemos muchas ganas de trabajar con ustedes”.",
+          C: "“Carla, creo que tu osito quiere descansar. Vamos a sentarlo en ese estante y, desde allí, él te va a cuidar mientras trabajamos todos juntos”."
         }
       },
       {
         numero: 55,
         subprueba: SUB_PED,
-        enunciado: "En una IE de la costa, Hugo comparte que en su pueblo andino llaman \"atoq\" al zorro y cuenta saberes sobre él antes de leer un cuento. ¿Qué enfoque transversal promueve principalmente la docente?",
+        enunciado: "En una IE de la costa, la docente del aula de cinco años leerá con los niños un cuento cuyo protagonista es un zorro. En el aula se encuentra Hugo, un niño que proviene de una comunidad andina. Antes de la lectura, la docente les pregunta a los niños qué saben sobre el zorro. Este es el diálogo que se produce a continuación.\n\nHugo: Señorita, en mi pueblo, al zorro le decimos atoq.\nDarío: ¿Atoq?\nHugo: Así le decimos, pues.\nDocente: Darío, atoq es una palabra quechua que quiere decir “zorro”. El quechua es un idioma que se habla en el pueblo en que nació Hugo.\nDarío: Ah, ya...\nDocente: Continúa, Hugo.\nHugo: El atoq es bueno... Cuando aúlla, entonces habrá buena papa. Pero, si ladra, habrá mala cosecha.\nCarla: Yo pensaba que el zorro era malo...; es que en los cuentos los zorros siempre se comen a las ovejas.\nHugo: ¡Ah, sí! El zorro se come a las ovejas a veces. Pero le decimos al cerro que le diga al zorro que ya no moleste... y el zorro solito se va.\nKaren: ¿Y por qué le dicen al cerro?\nHugo: ¡Porque el atoq es el guardián del cerro! Es bonito... ¡Un zorro que avisa si habrá buenas papas!\nDocente: ¡Qué interesante lo que cuentas, Hugo! ¿Qué piensan ustedes, niños?\nCarla: Claudia: ¡Y que no se come todas las ovejas!\nKaren: ¡Hay que hacer un cuento sobre este zorro!\nDarío: Sííí... ¡Que se llame “El atoq”!\n\n¿Cuál de los siguientes enfoques transversales promueve principalmente la docente en esta situación?",
         alternativas: {
           A: "Enfoque inclusivo o de atención a la diversidad.",
           B: "Enfoque de derechos.",
@@ -708,27 +754,27 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 56,
         subprueba: SUB_PED,
-        enunciado: "Sonia y Pedro, de cinco años, discuten por su turno en el tobogán. ¿Cuál acción favorece la resolución del conflicto?",
+        enunciado: "En el patio de la IE, acaban de colocar un tobogán. A la hora de recreo, los niños del aula de cinco años se dirigen al tobogán corriendo para ser los primeros en jugar. La docente observa que Sonia y Pedro discuten, pues ambos sostienen que es su turno de usar el tobogán. En esa situación, ¿cuál de las siguientes acciones favorece la resolución del conflicto entre los niños?",
         alternativas: {
-          A: "Hacerles notar que el tobogán es un juego para todos y que ambos tienen derecho a jugar en él. Luego, asignarles un turno y pedirles que se amisten.",
-          B: "Preguntarles qué ocurrió y escuchar sus versiones. Luego, pedirles que digan cómo se sienten tras discutir y preguntarles cómo podrían hacer para que ambos jueguen y orientarlos a un acuerdo.",
-          C: "Decirles que no está bien discutir delante de sus compañeros, indicarles que usen otros juegos hasta calmarse y recordarles que den buen ejemplo."
+          A: "Hacerles notar que el tobogán es un juego que puede ser utilizado por todos los niños del jardín y, por tanto, ambos tienen derecho a jugar en él. Luego, decirles que, para evitar discusiones, ella les asignará un turno a cada uno. Finalmente, pedirles que se amisten.",
+          B: "Preguntarles qué ocurrió y escuchar sus versiones. Luego, pedirles que digan cómo se sienten después de discutir con su compañero. Finalmente, preguntarles cómo podrían hacer para que ambos jueguen en el tobogán y orientarlos para que lleguen a un acuerdo.",
+          C: "Decirles que no está bien discutir delante de sus compañeros. Luego, indicarles que usen otros juegos del patio hasta que se calmen. Finalmente, recordarles que deben tratarse bien en todo momento para que den un buen ejemplo a los niños más pequeños."
         }
       },
       {
         numero: 57,
         subprueba: SUB_PED,
-        enunciado: "Al planificar el proyecto \"Vamos a hacer un robot\", los niños proponen muchas actividades y la docente quiere promover procesos metacognitivos. ¿Qué acción es pertinente?",
+        enunciado: "La docente y los niños del aula de cinco años se encuentran planificando el proyecto “Vamos a hacer un robot”. En ese contexto, los niños proponen distintas actividades mientras la docente anota sus propuestas en la pizarra. La docente nota que los niños plantean muchas actividades. Entonces, decide aprovechar esa situación para promover en ellos procesos metacognitivos.\n\nConsiderando ese propósito, ¿cuál de las siguientes acciones es pertinente que realice la docente?",
         alternativas: {
-          A: "Leerles las actividades propuestas y preguntarles si creen que podrán realizar todas. Luego, proponerles que elijan aquellas posibles considerando el tiempo y recursos.",
-          B: "Escoger las actividades que realizarán, organizarlas temporalmente y explicarles por qué las eligió y organizó así.",
-          C: "Decirles que todas las propuestas son valiosas pero que el proyecto no puede tener tantas, e indicarles que elijan por votación."
+          A: "Leerles las actividades propuestas y preguntarles si creen que podrán realizar todas. Luego, proponerles que elijan aquellas que sean posibles de realizar, considerando el tiempo y los recursos con los que cuentan.",
+          B: "Escoger las actividades que realizarán los niños durante el proyecto y organizarlas temporalmente. Luego, explicarles por qué eligió tales actividades y las organizó de esa manera.",
+          C: "Decirles que todas las propuestas son valiosas, pero que un proyecto no puede tener tantas actividades. Luego, indicarles que elegirán por votación qué actividades realizarán."
         }
       },
       {
         numero: 58,
         subprueba: SUB_PED,
-        enunciado: "Edgar arranca una hoja de un libro para hacer aviones; la docente dialoga sobre qué pasaría si los libros aparecieran rotos y concluyen que \"nos sirven a todos\". ¿Qué aprendizaje de Personal Social promueve?",
+        enunciado: "Edgar y Daniel, del aula de cinco años, conversan. Edgar le cuenta a Daniel que ha aprendido a hacer aviones de papel. Emocionado, Daniel le pide que le enseñe. Entonces, rápidamente, Edgar coge un libro que está cerca y arranca una hoja. En ese momento, interviene la docente.\n\nDocente: Niños, ¿por qué arrancaron una hoja del libro?\nEdgar: ¡Es que quería enseñarle a hacer aviones de papel!\nDocente: Pero, ¿estará bien romper los libros?\nNiños: No...\nDocente: ¿Por qué no?\nNiños: (Silencio)\nDocente: A ver, Edgar, ¿a ti qué libro te gusta?\nEdgar: A mí me gustan los cuentos.\nDocente: ¿Y a ti, Daniel?\nDaniel: A mí el libro de recetas. ¡Es divertido!\nDocente: Y este libro de animales, ¿a quién le gusta?\nEdgar: A mí no..., pero ese libro sí le gusta a Mariana... y a Pedro. Les gusta mucho.\nDocente: Entonces, pensemos. ¿Qué pasaría si un día esos libros aparecieran rotos?\nDaniel: ¡Ya no podría ver recetas!\nEdgar: ¡Ni leer mis cuentos favoritos!\nDaniel: ¡Y los otros niños tampoco podrían leer!\nDocente: Entonces, ¿por qué no debemos romper los libros?\nEdgar: Mmm... ¡Porque los libros son buenos!\nDaniel: ¡Porque nos sirven a todos!\n\nEn esta situación, ¿qué aprendizaje relacionado con el área de Personal Social está promoviendo la docente?",
         alternativas: {
           A: "Que los niños se aproximen a la noción de bien común.",
           B: "Que los niños propongan normas para cuidar los bienes del aula.",
@@ -738,37 +784,37 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 59,
         subprueba: SUB_PED,
-        enunciado: "Ante la inclusión de Jazmín, una niña con baja visión, ¿cuál comentario de las docentes se enmarca en el enfoque inclusivo?",
+        enunciado: "Jazmín es una niña que presenta baja visión y será incluida en el aula de cinco años. A raíz de ello, las docentes de la IE comparten ideas sobre cómo favorecer la inclusión de la niña en el aula.\n\nA continuación, se presentan los comentarios de tres docentes.\n\nSandra: “Sería bueno establecer turnos para que cada día un niño esté pendiente de Jazmín y le alcance los útiles que ella requiera. Así, Jazmín se sentirá cómoda en el aula”.\nGladis: “Creo que es necesario plantear para Jazmín actividades más sencillas que las propuestas para sus compañeros. Así, ella percibirá que también puede aprender”.\nMartha: “Pienso que se pueden colocar puntos de apoyo en el aula que ayuden a Jazmín a reconocer el espacio. Así, ella podrá ubicarse con facilidad y desplazarse por su cuenta”.\n\n¿Cuál de los comentarios se enmarca en el enfoque inclusivo?",
         alternativas: {
-          A: "Sandra: establecer turnos para que cada día un niño esté pendiente de Jazmín y le alcance los útiles.",
-          B: "Gladis: plantear para Jazmín actividades más sencillas que las de sus compañeros.",
-          C: "Martha: colocar puntos de apoyo en el aula que ayuden a Jazmín a reconocer el espacio y desplazarse por su cuenta."
+          A: "El de Sandra.",
+          B: "El de Gladis.",
+          C: "El de Martha."
         }
       },
       {
         numero: 60,
         subprueba: SUB_PED,
-        enunciado: "Sofía, de dos años, tiene mucosidad y no le gusta que le limpien la nariz. ¿Cuál intervención supone una atención respetuosa?",
+        enunciado: "Sofía, de dos años, está empezando a resfriarse. Debido a ello, presenta mucosidad en la nariz. La docente sabe que a Sofía no le gusta que le limpien la nariz, pues la mamá de la niña así se lo ha comentado. En esa situación, ¿cuál de las siguientes intervenciones supone una atención respetuosa hacia la niña?",
         alternativas: {
-          A: "\"Sofía, sé que no te gusta que te limpien la nariz, pero si la limpiamos podrás respirar mejor. ¿Lo hacemos juntas?\".",
-          B: "\"Sofía, si me dejas que te limpie la nariz, te daré una sorpresita. ¿Verdad que te gustan las sorpresitas?\".",
-          C: "\"Sofía, como no te gusta que te limpien la nariz, no te voy a obligar. Pero si te quedas así, se te va a ver feo y tus amiguitos ya no van a querer jugar contigo\"."
+          A: "“Sofía, sé que no te gusta que te limpien la nariz, pero si la limpiamos podrás respirar mejor. ¿Lo hacemos juntas?”.",
+          B: "“Sofía, si me dejas que te limpie la nariz, te daré una sorpresita. ¿Verdad que te gustan las sorpresitas? Te limpio la nariz y te la doy”.",
+          C: "“Sofía, como no te gusta que te limpien la nariz, no te voy a obligar. Pero si te quedas así, se te va a ver feo y tus amiguitos ya no van a querer jugar contigo”."
         }
       },
       {
         numero: 61,
         subprueba: SUB_PED,
-        enunciado: "Santiago, de 24 meses, coge la comida de los platos de sus compañeros y ellos lloran. ¿Qué acción es pertinente frente al conflicto?",
+        enunciado: "Santiago, de veinticuatro meses, ha empezado a comer sin ayuda. Hoy la docente ha decidido sentarlo junto a dos niños que ya comen solos para que comparta la mesa con ellos. Al inicio, Santiago come sus propios alimentos; pero, luego de unos minutos, coge los alimentos de sus compañeros. Ante esto, ellos lloran.\n\nFrente a esta situación de conflicto, ¿qué acción es pertinente que realice la docente?",
         alternativas: {
           A: "Explicar a Santiago que sus compañeros están llorando, pues no les gusta que les quiten la comida de sus platos.",
-          B: "Pedir a los niños que le tengan paciencia a Santiago, pues recién está aprendiendo a comer.",
-          C: "Retirar a Santiago del grupo y acompañarlo hasta que termine su comida porque aún no está listo para comer con otros."
+          B: "Pedir a los niños que le tengan paciencia a Santiago, pues él recién está aprendiendo a comer y poco a poco lo hará mejor.",
+          C: "Retirar a Santiago del grupo, sentarse con él y acompañarlo hasta que termine su comida, pues aún no está listo para comer con otros niños."
         }
       },
       {
         numero: 62,
         subprueba: SUB_PED,
-        enunciado: "Al preguntar para qué sirven los números, Eva dice cuántas pelotas hay, Javier dice su dirección \"calle Lima 215\" y Marcela habla de primero, segundo o último. ¿En cuál intervención se evidencia el uso del número como nominal?",
+        enunciado: "La docente les pregunta a los niños de cinco años para qué sirven los números. A continuación, se presentan algunas respuestas.\n\nEva: “Sirven para que sepamos cuántas pelotas hay en la caja”.\nJavier: “Y para decir que mi casa está en la calle Lima 215, Villa María”.\nMarcela: “También sirven para decir quién ha ganado, y quién llegó segundo o al último cuando jugamos a las carreras”.\n\n¿En cuál de las intervenciones se evidencia el uso del número como nominal?",
         alternativas: {
           A: "En la de Eva.",
           B: "En la de Javier.",
@@ -778,7 +824,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 63,
         subprueba: SUB_PED,
-        enunciado: "Iván, de cuatro años, coloca un plato en el sitio de cada compañero diciendo: \"Este es para Karen, este para Carlo, este para Rocío y este para mí\". ¿Qué principio del conteo se evidencia?",
+        enunciado: "La docente del aula de cuatro años le pide a Iván que coloque los platos para los niños de su grupo. Entonces, Iván coloca un plato en el sitio de cada compañero mientras dice: “Este es para Karen, este para Carlo, este para Rocío y este para mí”.\n\n¿Qué principio del conteo se evidencia en la intervención de Iván?",
         alternativas: {
           A: "Correspondencia término a término.",
           B: "Orden estable.",
@@ -788,37 +834,37 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 64,
         subprueba: SUB_PED,
-        enunciado: "Teresa, Susana y Esteban tienen 10 cartas y piden ayuda para repartirlas. Para favorecer que resuelvan problemas, ¿qué acción es más pertinente?",
+        enunciado: "Los niños del aula de cinco años se encuentran en el sector de juegos tranquilos. Teresa, Susana y Esteban cogen un grupo de 10 cartas y le piden a la docente que les ayude a repartirlas. La docente busca aprovechar esta situación para favorecer que los niños resuelvan problemas.\n\n¿Cuál de las siguientes acciones es más pertinente para ello?",
         alternativas: {
-          A: "Preguntarles: \"¿Cuántas cartas hay y cuántos son ustedes? ¿Qué hacemos para que todos tengan la misma cantidad de cartas?\". Luego, decirles que pongan en práctica sus propuestas y elijan la que consideren mejor.",
-          B: "Decirles que se repartan las cartas hasta que todos tengan igual cantidad y, cuando sobre una, preguntar qué podrían hacer con ella.",
-          C: "Repartir tres cartas a cada niño, mostrar la carta sobrante y preguntar si les parece que se quede en la mesa."
+          A: "Preguntarles: “¿Cuántas cartas hay y cuántos son ustedes? ¿Qué hacemos para que todos tengan la misma cantidad de cartas?”. Luego, decirles que pongan en práctica sus propuestas y elijan la que consideren mejor.",
+          B: "Decirles que se repartan las cartas hasta que todos tengan la misma cantidad. Cuando noten que sobra una, preguntarles: “¿Qué podrían hacer con esta carta?”.",
+          C: "Repartir tres cartas a cada niño. Luego, mostrarles la carta sobrante y preguntarles: “¿Les parece si esta carta se queda en la mesa?”."
         }
       },
       {
         numero: 65,
         subprueba: SUB_PED,
-        enunciado: "Al limpiar el huerto, los niños recogen piedras, ramas y hojas. Para promover la clasificación, ¿qué acción es más pertinente?",
+        enunciado: "Los niños y la docente del aula de cuatro años se encuentran limpiando el huerto de la IE. Durante la actividad, los niños recogen diversos objetos como piedras, ramas, hojas, etc. Entonces, la docente decide aprovechar esa situación para promover la clasificación en los niños. ¿Cuál de las siguientes acciones es más pertinente para ese propósito?",
         alternativas: {
           A: "Plantearles que agrupen los objetos recolectados según lo deseen y, luego, preguntarles por qué los agruparon de ese modo.",
-          B: "Entregarles cajas etiquetadas según los objetos recolectados y pedirles que los guarden según corresponda.",
-          C: "Explicarles que clasificar es juntar objetos que se parecen, darles un ejemplo y pedir que continúen."
+          B: "Entregarles cajas etiquetadas según los objetos recolectados y, luego, pedirles que los guarden en las cajas según corresponda.",
+          C: "Explicarles que clasificar es juntar objetos que se parecen y, luego, darles un ejemplo de cómo hacerlo para que ellos continúen agrupando los demás objetos."
         }
       },
       {
         numero: 66,
         subprueba: SUB_PED,
-        enunciado: "Para favorecer en niños de cuatro años el desarrollo de la noción de tiempo, ¿qué acción es más pertinente?",
+        enunciado: "La docente del aula de cuatro años busca favorecer en los niños el desarrollo de la noción de tiempo. ¿Cuál de las siguientes acciones es más pertinente para ese propósito?",
         alternativas: {
-          A: "Emplear un reloj con manecillas para explicar a qué hora realizarán cada actividad y designar responsables para observarlo.",
-          B: "Mostrarles imágenes de las actividades de la jornada ordenadas temporalmente y pedir voluntarios para describirlas.",
-          C: "Pedir a los niños que dibujen la actividad de la jornada que más les gusta y luego ordenar con ellos sus dibujos empleando términos como \"antes\" o \"después\"."
+          A: "Emplear un reloj con manecillas para explicar a los niños a qué hora realizarán cada actividad. Luego, designar responsables para que observen el reloj y avisen cuándo toca cambiar de actividad.",
+          B: "Mostrarles imágenes de las actividades que realizan durante la jornada, ordenadas temporalmente. Luego, pedir voluntarios para que describan cada una de ellas.",
+          C: "Pedir a los niños que dibujen la actividad de la jornada que más les gusta. Luego, ordenar con ellos sus dibujos empleando términos como “antes” o “después”."
         }
       },
       {
         numero: 67,
         subprueba: SUB_PED,
-        enunciado: "En el juego \"Le pongo la chompa a mi silla\", un niño busca con los ojos vendados siguiendo indicaciones como \"avanza\", \"adelante\", \"atrás\". ¿Qué aprendizaje desarrollan principalmente?",
+        enunciado: "Los niños del aula de cinco años van a realizar un juego que han llamado “Le pongo la chompa a mi silla”. Este consiste en buscar una chompa con los ojos vendados, encontrarla y ponérsela a una silla siguiendo indicaciones como “avanza”, “adelante”, “atrás”, etc. Para ello los niños forman cinco grupos de cuatro integrantes cada uno. Los grupos se ubican en diferentes lugares del aula y al centro de cada grupo, colocan una silla. Luego, voluntariamente se dividen los roles: tres niños esconden la chompa dentro del espacio que se les ha asignado y, además, dan las indicaciones, y un niño sigue estas para encontrar la chompa y ponérsela a la silla. Cuando lo logre, se intercambian los roles.\n\n¿Qué aprendizaje están desarrollando principalmente los niños con esta actividad?",
         alternativas: {
           A: "Reconocer a través del tacto características de objetos como la chompa o la silla.",
           B: "Establecer relaciones espaciales al dar y seguir indicaciones.",
@@ -828,7 +874,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 68,
         subprueba: SUB_PED,
-        enunciado: "Cristina construye un camino para que ruede una bolita, ensaya y logra que avance; luego la docente le pregunta: \"Cuéntame, ¿cómo hiciste para que la bolita ruede?\". ¿Qué proceso promueve principalmente?",
+        enunciado: "Los niños de cinco años se encuentran jugando libremente en los sectores. Para hacer rodar una bolita, Cristina ha construido un camino con trozos de cartón, pedazos de tubos y otros materiales. Sin embargo, la niña se muestra contrariada. Cuando la docente le pregunta qué sucede, Cristina le comenta que no entiende por qué la bolita no avanza. La docente observa que el tramo del camino en el que se detuvo la bolita está ligeramente elevado. Entonces, le pregunta a la niña: “¿Dónde se ha detenido la bolita? ¿Cómo es esa parte del camino? ¿cómo es la parte anterior? Entonces, ¿qué tendrías que hacer para que la bolita continúe rodando por el camino?”. Luego, Cristina ensaya distintas acciones para que la bolita continúe rodando y finalmente lo logra. Tras ello la docente le dice: “Muy bien. Cuéntame, ¿cómo hiciste para que la bolita ruede?”.\n\n¿Cuál de los siguientes procesos de aprendizaje promueve la docente principalmente con su intervención?",
         alternativas: {
           A: "Metacognición.",
           B: "Conflicto cognitivo.",
@@ -839,7 +885,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
         numero: 69,
         subprueba: SUB_PED,
         imagen: "./img/1.png",
-        enunciado: "Cuando Fernando, de cuatro años, cuenta objetos, suele decir lo siguiente: \"1, 2, 3, 4, 5\". Dice esto incluso cuando cuenta un mismo objeto dos veces, como en este caso. De acuerdo con la información presentada, ¿qué principio del conteo evidencia haber alcanzado Fernando?",
+        enunciado: "Cuando Fernando, de cuatro años, cuenta objetos, suele decir lo siguiente: “1, 2, 3, 4, 5”. Dice esto incluso cuando cuenta un mismo objeto dos veces, como en este caso.\n\nDe acuerdo con la información presentada, ¿qué principio del conteo evidencia haber alcanzado Fernando?",
         alternativas: {
           A: "Orden estable.",
           B: "No pertinencia del orden.",
@@ -849,7 +895,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 70,
         subprueba: SUB_PED,
-        enunciado: "Pamela dice: \"Porque yo tengo 5 carros y tú solo tienes 3. Entonces, ¡yo tengo más!\". ¿Qué uso del número se evidencia en su intervención?",
+        enunciado: "Víctor y Pamela, del aula de cinco años, entablan el siguiente diálogo.\n\nVíctor: ¡Hoy es mi cumpleaños y mi mamá me ha regalado 3 carritos!\nPamela: ¿Así? Pero yo tengo más que tú.\nVíctor: ¿Por qué dices eso?\nPamela: Porque yo tengo 5 carros y tú solo tienes 3. Entonces, ¡yo tengo más!\n\n¿Qué uso del número se evidencia en la intervención de Pamela?",
         alternativas: {
           A: "Como ordinal.",
           B: "Como cardinal.",
@@ -859,37 +905,37 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 71,
         subprueba: SUB_PED,
-        enunciado: "Ante la pregunta \"¿qué respiran los peces?, ¿agua?\", la docente busca que construyan sus propias explicaciones. ¿Qué acción es más pertinente?",
+        enunciado: "Los niños y la docente del aula de cinco años pasean por la ribera del río. Al llegar a una cocha, observan pequeños peces. Entusiasmados, conversan sobre lo que observan. De regreso al aula, Pedro le pregunta a la docente: “Señorita, ¿qué respiran los peces?, ¿agua?”.\n\nA partir de la intervención de Pedro, la docente busca que los niños construyan sus propias explicaciones sobre la respiración de los peces. ¿Cuál de las siguientes acciones es más pertinente para ese propósito?",
         alternativas: {
-          A: "Decirles que respiran el oxígeno del agua mediante branquias y pedirles que digan lo que entendieron.",
-          B: "Presentar una ilustración del sistema respiratorio de los peces, pedir que la describan y planteen hipótesis.",
-          C: "Proponerles que dibujen qué y cómo se imaginan que respiran los peces, conversen sobre lo dibujado y buscar con ellos información que complemente sus respuestas."
+          A: "Decirles que en el agua hay oxígeno y que los peces respiran ese oxígeno. Para ello, en lugar de pulmones, poseen branquias que funcionan como un colador que solo deja pasar el oxígeno. Finalmente, pedirles que digan con sus propias palabras lo que entendieron.",
+          B: "Presentarles una ilustración del sistema respiratorio de los peces. Luego, pedirles que la observen y describan detalladamente. Finalmente, pedirles que, a partir de la ilustración, planteen hipótesis respecto de qué y cómo respiran los peces.",
+          C: "Proponerles que dibujen qué y cómo se imaginan que respiran los peces. Luego, pedirles que conversen con sus compañeros sobre lo que han dibujado. Finalmente, buscar con ellos información que complemente sus respuestas."
         }
       },
       {
         numero: 72,
         subprueba: SUB_PED,
-        enunciado: "Gabriela, de ocho meses, se queda dormida justo antes de la hora de los alimentos. ¿Qué intervención favorece su desarrollo óptimo?",
+        enunciado: "La docente observa que Gabriela, de ocho meses, está quedándose dormida justo antes de la hora de los alimentos. En esa situación, ¿qué intervención favorece el desarrollo óptimo de la niña?",
         alternativas: {
-          A: "\"Gabriela, vamos a comer rapidito para que luego duermas todo lo que quieras\".",
-          B: "\"Gabriela, veo que tienes sueño; te llevaré a dormir y, cuando despiertes, comerás tu comida\".",
-          C: "\"Gabriela, no te vayas a dormir; mira que ya vas a comer la crema de verduras que tanto te gusta\"."
+          A: "“Gabriela, vamos a comer rapidito para que luego duermas todo lo que quieras”.",
+          B: "“Gabriela, veo que tienes sueño; te llevaré a dormir y, cuando despiertes, comerás tu comida”.",
+          C: "“Gabriela, no te vayas a dormir; mira que ya vas a comer la crema de verduras que tanto te gusta”."
         }
       },
       {
         numero: 73,
         subprueba: SUB_PED,
-        enunciado: "Micaela, de seis meses, está en periodo de adaptación y tensa su tono muscular al cambiarle de ropa. Para que se sienta confiada, ¿qué acción es pertinente?",
+        enunciado: "Hace dos días que Micaela, de seis meses, asiste a la cuna. Cuando la docente le va a cambiar la ropa, el tono muscular de la niña se torna tenso. La docente interpreta que Micaela se encuentra en periodo de adaptación. Por ello, busca que la niña se sienta confiada en el entorno. Considerando ese propósito, ¿qué acción es pertinente que realice la docente durante el cambio de ropa?",
         alternativas: {
           A: "Anticipar a Micaela que se le cambiará de ropa, esperar un momento para que se disponga al cambio y describirle las acciones que se realizan mientras se le cambia.",
           B: "Colocar un móvil sobre el cambiador para que Micaela se entretenga mirándolo y aprovechar ese momento para cambiarle de ropa.",
-          C: "Cambiar rápidamente de ropa a Micaela para que el momento de tensión sea breve y vuelva a su tranquilidad."
+          C: "Cambiar rápidamente de ropa a Micaela para que el momento de tensión sea breve y la niña vuelva a su estado de tranquilidad."
         }
       },
       {
         numero: 74,
         subprueba: SUB_PED,
-        enunciado: "Los niños creían que el aceite y el vinagre se mezclarían al removerlos, pero observan que se separan. ¿Qué proceso de aprendizaje promueve la docente en su última intervención?",
+        enunciado: "Los niños del aula de cinco años están desarrollando el proyecto “Aprendemos a preparar alimentos saludables”. Hoy prepararán ensaladas de verduras.\nLuego de lavar y picar las verduras, los niños se disponen a preparar el aliño para sus ensaladas. Para ello la docente entrega a cada mesa un recipiente con vinagre, otro con aceite, y un poco de sal y pimienta. Luego, les pregunta qué creen que pasará si juntan el aceite con el vinagre y los remueven. Los niños responden: “¡Se mezclarán!”.\nEntonces, la docente les pide que viertan ambos líquidos en un solo vaso transparente y, luego, los remuevan con una cuchara. Los niños observan sorprendidos que, después de unos momentos, ambos líquidos se separan.\n\n¿Qué proceso de aprendizaje está promoviendo la docente en su última intervención?",
         alternativas: {
           A: "La transferencia de los aprendizajes.",
           B: "El conflicto cognitivo.",
@@ -899,10 +945,10 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 75,
         subprueba: SUB_PED,
-        enunciado: "Para que los niños construyan sus propias explicaciones sobre por qué el aceite y el vinagre se separan, ¿qué acción es pertinente?",
+        enunciado: "Los niños del aula de cinco años están desarrollando el proyecto “Aprendemos a preparar alimentos saludables”. Hoy prepararán ensaladas de verduras.\nLuego de lavar y picar las verduras, los niños se disponen a preparar el aliño para sus ensaladas. Para ello la docente entrega a cada mesa un recipiente con vinagre, otro con aceite, y un poco de sal y pimienta. Luego, les pregunta qué creen que pasará si juntan el aceite con el vinagre y los remueven. Los niños responden: “¡Se mezclarán!”.\nEntonces, la docente les pide que viertan ambos líquidos en un solo vaso transparente y, luego, los remuevan con una cuchara. Los niños observan sorprendidos que, después de unos momentos, ambos líquidos se separan.\n\nLa docente busca que los niños construyan sus propias explicaciones respecto de por qué el aceite y el vinagre se separan. ¿Cuál de las siguientes acciones es pertinente para ese propósito?",
         alternativas: {
-          A: "Elaborar un texto sencillo con gráficos para que comprendan por qué se separan y leérselo.",
-          B: "Comentarles que son líquidos distintos compuestos por partículas que no se atraen y por ello se separan.",
+          A: "Elaborar para ellos un texto sencillo acompañado de gráficos para que comprendan por qué ambos líquidos se separan y leérselo.",
+          B: "Comentarles que el aceite y el vinagre son líquidos muy distintos, y están compuestos por partículas que no se atraen unas a otras. Por ello, se separan.",
           C: "Proponerles que revuelvan otra vez el aceite y el vinagre, observen detalladamente lo que ocurre y compartan sus ideas sobre por qué ambos líquidos se separan."
         }
       },
@@ -910,7 +956,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
         numero: 76,
         subprueba: SUB_PED,
         imagen: "./img/2.png",
-        enunciado: "Kevin y Eduardo, de cinco años, han elaborado bolitas de plastilina de la siguiente manera. Luego, ambos niños comentan lo siguiente:\nKevin: Mira, yo hice más bolitas.\nEduardo: Es cierto. ¡Ahora haré más!\nEn la situación presentada, ¿qué principio del conteo evidencian NO haber alcanzado aún los niños?",
+        enunciado: "Kevin y Eduardo, de cinco años, han elaborado bolitas de plastilina de la siguiente manera. Luego, ambos niños comentan lo siguiente:\n\nKevin: Mira, yo hice más bolitas.\nEduardo: Es cierto. ¡Ahora haré más!\n\nEn la situación presentada, ¿qué principio del conteo evidencian NO haber alcanzado aún los niños?",
         alternativas: {
           A: "De abstracción.",
           B: "De orden estable.",
@@ -920,19 +966,19 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 77,
         subprueba: SUB_PED,
-        enunciado: "Valentina, de 18 meses, intenta subir una escalera de madera. Para favorecer su autonomía, ¿qué acción es más pertinente?",
+        enunciado: "Valentina, de dieciocho meses, acaba de iniciar la marcha. Ahora intenta subir una escalera de madera que la docente ha colocado en el aula. Para favorecer la autonomía de Valentina, ¿qué acción es más pertinente que realice la docente en esta situación?",
         alternativas: {
           A: "Dejar que Valentina suba la escalera sola, permanecer cerca e intervenir cuando la niña lo solicite o requiera.",
-          B: "Tomar a Valentina de la mano y subir y bajar la escalera con ella varias veces hasta que logre hacerlo sola.",
-          C: "Decir a Valentina que espere un momento mientras se colocan cojines alrededor de la escalera."
+          B: "Tomar a Valentina de la mano, y subir y bajar la escalera con ella varias veces hasta que logre hacerlo sola.",
+          C: "Decir a Valentina que espere un momento, pues para evitar que se lastime colocará cojines alrededor de la escalera."
         }
       },
       {
         numero: 78,
         subprueba: SUB_PED,
-        enunciado: "Javier, de 11 meses, quiere pararse en el cambiador al cambiarle el pañal. ¿Cuál acción es respetuosa con su desarrollo motor?",
+        enunciado: "Javier, de 11 meses, ha empezado a ponerse de pie. Cuando la docente intenta cambiarle el pañal, él se mueve mucho y quiere pararse en el cambiador. En esa situación, ¿cuál de las siguientes acciones es respetuosa con el desarrollo motor del niño?",
         alternativas: {
-          A: "Acostar a Javier y darle un juguete para que se distraiga y se le pueda cambiar el pañal.",
+          A: "Acostar a Javier y darle un juguete para que se distraiga y así se le pueda cambiar el pañal.",
           B: "Jugar con Javier hasta que se canse y esperar a que se duerma para cambiarle el pañal.",
           C: "Cambiar el pañal a Javier adecuándose a la postura en la que él se encuentra."
         }
@@ -940,27 +986,27 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 79,
         subprueba: SUB_PED,
-        enunciado: "Jimena, de tres años, dice \"Fui al paque con mi tía\". Para favorecer su expresión oral, ¿qué intervención es pertinente?",
+        enunciado: "Al iniciar la jornada, la docente del aula de tres años dialoga con los niños sobre lo que hicieron el fin de semana. Cuando le toca participar a Jimena, ella dice: “Fui al paque con mi tía”. Ante esta situación, ¿qué intervención es pertinente para favorecer la expresión oral de Jimena?",
         alternativas: {
-          A: "\"Veo que necesitas la ayuda de tus compañeros, Jimena. Niños, ¿cómo se dice? ¿'Paque' o 'parque'?\".",
-          B: "\"Es lindo lo que cuentas, Jimena pero se dice 'parque'; no 'paque'. 'Fui al parque con mi tía'\".",
-          C: "\"Así que fuiste al parque con tu tía, Jimena. ¡Qué divertido! ¿Y qué hicieron en el parque?\"."
+          A: "“Veo que necesitas la ayuda de tus compañeros, Jimena. Niños, ¿cómo se dice? ¿‘Paque’ o ‘parque’?”.",
+          B: "“Es lindo lo que cuentas, Jimena pero se dice ‘parque’; no ‘paque’. ‘Fui al parque con mi tía’”.",
+          C: "“Así que fuiste al parque con tu tía, Jimena. ¡Qué divertido! ¿Y qué hicieron en el parque?”."
         }
       },
       {
         numero: 80,
         subprueba: SUB_PED,
-        enunciado: "Al explorar los libros de la biblioteca con niños de cinco años, para promover la aproximación a la lectura, ¿qué acción es más pertinente?",
+        enunciado: "La docente y los niños del aula de cinco años se encuentran explorando los libros de la biblioteca. Si el propósito de la docente es promover en los niños la aproximación a la lectura, ¿qué acción es más pertinente que realice a continuación?",
         alternativas: {
-          A: "Proponerles que en parejas escojan un libro y señalen las letras que conozcan leyéndolas en voz alta.",
-          B: "Decirles que cada uno elija el libro que desee, se ponga cómodo para leerlo y, si algún niño pide que le lea, atender su pedido.",
-          C: "Seleccionar diversos libros, entregar uno a cada niño y cambiarlo cuando terminen de revisarlo."
+          A: "Proponerles que en parejas escojan un libro que les guste. Luego, decirles que señalen las letras que conozcan y las lean en voz alta.",
+          B: "Decirles que cada uno elija el libro que desee. Luego, indicarles que se pongan cómodos para leerlo, y, si algún niño le pide que le lea el libro, atender su pedido.",
+          C: "Seleccionar diversos libros y entregar uno distinto a cada niño. Luego, decirles que, cuando terminen de revisarlo, la llamen para entregarles uno nuevo."
         }
       },
       {
         numero: 81,
         subprueba: SUB_PED,
-        enunciado: "Yaquelín pregunta qué significa \"aguarda\" y luego dice \"¡Ah, ya!... ¡Tengo que esperar!\". ¿Qué aprendizaje de oralidad se evidencia?",
+        enunciado: "Los niños del aula de cinco años están realizando un collage en grupos. La docente se encuentra atendiendo las dudas de un grupo. En ese momento, Yaquelín se acerca a la docente y se produce el siguiente diálogo.\n\nYaquelín: ¡Señorita!\nDocente: Dime, Yaquelín.\nYaquelín: Se nos acabó la goma de nuestro pomo y la goma del estante pesa mucho. ¿Nos puede echar goma en nuestro pomo, por favor?\nDocente: Claro, Yaquelín. Aguarda un momento, por favor.\nYaquelín: Mmm... ¿Qué quiere decir “aguarda”?\nDocente: No puedo darles goma ahora, porque estoy trabajando con este grupo. Solo demoraré un momento. Aguarda unos minutos. Luego, iremos las dos al estante y echaremos goma en el pomo.\nYaquelín: ¡Ah, ya!... ¡Tengo que esperar!\n\n¿Qué aprendizaje relacionado con la oralidad se evidencia en la intervención de Yaquelín?",
         alternativas: {
           A: "Opina sobre un tema planteado en la conversación.",
           B: "Incorpora comparaciones y ejemplos en su texto oral.",
@@ -972,38 +1018,38 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
         subprueba: SUB_PED,
         enunciado: "¿Cuál de las siguientes acciones favorece la apropiación del sistema de escritura en los niños?",
         alternativas: {
-          A: "Presentar una canción breve, pedir que adivinen palabras señaladas y repasen con plumón.",
-          B: "Presentar una lista de libros de la biblioteca y pedir que, al tomar un libro prestado, escriban su nombre al costado.",
-          C: "Presentar una lista de ingredientes y pedir que la transcriban a sus cuadernos."
+          A: "Presentarles en un papelógrafo el texto de una canción breve. Luego de leerles el texto, señalar algunas palabras para que las adivinen. Finalmente, entregarles hojas con el texto de la canción para que repasen las palabras con plumón.",
+          B: "Presentarles una lista de los libros de la biblioteca del aula. Luego de leerles la lista, decirles que, cada vez que tomen un libro prestado, escriban su nombre en la lista, al costado del nombre del libro correspondiente.",
+          C: "Presentarles una lista con los ingredientes para preparar una ensalada de frutas. Luego de leerles la lista, decirles que la transcriban a sus cuadernos e indicarles qué fruta le toca traer a cada uno."
         }
       },
       {
         numero: 83,
         subprueba: SUB_PED,
-        enunciado: "Tras visitar una granja, para favorecer la expresión creativa de los niños al dibujar, ¿qué acción es más pertinente?",
+        enunciado: "La docente y los niños del aula de cinco años han visitado una granja. Al volver al aula, dialogan y acuerdan elaborar dibujos sobre la visita.\n\nEn esa situación, ¿cuál de las siguientes acciones es más pertinente para favorecer la expresión creativa de los niños?",
         alternativas: {
-          A: "Proponerles que elaboren un dibujo lo más parecido posible a la granja que visitaron.",
+          A: "Proponerles que elaboren un dibujo de la granja que sea lo más parecido posible a la que visitaron.",
           B: "Pedirles que dibujen lo que más les gustó de la granja y utilicen para ello los materiales que deseen.",
-          C: "Darles siluetas de animales para que las delineen y decoren con papel embolillado."
+          C: "Darles siluetas de animales de la granja para que las delineen y decirles que decoren sus dibujos con papel embolillado."
         }
       },
       {
         numero: 84,
         subprueba: SUB_PED,
-        enunciado: "Antonia, de cuatro años, narra su fiesta con burbujas gigantes. ¿Cuál acción NO favorece su expresión oral?",
+        enunciado: "Durante la asamblea, la docente del aula de cuatro años les pregunta a los niños qué hicieron el día anterior. Antonia, muy emocionada, comenta lo siguiente: “¡Yo fui a la fiesta de mi prima y jugamos con burbujas gigantes!”.\n\nEn esa situación, ¿cuál de las siguientes acciones NO favorece la expresión oral de Antonia?",
         alternativas: {
-          A: "Preguntarle en qué consiste el juego y ofrecer materiales del aula si desea apoyar su explicación.",
-          B: "Dejarla continuar narrando espontáneamente y animarla a responder preguntas de sus compañeros.",
-          C: "Pedirle que cuente detalladamente y, si pronuncia inadecuadamente una palabra, detenerla, mostrarle cómo se pronuncia y pedirle que la repita."
+          A: "Preguntarle en qué consiste el juego con burbujas gigantes y decirle que, si desea, utilice materiales del aula para apoyar su explicación.",
+          B: "Dejarla que continúe narrando su experiencia espontáneamente y, luego, animarla a responder las preguntas que planteen sus compañeros.",
+          C: "Pedirle que cuente detalladamente su experiencia y, si pronuncia inadecuadamente alguna palabra, detenerla, mostrarle cómo se pronuncia y pedirle que la repita."
         }
       },
       {
         numero: 85,
         subprueba: SUB_PED,
-        enunciado: "Durante la preparación de una entrevista, ¿cuál acción es más adecuada para promover la expresión oral de los niños?",
+        enunciado: "¿Cuál de las siguientes acciones es más adecuada para promover la expresión oral de los niños durante la preparación de una entrevista?",
         alternativas: {
-          A: "Preguntarles qué equipos usan los periodistas y elaborar cámaras o micrófonos con material reusable.",
-          B: "Brindar una pregunta a cada grupo, pedir que la practiquen y elegir al niño con mayor fluidez para representar al grupo.",
+          A: "Preguntarles qué equipos usan los periodistas en una entrevista y proponerles elaborar con material reusable algunos de esos equipos, como cámaras o micrófonos.",
+          B: "Brindar una pregunta a cada grupo, pedirles que la practiquen y decirles que elijan al niño que hable con mayor fluidez para que represente al grupo en la entrevista.",
           C: "Recoger las preguntas que los niños quieren plantear y orientarlos para que se queden con aquellas que respondan al propósito de la entrevista."
         }
       },
@@ -1011,7 +1057,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
         numero: 86,
         subprueba: SUB_PED,
         imagen: "./img/3.png",
-        enunciado: "Considerando los niveles de apropiación del sistema de escritura de Emilia Ferreiro, según cómo Saida escribe su nombre, ¿en qué nivel se encuentra?",
+        enunciado: "La docente del aula de cinco años busca que los niños escriban por sí mismos sus nombres en sus trabajos. Para favorecer ello, ha colocado los nombres de los niños en los carteles del aula. Al terminar una actividad, la docente observa que Saida escribe su nombre en su hoja de trabajo de la siguiente manera [ver imagen].\n\nConsiderando los niveles de apropiación del sistema de escritura propuestos por Emilia Ferreiro, ¿en qué nivel se encuentra Saida?",
         alternativas: {
           A: "Presilábico.",
           B: "Silábico.",
@@ -1022,46 +1068,43 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
         numero: 87,
         subprueba: SUB_PED,
         imagen: "./img/3.png",
-        enunciado: "La docente tiene como propósito favorecer la apropiación del sistema de escritura en Saida. ¿Cuál de las siguientes acciones es pertinente para dicho propósito?",
+        enunciado: "La docente del aula de cinco años busca que los niños escriban por sí mismos sus nombres en sus trabajos. Para favorecer ello, ha colocado los nombres de los niños en los carteles del aula. Al terminar una actividad, la docente observa que Saida escribe su nombre en su hoja de trabajo de la siguiente manera [ver imagen].\n\nLa docente tiene como propósito favorecer la apropiación del sistema de escritura en Saida. ¿Cuál de las siguientes acciones es pertinente para dicho propósito?",
         alternativas: {
           A: "Ayudarla a encontrar su nombre en uno de los carteles del aula y pedirle que repase las letras varias veces con el dedo índice.",
           B: "Pedirle que ubique su nombre en alguno de los carteles del aula, lo compare con el texto que escribió e identifique las diferencias.",
-          C: "Brindarle hojas con su nombre escrito para que lo contornee con bolitas de papel, semillas, lanas de color u otros materiales de su agrado."
+          C: "Brindarle hojas que contengan su nombre escrito para que lo contornee con bolitas de papel, semillas, lanas de color u otros materiales de su agrado."
         }
       },
-      {
+      conFrederick({
         numero: 88,
         subprueba: SUB_PED,
-        imagen: "./img/4.png",
-        enunciado: "A partir del cuento \"Frederick\", ¿cuál pregunta es pertinente para que los niños identifiquen información explícita?",
+        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el texto “Frederick”.\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños identifiquen información explícita en este texto?",
         alternativas: {
-          A: "¿Qué querrá decir \"bayas\"?",
-          B: "¿De qué color es la flor llamada \"pervinca\"?",
-          C: "¿Qué les parece que los ratoncitos junten alimentos para el invierno?"
+          A: "“¿Qué querrá decir ‘bayas’?”.",
+          B: "“¿De qué color es la flor llamada ‘pervinca’?”.",
+          C: "“¿Qué les parece que los ratoncitos junten alimentos para el invierno?”."
         }
-      },
-      {
+      }),
+      conFrederick({
         numero: 89,
         subprueba: SUB_PED,
-        imagen: "./img/4.png",
-        enunciado: "A partir del cuento \"Frederick\", ¿cuál pregunta es pertinente para que los niños realicen inferencias sobre el texto?",
+        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el texto “Frederick”.\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños realicen inferencias sobre el texto?",
         alternativas: {
-          A: "¿Dónde vivían los ratoncitos?",
-          B: "¿Les gustó esta historia? ¿Por qué?",
-          C: "¿Cómo era Frederick en el cuento? ¿Por qué dicen eso?"
+          A: "“¿Dónde vivían los ratoncitos?”.",
+          B: "“¿Les gustó esta historia? ¿Por qué?”.",
+          C: "“¿Cómo era Frederick en el cuento? ¿Por qué dicen eso?”."
         }
-      },
-      {
+      }),
+      conFrederick({
         numero: 90,
         subprueba: SUB_PED,
-        imagen: "./img/4.png",
-        enunciado: "A partir del cuento \"Frederick\", ¿cuál pregunta es pertinente para que los niños reflexionen sobre el texto?",
+        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el texto “Frederick”.\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños reflexionen sobre el texto?",
         alternativas: {
-          A: "¿Qué piensan de lo que hacía Frederick en el cuento?",
-          B: "¿Por qué los ratoncitos aplaudieron a Frederick al final?",
-          C: "¿Qué recogieron los ratoncitos cuando notaron que el invierno estaba cerca?"
+          A: "“¿Qué piensan de lo que hacía Frederick en el cuento?”.",
+          B: "“¿Por qué los ratoncitos aplaudieron a Frederick al final?”.",
+          C: "“¿Qué recogieron los ratoncitos cuando notaron que el invierno estaba cerca?”."
         }
-      }
+      })
     ]
   });
 })();
