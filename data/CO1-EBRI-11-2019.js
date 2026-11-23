@@ -388,7 +388,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       conLectura({
         numero: 24,
         subprueba: "Comprensión Lectora",
-        enunciado: "Frente al comentario de que las investigaciones sobre consecuencias ambientales de la extracción de litio pueden estar sesgadas, ¿cuál de las siguientes ideas del texto lo apoya?",
+        enunciado: "Una docente leyó el texto y comentó lo siguiente:\n\n“Me parece que, hoy en día, no existe información imparcial sobre las graves consecuencias ambientales de la extracción de litio en el altiplano. Las investigaciones que se pueden consultar al respecto están sesgadas”.\n\n¿Cuál de las siguientes ideas del texto apoya el comentario de la docente?",
         alternativas: {
           A: "Borja Heredia solicita que se encuentren métodos para reducir la utilización de agua dulce en la extracción de litio.",
           B: "Las empresas dedicadas a la extracción de litio son aquellas que también financian los estudios de impacto ambiental.",
@@ -408,7 +408,7 @@ Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez 
       {
         numero: 26,
         subprueba: "Razonamiento Lógico",
-        enunciado: "En el club \"Bimbú\", el presidente debe ser alto y, además, gordo o calvo, pero no debe tener estas dos últimas características a la vez. ¿Cuál de las siguientes afirmaciones es correcta?",
+        enunciado: "Cada año, los integrantes de un club de amigos llamado “Bimbú” eligen a su presidente siguiendo la regla que se presenta a continuación:\n\n“El presidente debe ser alto y, además, gordo o calvo. Pero no debe tener estas dos últimas características a la vez”.\n\n¿Cuál de las siguientes afirmaciones es correcta?",
         alternativas: {
           A: "Un bimbuense alto, gordo y calvo puede ser elegido presidente.",
           B: "Un bimbuense alto, delgado y calvo puede ser elegido presidente.",
