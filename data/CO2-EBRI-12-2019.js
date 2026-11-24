@@ -1092,7 +1092,7 @@ Adaptación`;
       {
         numero: 88,
         subprueba: SUB_PED,
-        imagen: "./img/1.png",
+        
         enunciado: "Los niños de cinco años se encuentran jugando libremente en los sectores. Para hacer rodar una bolita, Cristina ha construido un camino con trozos de cartón, pedazos de tubos y otros materiales. Sin embargo, la niña se muestra contrariada. Cuando la docente le pregunta qué sucede, Cristina le comenta que no entiende por qué la bolita no avanza. La docente observa que el tramo del camino en el que se detuvo la bolita está ligeramente elevado. Entonces, le pregunta a la niña: \"¿Dónde se ha detenido la bolita? ¿Cómo es esa parte del camino? ¿cómo es la parte anterior? Entonces, ¿qué tendrías que hacer para que la bolita continúe rodando por el camino?\". Luego, Cristina ensaya distintas acciones para que la bolita continúe rodando y finalmente lo logra. Tras ello la docente le dice: \"Muy bien. Cuéntame, ¿cómo hiciste para que la bolita ruede?\".\n\n¿Cuál de los siguientes procesos de aprendizaje promueve la docente principalmente con su intervención?",
         alternativas: {
           A: "Metacognición.",
@@ -1104,7 +1104,7 @@ Adaptación`;
         numero: 89,
         subprueba: SUB_PED,
         imagen: "./img/1.png",
-        enunciado: "Cuando Fernando, de cuatro años, cuenta objetos, suele decir lo siguiente: \"1, 2, 3, 4, 5\". Dice esto incluso cuando cuenta un mismo objeto dos veces, como en este caso.\n\nDe acuerdo con la información presentada, ¿qué principio del conteo evidencia haber alcanzado Fernando?",
+        enunciado: "Cuando Fernando, de cuatro años, cuenta objetos, suele decir lo siguiente: \"1, 2, 3, 4, 5\". Dice esto incluso cuando cuenta un mismo objeto dos veces, como en este caso.\n\n [IMG] \n\n De acuerdo con la información presentada, ¿qué principio del conteo evidencia haber alcanzado Fernando?",
         alternativas: {
           A: "Orden estable.",
           B: "No pertinencia del orden.",
