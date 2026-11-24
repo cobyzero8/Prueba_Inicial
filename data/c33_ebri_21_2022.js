@@ -463,4 +463,72 @@ window.CUADERNILLOS.push({
     {
       numero: 69,
       subprueba: SUB_PED_C33,
-      enunciado: "Después de visitar la tienda de la localidad, los niños y la docente del aula de cinco años deciden organizar una tienda en el aula. Para ello, los niños recolectan botellas, empaques y envolturas de distintos productos. Mientras los niños ordenan la tienda, la docente recorre el aula y observa que Samuel está sujetando una envoltura y mirándola fij
+      enunciado: "Después de visitar la tienda de la localidad, los niños y la docente del aula de cinco años deciden organizar una tienda en el aula. Para ello, los niños recolectan botellas, empaques y envolturas de distintos productos. Mientras los niños ordenan la tienda, la docente recorre el aula y observa que Samuel está sujetando una envoltura y mirándola fijamente.\n\nLa docente tiene la intención de aprovechar esa situación para favorecer que Samuel se aproxime a la lectura. ¿Qué acción es pertinente para dicho propósito?",
+      alternativas: {
+        A: "Preguntar a Samuel qué dirá en la envoltura y por qué piensa que eso es lo que dice en esta.",
+        B: "Proponer a Samuel que lea las vocales que encuentra en la envoltura señalándolas, y que lo haga de izquierda a derecha.",
+        C: "Decir a Samuel que, como lo ve interesado, le leerá lo que dice en la envoltura para que él repita las palabras después de ella."
+      }
+    },
+    {
+      numero: 70,
+      subprueba: SUB_PED_C33,
+      enunciado: "¿Cuál de las siguientes acciones favorece la apropiación del sistema de escritura en los niños?",
+      alternativas: {
+        A: "Presentarles en un papelógrafo el texto de una canción breve. Luego de leerles el texto, señalar algunas palabras para que las adivinen. Finalmente, entregarles hojas con el texto de la canción para que repasen las palabras con plumón.",
+        B: "Presentarles una lista de los libros de la biblioteca del aula. Luego de leerles la lista, decirles que, cada vez que tomen un libro prestado, escriban su nombre en la lista, al costado del nombre del libro correspondiente.",
+        C: "Presentarles una lista con los ingredientes para preparar una ensalada de frutas. Luego de leerles la lista, decirles que la transcriban a sus cuadernos e indicarles qué fruta le toca traer a cada uno."
+      }
+    },
+    {
+      numero: 71,
+      subprueba: SUB_PED_C33,
+      enunciado: "La docente del aula de cinco años, últimamente, pone música instrumental para acompañar algunas actividades de la jornada. Hoy, les ha planteado a los niños que mientras escuchan una pieza musical, con un plumón registren en trazos sobre una hoja de papel, el sonido que escuchan.\n\nConsiderando la actividad descrita, ¿qué nivel de representación de la función simbólica está trabajando la docente?",
+      alternativas: {
+        A: "Nivel indicio.",
+        B: "Nivel símbolo.",
+        C: "Nivel signo."
+      }
+    },
+    {
+      numero: 72,
+      subprueba: SUB_PED_C33,
+      enunciado: "La docente del aula de cuatro años busca promover la expresión oral de los niños. ¿Cuál de las siguientes acciones es menos pertinente para ese propósito?",
+      alternativas: {
+        A: "Plantear a los niños que elaboren predicciones antes y durante la lectura de cuentos.",
+        B: "Pedir a los niños que todos los días practiquen las canciones, poesías, rimas y trabalenguas aprendidos hasta el momento.",
+        C: "Proponer a los niños que lleven al aula el juguete que más les gusta y compartan con sus compañeros por qué les gusta."
+      }
+    },
+    {
+      numero: 73,
+      subprueba: SUB_PED_C33,
+      enunciado: "La docente del aula de cinco años tiene el propósito de que los niños expresen con claridad sus ideas y las defiendan. Para ello, les ha propuesto conversar sobre si es bueno tener o no un animalito en casa, planteándoles la siguiente pregunta: \"¿Creen que todos los niños deberían tener en su casa un perro o un gato?\".\n\nAnte la situación descrita, ¿cuál de las siguientes acciones es pertinente que realice la docente a continuación para contribuir con el propósito planteado?",
+      alternativas: {
+        A: "Plantear a los niños que cada uno debe expresar su propia opinión y escuchar respetuosamente a sus compañeros. Luego, recordarles no interrumpir para cambiar la forma de pensar sus compañeros.",
+        B: "Preguntar a los niños quiénes están a favor y quiénes no; y pedirles que expliquen por qué. Luego, invitarlos a que opinen sobre lo que dicen sus compañeros.",
+        C: "Pedir a cada niño que por turnos responda la pregunta. Luego, formularle repreguntas y pedirle que amplíe más cada una de sus ideas."
+      }
+    },
+    {
+      numero: 74,
+      subprueba: SUB_PED_C33,
+      enunciado: "La docente del aula de cinco años tiene el propósito de desarrollar la apreciación artística de los niños; para ello, ha elaborado un listado de alternativas. ¿Cuál de las siguientes propuestas para realizar con los niños NO contribuye con su propósito?",
+      alternativas: {
+        A: "Observar con los niños obras de arte en láminas, pedir que elijan su favorita y entregarles una hoja con la reproducción para colorear; a continuación, pedirles que la pinten según los colores originales de la obra.",
+        B: "Observar con los niños la arquitectura de las casas de la comunidad desde distintos lugares, distancias y posiciones de cerca, lejos, sentados o parados y pedirles que digan de qué manera les gusta más ver las casas.",
+        C: "Observar con los niños un paisaje natural pidiéndoles que describan las formas, texturas, colores y aromas, así como los recuerdos y las sensaciones que les generan."
+      }
+    },
+    {
+      numero: 75,
+      subprueba: SUB_PED_C33,
+      enunciado: "Javier, de once meses, ha empezado a ponerse de pie. Cuando la docente intenta cambiarle el pañal, él se mueve mucho y quiere pararse en el cambiador.\n\nEn esa situación, ¿cuál de las siguientes acciones es respetuosa con el desarrollo motor del niño?",
+      alternativas: {
+        A: "Acostar a Javier y darle un juguete para que se distraiga y así se le pueda cambiar el pañal.",
+        B: "Jugar con Javier hasta que se canse y esperar a que se duerma para cambiarle el pañal.",
+        C: "Cambiar el pañal a Javier adecuándose a la postura en la que él se encuentra."
+      }
+    }
+  ]
+});
