@@ -181,9 +181,9 @@ Adaptación`;
     });
   }
 
-  function conFrederick(pregunta) {
+ function conFrederick(pregunta) {
     return Object.assign({}, pregunta, {
-      imagen: "./img/4.png",
+      imagenLectura: "./img/4.png",
       tituloLectura: CUENTO_FREDERICK_TITULO,
       textoLectura: CUENTO_FREDERICK_CUERPO
     });
