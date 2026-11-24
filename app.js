@@ -185,7 +185,7 @@ function formatearEnunciadoHTML(texto, pregunta = null) {
   return html;
 }
 
-function formatearLecturaHTML(texto) {
+function formatearLecturaHTML(texto, pregunta = null) {
   const limpio = String(texto || "").trim();
   if (!limpio) return "";
 
@@ -193,6 +193,16 @@ function formatearLecturaHTML(texto) {
   return bloques
     .map((bloque) => {
       const trimBloque = bloque.trim();
+
+      if (trimBloque === "[IMG]") {
+        const ruta = pregunta?.imagenLectura || pregunta?.imagen;
+        if (!ruta) return "";
+        return `
+          <div class="question-image-wrap">
+            <img src="${escaparHTML(normalizarRutaImg(ruta))}" alt="Ilustración de la lectura" loading="lazy" onerror="this.closest('.question-image-wrap').classList.add('hidden')">
+          </div>
+        `;
+      }
 
       if (/<div\b[^>]*>[\s\S]*?<img\b[^>]*>[\s\S]*?<\/div>/i.test(trimBloque)) {
         return trimBloque.replace(
@@ -698,7 +708,7 @@ function renderizarPregunta() {
   const texto = p.textoLectura || "";
   if (texto) {
     dom.lecturaTitulo.textContent = `📖 ${p.tituloLectura || "Texto de lectura"}`;
-    dom.lecturaCuerpo.innerHTML = formatearLecturaHTML(texto);
+    dom.lecturaCuerpo.innerHTML = formatearLecturaHTML(texto, p);
     dom.contextoBox.classList.remove("hidden");
   } else {
     dom.lecturaTitulo.textContent = "";
@@ -887,7 +897,8 @@ function mostrarLecturaDeErrores(falladas) {
       primeraConTexto.p.tituloLectura || "Texto de lectura"
     } (texto de apoyo para tus errores)`;
     dom.erroresLecturaCuerpo.innerHTML = formatearLecturaHTML(
-      primeraConTexto.p.textoLectura
+      primeraConTexto.p.textoLectura,
+      primeraConTexto.p
     );
     dom.erroresLecturaBox.classList.remove("hidden");
   } else {
