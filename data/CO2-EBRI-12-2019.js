@@ -858,7 +858,7 @@ Adaptación`;
         numero: 66,
         subprueba: SUB_PED,
         imagen: "./img/3.png",
-        enunciado: "La docente del aula de cinco años busca que los niños escriban por sí mismos sus nombres en sus trabajos. Para favorecer ello, ha colocado los nombres de los niños en los carteles del aula. Al terminar una actividad, la docente observa que Saida escribe su nombre en su hoja de trabajo de la siguiente manera:\n\nConsiderando los niveles de apropiación del sistema de escritura propuestos por Emilia Ferreiro, ¿en qué nivel se encuentra Saida?",
+        enunciado: "La docente del aula de cinco años busca que los niños escriban por sí mismos sus nombres en sus trabajos. Para favorecer ello, ha colocado los nombres de los niños en los carteles del aula. Al terminar una actividad, la docente observa que Saida escribe su nombre en su hoja de trabajo de la siguiente manera:\n\n[IMG]\n\nConsiderando los niveles de apropiación del sistema de escritura propuestos por Emilia Ferreiro, ¿en qué nivel se encuentra Saida?",
         alternativas: {
           A: "Presilábico.",
           B: "Silábico.",
@@ -869,7 +869,7 @@ Adaptación`;
         numero: 67,
         subprueba: SUB_PED,
         imagen: "./img/3.png",
-        enunciado: "La docente del aula de cinco años busca que los niños escriban por sí mismos sus nombres en sus trabajos. Para favorecer ello, ha colocado los nombres de los niños en los carteles del aula. Al terminar una actividad, la docente observa que Saida escribe su nombre en su hoja de trabajo de la siguiente manera:\n\nLa docente tiene como propósito favorecer la apropiación del sistema de escritura en Saida. ¿Cuál de las siguientes acciones es pertinente para dicho propósito?",
+        enunciado: "La docente del aula de cinco años busca que los niños escriban por sí mismos sus nombres en sus trabajos. Para favorecer ello, ha colocado los nombres de los niños en los carteles del aula. Al terminar una actividad, la docente observa que Saida escribe su nombre en su hoja de trabajo de la siguiente manera:\n\n[IMG]\n\nLa docente tiene como propósito favorecer la apropiación del sistema de escritura en Saida. ¿Cuál de las siguientes acciones es pertinente para dicho propósito?",
         alternativas: {
           A: "Ayudarla a encontrar su nombre en uno de los carteles del aula y pedirle que repase las letras varias veces con el dedo índice.",
           B: "Pedirle que ubique su nombre en alguno de los carteles del aula, lo compare con el texto que escribió e identifique las diferencias.",
