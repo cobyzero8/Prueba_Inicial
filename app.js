@@ -138,7 +138,20 @@ function limpiarEtiquetasInternas(htmlStr) {
     );
 }
 
-function formatearEnunciadoHTML(texto) {
+function crearBloqueImagenHTML(pregunta, altTexto) {
+  if (!pregunta || !pregunta.imagen) return "";
+  const ruta = escaparHTML(normalizarRutaImg(pregunta.imagen));
+  const alt = escaparHTML(
+    altTexto || `Esquema de la pregunta ${pregunta.numero}`
+  );
+  return `
+    <div class="question-image-wrap">
+      <img src="${ruta}" alt="${alt}" loading="lazy" onerror="this.closest('.question-image-wrap').classList.add('hidden')">
+    </div>
+  `;
+}
+
+function formatearEnunciadoHTML(texto, pregunta = null) {
   let html = escaparHTML(texto);
 
   html = html.replace(
@@ -161,6 +174,14 @@ function formatearEnunciadoHTML(texto) {
   );
 
   html = html.replace(/\n\n/g, "<br><br>").replace(/\n/g, "<br>");
+
+  const imgHTML = pregunta ? crearBloqueImagenHTML(pregunta) : "";
+  if (/\[IMG\]/.test(html)) {
+    html = html.replace(/(?:<br>)*\[IMG\](?:<br>)*/g, imgHTML);
+  } else if (imgHTML) {
+    html += imgHTML;
+  }
+
   return html;
 }
 
@@ -199,19 +220,6 @@ function formatearLecturaHTML(texto) {
       return `<p>${lineas.map((l) => escaparHTML(l)).join("<br>")}</p>`;
     })
     .join("");
-}
-
-function crearBloqueImagenHTML(pregunta, altTexto) {
-  if (!pregunta || !pregunta.imagen) return "";
-  const ruta = escaparHTML(normalizarRutaImg(pregunta.imagen));
-  const alt = escaparHTML(
-    altTexto || `Esquema de la pregunta ${pregunta.numero}`
-  );
-  return `
-    <div class="question-image-wrap">
-      <img src="${ruta}" alt="${alt}" loading="lazy" onerror="this.closest('.question-image-wrap').classList.add('hidden')">
-    </div>
-  `;
 }
 
 function obtenerResolucionExterna(cuad, p) {
@@ -698,7 +706,7 @@ function renderizarPregunta() {
     dom.contextoBox.classList.add("hidden");
   }
 
-  dom.enunciadoTexto.innerHTML = `${p.numero}. ${formatearEnunciadoHTML(p.enunciado)}${crearBloqueImagenHTML(p)}`;
+  dom.enunciadoTexto.innerHTML = `${p.numero}. ${formatearEnunciadoHTML(p.enunciado, p)}`;
   dom.alternativasLista.innerHTML = "";
   dom.feedbackBox.classList.add("hidden");
 
@@ -968,7 +976,7 @@ function renderizarRevision(evaluadas, modoMisErrores) {
           esSin ? "Sin responder" : esError ? "Error" : "Acierto"
         }</span>
       </div>
-      <div class="review-q">${formatearEnunciadoHTML(p.enunciado)}${crearBloqueImagenHTML(p)}</div>
+      <div class="review-q">${formatearEnunciadoHTML(p.enunciado, p)}</div>
       ${bloqueReintentoHTML}
       <div class="review-meta">
         <div class="${claseMarca}">Tu respuesta anterior: <strong>${escaparHTML(textoMarca)}</strong></div>
