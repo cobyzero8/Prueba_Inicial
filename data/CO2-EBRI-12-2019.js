@@ -879,31 +879,31 @@ Adaptación`;
       conFrederick({
         numero: 68,
         subprueba: SUB_PED,
-        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el siguiente texto:\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños identifiquen información explícita en este texto?",
+        enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños identifiquen información explícita en este texto?",
         alternativas: {
-          A: "\"¿Qué querrá decir 'bayas'?\".",
-          B: "\"¿De qué color es la flor llamada 'pervinca'?\".",
-          C: "\"¿Qué les parece que los ratoncitos junten alimentos para el invierno?\"."
+          A: "¿Qué querrá decir “bayas”?",
+          B: "¿De qué color es la flor llamada “pervinca”?",
+          C: "¿Qué les parece que los ratoncitos junten alimentos para el invierno?"
         }
       }),
       conFrederick({
         numero: 69,
         subprueba: SUB_PED,
-        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el siguiente texto:\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños realicen inferencias sobre el texto?",
+        enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños realicen inferencias sobre el texto?",
         alternativas: {
-          A: "\"¿Dónde vivían los ratoncitos?\".",
-          B: "\"¿Les gustó esta historia? ¿Por qué?\".",
-          C: "\"¿Cómo era Frederick en el cuento? ¿Por qué dicen eso?\"."
+          A: "¿Dónde vivían los ratoncitos?",
+          B: "¿Les gustó esta historia? ¿Por qué?",
+          C: "¿Cómo era Frederick en el cuento? ¿Por qué dicen eso?"
         }
       }),
       conFrederick({
         numero: 70,
         subprueba: SUB_PED,
-        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el siguiente texto:\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños reflexionen sobre el texto?",
+        enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños reflexionen sobre el texto?",
         alternativas: {
-          A: "\"¿Qué piensan de lo que hacía Frederick en el cuento?\".",
-          B: "\"¿Por qué los ratoncitos aplaudieron a Frederick al final?\".",
-          C: "\"¿Qué recogieron los ratoncitos cuando notaron que el invierno estaba cerca?\"."
+          A: "¿Qué piensan de lo que hacía Frederick en el cuento?",
+          B: "¿Por qué los ratoncitos aplaudieron a Frederick al final?",
+          C: "¿Qué recogieron los ratoncitos cuando notaron que el invierno estaba cerca?"
         }
       }),
       {
