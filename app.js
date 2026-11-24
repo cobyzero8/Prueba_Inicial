@@ -77,6 +77,13 @@ function escaparHTML(str) {
     .replace(/"/g, "&quot;");
 }
 
+function formatearTextoExplicacionHTML(valor) {
+  if (Array.isArray(valor)) {
+    return valor.map((paso) => escaparHTML(paso)).join("<br>");
+  }
+  return escaparHTML(valor || "").replace(/\n/g, "<br>");
+}
+
 function textoPlano(str) {
   return String(str || "")
     .replace(/<[^>]*>/g, " ")
@@ -208,18 +215,22 @@ function crearBloqueImagenHTML(pregunta, altTexto) {
 }
 
 function obtenerResolucionExterna(cuad, p) {
-  const mapaGlobal = window.RESOLUCIONES_POR_CUADERNILLO;
-  if (!mapaGlobal || typeof mapaGlobal !== "object" || !cuad || !p) {
-    return null;
-  }
+  const fuentes = [
+    window.RESOLUCIONES_POR_CUADERNILLO,
+    window.RESOLUCIONES
+  ].filter((m) => m && typeof m === "object");
 
+  if (!cuad || !p) return null;
   const keysCuad = [cuad.id, cuad.codigo].filter(Boolean);
-  for (const k of keysCuad) {
-    const porCuad = mapaGlobal[k];
-    if (porCuad && typeof porCuad === "object") {
-      const entry = porCuad[p.numero] || porCuad[String(p.numero)];
-      if (entry && typeof entry === "object") {
-        return entry;
+
+  for (const mapaGlobal of fuentes) {
+    for (const k of keysCuad) {
+      const porCuad = mapaGlobal[k];
+      if (porCuad && typeof porCuad === "object") {
+        const entry = porCuad[p.numero] || porCuad[String(p.numero)];
+        if (entry && typeof entry === "object") {
+          return entry;
+        }
       }
     }
   }
@@ -242,7 +253,12 @@ function resolverMatematicoPorReglas(enunLimpio, clave, textoClave) {
       return {
         truco:
           "Cuando te piden qué 'parte del día' queda, usa el total del día (24 horas), suma las horas empleadas, réstalas a 24 y coloca el resultado sobre 24.",
-        pasoAPaso: `1) El día tiene 24 horas. 2) Sumamos las horas empleadas: ${horasUsadas.join(" + ")} = ${suma} horas. 3) Restamos lo que queda del día: 24 - ${suma} = ${restante} horas. 4) Como fracción del día completo es ${restante}/24 -> clave (${clave}) ${textoClave}.`
+        pasoAPaso: [
+          "1) El día tiene 24 horas.",
+          `2) Sumamos las horas empleadas: ${horasUsadas.join(" + ")} = ${suma} horas.`,
+          `3) Restamos lo que queda del día: 24 - ${suma} = ${restante} horas.`,
+          `4) Como fracción del día completo es ${restante}/24 -> clave (${clave}) ${textoClave}.`
+        ]
       };
     }
   }
@@ -264,7 +280,11 @@ function resolverMatematicoPorReglas(enunLimpio, clave, textoClave) {
             return {
               truco:
                 "En problemas de combinaciones (elegir 1 de un grupo y 1 de otro), multiplica la cantidad de opciones de cada grupo; no las sumes.",
-              pasoAPaso: `1) Identificamos los dos grupos de opciones: ${nums[i]} y ${nums[j]}. 2) Multiplicamos para formar todas las parejas posibles: ${nums[i]} × ${nums[j]} = ${objetivo} combinaciones. 3) Marca (${clave}) ${textoClave}.`
+              pasoAPaso: [
+                `1) Identificamos los dos grupos de opciones: ${nums[i]} y ${nums[j]}.`,
+                `2) Multiplicamos para formar todas las parejas posibles: ${nums[i]} × ${nums[j]} = ${objetivo} combinaciones.`,
+                `3) Marca (${clave}) ${textoClave}.`
+              ]
             };
           }
         }
@@ -272,48 +292,14 @@ function resolverMatematicoPorReglas(enunLimpio, clave, textoClave) {
     }
   }
 
-  if (
-    lower.includes("secuencia") ||
-    lower.includes("figura") ||
-    lower.includes("palitos")
-  ) {
-    return {
-      truco:
-        "Anota la cantidad de elementos de la figura 1, figura 2 y figura 3; halla cuánto aumenta de una a otra (patrón constante) y aplícalo hasta la figura pedida.",
-      pasoAPaso: `1) Lista los valores de las primeras figuras según el enunciado. 2) Determina la regularidad o suma constante entre términos consecutivos. 3) Calcula el término solicitado y verifica con (${clave}) ${textoClave}.`
-    };
-  }
-
-  if (
-    lower.includes("edad") ||
-    lower.includes("años") ||
-    lower.includes("docentes") ||
-    lower.includes("asistieron")
-  ) {
-    return {
-      truco:
-        "Traduce cada dato a cantidades concretas y separa subconjuntos (por ejemplo, lo que se sabe de un grupo frente al total) antes de sumar o restar.",
-      pasoAPaso: `1) Anota el total y los datos parciales indicados en el problema. 2) Calcula los subgrupos faltantes por diferencia o suma. 3) Confirma el valor que responde a la pregunta: (${clave}) ${textoClave}.`
-    };
-  }
-
-  if (
-    lower.includes("piso") ||
-    lower.includes("mesa") ||
-    lower.includes("premisa") ||
-    lower.includes("infiere")
-  ) {
-    return {
-      truco:
-        "Representa las posiciones o relaciones en un esquema rápido (pisos, asientos o flechas de implicación) y descarta cualquier opción que contradiga una pista.",
-      pasoAPaso: `1) Coloca primero las relaciones más directas o fijas del enunciado. 2) Revisa qué posición o conclusión queda obligatoriamente determinada. 3) Selecciona (${clave}) ${textoClave}.`
-    };
-  }
-
   return {
     truco:
       "Identifica qué magnitud te piden hallar al final, extrae los datos numéricos o condiciones del texto y haz la operación directa sin mezclar totales con partes.",
-    pasoAPaso: `1) Lee la pregunta final y anota los datos dados. 2) Plantea la operación o relación correspondiente. 3) La alternativa correcta es (${clave}) ${textoClave}.`
+    pasoAPaso: [
+      "1) Lee la pregunta final y anota los datos dados.",
+      "2) Plantea la operación o relación correspondiente.",
+      `3) La alternativa correcta es (${clave}) ${textoClave}.`
+    ]
   };
 }
 
@@ -401,22 +387,24 @@ function generarResolucionAutonoma(cuad, p, marcada, clave) {
       : "1) Reconoce el propósito pedagógico de la situación. 2) Elige la opción que impulse el pensamiento autónomo del niño.";
   }
 
-  const trampasCombinadas = {
-    ...(ext.porqueFallo || {}),
-    ...(resObj.porqueFallo || {}),
-    ...(p.trampas || {})
-  };
-
+  const fuenteFallo = ext.porqueFallo || resObj.porqueFallo || p.trampas || null;
   let trampaMarcada = "";
+
   if (marcada && marcada !== clave) {
-    if (trampasCombinadas[marcada]) {
-      trampaMarcada = trampasCombinadas[marcada];
+    if (fuenteFallo && typeof fuenteFallo === "object" && fuenteFallo[marcada]) {
+      trampaMarcada = fuenteFallo[marcada];
+    } else if (typeof fuenteFallo === "string" && fuenteFallo.trim()) {
+      trampaMarcada = fuenteFallo;
     } else {
       trampaMarcada = `Marcaste (${marcada}) "${textoMarcada}". Suele ser un distractor porque atiende solo a un aspecto parcial, aplica una lógica distinta a la requerida o no responde con precisión a lo consultado.`;
     }
   } else if (!marcada) {
-    trampaMarcada =
-      "Dejaste esta pregunta sin marcar. Revisa el truco y el paso a paso para resolverla y prueba tu elección en los botones de arriba.";
+    if (typeof fuenteFallo === "string" && fuenteFallo.trim()) {
+      trampaMarcada = `Dejaste esta pregunta sin marcar. Ojo con el error frecuente: ${fuenteFallo}`;
+    } else {
+      trampaMarcada =
+        "Dejaste esta pregunta sin marcar. Revisa el truco y el paso a paso para resolverla y prueba tu elección en los botones de arriba.";
+    }
   }
 
   return {
@@ -431,9 +419,9 @@ function construirResolucionTodoEnUnoHTML(cuad, p, marcada, clave) {
 
   return `
     <div style="margin-top:10px; padding:12px 14px; border-radius:10px; background:rgba(120,130,140,0.12); border-left:4px solid #d97706; line-height:1.45;">
-      <div><strong>⚡ Truco:</strong> ${escaparHTML(guia.truco)}</div>
-      <div style="margin-top:6px;"><strong>🧠 Paso a paso:</strong> ${escaparHTML(guia.pasoAPaso)}</div>
-      <div style="margin-top:6px;"><strong>⚠️ Por qué fallaste:</strong> ${escaparHTML(guia.trampaMarcada)}</div>
+      <div><strong>⚡ Truco:</strong> ${formatearTextoExplicacionHTML(guia.truco)}</div>
+      <div style="margin-top:6px;"><strong>🧠 Paso a paso:</strong><br>${formatearTextoExplicacionHTML(guia.pasoAPaso)}</div>
+      <div style="margin-top:6px;"><strong>⚠️ Por qué fallaste:</strong> ${formatearTextoExplicacionHTML(guia.trampaMarcada)}</div>
     </div>
   `;
 }
