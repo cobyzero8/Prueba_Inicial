@@ -15,7 +15,7 @@ const LECTURA_COCO_C33 =
 window.CUADERNILLOS.push({
   id: "C33-EBRI-21-2022",
   codigo: "C33-EBRI-21",
-  etiqueta: "C33-EBRI-21 (Dic 2022 · Inicial)",
+  etiqueta: "INICIAL 12-2022 (I))",
   nombre: "Concurso de Ingreso a la CPM 2022 - EBR Nivel Inicial",
   fecha: "Diciembre de 2022",
   claves: {
