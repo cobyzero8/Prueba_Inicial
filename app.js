@@ -138,6 +138,40 @@ function limpiarEtiquetasInternas(htmlStr) {
     );
 }
 
+function colorearDialogosHTML(htmlConBrs) {
+  const coloresHablante = [
+    "#1d4ed8", // Azul
+    "#0f766e", // Verde azulado
+    "#b45309", // Ámbar / canela
+    "#7e22ce", // Morado
+    "#be123c"  // Rosa / guinda
+  ];
+  const mapaColores = new Map();
+
+  return String(htmlConBrs || "")
+    .split("<br>")
+    .map((linea) => {
+      const match = linea.match(/^([^<>:]{1,25}):(\s*.*)$/);
+      if (!match) return linea;
+
+      const hablante = match[1].trim();
+      const resto = match[2];
+
+      if (/^(texto|párrafo|parrafo|nota|ejemplo|paso)\b/i.test(hablante)) {
+        return linea;
+      }
+
+      const clave = hablante.toLowerCase();
+      if (!mapaColores.has(clave)) {
+        mapaColores.set(clave, coloresHablante[mapaColores.size % coloresHablante.length]);
+      }
+      const color = mapaColores.get(clave);
+
+      return `<span style="color:${color}; font-weight:700;">${hablante}:</span>${resto}`;
+    })
+    .join("<br>");
+}
+
 function crearBloqueImagenHTML(pregunta, altTexto) {
   if (!pregunta || !pregunta.imagen) return "";
   const ruta = escaparHTML(normalizarRutaImg(pregunta.imagen));
@@ -182,6 +216,7 @@ function formatearEnunciadoHTML(texto, pregunta = null) {
     html += imgHTML;
   }
 
+  html = colorearDialogosHTML(html);
   return html;
 }
 
@@ -227,7 +262,9 @@ function formatearLecturaHTML(texto, pregunta = null) {
           .join("<br>")}</div>`;
       }
 
-      return `<p>${lineas.map((l) => escaparHTML(l)).join("<br>")}</p>`;
+      return `<p>${colorearDialogosHTML(
+        lineas.map((l) => escaparHTML(l)).join("<br>")
+      )}</p>`;
     })
     .join("");
 }
