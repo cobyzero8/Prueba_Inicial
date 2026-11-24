@@ -757,7 +757,7 @@ Adaptación`;
         numero: 56,
         subprueba: SUB_PED,
         imagen: "./img/2.png",
-        enunciado: "Kevin y Eduardo, de cinco años, han elaborado bolitas de plastilina de la siguiente manera.\n\nLuego, ambos niños comentan lo siguiente:\n\nKevin: Mira, yo hice más bolitas.\nEduardo: Es cierto. ¡Ahora haré más!\n\nEn la situación presentada, ¿qué principio del conteo evidencian NO haber alcanzado aún los niños?",
+        enunciado: "Kevin y Eduardo, de cinco años, han elaborado bolitas de plastilina de la siguiente manera.\n\n[IMG]\n\nLuego, ambos niños comentan lo siguiente:\n\nKevin: Mira, yo hice más bolitas.\nEduardo: Es cierto. ¡Ahora haré más!\n\nEn la situación presentada, ¿qué principio del conteo evidencian NO haber alcanzado aún los niños?",
         alternativas: {
           A: "De abstracción.",
           B: "De orden estable.",
