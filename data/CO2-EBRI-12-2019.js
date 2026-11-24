@@ -3,7 +3,7 @@
 
   const SUB_PED = "Conocimientos Pedagógicos de la Especialidad";
 
-  const TEXTO_1_TITULO = "Texto 1 — Sin fines de lucro";
+  const TEXTO_1_TITULO = "Texto 1";
   const TEXTO_1_CUERPO = `Vivimos en un mundo donde nos encontramos unos frente a otros cruzando las brechas de la geografía, el lenguaje y la nacionalidad. Todos dependemos de personas que jamás hemos visto y que, a su vez, dependen de nosotros. Si las personas que se encuentran distantes no se unen para cooperar como jamás lo han hecho, no es posible resolver los problemas económicos, ambientales, religiosos y políticos. Tomemos como ejemplos el calentamiento global, los regímenes de comercio internacional, los peligros de las armas nucleares, los flujos migratorios de mano de obra y la elaboración de normas laborales dignas. Son problemas que solo pueden afrontarse de verdad si existe un diálogo multinacional.
 
 Nuestras decisiones más básicas como consumidores o productores afectan el estándar de vida de otras personas que habitan otros países debido a la forma en que funciona la economía global. Por lo tanto, es irresponsable la indiferencia que mostramos sobre cómo nuestros actos inciden en la vida de otras personas. En este contexto, es fundamental la educación, pues ella debería proporcionarnos los elementos necesarios para desenvolvernos de manera eficaz en ese diálogo multinacional como "ciudadanos del mundo".
@@ -20,7 +20,7 @@ Ejemplos como estos demuestran que se puede aprovechar la curiosidad natural de 
 
 Adaptado de Sin fines de lucro. Por qué la democracia necesita de las humanidades, Martha Nussbaum.`;
 
-  const TEXTO_2_TITULO = "Texto 2 — Las víctimas del litio: los flamencos andinos";
+  const TEXTO_2_TITULO = "Texto 2";
   const TEXTO_2_CUERPO = `El litio es un metal alcalino blanco y muy liviano, empleado para almacenar energía. Si bien puede contribuir a la reducción del uso de combustibles perjudiciales para el ambiente, también es posible que ponga en riesgo a todo el ecosistema de las zonas de donde se extrae. Así lo ha hecho notar Borja Heredia, director de la Unidad de Aves de la Convención de las Especies Migratorias (CEM) de las Naciones Unidas, quien explica que la gran biodiversidad del altiplano peligra por la extracción de litio. Los flamencos son las aves más afectadas, debido a que, en épocas de calor, emigran hacia las lagunas y pantanos ubicados a 4000 metros de altura en el denominado "triángulo de litio", ubicado entre Argentina, Bolivia y Chile.
 
 Desde el descubrimiento de las minas de litio, los gobiernos de dichos países se enfrentan a una intrincada situación aún sin visos de solución en el corto plazo. Según acuerdos internacionales, la conservación de los hábitats de especies naturales, como el hábitat de los flamencos, debe ser una prioridad. No obstante, e incluso tomando en cuenta que la minería de litio es muy agresiva por los recursos hídricos que consume, no pueden perderse de vista los beneficios que genera, por ejemplo, en la producción de vidrio y cerámica, así como en la industria automotriz y de los fármacos.
@@ -35,7 +35,7 @@ Asimismo, Heredia destacó la necesidad de mejorar los mecanismos legales para r
 
 Adaptado de "Las víctimas del litio: los flamencos andinos", Patricia Jiménez Angulo.`;
 
-  const TEXTO_3_TITULO = "Texto 3 — Del tamaño de un hermano";
+  const TEXTO_3_TITULO = "Texto 3";
   const TEXTO_3_CUERPO = `Tenía un hermano pequeño, y a nadie más tenía. Hacía mucho tiempo, desde la muerte de sus padres, habitaban los dos solos esa playa desierta, rodeada de montañas. Pescaban, cazaban, recogían frutos y eran felices.
 
 En verdad, tan pequeño era el otro, apenas como la palma de su mano, que el hermano grande encontraba normal ocuparse de todo. Pero siempre atento a su pequeño hermano, delicado y único en su minúsculo tamaño.
@@ -66,7 +66,7 @@ En ese momento, el mundo, descubrió con súbito sobresalto al comprender por fi
 
 Adaptado de "Del tamaño de un hermano", Marina Colasanti.`;
 
-  const TEXTO_4_TITULO = "Texto 4 — Educación y transformación digital";
+  const TEXTO_4_TITULO = "Texto 4";
   const TEXTO_4_CUERPO = `Desde 2017, el gobierno francés prohíbe que los escolares menores de 15 años acudan a las escuelas públicas portando teléfonos móviles con pantallas táctiles (también llamados smartphones o teléfonos inteligentes). Algunos docentes celebraron entusiastas la noticia. Otros docentes sostenemos que, detrás de este tipo de medidas, triunfa la absurda idea de contraponer educación y desarrollo tecnológico.
 
 Ante esto, uno se pregunta por las razones que motivan a que las mismas instituciones, que antes reclamaban recursos para poner computadoras en las aulas, ahora pretendan nada menos que evitar que los estudiantes las lleven en sus bolsillos.
@@ -91,7 +91,7 @@ Así, en lugar de asumir el papel de referente universal, los docentes debemos a
 
 Adaptado de "Educación y transformación digital", Enrique Dans.`;
 
-  const TEXTO_5_TITULO = "Texto 5 — Maestros, mistis y campesinos";
+  const TEXTO_5_TITULO = "Texto 5";
   const TEXTO_5_CUERPO = `En 1944, José María Arguedas escribió un artículo en el que proponía un método para promover el desarrollo de la lectura y la escritura en la población quechuahablante del Perú. Si los indígenas no conseguían hablar ni leer en castellano, esto se debía a que no se les enseñaba, primero, a leer en su propia lengua. No existían materiales educativos ni se contaba con un alfabeto más o menos estándar para fomentar la lectura en esta lengua. Así, para Arguedas, la alfabetización en quechua haría que los indígenas aprendan a leer y escribir exitosamente, y esto afirmaría su identidad cultural. Se trataba, además, de una cuestión estratégica. Según él, la población quechuahablante podría sentirse motivada a leer y escribir en castellano, lo que le abriría las puertas hacia la modernidad que se producía en los centros urbanos del país.
 
 Ese mismo año, Arguedas sería invitado por los representantes del sector educativo estatal a dialogar junto con José Antonio Encinas y Luis E. Valcárcel para la gestación del proyecto educativo indigenista. Las ideas pedagógicas y lingüísticas que Arguedas compartió en ese diálogo se concretaron, desde 1945, en una serie de medidas realmente ambiciosas. Aparte de la alfabetización en quechua, otro frente de este proyecto educativo fue el mejoramiento salarial de los docentes en la sociedad rural. Asimismo, se decidió ampliar la gratuidad y obligatoriedad de la enseñanza a los tres primeros años de la secundaria. Se dispuso, también, que las haciendas donde vivieran treinta o más niños en edad escolar estuvieran obligadas a abrir una escuela sostenida por el propietario.
@@ -112,8 +112,10 @@ A pesar de que existieron estos obstáculos, el censo no desató la frustración
 
 Adaptado de "Maestros, mistis y campesinos en el Perú rural del siglo XX", Carlos Contreras.`;
 
-  const CUENTO_FREDERICK_TITULO = "Frederick — Leo Lionni";
-  const CUENTO_FREDERICK_CUERPO = `En el campo había una casa de campesinos que estaba vacía, pues los dueños se habían ido muy lejos. Cerca de la casa, había un muro de piedra en el que vivían cinco ratoncitos. Como el invierno estaba cerca, los ratoncitos empezaron a recoger maíz, trigo y bayas.
+  const CUENTO_FREDERICK_TITULO = "Frederick";
+  const CUENTO_FREDERICK_CUERPO = `Leo Lionni
+
+En el campo había una casa de campesinos que estaba vacía, pues los dueños se habían ido muy lejos. Cerca de la casa, había un muro de piedra en el que vivían cinco ratoncitos. Como el invierno estaba cerca, los ratoncitos empezaron a recoger maíz, trigo y bayas.
 
 Todos trabajaban día y noche. Todos menos Frederick.
 “Frederick, ¿por qué no trabajas?”, le preguntaron.
@@ -178,7 +180,7 @@ Adaptación`;
     id: "CO2-EBRI-12-2019",
     codigo: "CO2-EBRI-12",
     etiqueta: "INICIAL 07-2019 (II)",
-    nombre: "Evaluación Docente — EBR Inicial (CO2-EBRI-12 - Forma 2)",
+    nombre: "Evaluación Docente — Nivel Inicial (CO2-EBRI-12 - Julio 2019)",
     fecha: "Julio de 2019",
     claves: {
       1: "A", 2: "C", 3: "A", 4: "C", 5: "A",
@@ -197,8 +199,8 @@ Adaptación`;
       66: "A", 67: "B", 68: "B", 69: "C", 70: "A",
       71: "C", 72: "A", 73: "B", 74: "B", 75: "C",
       76: "B", 77: "A", 78: "A", 79: "C", 80: "A",
-      81: "A", 82: "B", 83: "B", 84: "C", 85: "C",
-      86: "A", 87: "B", 88: "B", 89: "A", 90: "B"
+      81: "A", 82: "B", 83: "A", 84: "A", 85: "A",
+      86: "C", 87: "B", 88: "A", 89: "A", 90: "B"
     },
     preguntas: [
       conLectura({
@@ -734,7 +736,7 @@ Adaptación`;
       {
         numero: 54,
         subprueba: SUB_PED,
-        enunciado: "Los niños del aula de cinco años están desarrollando el proyecto \"Aprendemos a preparar alimentos saludables\". Hoy prepararán ensaladas de verduras.\nLuego de lavar y picar las verduras, los niños se disponen a preparar el aliño para sus ensaladas. Para ello la docente entrega a cada mesa un recipiente con vinagre, otro con aceite, y un poco de sal y pimienta. Luego, les pregunta qué creen que pasará si juntan el aceite con el vinagre y los remueven. Los niños responden: \"¡Se mezclarán!\".\nEntonces, la docente les pide que viertan ambos líquidos en un solo vaso transparente y, luego, los remuevan con una cuchara. Los niños observan sorprendidos que, después de unos momentos, ambos líquidos se separan.\n\n¿Qué proceso de aprendizaje está promoviendo la docente en su última intervención?",
+        enunciado: "Los niños del aula de cinco años están desarrollando el proyecto \"Aprendemos a preparar alimentos saludables\". Hoy prepararán ensaladas de verduras.\n\nLuego de lavar y picar las verduras, los niños se disponen a preparar el aliño para sus ensaladas. Para ello la docente entrega a cada mesa un recipiente con vinagre, otro con aceite, y un poco de sal y pimienta. Luego, les pregunta qué creen que pasará si juntan el aceite con el vinagre y los remueven. Los niños responden: \"¡Se mezclarán!\".\n\nEntonces, la docente les pide que viertan ambos líquidos en un solo vaso transparente y, luego, los remuevan con una cuchara. Los niños observan sorprendidos que, después de unos momentos, ambos líquidos se separan.\n\n¿Qué proceso de aprendizaje está promoviendo la docente en su última intervención?",
         alternativas: {
           A: "La transferencia de los aprendizajes.",
           B: "El conflicto cognitivo.",
@@ -744,7 +746,7 @@ Adaptación`;
       {
         numero: 55,
         subprueba: SUB_PED,
-        enunciado: "Los niños del aula de cinco años están desarrollando el proyecto \"Aprendemos a preparar alimentos saludables\". Hoy prepararán ensaladas de verduras.\nLuego de lavar y picar las verduras, los niños se disponen a preparar el aliño para sus ensaladas. Para ello la docente entrega a cada mesa un recipiente con vinagre, otro con aceite, y un poco de sal y pimienta. Luego, les pregunta qué creen que pasará si juntan el aceite con el vinagre y los remueven. Los niños responden: \"¡Se mezclarán!\".\nEntonces, la docente les pide que viertan ambos líquidos en un solo vaso transparente y, luego, los remuevan con una cuchara. Los niños observan sorprendidos que, después de unos momentos, ambos líquidos se separan.\n\nLa docente busca que los niños construyan sus propias explicaciones respecto de por qué el aceite y el vinagre se separan. ¿Cuál de las siguientes acciones es pertinente para ese propósito?",
+        enunciado: "Los niños del aula de cinco años están desarrollando el proyecto \"Aprendemos a preparar alimentos saludables\". Hoy prepararán ensaladas de verduras.\n\nLuego de lavar y picar las verduras, los niños se disponen a preparar el aliño para sus ensaladas. Para ello la docente entrega a cada mesa un recipiente con vinagre, otro con aceite, y un poco de sal y pimienta. Luego, les pregunta qué creen que pasará si juntan el aceite con el vinagre y los remueven. Los niños responden: \"¡Se mezclarán!\".\n\nEntonces, la docente les pide que viertan ambos líquidos en un solo vaso transparente y, luego, los remuevan con una cuchara. Los niños observan sorprendidos que, después de unos momentos, ambos líquidos se separan.\n\nLa docente busca que los niños construyan sus propias explicaciones respecto de por qué el aceite y el vinagre se separan. ¿Cuál de las siguientes acciones es pertinente para ese propósito?",
         alternativas: {
           A: "Elaborar para ellos un texto sencillo acompañado de gráficos para que comprendan por qué ambos líquidos se separan y leérselo.",
           B: "Comentarles que el aceite y el vinagre son líquidos muy distintos, y están compuestos por partículas que no se atraen unas a otras. Por ello, se separan.",
@@ -755,7 +757,7 @@ Adaptación`;
         numero: 56,
         subprueba: SUB_PED,
         imagen: "./img/2.png",
-        enunciado: "Kevin y Eduardo, de cinco años, han elaborado bolitas de plastilina de la siguiente manera. Luego, ambos niños comentan lo siguiente:\n\nKevin: Mira, yo hice más bolitas.\nEduardo: Es cierto. ¡Ahora haré más!\n\nEn la situación presentada, ¿qué principio del conteo evidencian NO haber alcanzado aún los niños?",
+        enunciado: "Kevin y Eduardo, de cinco años, han elaborado bolitas de plastilina de la siguiente manera.\n\nLuego, ambos niños comentan lo siguiente:\n\nKevin: Mira, yo hice más bolitas.\nEduardo: Es cierto. ¡Ahora haré más!\n\nEn la situación presentada, ¿qué principio del conteo evidencian NO haber alcanzado aún los niños?",
         alternativas: {
           A: "De abstracción.",
           B: "De orden estable.",
@@ -856,7 +858,7 @@ Adaptación`;
         numero: 66,
         subprueba: SUB_PED,
         imagen: "./img/3.png",
-        enunciado: "La docente del aula de cinco años busca que los niños escriban por sí mismos sus nombres en sus trabajos. Para favorecer ello, ha colocado los nombres de los niños en los carteles del aula. Al terminar una actividad, la docente observa que Saida escribe su nombre en su hoja de trabajo de la siguiente manera [ver imagen].\n\nConsiderando los niveles de apropiación del sistema de escritura propuestos por Emilia Ferreiro, ¿en qué nivel se encuentra Saida?",
+        enunciado: "La docente del aula de cinco años busca que los niños escriban por sí mismos sus nombres en sus trabajos. Para favorecer ello, ha colocado los nombres de los niños en los carteles del aula. Al terminar una actividad, la docente observa que Saida escribe su nombre en su hoja de trabajo de la siguiente manera:\n\nConsiderando los niveles de apropiación del sistema de escritura propuestos por Emilia Ferreiro, ¿en qué nivel se encuentra Saida?",
         alternativas: {
           A: "Presilábico.",
           B: "Silábico.",
@@ -867,7 +869,7 @@ Adaptación`;
         numero: 67,
         subprueba: SUB_PED,
         imagen: "./img/3.png",
-        enunciado: "La docente del aula de cinco años busca que los niños escriban por sí mismos sus nombres en sus trabajos. Para favorecer ello, ha colocado los nombres de los niños en los carteles del aula. Al terminar una actividad, la docente observa que Saida escribe su nombre en su hoja de trabajo de la siguiente manera [ver imagen].\n\nLa docente tiene como propósito favorecer la apropiación del sistema de escritura en Saida. ¿Cuál de las siguientes acciones es pertinente para dicho propósito?",
+        enunciado: "La docente del aula de cinco años busca que los niños escriban por sí mismos sus nombres en sus trabajos. Para favorecer ello, ha colocado los nombres de los niños en los carteles del aula. Al terminar una actividad, la docente observa que Saida escribe su nombre en su hoja de trabajo de la siguiente manera:\n\nLa docente tiene como propósito favorecer la apropiación del sistema de escritura en Saida. ¿Cuál de las siguientes acciones es pertinente para dicho propósito?",
         alternativas: {
           A: "Ayudarla a encontrar su nombre en uno de los carteles del aula y pedirle que repase las letras varias veces con el dedo índice.",
           B: "Pedirle que ubique su nombre en alguno de los carteles del aula, lo compare con el texto que escribió e identifique las diferencias.",
@@ -877,7 +879,7 @@ Adaptación`;
       conFrederick({
         numero: 68,
         subprueba: SUB_PED,
-        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el texto \"Frederick\".\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños identifiquen información explícita en este texto?",
+        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el siguiente texto:\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños identifiquen información explícita en este texto?",
         alternativas: {
           A: "\"¿Qué querrá decir 'bayas'?\".",
           B: "\"¿De qué color es la flor llamada 'pervinca'?\".",
@@ -887,7 +889,7 @@ Adaptación`;
       conFrederick({
         numero: 69,
         subprueba: SUB_PED,
-        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el texto \"Frederick\".\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños realicen inferencias sobre el texto?",
+        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el siguiente texto:\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños realicen inferencias sobre el texto?",
         alternativas: {
           A: "\"¿Dónde vivían los ratoncitos?\".",
           B: "\"¿Les gustó esta historia? ¿Por qué?\".",
@@ -897,7 +899,7 @@ Adaptación`;
       conFrederick({
         numero: 70,
         subprueba: SUB_PED,
-        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el texto \"Frederick\".\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños reflexionen sobre el texto?",
+        enunciado: "Todos los días, la docente y los niños del aula de cinco años reservan un momento para leer un texto que los niños elijan. Hoy Sebastián ha elegido el siguiente texto:\n\n¿Cuál de las siguientes preguntas es pertinente para que los niños reflexionen sobre el texto?",
         alternativas: {
           A: "\"¿Qué piensan de lo que hacía Frederick en el cuento?\".",
           B: "\"¿Por qué los ratoncitos aplaudieron a Frederick al final?\".",
@@ -947,7 +949,7 @@ Adaptación`;
       {
         numero: 75,
         subprueba: SUB_PED,
-        enunciado: "En una IE de la costa, la docente del aula de cinco años leerá con los niños un cuento cuyo protagonista es un zorro. En el aula se encuentra Hugo, un niño que proviene de una comunidad andina. Antes de la lectura, la docente les pregunta a los niños qué saben sobre el zorro. Este es el diálogo que se produce a continuación.\n\nHugo: Señorita, en mi pueblo, al zorro le decimos atoq.\nDarío: ¿Atoq?\nHugo: Así le decimos, pues.\nDocente: Darío, atoq es una palabra quechua que quiere decir \"zorro\". El quechua es un idioma que se habla en el pueblo en que nació Hugo.\nDarío: Ah, ya...\nDocente: Continúa, Hugo.\nHugo: El atoq es bueno... Cuando aúlla, entonces habrá buena papa. Pero, si ladra, habrá mala cosecha.\nCarla: Yo pensaba que el zorro era malo...; es que en los cuentos los zorros siempre se comen a las ovejas.\nHugo: ¡Ah, sí! El zorro se come a las ovejas a veces. Pero le decimos al cerro que le diga al zorro que ya no moleste... y el zorro solito se va.\nKaren: ¿Y por qué le dicen al cerro?\nHugo: ¡Porque el atoq es el guardián del cerro! Es bonito... ¡Un zorro que avisa si habrá buenas papas!\nDocente: ¡Qué interesante lo que cuentas, Hugo! ¿Qué piensan ustedes, niños?\nCarla: Claudia: ¡Y que no se come todas las ovejas!\nKaren: ¡Hay que hacer un cuento sobre este zorro!\nDarío: Sííí... ¡Que se llame \"El atoq\"!\n\n¿Cuál de los siguientes enfoques transversales promueve principalmente la docente en esta situación?",
+        enunciado: "En una IE de la costa, la docente del aula de cinco años leerá con los niños un cuento cuyo protagonista es un zorro. En el aula se encuentra Hugo, un niño que proviene de una comunidad andina. Antes de la lectura, la docente les pregunta a los niños qué saben sobre el zorro. Este es el diálogo que se produce a continuación.\n\nHugo: Señorita, en mi pueblo, al zorro le decimos atoq.\nDarío: ¿Atoq?\nHugo: Así le decimos, pues.\nDocente: Darío, atoq es una palabra quechua que quiere decir \"zorro\". El quechua es un idioma que se habla en el pueblo en que nació Hugo.\nDarío: Ah, ya...\nDocente: Continúa, Hugo.\nHugo: El atoq es bueno... Cuando aúlla, entonces habrá buena papa. Pero, si ladra, habrá mala cosecha.\nCarla: Yo pensaba que el zorro era malo...; es que en los cuentos los zorros siempre se comen a las ovejas.\nHugo: ¡Ah, sí! El zorro se come a las ovejas a veces. Pero le decimos al cerro que le diga al zorro que ya no moleste... y el zorro solito se va.\nKaren: ¿Y por qué le dicen al cerro?\nHugo: ¡Porque el atoq es el guardián del cerro! Es bonito... ¡Un zorro que avisa si habrá buenas papas!\nDocente: ¡Qué interesante lo que cuentas, Hugo! ¿Qué piensan ustedes, niños?\nCarla: ¡Y que no se come todas las ovejas!\nKaren: ¡Hay que hacer un cuento sobre este zorro!\nDarío: Sííí... ¡Que se llame \"El atoq\"!\n\n¿Cuál de los siguientes enfoques transversales promueve principalmente la docente en esta situación?",
         alternativas: {
           A: "Enfoque inclusivo o de atención a la diversidad.",
           B: "Enfoque de derechos.",
