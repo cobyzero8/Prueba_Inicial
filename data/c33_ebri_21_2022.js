@@ -15,7 +15,7 @@ const LECTURA_COCO_C33 =
 window.CUADERNILLOS.push({
   id: "C33-EBRI-21-2022",
   codigo: "C33-EBRI-21",
-  etiqueta: "INICIAL 12-2022 (I))",
+  etiqueta: "INICIAL 12-2022 (I)",
   nombre: "Concurso de Ingreso a la CPM 2022 - EBR Nivel Inicial",
   fecha: "Diciembre de 2022",
   claves: {
@@ -396,7 +396,7 @@ window.CUADERNILLOS.push({
       subprueba: SUB_PED_C33,
       textoClave: "COCO_AGUA",
       tituloLectura: "A Coco no le gusta el agua",
-      imagenLectura: "imagenLectura: "./img/coco.png",
+      imagenLectura: "./img/coco.png",
       textoLectura: LECTURA_COCO_C33,
       enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños identifiquen información explícita en este texto?",
       alternativas: {
@@ -410,7 +410,7 @@ window.CUADERNILLOS.push({
       subprueba: SUB_PED_C33,
       textoClave: "COCO_AGUA",
       tituloLectura: "A Coco no le gusta el agua",
-      imagenLectura: "coco.png",
+      imagenLectura: "./img/coco.png",
       textoLectura: LECTURA_COCO_C33,
       enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños realicen inferencias sobre el texto?",
       alternativas: {
@@ -424,7 +424,7 @@ window.CUADERNILLOS.push({
       subprueba: SUB_PED_C33,
       textoClave: "COCO_AGUA",
       tituloLectura: "A Coco no le gusta el agua",
-      imagenLectura: "coco.png",
+      imagenLectura: "./img/coco.png",
       textoLectura: LECTURA_COCO_C33,
       enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños reflexionen sobre el texto?",
       alternativas: {
