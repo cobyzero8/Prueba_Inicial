@@ -23,6 +23,7 @@ let estado = {
 let preguntasActivas = [];
 let ultimaEvaluacion = [];
 let intervaloReloj = null;
+let filtroRevisionActual = "TODAS";
 
 const dom = {
   btnTema: document.getElementById("btn-tema"),
@@ -534,6 +535,25 @@ function construirResolucionTodoEnUnoHTML(cuad, p, marcada, clave) {
   `;
 }
 
+function aplicarEstiloSeleccionPestanas(modoMisErrores) {
+  const estiloActivo =
+    "outline:3px solid #0f766e; outline-offset:2px; box-shadow:0 0 0 3px rgba(15,118,110,0.25); font-weight:700; transform:translateY(-1px);";
+  const estiloInactivo =
+    "outline:none; box-shadow:none; opacity:0.82; transform:none;";
+
+  if (dom.btnMisErrores) {
+    dom.btnMisErrores.classList.toggle("active", Boolean(modoMisErrores));
+    dom.btnMisErrores.setAttribute("aria-pressed", String(Boolean(modoMisErrores)));
+    dom.btnMisErrores.style.cssText = modoMisErrores ? estiloActivo : estiloInactivo;
+  }
+
+  if (dom.btnTodas) {
+    dom.btnTodas.classList.toggle("active", !modoMisErrores);
+    dom.btnTodas.setAttribute("aria-pressed", String(!modoMisErrores));
+    dom.btnTodas.style.cssText = !modoMisErrores ? estiloActivo : estiloInactivo;
+  }
+}
+
 function guardarEstado() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(estado));
 }
@@ -817,6 +837,8 @@ function renderizarPregunta() {
 
     if (marcada === letra) {
       btn.classList.add("selected");
+      btn.style.boxShadow = "0 0 0 2px #0f766e";
+      btn.style.fontWeight = "700";
     }
 
     if (estado.modo === "practica" && marcada && clave) {
@@ -824,7 +846,8 @@ function renderizarPregunta() {
       else if (letra === marcada) btn.classList.add("incorrect");
     }
 
-    btn.innerHTML = `<strong>${letra})</strong> <span>${escaparHTML(p.alternativas[letra])}</span>`;
+    const marcaCheck = marcada === letra ? " ●" : "";
+    btn.innerHTML = `<strong>${letra})</strong> <span>${escaparHTML(p.alternativas[letra])}${marcaCheck}</span>`;
     btn.addEventListener("click", () => {
       const primeraVez = !estado.respuestas[uid];
       estado.respuestas[uid] = letra;
@@ -868,7 +891,12 @@ function renderizarMapa() {
     btn.type = "button";
     btn.className = "map-btn";
     if (estado.respuestas[uid]) btn.classList.add("answered");
-    if (idx === estado.indiceActual) btn.classList.add("active");
+    if (idx === estado.indiceActual) {
+      btn.classList.add("active");
+      btn.style.outline = "2px solid #0f766e";
+      btn.style.outlineOffset = "2px";
+      btn.style.fontWeight = "700";
+    }
     btn.textContent = p.numero;
     btn.addEventListener("click", () => {
       estado.indiceActual = idx;
@@ -881,7 +909,11 @@ function renderizarMapa() {
 
 function actualizarActivoMapa() {
   dom.mapaPreguntas.querySelectorAll(".map-btn").forEach((btn, idx) => {
-    btn.classList.toggle("active", idx === estado.indiceActual);
+    const esActiva = idx === estado.indiceActual;
+    btn.classList.toggle("active", esActiva);
+    btn.style.outline = esActiva ? "2px solid #0f766e" : "";
+    btn.style.outlineOffset = esActiva ? "2px" : "";
+    btn.style.fontWeight = esActiva ? "700" : "";
   });
 }
 
@@ -973,6 +1005,7 @@ function calificarSimulacro() {
     ${tarjetasSub}
   `;
 
+  filtroRevisionActual = "TODAS";
   renderizarRevision(ultimaEvaluacion, false);
 
   dom.quizPanel.classList.add("hidden");
@@ -997,6 +1030,9 @@ function mostrarLecturaDeErrores(falladas) {
 }
 
 function renderizarRevision(evaluadas, modoMisErrores) {
+  filtroRevisionActual = modoMisErrores ? "ERRORES" : "TODAS";
+  aplicarEstiloSeleccionPestanas(modoMisErrores);
+
   const cuad = obtenerCuadernilloSeleccionado();
   const lista = modoMisErrores
     ? evaluadas.filter((x) => x.resultado !== "ok")
@@ -1026,11 +1062,6 @@ function renderizarRevision(evaluadas, modoMisErrores) {
     const icono = resultado === "ok" ? "✅" : esError ? "❌" : "⚪";
     const estadoClase = resultado === "ok" ? "is-ok" : "is-err";
 
-    const textoMarca = marcada
-      ? `${marcada}) ${p.alternativas[marcada] || ""}`
-      : "Sin marcar";
-    const claseMarca = esError ? "marca-caja err" : "marca-caja";
-
     const claveTxt = clave
       ? `${clave}) ${p.alternativas[clave]}`
       : "Pendiente de confirmar";
@@ -1038,16 +1069,38 @@ function renderizarRevision(evaluadas, modoMisErrores) {
     const card = document.createElement("div");
     card.className = `review-card ${estadoClase}`;
 
+    if (!modoMisErrores) {
+      card.innerHTML = `
+        <div class="review-top">
+          <strong>${icono} Pregunta ${p.numero} · <span style="color:var(--muted);">${escaparHTML(p.subprueba)}</span></strong>
+          <span class="badge badge-slate">Respuesta correcta</span>
+        </div>
+        <div class="review-q">${formatearEnunciadoHTML(p.enunciado, p)}</div>
+        <div class="review-meta">
+          <div class="clave-caja">✓ Respuesta correcta: <strong>${escaparHTML(claveTxt)}</strong></div>
+        </div>
+      `;
+      dom.detalleRevision.appendChild(card);
+      return;
+    }
+
     let bloqueReintentoHTML = "";
-    if (modoMisErrores && clave) {
+    if (clave) {
       const botonesHTML = ["A", "B", "C"]
         .map((letra) => {
           let extra = "";
-          if (intentoNuevo) {
-            if (letra === clave) extra = "picked-ok";
-            else if (letra === intentoNuevo) extra = "picked-err";
+          let estiloBtn = "";
+          if (intentoNuevo === letra) {
+            extra = letra === clave ? "picked-ok" : "picked-err";
+            estiloBtn =
+              letra === clave
+                ? "outline:3px solid #15803d; outline-offset:2px; font-weight:700;"
+                : "outline:3px solid #dc2626; outline-offset:2px; font-weight:700;";
+          } else if (intentoNuevo && letra === clave) {
+            extra = "picked-ok";
           }
-          return `<button type="button" class="retry-opt-btn ${extra}" data-uid="${uid}" data-letra="${letra}"><strong>${letra})</strong> ${escaparHTML(p.alternativas[letra])}</button>`;
+          const marcaSel = intentoNuevo === letra ? " ●" : "";
+          return `<button type="button" class="retry-opt-btn ${extra}" style="${estiloBtn}" data-uid="${uid}" data-letra="${letra}"><strong>${letra})</strong> ${escaparHTML(p.alternativas[letra])}${marcaSel}</button>`;
         })
         .join("");
 
@@ -1065,10 +1118,16 @@ function renderizarRevision(evaluadas, modoMisErrores) {
       `;
     }
 
-    const bloqueTodoEnUno =
-      modoMisErrores || esError || esSin
-        ? construirResolucionTodoEnUnoHTML(cuad, p, intentoNuevo || marcada, clave)
-        : "";
+    const textoMarca = marcada
+      ? `${marcada}) ${p.alternativas[marcada] || ""}`
+      : "Sin marcar";
+    const claseMarca = esError ? "marca-caja err" : "marca-caja";
+    const bloqueTodoEnUno = construirResolucionTodoEnUnoHTML(
+      cuad,
+      p,
+      intentoNuevo || marcada,
+      clave
+    );
 
     card.innerHTML = `
       <div class="review-top">
@@ -1127,6 +1186,7 @@ function darOtroExamenDesdeCero() {
 
   preguntasActivas = [];
   ultimaEvaluacion = [];
+  filtroRevisionActual = "TODAS";
 
   guardarEstado();
   actualizarIndicadorRacha();
