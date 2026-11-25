@@ -312,11 +312,13 @@ function formatearLecturaHTML(texto, pregunta = null) {
   return bloques
     .map((bloque) => {
       const trimBloque = bloque.trim();
+      if (!trimBloque) return "";
 
-      if (/^\[IMG(?::[^\]]+)?\]$/i.test(trimBloque)) {
-        const matchTag = trimBloque.match(/^\[IMG:([^\]]+)\]$/i);
-        const rutaBase = matchTag
-          ? matchTag[1].trim()
+      // Si el bloque completo es una etiqueta de imagen ([IMG:archivo.png] o [IMG])
+      const matchSoloImg = trimBloque.match(/^\[IMG(?::([^\]]+))?\]$/i);
+      if (matchSoloImg) {
+        const rutaBase = matchSoloImg[1]
+          ? matchSoloImg[1].trim()
           : pregunta?.imagenLectura || pregunta?.imagen || "coco.png";
         return crearEtiquetaImgConFallback(
           rutaBase,
@@ -348,14 +350,40 @@ function formatearLecturaHTML(texto, pregunta = null) {
           .join("<br>")}</div>`;
       }
 
-      const parrafoHTML = colorearDialogosHTML(
-        lineas.map((l) => escaparHTML(l)).join("<br>")
-      );
-      return `<p>${procesarEtiquetasIMGEnHTML(
-        parrafoHTML,
-        pregunta,
-        "max-width:100%; border-radius:10px; display:block; margin:10px auto;"
-      )}</p>`;
+      // Separa líneas de texto y etiquetas [IMG:...] para no meter <div> dentro de <p>
+      let salida = "";
+      let bufferTexto = [];
+
+      const vaciarTexto = () => {
+        if (!bufferTexto.length) return;
+        const htmlTexto = colorearDialogosHTML(
+          bufferTexto.map((l) => escaparHTML(l)).join("<br>")
+        );
+        salida += `<p>${htmlTexto}</p>`;
+        bufferTexto = [];
+      };
+
+      lineas.forEach((linea) => {
+        const matchLineaImg = linea.match(/^\[IMG(?::([^\]]+))?\]$/i);
+        if (matchLineaImg) {
+          vaciarTexto();
+          const rutaLinea = matchLineaImg[1]
+            ? matchLineaImg[1].trim()
+            : pregunta?.imagenLectura || pregunta?.imagen || "";
+          if (rutaLinea) {
+            salida += crearEtiquetaImgConFallback(
+              rutaLinea,
+              `Ilustración de ${pregunta?.tituloLectura || "la lectura"}`,
+              "max-width:100%; border-radius:10px; display:block; margin:10px auto;"
+            );
+          }
+        } else {
+          bufferTexto.push(linea);
+        }
+      });
+
+      vaciarTexto();
+      return salida;
     })
     .join("");
 }
