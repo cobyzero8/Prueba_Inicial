@@ -577,7 +577,7 @@ window.CUADERNILLOS.push({
       subprueba: SUB_PED_C32,
       tituloLectura: "Situación",
       imagenLectura: "./img/68-2024.png",
-      textoLectura: "En el aula de cinco años, luego del refrigerio, los niños lavan sus tazas y las guardan en un estante que tiene dos niveles. Hoy, María, después de guardar su taza, se queda mirando el estante. Luego de un momento, le dice a la docente: \"Señorita, hay más tazas en la parte de arriba del estante\". Las tazas están ordenadas de la siguiente manera:\n\n[IMG]\n\nPPPPP",
+      textoLectura: "En el aula de cinco años, luego del refrigerio, los niños lavan sus tazas y las guardan en un estante que tiene dos niveles. Hoy, María, después de guardar su taza, se queda mirando el estante. Luego de un momento, le dice a la docente: \"Señorita, hay más tazas en la parte de arriba del estante\". Las tazas están ordenadas de la siguiente manera:\n\n[IMG]\n\n",
       enunciado: "En este contexto, ¿qué fase de la conservación de cantidad evidencia el comentario de María?",
       alternativas: {
         A: "Conservación estable.",
@@ -639,11 +639,18 @@ window.CUADERNILLOS.push({
         C: "Durante las rutinas de entrada, jugar con sonidos lentos y pasar progresivamente a sonidos rápidos, tocando una caja de cartón para que los niños muevan su cuerpo. Luego, preguntar: \"¿Cómo eran los sonidos al inicio?, ¿luego?, ¿y al final?\"."
       }
     },
-    {
+   {
       numero: 74,
       subprueba: SUB_PED_C32,
       tituloLectura: "Situación",
-      textoLectura: "La docente del aula de cinco años ha colocado bloques lógicos y cuerdas en el sector de juegos tranquilos. Durante el juego libre en los sectores, tres niños realizaron diferentes agrupaciones.\n\nAgrupación de Alejandro:\n[IMG:74-2024-1.png]\n\nAgrupación de Beatriz:\n[IMG:74-2024-2.png]\n\nAgrupación de Carlos:\n[IMG:74-2024-3.png]",
+      textoLectura:
+        "La docente del aula de cinco años ha colocado bloques lógicos y cuerdas en el sector de juegos tranquilos. Durante el juego libre en los sectores, tres niños realizaron diferentes agrupaciones.\n\n" +
+        "Agrupación de Alejandro:\n" +
+        "[IMG:74-2024-1.png]\n\n" +
+        "Agrupación de Beatriz:\n" +
+        "[IMG:74-2024-2.png]\n\n" +
+        "Agrupación de Carlos:\n" +
+        "[IMG:74-2024-3.png]",
       enunciado: "¿Cuál de las siguientes agrupaciones que hicieron los niños corresponde al estadío de clases lógicas?",
       alternativas: {
         A: "Agrupación de Alejandro",
