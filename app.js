@@ -126,6 +126,66 @@ function normalizarRutaImg(ruta) {
   return `./${limpia}`;
 }
 
+function construirCandidatosImagen(rutaOriginal) {
+  const limpia = String(rutaOriginal || "")
+    .trim()
+    .replace(/^\.?\//, "")
+    .replace(/^\/?Prueba[_ ]Inicial\//i, "")
+    .replace(/^img\//i, "");
+
+  const sinExt = limpia.replace(/\.(png|jpg|jpeg|webp)$/i, "");
+  const extMatch = limpia.match(/\.(png|jpg|jpeg|webp)$/i);
+  const exts = extMatch
+    ? [extMatch[1].toLowerCase(), "png", "jpg", "jpeg", "webp"]
+    : ["png", "jpg", "jpeg", "webp"];
+  const extsUnicas = Array.from(new Set(exts));
+
+  const candidatos = [];
+  if (rutaOriginal && /^(https?:\/\/|\.\/|\.\.\/)/.test(String(rutaOriginal).trim())) {
+    candidatos.push(String(rutaOriginal).trim());
+  }
+
+  extsUnicas.forEach((ext) => {
+    candidatos.push(`./img/${sinExt}.${ext}`);
+    candidatos.push(`./Prueba_Inicial/img/${sinExt}.${ext}`);
+    candidatos.push(`./Prueba Inicial/img/${sinExt}.${ext}`);
+    candidatos.push(`./${sinExt}.${ext}`);
+  });
+
+  return Array.from(new Set(candidatos));
+}
+
+function crearEtiquetaImgConFallback(rutaOriginal, altTexto, estiloExtra = "") {
+  const candidatos = construirCandidatosImagen(rutaOriginal);
+  if (!candidatos.length) return "";
+  const primero = escaparHTML(candidatos[0]);
+  const restos = escaparHTML(JSON.stringify(candidatos.slice(1)));
+  const alt = escaparHTML(altTexto || "Ilustración");
+  const estilo = estiloExtra ? ` style="${estiloExtra}"` : "";
+
+  return `
+    <div class="question-image-wrap">
+      <img
+        src="${primero}"
+        data-fallbacks="${restos}"
+        data-fb-idx="0"
+        alt="${alt}"
+        loading="lazy"${estilo}
+        onerror="
+          const fallbacks = this.dataset.fallbacks ? JSON.parse(this.dataset.fallbacks) : [];
+          const idx = Number(this.dataset.fbIdx || 0);
+          if (idx < fallbacks.length) {
+            this.dataset.fbIdx = String(idx + 1);
+            this.src = fallbacks[idx];
+          } else {
+            this.closest('.question-image-wrap').classList.add('hidden');
+          }
+        "
+      >
+    </div>
+  `;
+}
+
 function limpiarEtiquetasInternas(htmlStr) {
   return String(htmlStr || "")
     .replace(/&lt;br&gt;/gi, "<br>")
@@ -139,11 +199,11 @@ function limpiarEtiquetasInternas(htmlStr) {
 
 function colorearDialogosHTML(htmlConBrs) {
   const coloresHablante = [
-    "#1d4ed8", // Azul
-    "#0f766e", // Verde azulado
-    "#b45309", // Ámbar / canela
-    "#7e22ce", // Morado
-    "#be123c"  // Rosa / guinda
+    "#1d4ed8",
+    "#0f766e",
+    "#b45309",
+    "#7e22ce",
+    "#be123c"
   ];
   const mapaColores = new Map();
 
@@ -173,15 +233,10 @@ function colorearDialogosHTML(htmlConBrs) {
 
 function crearBloqueImagenHTML(pregunta, altTexto) {
   if (!pregunta || !pregunta.imagen) return "";
-  const ruta = escaparHTML(normalizarRutaImg(pregunta.imagen));
-  const alt = escaparHTML(
+  return crearEtiquetaImgConFallback(
+    pregunta.imagen,
     altTexto || `Esquema de la pregunta ${pregunta.numero}`
   );
-  return `
-    <div class="question-image-wrap">
-      <img src="${ruta}" alt="${alt}" loading="lazy" onerror="this.closest('.question-image-wrap').classList.add('hidden')">
-    </div>
-  `;
 }
 
 function formatearEnunciadoHTML(texto, pregunta = null) {
@@ -230,21 +285,11 @@ function formatearLecturaHTML(texto, pregunta = null) {
 
       if (trimBloque === "[IMG]") {
         const rutaBase = pregunta?.imagenLectura || pregunta?.imagen || "coco.png";
-        const sinExt = rutaBase.replace(/\.(png|jpg|jpeg|webp)$/i, "");
-        const srcPrincipal = escaparHTML(normalizarRutaImg(`${sinExt}.png`));
-        const srcAlternativa = escaparHTML(normalizarRutaImg(`${sinExt}.jpg`));
-        return `
-          <div class="question-image-wrap">
-            <img
-              src="${srcPrincipal}"
-              data-alt-src="${srcAlternativa}"
-              alt="Ilustración de la lectura"
-              loading="lazy"
-              style="max-width:100%; border-radius:10px; display:block; margin:10px auto;"
-              onerror="if (!this.dataset.triedAlt && this.dataset.altSrc) { this.dataset.triedAlt = '1'; this.src = this.dataset.altSrc; } else { this.closest('.question-image-wrap').classList.add('hidden'); }"
-            >
-          </div>
-        `;
+        return crearEtiquetaImgConFallback(
+          rutaBase,
+          `Ilustración de ${pregunta?.tituloLectura || "la lectura"}`,
+          "max-width:100%; border-radius:10px; display:block; margin:10px auto;"
+        );
       }
 
       if (/<div\b[^>]*>[\s\S]*?<img\b[^>]*>[\s\S]*?<\/div>/i.test(trimBloque)) {
