@@ -184,6 +184,20 @@
   </div>
 
   <script>
+    function autocompletarFechasPorDefecto() {
+      const ahora = new Date();
+      const y = ahora.getFullYear();
+      const m = String(ahora.getMonth() + 1).padStart(2, "0");
+      const d = String(ahora.getDate()).padStart(2, "0");
+      const fin = new Date(y, ahora.getMonth() + 2, 0);
+      const fy = fin.getFullYear();
+      const fm = String(fin.getMonth() + 1).padStart(2, "0");
+      const fd = String(fin.getDate()).padStart(2, "0");
+
+      document.getElementById("docInicio").value = `${y}-${m}-${d}T00:00`;
+      document.getElementById("docFin").value = `${fy}-${fm}-${fd}T23:59`;
+    }
+
     async function cargarListaDocentes() {
       const tbody = document.getElementById("listaDocentesBody");
       const { data, error } = await window.supabaseClient
@@ -209,7 +223,7 @@
     document.addEventListener("DOMContentLoaded", async () => {
       const { data: { session } } = await window.supabaseClient.auth.getSession();
       if (!session) {
-        window.location.replace("login.html");
+        window.location.replace("login.html?next=registro_docentes.html");
         return;
       }
 
@@ -221,19 +235,7 @@
       }
 
       document.getElementById("adminContent").style.display = "block";
-
-      const ahora = new Date();
-      const y = ahora.getFullYear();
-      const m = String(ahora.getMonth() + 1).padStart(2, "0");
-      const d = String(ahora.getDate()).padStart(2, "0");
-      const fin = new Date(y, ahora.getMonth() + 2, 0);
-      const fy = fin.getFullYear();
-      const fm = String(fin.getMonth() + 1).padStart(2, "0");
-      const fd = String(fin.getDate()).padStart(2, "0");
-
-      document.getElementById("docInicio").value = `${y}-${m}-${d}T00:00`;
-      document.getElementById("docFin").value = `${fy}-${fm}-${fd}T23:59`;
-
+      autocompletarFechasPorDefecto();
       cargarListaDocentes();
     });
 
@@ -272,6 +274,7 @@
         msgBox.className = "alert alert-ok";
         msgBox.style.display = "block";
         document.getElementById("formNuevoDocente").reset();
+        autocompletarFechasPorDefecto();
         cargarListaDocentes();
       } catch (err) {
         msgBox.textContent = "❌ Error: " + (err.message || err);
