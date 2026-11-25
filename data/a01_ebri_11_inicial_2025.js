@@ -44,7 +44,7 @@ window.CUADERNILLOS.push({
       subprueba: SUB_ASC_A01,
       tituloLectura: "Sugerencia",
       textoLectura: "\"Cuando diseñemos una sesión de aprendizaje, es necesario que los recursos que utilicemos respondan a las características de nuestros estudiantes. De esta manera, podemos ofrecer textos, gráficos o materiales audiovisuales para que ellos puedan aprender sin sentirse limitados por los recursos que usemos\".",
-      enunciado: "Durante una reunión sobre la implementación del diseño universal para el aprendizaje (DUA), el docente a cargo ofrece algunas sugerencias sobre los recursos que se pueden utilizar para acompañar a los estudiantes en el aula. ¿Cuál de los siguientes principios del DUA se evidencia en la sugerencia anterior?",
+      enunciado: "Durante una reunión sobre la implementación del diseño universal para el aprendizaje (DUA), el docente a cargo ofrece algunas sugerencias sobre los recursos que se pueden utilizar para acompañar a los estudiantes en el aula. A continuación, se presenta una de esas sugerencias:\n\n¿Cuál de los siguientes principios del DUA se evidencia en la sugerencia anterior?",
       alternativas: {
         A: "Proporcionar múltiples formas de compromiso.",
         B: "Proporcionar múltiples formas de representación.",
@@ -54,9 +54,9 @@ window.CUADERNILLOS.push({
     {
       numero: 3,
       subprueba: SUB_ASC_A01,
-      tituloLectura: "Propuesta",
+      tituloLectura: "Propuesta de adaptación",
       textoLectura: "\"Para que los estudiantes con discapacidad física puedan disfrutar de los juegos en el patio, es necesario dar un mantenimiento periódico a las rampas. Además, es esencial que los juegos que tienen asientos puedan contar con suficientes elementos de seguridad. Así también, sería oportuno acondicionar en el patio algunas zonas de descanso\".",
-      enunciado: "En una IE de EBR, se realiza una charla sobre la atención a las personas en condición de discapacidad. Dado que en la escuela hay estudiantes que presentan discapacidades físicas, el docente facilitador sugiere realizar algunas adaptaciones en el patio de la IE. Tres docentes comparten sus ideas sobre la propuesta. ¿Cuál de los siguientes comentarios de los docentes se alinea al enfoque inclusivo?",
+      enunciado: "En una IE de EBR, se realiza una charla sobre la atención a las personas en condición de discapacidad. Dado que en la escuela hay estudiantes que presentan discapacidades físicas, el docente facilitador sugiere realizar algunas adaptaciones en el patio de la IE. A continuación, se presenta una de las propuestas de adaptación compartida por el docente facilitador:\n\nTres docentes comparten sus ideas sobre la propuesta. ¿Cuál de los siguientes comentarios de los docentes se alinea al enfoque inclusivo?",
       alternativas: {
         A: "\"Considero que, con la propuesta, se está priorizando el cuidado de los estudiantes que tienen discapacidad física. Al implementarla, estaremos ayudando a prevenir accidentes en el patio mientras dichos estudiantes disfrutan de los juegos\".",
         B: "\"Creo que la propuesta favorecerá la integración de los estudiantes. Me refiero a que será más fácil que aquellos que tienen discapacidad física reciban apoyo de sus compañeros para movilizarse en el patio, de modo que todos disfruten de los juegos\".",
@@ -253,7 +253,7 @@ window.CUADERNILLOS.push({
         C: "Salir con los niños al patio, pedirles que se queden quietos para que observen la sombra que proyectan sus cuerpos. Luego, pedirles que corran por el patio, se detengan y observen nuevamente las sombras que hacen sus cuerpos con la luz del sol."
       }
     },
-    {
+   {
       numero: 20,
       subprueba: SUB_ASC_A01,
       tituloLectura: "Situación",
@@ -658,9 +658,10 @@ window.CUADERNILLOS.push({
       numero: 47,
       subprueba: SUB_ASC_A01,
       tituloLectura: "Situación",
+      imagenLectura: "./img/47-2025.png",
       textoLectura:
         "Los niños del aula de cinco años observan con interés, cuando la docente escribe el nombre de cada uno, en su respectiva hoja de trabajo. La docente, al ver dicho interés, ha acordado con ellos que quién desee, podrá escribir su nombre.\n\n" +
-        "A continuación, se presentan los escritos de tres niños, que escribieron su nombre:\n\n" +
+        "A continuación, se presentan los escritos de tres niños que escribieron su nombre:\n\n" +
         "[IMG:47-2025.png]",
       enunciado: "En el marco de las investigaciones de Emilia Ferreiro y Ana Teberosky, ¿cuál de los escritos de los niños corresponde al nivel silábico-alfabético?",
       alternativas: {
