@@ -1014,17 +1014,7 @@ function calificarSimulacro() {
 }
 
 function mostrarLecturaDeErrores(falladas) {
-  const primeraConTexto = falladas.find((x) => x.p && x.p.textoLectura);
-  if (primeraConTexto) {
-    dom.erroresLecturaTitulo.textContent = `📖 ${
-      primeraConTexto.p.tituloLectura || "Texto de lectura"
-    } (texto de apoyo para tus errores)`;
-    dom.erroresLecturaCuerpo.innerHTML = formatearLecturaHTML(
-      primeraConTexto.p.textoLectura,
-      primeraConTexto.p
-    );
-    dom.erroresLecturaBox.classList.remove("hidden");
-  } else {
+  if (dom.erroresLecturaBox) {
     dom.erroresLecturaBox.classList.add("hidden");
   }
 }
@@ -1043,7 +1033,9 @@ function renderizarRevision(evaluadas, modoMisErrores) {
     mostrarLecturaDeErrores(lista);
   } else {
     dom.resultadosTitulo.textContent = "Balance de tu Sesión";
-    dom.erroresLecturaBox.classList.add("hidden");
+    if (dom.erroresLecturaBox) {
+      dom.erroresLecturaBox.classList.add("hidden");
+    }
   }
 
   dom.detalleRevision.innerHTML = lista.length
@@ -1066,6 +1058,15 @@ function renderizarRevision(evaluadas, modoMisErrores) {
       ? `${clave}) ${p.alternativas[clave]}`
       : "Pendiente de confirmar";
 
+    const lecturaCardHTML = p.textoLectura
+      ? `
+        <div class="context-box" style="margin:10px 0;">
+          <div class="context-title">📖 ${escaparHTML(p.tituloLectura || "Texto de lectura")}</div>
+          <div class="context-body">${formatearLecturaHTML(p.textoLectura, p)}</div>
+        </div>
+      `
+      : "";
+
     const card = document.createElement("div");
     card.className = `review-card ${estadoClase}`;
 
@@ -1076,6 +1077,7 @@ function renderizarRevision(evaluadas, modoMisErrores) {
           <span class="badge badge-slate">Respuesta correcta</span>
         </div>
         <div class="review-q">${formatearEnunciadoHTML(p.enunciado, p)}</div>
+        ${lecturaCardHTML}
         <div class="review-meta">
           <div class="clave-caja">✓ Respuesta correcta: <strong>${escaparHTML(claveTxt)}</strong></div>
         </div>
@@ -1137,6 +1139,7 @@ function renderizarRevision(evaluadas, modoMisErrores) {
         }</span>
       </div>
       <div class="review-q">${formatearEnunciadoHTML(p.enunciado, p)}</div>
+      ${lecturaCardHTML}
       ${bloqueReintentoHTML}
       <div class="review-meta">
         <div class="${claseMarca}">Tu respuesta anterior: <strong>${escaparHTML(textoMarca)}</strong></div>
