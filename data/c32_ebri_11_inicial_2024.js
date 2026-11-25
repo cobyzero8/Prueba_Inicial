@@ -1,4 +1,3 @@
-
 window.CUADERNILLOS = window.CUADERNILLOS || [];
 
 const SUB_PED_C32 = "Conocimientos Pedagógicos, Curriculares y Disciplinares de la Especialidad";
@@ -549,12 +548,12 @@ window.CUADERNILLOS.push({
       tituloLectura: "Situación",
       textoLectura:
         "Sergio, de cinco años, en el momento del refrigerio saca las galletas que le preparó su mamá y las coloca sobre su individual de manera dispersa. Luego, llama a la docente para mostrarle lo realizado y le dice: \"Señorita, mira cómo cuento mis galletas\", tal como se presenta a continuación:\n\n" +
-        "[IMG:./img/66-2024-1.png]\n\n" +
+        "[IMG:66-2024-1.png]\n\n" +
         "El niño cuenta cada galleta mientras menciona los números: \"Uno, dos, tres, cuatro y cinco\".\n\n" +
-        "[IMG:./img/66-2024-2.png]\n\n" +
+        "[IMG:66-2024-2.png]\n\n" +
         "Luego, vuelve a contar diciendo: \"Uno, dos, tres...\".\n\n" +
         "Se detiene a observar las galletas y dice: \"Un momento, así no tengo que contar\".\n\n" +
-        "[IMG:./img/66-2024-1.png]\n\n" +
+        "[IMG:66-2024-1.png]\n\n" +
         "Finalmente, el niño cuenta señalando cada galleta y dice: \"Uno, dos, tres, cuatro y cinco\".",
       enunciado: "¿Qué principio del conteo evidencia haber alcanzado Sergio en esta situación?",
       alternativas: {
@@ -578,7 +577,7 @@ window.CUADERNILLOS.push({
       subprueba: SUB_PED_C32,
       tituloLectura: "Situación",
       imagenLectura: "./img/68-2024.png",
-      textoLectura: "En el aula de cinco años, luego del refrigerio, los niños lavan sus tazas y las guardan en un estante que tiene dos niveles. Hoy, María, después de guardar su taza, se queda mirando el estante. Luego de un momento, le dice a la docente: \"Señorita, hay más tazas en la parte de arriba del estante\". Las tazas están ordenadas de la siguiente manera:\n\n[IMG]\n\n",
+      textoLectura: "En el aula de cinco años, luego del refrigerio, los niños lavan sus tazas y las guardan en un estante que tiene dos niveles. Hoy, María, después de guardar su taza, se queda mirando el estante. Luego de un momento, le dice a la docente: \"Señorita, hay más tazas en la parte de arriba del estante\". Las tazas están ordenadas de la siguiente manera:\n\n[IMG]\n\nPPPPP",
       enunciado: "En este contexto, ¿qué fase de la conservación de cantidad evidencia el comentario de María?",
       alternativas: {
         A: "Conservación estable.",
@@ -640,7 +639,7 @@ window.CUADERNILLOS.push({
         C: "Durante las rutinas de entrada, jugar con sonidos lentos y pasar progresivamente a sonidos rápidos, tocando una caja de cartón para que los niños muevan su cuerpo. Luego, preguntar: \"¿Cómo eran los sonidos al inicio?, ¿luego?, ¿y al final?\"."
       }
     },
-   {
+    {
       numero: 74,
       subprueba: SUB_PED_C32,
       tituloLectura: "Situación",
