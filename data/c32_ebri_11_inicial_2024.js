@@ -13,6 +13,7 @@ const SIT_VECINOS_30_31 =
 
 const SIT_HERMANOS_40_41 =
   "Algunos niños de cinco años tienen hermanos en el aula de tres años. En el patio, la docente del aula de cinco años observa que a los niños de su aula les gusta jugar y enseñarles lo que van aprendiendo a los niños del aula de tres años. Ante este interés, en asamblea, la docente recoge ideas de actividades que les gustaría realizar con los niños menores.";
+
 const POEMA_VACA_44_47 =
   "La vaca estudiosa\n\n" +
   "Había una vez una vaca,\n" +
@@ -111,7 +112,6 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      {
       numero: 30,
       subprueba: SUB_PED_C32,
       tituloLectura: "Situación",
@@ -232,7 +232,6 @@ window.CUADERNILLOS.push({
       }
     },
     {
-      {
       numero: 40,
       subprueba: SUB_PED_C32,
       tituloLectura: "Situación",
@@ -636,7 +635,7 @@ window.CUADERNILLOS.push({
       numero: 74,
       subprueba: SUB_PED_C32,
       tituloLectura: "Situación",
-      textoLectura: "La docente del aula de cinco años ha colocado bloques lógicos y cuerdas en el sector de juegos tranquilos. Durante el juego libre en los sectores, tres niños realizaron diferentes agrupaciones.\n\nAgrupación de Alejandro:\n[IMG:./img/74-2024-1.png]\n\nAgrupación de Beatriz:\n[IMG:./img/74-2024-2.png]\n\nAgrupación de Carlos:\n[IMG:./img/74-2024-3.png]",
+      textoLectura: "La docente del aula de cinco años ha colocado bloques lógicos y cuerdas en el sector de juegos tranquilos. Durante el juego libre en los sectores, tres niños realizaron diferentes agrupaciones.\n\nAgrupación de Alejandro:\n[IMG:74-2024-1.png]\n\nAgrupación de Beatriz:\n[IMG:74-2024-2.png]\n\nAgrupación de Carlos:\n[IMG:74-2024-3.png]",
       enunciado: "¿Cuál de las siguientes agrupaciones que hicieron los niños corresponde al estadío de clases lógicas?",
       alternativas: {
         A: "Agrupación de Alejandro",
