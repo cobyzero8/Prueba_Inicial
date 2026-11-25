@@ -240,6 +240,36 @@ function crearBloqueImagenHTML(pregunta, altTexto) {
   );
 }
 
+function procesarEtiquetasIMGEnHTML(htmlStr, pregunta = null, estiloExtra = "") {
+  let out = String(htmlStr || "");
+  const imgPorDefecto = pregunta?.imagenLectura || pregunta?.imagen || "";
+
+  out = out.replace(
+    /(?:<br>)*\[IMG:([^\]]+)\](?:<br>)*/gi,
+    (_, rutaTag) => {
+      const rutaLimpia = String(rutaTag || "").trim();
+      return crearEtiquetaImgConFallback(
+        rutaLimpia,
+        `Esquema de la pregunta ${pregunta?.numero || ""}`,
+        estiloExtra
+      );
+    }
+  );
+
+  if (/\[IMG\]/i.test(out)) {
+    const imgHTML = imgPorDefecto
+      ? crearEtiquetaImgConFallback(
+          imgPorDefecto,
+          `Esquema de la pregunta ${pregunta?.numero || ""}`,
+          estiloExtra
+        )
+      : "";
+    out = out.replace(/(?:<br>)*\[IMG\](?:<br>)*/gi, imgHTML);
+  }
+
+  return out;
+}
+
 function formatearEnunciadoHTML(texto, pregunta = null) {
   let html = escaparHTML(texto);
 
@@ -264,11 +294,10 @@ function formatearEnunciadoHTML(texto, pregunta = null) {
 
   html = html.replace(/\n\n/g, "<br><br>").replace(/\n/g, "<br>");
 
-  const imgHTML = pregunta ? crearBloqueImagenHTML(pregunta) : "";
-  if (/\[IMG\]/.test(html)) {
-    html = html.replace(/(?:<br>)*\[IMG\](?:<br>)*/g, imgHTML);
-  } else if (imgHTML) {
-    html += imgHTML;
+  if (/\[IMG(?::[^\]]+)?\]/i.test(html)) {
+    html = procesarEtiquetasIMGEnHTML(html, pregunta, "");
+  } else if (pregunta && pregunta.imagen) {
+    html += crearBloqueImagenHTML(pregunta);
   }
 
   html = colorearDialogosHTML(html);
@@ -284,8 +313,11 @@ function formatearLecturaHTML(texto, pregunta = null) {
     .map((bloque) => {
       const trimBloque = bloque.trim();
 
-      if (trimBloque === "[IMG]") {
-        const rutaBase = pregunta?.imagenLectura || pregunta?.imagen || "coco.png";
+      if (/^\[IMG(?::[^\]]+)?\]$/i.test(trimBloque)) {
+        const matchTag = trimBloque.match(/^\[IMG:([^\]]+)\]$/i);
+        const rutaBase = matchTag
+          ? matchTag[1].trim()
+          : pregunta?.imagenLectura || pregunta?.imagen || "coco.png";
         return crearEtiquetaImgConFallback(
           rutaBase,
           `Ilustración de ${pregunta?.tituloLectura || "la lectura"}`,
@@ -316,8 +348,13 @@ function formatearLecturaHTML(texto, pregunta = null) {
           .join("<br>")}</div>`;
       }
 
-      return `<p>${colorearDialogosHTML(
+      const parrafoHTML = colorearDialogosHTML(
         lineas.map((l) => escaparHTML(l)).join("<br>")
+      );
+      return `<p>${procesarEtiquetasIMGEnHTML(
+        parrafoHTML,
+        pregunta,
+        "max-width:100%; border-radius:10px; display:block; margin:10px auto;"
       )}</p>`;
     })
     .join("");
