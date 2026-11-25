@@ -118,15 +118,12 @@ function normalizarRutaImg(ruta) {
     r.startsWith("http://") ||
     r.startsWith("https://") ||
     r.startsWith("./") ||
-    r.startsWith("../") ||
-    r.startsWith("/Prueba_Inicial/")
+    r.startsWith("../")
   ) {
     return r;
   }
-  if (r.startsWith("/")) {
-    return `/Prueba_Inicial${r}`;
-  }
-  return `./${r}`;
+  const limpia = r.replace(/^\/?Prueba[_ ]Inicial\//i, "").replace(/^\/+/, "");
+  return `./${limpia}`;
 }
 
 function limpiarEtiquetasInternas(htmlStr) {
