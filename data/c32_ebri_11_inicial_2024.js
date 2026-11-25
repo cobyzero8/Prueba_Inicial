@@ -577,7 +577,7 @@ window.CUADERNILLOS.push({
       subprueba: SUB_PED_C32,
       tituloLectura: "Situación",
       imagenLectura: "./img/68-2024.png",
-      textoLectura: "En el aula de cinco años, luego del refrigerio, los niños lavan sus tazas y las guardan en un estante que tiene dos niveles. Hoy, María, después de guardar su taza, se queda mirando el estante. Luego de un momento, le dice a la docente: \"Señorita, hay más tazas en la parte de arriba del estante\". Las tazas están ordenadas de la siguiente manera:\n\n[IMG]\n\nPPPPP",
+      textoLectura: "En el aula de cinco años, luego del refrigerio, los niños lavan sus tazas y las guardan en un estante que tiene dos niveles. Hoy, María, después de guardar su taza, se queda mirando el estante. Luego de un momento, le dice a la docente: \"Señorita, hay más tazas en la parte de arriba del estante\". Las tazas están ordenadas de la siguiente manera:\n\n[IMG]\n\n",
       enunciado: "En este contexto, ¿qué fase de la conservación de cantidad evidencia el comentario de María?",
       alternativas: {
         A: "Conservación estable.",
