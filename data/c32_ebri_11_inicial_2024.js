@@ -13,7 +13,6 @@ const SIT_VECINOS_30_31 =
 
 const SIT_HERMANOS_40_41 =
   "Algunos niños de cinco años tienen hermanos en el aula de tres años. En el patio, la docente del aula de cinco años observa que a los niños de su aula les gusta jugar y enseñarles lo que van aprendiendo a los niños del aula de tres años. Ante este interés, en asamblea, la docente recoge ideas de actividades que les gustaría realizar con los niños menores.";
-
 const POEMA_VACA_44_47 =
   "La vaca estudiosa\n\n" +
   "Había una vez una vaca,\n" +
@@ -112,6 +111,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
+      {
       numero: 30,
       subprueba: SUB_PED_C32,
       tituloLectura: "Situación",
@@ -232,6 +232,7 @@ window.CUADERNILLOS.push({
       }
     },
     {
+      {
       numero: 40,
       subprueba: SUB_PED_C32,
       tituloLectura: "Situación",
