@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Docentes - Panel Administrador</title>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 20px;
+    }
+    .panel {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #0f172a 0%, #0f766e 100%);
+      color: #ffffff;
+      padding: 18px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .top-bar h1 { margin: 0; font-size: 19px; }
+    .top-actions { display: flex; gap: 10px; }
+    .btn-nav {
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: none;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-light { background: #ffffff; color: #0f172a; }
+    .btn-danger { background: #dc2626; color: #ffffff; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #334155;
+      margin-bottom: 5px;
+    }
+    .field input, .field select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .btn-save {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #0f766e;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-save:hover { background: #115e59; }
+    .alert {
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .alert-ok { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .alert-err { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      font-size: 13px;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    th { background: #f8fafc; font-weight: 700; color: #334155; }
+    .badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+  </style>
+</head>
+<body>
+  <div id="adminContent" class="panel" style="display:none;">
+    <div class="top-bar">
+      <h1>👩‍🏫 Gestión de Docentes / Usuarios</h1>
+      <div class="top-actions">
+        <a href="index.html" class="btn-nav btn-light">Ir a index.html</a>
+        <button type="button" onclick="cerrarSesionDocente()" class="btn-nav btn-danger">Salir</button>
+      </div>
+    </div>
+
+    <div id="msgBox" class="alert"></div>
+
+    <form id="formNuevoDocente">
+      <div class="grid-2">
+        <div class="field">
+          <label for="docNombre">Nombre del docente</label>
+          <input type="text" id="docNombre" placeholder="Ej. María Quispe Flores" required>
+        </div>
+        <div class="field">
+          <label for="docEmail">Correo / Usuario</label>
+          <input type="email" id="docEmail" placeholder="docente1@ejemplo.com" required>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="docPassword">Contraseña inicial</label>
+          <input type="password" id="docPassword" placeholder="Mínimo 6 caracteres" minlength="6" required>
+        </div>
+        <div class="field">
+          <label for="docRol">Rol</label>
+          <select id="docRol">
+            <option value="docente" selected>Docente (acceso con vigencia)</option>
+            <option value="admin">Administrador (acceso total)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="docInicio">Inicio de acceso</label>
+          <input type="datetime-local" id="docInicio" required>
+        </div>
+        <div class="field">
+          <label for="docFin">Fin de acceso</label>
+          <input type="datetime-local" id="docFin" required>
+        </div>
+      </div>
+
+      <button type="submit" id="btnCrearDocente" class="btn-save">+ Registrar docente y habilitar acceso</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Rol</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody id="listaDocentesBody">
+        <tr><td colspan="4">Cargando usuarios...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    async function cargarListaDocentes() {
+      const tbody = document.getElementById("listaDocentesBody");
+      const { data, error } = await window.supabaseClient
+        .from("perfiles")
+        .select("nombre, email, rol, activo")
+        .order("email", { ascending: true });
+
+      if (error || !data) {
+        tbody.innerHTML = `<tr><td colspan="4">No se pudo cargar la lista (${error?.message || "revisa RLS"}).</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = data.map((u) => `
+        <tr>
+          <td>${u.nombre || "-"}</td>
+          <td>${u.email || "-"}</td>
+          <td><span class="badge">${u.rol || "docente"}</span></td>
+          <td>${u.activo === false ? "Inactivo" : "Activo"}</td>
+        </tr>
+      `).join("");
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const { data: { session } } = await window.supabaseClient.auth.getSession();
+      if (!session) {
+        window.location.replace("login.html");
+        return;
+      }
+
+      const check = await verificarVigenciaDocente(session.user.id);
+      if (!check.valido || (check.rol !== "admin" && check.rol !== "administrador")) {
+        alert("Solo el administrador puede agregar o gestionar docentes.");
+        window.location.replace("index.html");
+        return;
+      }
+
+      document.getElementById("adminContent").style.display = "block";
+
+      const ahora = new Date();
+      const y = ahora.getFullYear();
+      const m = String(ahora.getMonth() + 1).padStart(2, "0");
+      const d = String(ahora.getDate()).padStart(2, "0");
+      const fin = new Date(y, ahora.getMonth() + 2, 0);
+      const fy = fin.getFullYear();
+      const fm = String(fin.getMonth() + 1).padStart(2, "0");
+      const fd = String(fin.getDate()).padStart(2, "0");
+
+      document.getElementById("docInicio").value = `${y}-${m}-${d}T00:00`;
+      document.getElementById("docFin").value = `${fy}-${fm}-${fd}T23:59`;
+
+      cargarListaDocentes();
+    });
+
+    document.getElementById("formNuevoDocente").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const msgBox = document.getElementById("msgBox");
+      const btn = document.getElementById("btnCrearDocente");
+      msgBox.style.display = "none";
+      btn.disabled = true;
+
+      try {
+        const nombre = document.getElementById("docNombre").value.trim();
+        const email = document.getElementById("docEmail").value.trim();
+        const password = document.getElementById("docPassword").value;
+        const rol = document.getElementById("docRol").value;
+        const inicio = new Date(document.getElementById("docInicio").value).toISOString();
+        const fin = new Date(document.getElementById("docFin").value).toISOString();
+
+        const nuevoId = await crearUsuarioAuthSinCerrarAdmin(email, password);
+
+        const { error: perfilErr } = await window.supabaseClient
+          .from("perfiles")
+          .insert([{
+            id: nuevoId,
+            email,
+            nombre,
+            rol,
+            fecha_inicio: inicio,
+            fecha_fin: fin,
+            activo: true
+          }]);
+
+        if (perfilErr) throw perfilErr;
+
+        msgBox.textContent = `✅ Docente "${nombre}" registrado correctamente.`;
+        msgBox.className = "alert alert-ok";
+        msgBox.style.display = "block";
+        document.getElementById("formNuevoDocente").reset();
+        cargarListaDocentes();
+      } catch (err) {
+        msgBox.textContent = "❌ Error: " + (err.message || err);
+        msgBox.className = "alert alert-err";
+        msgBox.style.display = "block";
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
