@@ -547,7 +547,7 @@ window.CUADERNILLOS.push({
       numero: 66,
       subprueba: SUB_PED_C32,
       tituloLectura: "Situación",
-      textoLectura: "Sergio, de cinco años, en el momento del refrigerio saca las galletas que le preparó su mamá y las coloca sobre su individual de manera dispersa. Luego, llama a la docente para mostrarle lo realizado y le dice: \"Señorita, mira cómo cuento mis galletas\", tal como se presenta a continuación:\n\n[IMG:./img/66-2024-1.png]\nEl niño cuenta cada galleta mientras menciona los números: \"Uno, dos, tres, cuatro y cinco\".\n\n[IMG:./img/66-2024-2.png]\nLuego, vuelve a contar diciendo: \"Uno, dos, tres...\".\n\nSe detiene a observar las galletas y dice: \"Un momento, así no tengo que contar\".\n\n[IMG:./img/66-2024-1.png]\nFinalmente, el niño cuenta señalando cada galleta y dice: \"Uno, dos, tres, cuatro y cinco\".",
+      textoLectura: "Sergio, de cinco años, en el momento del refrigerio saca las galletas que le preparó su mamá y las coloca sobre su individual de manera dispersa. Luego, llama a la docente para mostrarle lo realizado y le dice: \"Señorita, mira cómo cuento mis galletas\", tal como se presenta a continuación:\n\n[IMG:66-2024-1.png]\nEl niño cuenta cada galleta mientras menciona los números: \"Uno, dos, tres, cuatro y cinco\".\n\n[IMG:66-2024-2.png]\nLuego, vuelve a contar diciendo: \"Uno, dos, tres...\".\n\nSe detiene a observar las galletas y dice: \"Un momento, así no tengo que contar\".\n\n[IMG:66-2024-1.png]\nFinalmente, el niño cuenta señalando cada galleta y dice: \"Uno, dos, tres, cuatro y cinco\".",
       enunciado: "¿Qué principio del conteo evidencia haber alcanzado Sergio en esta situación?",
       alternativas: {
         A: "Orden estable.",
