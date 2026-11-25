@@ -117,6 +117,8 @@ function normalizarRutaImg(ruta) {
   if (
     r.startsWith("http://") ||
     r.startsWith("https://") ||
+    r.startsWith("./") ||
+    r.startsWith("../") ||
     r.startsWith("/Prueba_Inicial/")
   ) {
     return r;
@@ -124,7 +126,7 @@ function normalizarRutaImg(ruta) {
   if (r.startsWith("/")) {
     return `/Prueba_Inicial${r}`;
   }
-  return `/Prueba_Inicial/${r.replace(/^\.\//, "")}`;
+  return `./${r}`;
 }
 
 function limpiarEtiquetasInternas(htmlStr) {
@@ -230,11 +232,20 @@ function formatearLecturaHTML(texto, pregunta = null) {
       const trimBloque = bloque.trim();
 
       if (trimBloque === "[IMG]") {
-        const ruta = pregunta?.imagenLectura || pregunta?.imagen;
-        if (!ruta) return "";
+        const rutaBase = pregunta?.imagenLectura || pregunta?.imagen || "coco.png";
+        const sinExt = rutaBase.replace(/\.(png|jpg|jpeg|webp)$/i, "");
+        const srcPrincipal = escaparHTML(normalizarRutaImg(`${sinExt}.png`));
+        const srcAlternativa = escaparHTML(normalizarRutaImg(`${sinExt}.jpg`));
         return `
           <div class="question-image-wrap">
-            <img src="${escaparHTML(normalizarRutaImg(ruta))}" alt="Ilustración de la lectura" loading="lazy" onerror="this.closest('.question-image-wrap').classList.add('hidden')">
+            <img
+              src="${srcPrincipal}"
+              data-alt-src="${srcAlternativa}"
+              alt="Ilustración de la lectura"
+              loading="lazy"
+              style="max-width:100%; border-radius:10px; display:block; margin:10px auto;"
+              onerror="if (!this.dataset.triedAlt && this.dataset.altSrc) { this.dataset.triedAlt = '1'; this.src = this.dataset.altSrc; } else { this.closest('.question-image-wrap').classList.add('hidden'); }"
+            >
           </div>
         `;
       }
