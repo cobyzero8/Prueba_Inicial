@@ -1051,8 +1051,9 @@ function renderizarRevision(evaluadas, modoMisErrores) {
     const intentoNuevo = estado.reintentos[uid] || null;
     const esError = resultado === "err";
     const esSin = resultado === "sin";
-    const icono = resultado === "ok" ? "✅" : esError ? "❌" : "⚪";
-    const estadoClase = resultado === "ok" ? "is-ok" : "is-err";
+    const esAcierto = resultado === "ok";
+    const icono = esAcierto ? "✅" : esError ? "❌" : "⚪";
+    const estadoClase = esAcierto ? "is-ok" : "is-err";
 
     const claveTxt = clave
       ? `${clave}) ${p.alternativas[clave]}`
@@ -1071,14 +1072,29 @@ function renderizarRevision(evaluadas, modoMisErrores) {
     card.className = `review-card ${estadoClase}`;
 
     if (!modoMisErrores) {
+      const textoMarcaTodas = marcada
+        ? `${marcada}) ${p.alternativas[marcada] || ""}`
+        : "Sin marcar";
+
+      const cajaMarcadaTodas = esAcierto
+        ? ""
+        : `<div class="marca-caja err">Tu respuesta marcada: <strong>${escaparHTML(textoMarcaTodas)}</strong></div>`;
+
+      const etiquetaEstadoTodas = esAcierto
+        ? "Acierto"
+        : esError
+        ? "Fallaste"
+        : "Sin responder";
+
       card.innerHTML = `
         <div class="review-top">
           <strong>${icono} Pregunta ${p.numero} · <span style="color:var(--muted);">${escaparHTML(p.subprueba)}</span></strong>
-          <span class="badge badge-slate">Respuesta correcta</span>
+          <span class="badge badge-slate">${etiquetaEstadoTodas}</span>
         </div>
         <div class="review-q">${formatearEnunciadoHTML(p.enunciado, p)}</div>
         ${lecturaCardHTML}
         <div class="review-meta">
+          ${cajaMarcadaTodas}
           <div class="clave-caja">✓ Respuesta correcta: <strong>${escaparHTML(claveTxt)}</strong></div>
         </div>
       `;
