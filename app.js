@@ -314,7 +314,6 @@ function formatearLecturaHTML(texto, pregunta = null) {
       const trimBloque = bloque.trim();
       if (!trimBloque) return "";
 
-      // Si el bloque completo es una etiqueta de imagen ([IMG:archivo.png] o [IMG])
       const matchSoloImg = trimBloque.match(/^\[IMG(?::([^\]]+))?\]$/i);
       if (matchSoloImg) {
         const rutaBase = matchSoloImg[1]
@@ -350,7 +349,6 @@ function formatearLecturaHTML(texto, pregunta = null) {
           .join("<br>")}</div>`;
       }
 
-      // Separa líneas de texto y etiquetas [IMG:...] para no meter <div> dentro de <p>
       let salida = "";
       let bufferTexto = [];
 
