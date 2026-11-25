@@ -54,6 +54,11 @@
       letter-spacing: 0.3px;
       margin-bottom: 14px;
     }
+    .brand-badge.is-admin-mode {
+      background: #fffbeb;
+      color: #b45309;
+      border-color: #fde68a;
+    }
     h1 {
       margin: 0 0 6px;
       font-size: 24px;
@@ -109,6 +114,8 @@
     .btn-login:hover { background: var(--primary-hover); }
     .btn-login:active { transform: scale(0.99); }
     .btn-login:disabled { opacity: 0.65; cursor: not-allowed; }
+    .btn-login.admin-btn { background: #b45309; }
+    .btn-login.admin-btn:hover { background: #92400e; }
     .alert-error {
       background: #fef2f2;
       color: #b91c1c;
@@ -129,20 +136,24 @@
       gap: 10px;
       font-size: 13px;
     }
-    .link-admin {
+    .btn-link-admin {
+      background: none;
+      border: none;
+      padding: 0;
       color: var(--accent);
       font-weight: 700;
-      text-decoration: none;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: underline;
     }
-    .link-admin:hover { text-decoration: underline; }
     .hint-text { color: var(--muted); font-size: 12px; }
   </style>
 </head>
 <body>
   <main class="login-card">
-    <div class="brand-badge">🎓 PLATAFORMA DOCENTE · EBR</div>
-    <h1>Iniciar sesión</h1>
-    <p class="subtitle">Ingresa con tu usuario y contraseña asignados para acceder a los simulacros en <strong>index.html</strong>.</p>
+    <div id="brandBadge" class="brand-badge">🎓 PLATAFORMA DOCENTE · EBR</div>
+    <h1 id="loginTitulo">Iniciar sesión</h1>
+    <p id="loginSubtitulo" class="subtitle">Ingresa con tu usuario y contraseña asignados para acceder a los simulacros en <strong>index.html</strong>.</p>
 
     <div id="loginError" class="alert-error"></div>
 
@@ -161,12 +172,47 @@
     </form>
 
     <div class="footer-actions">
-      <span class="hint-text">¿Acceso vencido? Consulta al administrador.</span>
-      <a href="registro_docentes.html" class="link-admin">+ Gestionar docentes</a>
+      <span id="hintFooter" class="hint-text">¿Eres administrador?</span>
+      <button type="button" id="btnModoGestion" class="btn-link-admin">+ Gestionar docentes</button>
     </div>
   </main>
 
   <script>
+    let irAGestion = false;
+
+    function activarModoGestion(activar) {
+      irAGestion = Boolean(activar);
+      const badge = document.getElementById("brandBadge");
+      const titulo = document.getElementById("loginTitulo");
+      const sub = document.getElementById("loginSubtitulo");
+      const btn = document.getElementById("btnEntrar");
+      const toggle = document.getElementById("btnModoGestion");
+      const hint = document.getElementById("hintFooter");
+      const err = document.getElementById("loginError");
+      err.style.display = "none";
+
+      if (irAGestion) {
+        badge.textContent = "🔐 MODO ADMINISTRADOR";
+        badge.classList.add("is-admin-mode");
+        titulo.textContent = "Acceso a Gestión";
+        sub.innerHTML = "Ingresa tu correo y contraseña de <strong>Administrador</strong> para abrir <strong>registro_docentes.html</strong>.";
+        btn.textContent = "Entrar a Gestión de Docentes →";
+        btn.classList.add("admin-btn");
+        hint.textContent = "¿Entrar como docente?";
+        toggle.textContent = "← Volver a ingreso normal";
+        document.getElementById("usuarioEmail").focus();
+      } else {
+        badge.textContent = "🎓 PLATAFORMA DOCENTE · EBR";
+        badge.classList.remove("is-admin-mode");
+        titulo.textContent = "Iniciar sesión";
+        sub.innerHTML = "Ingresa con tu usuario y contraseña asignados para acceder a los simulacros en <strong>index.html</strong>.";
+        btn.textContent = "Ingresar al simulador →";
+        btn.classList.remove("admin-btn");
+        hint.textContent = "¿Eres administrador?";
+        toggle.textContent = "+ Gestionar docentes";
+      }
+    }
+
     document.addEventListener("DOMContentLoaded", async () => {
       const params = new URLSearchParams(window.location.search);
       if (params.get("motivo") === "inactividad") {
@@ -175,12 +221,24 @@
         errorBox.style.display = "block";
       }
 
+      if (params.get("next") === "registro_docentes.html") {
+        activarModoGestion(true);
+      }
+
+      document.getElementById("btnModoGestion").addEventListener("click", () => {
+        activarModoGestion(!irAGestion);
+      });
+
       if (!window.supabaseClient) return;
       const { data: { session } } = await window.supabaseClient.auth.getSession();
       if (session) {
         const check = await verificarVigenciaDocente(session.user.id);
         if (check.valido) {
-          window.location.replace("index.html");
+          if (irAGestion && (check.rol === "admin" || check.rol === "administrador")) {
+            window.location.replace("registro_docentes.html");
+          } else if (!irAGestion) {
+            window.location.replace("index.html");
+          }
         }
       }
     });
@@ -206,14 +264,25 @@
           throw new Error(check.mensaje);
         }
 
+        const esAdmin = check.rol === "admin" || check.rol === "administrador";
+        if (irAGestion && !esAdmin) {
+          await window.supabaseClient.auth.signOut();
+          throw new Error("⚠️ Acceso denegado: esta cuenta no tiene rol de Administrador.");
+        }
+
         sessionStorage.setItem("docente_rol", check.rol || "docente");
         sessionStorage.setItem("docente_nombre", check.nombre || email);
-        window.location.replace("index.html");
+
+        if (irAGestion && esAdmin) {
+          window.location.replace("registro_docentes.html");
+        } else {
+          window.location.replace("index.html");
+        }
       } catch (err) {
         errorBox.textContent = err.message || "No se pudo iniciar sesión.";
         errorBox.style.display = "block";
         btn.disabled = false;
-        btn.textContent = "Ingresar al simulador →";
+        btn.textContent = irAGestion ? "Entrar a Gestión de Docentes →" : "Ingresar al simulador →";
       }
     });
   </script>
