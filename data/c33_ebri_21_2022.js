@@ -396,7 +396,7 @@ window.CUADERNILLOS.push({
       subprueba: SUB_PED_C33,
       textoClave: "COCO_AGUA",
       tituloLectura: "A Coco no le gusta el agua",
-      imagenLectura: "imagenLectura: "./img/coco.png",",
+      imagenLectura: "imagenLectura: "./img/coco.png",
       textoLectura: LECTURA_COCO_C33,
       enunciado: "¿Cuál de las siguientes preguntas es pertinente para que los niños identifiquen información explícita en este texto?",
       alternativas: {
