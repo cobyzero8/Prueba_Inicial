@@ -17,7 +17,7 @@ const SIT_TANTAWAWAS_56_58 =
 window.CUADERNILLOS.push({
   id: "A01-EBRI-11",
   codigo: "A01-EBRI-11",
-  etiqueta: "ASCENSO INICIAL 2025",
+  etiqueta: "INICIAL 2025",
   nombre: "Concurso de Ascenso en la Escala a la CPM - 2025 - EBR Inicial",
   fecha: "Convocatoria 2025",
   claves: {
