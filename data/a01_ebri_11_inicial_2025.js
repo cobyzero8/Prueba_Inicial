@@ -662,7 +662,7 @@ window.CUADERNILLOS.push({
       textoLectura:
         "Los niños del aula de cinco años observan con interés, cuando la docente escribe el nombre de cada uno, en su respectiva hoja de trabajo. La docente, al ver dicho interés, ha acordado con ellos que quién desee, podrá escribir su nombre.\n\n" +
         "A continuación, se presentan los escritos de tres niños que escribieron su nombre:\n\n" +
-        "[IMG:47-2025.png]",
+        "[IMG:./img/47-2025.png]",
       enunciado: "En el marco de las investigaciones de Emilia Ferreiro y Ana Teberosky, ¿cuál de los escritos de los niños corresponde al nivel silábico-alfabético?",
       alternativas: {
         A: "El de Alejandro.",
