@@ -168,6 +168,13 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("motivo") === "inactividad") {
+        const errorBox = document.getElementById("loginError");
+        errorBox.textContent = "⏳ Tu sesión se cerró automáticamente por estar inactivo durante 20 minutos. Vuelve a ingresar.";
+        errorBox.style.display = "block";
+      }
+
       if (!window.supabaseClient) return;
       const { data: { session } } = await window.supabaseClient.auth.getSession();
       if (session) {
